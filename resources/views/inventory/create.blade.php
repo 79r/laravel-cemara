@@ -16,7 +16,7 @@
                         <input type="text" name="name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Nama Item</label>
+                        <label for="name">Kategori</label>
                         <select name="merk"  class="form-control">
                             <option value="1">Testing1</option>
                             <option value="1">Testing2</option>
@@ -24,11 +24,30 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="name">Supplier</label>
+                        <select name="merk"  class="form-control">
+                            <option value="1">Testing1</option>
+                            <option value="1">Testing2</option>
+                            <option value="1">Testing2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Merk</label>
+                        <select name="merk" class="form-control">
+                            <option value="1">Testing1</option>
+                            <option value="1">Testing2</option>
+                            <option value="1">Testing2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="name">Harga</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Rp.</div>
+                        </div>
                         <input type="text" name="price" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Tanggal Beli</label>
+                        <label for="name">Tahun Beli</label>
                         <input type="text" name="tanggal_beli" class="form-control">
                     </div>
                     <div class="form-group">

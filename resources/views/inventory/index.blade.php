@@ -11,8 +11,8 @@
         <div class="col-md-10 col-lg-9 mx-auto">
             <div class="box">
                 <table class="table table-bordered">
-                    <thead>
-                        <tr>
+                    <thead> 
+                        <tr class="bg-success">
                             <th scope="col">#</th>
                             <th scope="col">Nama Item</th>
                             <th scope="col">Harga</th>
@@ -26,9 +26,9 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td></td>
+                                <td>@currency($item->price)</td>
                                 <td>{{ $item->merk->name }}</td>
-                                <td>{{ $item->year_of_purchase }}</td>
+                                <td>{{ $item->tahun_beli }}</td>
                                 <td></td>
                             </tr>
                         @endforeach
