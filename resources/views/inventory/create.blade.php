@@ -16,28 +16,16 @@
                         <input type="text" name="name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Kategori</label>
-                        <select name="merk"  class="form-control">
-                            <option value="1">Testing1</option>
-                            <option value="1">Testing2</option>
-                            <option value="1">Testing2</option>
-                        </select>
+                        <label for="merk_id">Merk id</label>
+                        <input type="text" name="merk_id" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Supplier</label>
-                        <select name="merk"  class="form-control">
-                            <option value="1">Testing1</option>
-                            <option value="1">Testing2</option>
-                            <option value="1">Testing2</option>
-                        </select>
+                        <label for="catagory_id">Category id</label>
+                        <input type="text" name="catagory_id" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Merk</label>
-                        <select name="merk" class="form-control">
-                            <option value="1">Testing1</option>
-                            <option value="1">Testing2</option>
-                            <option value="1">Testing2</option>
-                        </select>
+                        <label for="catagory_id">Supplier id</label>
+                        <input type="text" name="supplier_id" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="name">Harga</label>
@@ -47,8 +35,8 @@
                         <input type="text" name="price" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="name">Tahun Beli</label>
-                        <input type="text" name="tanggal_beli" class="form-control">
+                        <label for="tahun_beli">Tahun Beli</label>
+                        <input type="text" name="tahun_beli" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-block btn-primary">
