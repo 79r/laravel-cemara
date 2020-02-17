@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 // include Model Item
-use App\Item;
+use App\Inventory;
 
-class ItemsController extends Controller
+class InventoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ItemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $items = new Item;
+        $items = new Inventory;
         $data = array(
             'inventory' => $items::all()
         );
@@ -49,9 +49,12 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        $items = new Item;
+        $item = $items::find(1);
+        // dd($item); // check isi data
+        $data = array( 'item' => $item);
+        return view('inventory/show', $data);
     }
 
     /**

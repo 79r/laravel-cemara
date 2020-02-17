@@ -83,30 +83,19 @@
             </div>
             <div class="col-md-10 col-lg-9 mx-auto">
                 <div class="box">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Nama Item</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Merek</th>
-                                <th scope="col">Tahun Beli</th>
-                                <th scope="col">Supplier</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($inventory as $item)
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td></td>
-                                    <td>{{ $item->merk->name }}</td>
-                                    <td>{{ $item->year_of_purchase }}</td>
-                                    <td></td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                        </table>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Item</h3>
+                            
+                            <p> Nama item : {{ $item->name }} </p>
+                            <p> Harga : {{ $item->price }} </p>
+                            <p> Tanggal Beli : {{ $item->year_of_purchaserice }} </p>
+                            <div class="img-box img-responsive">
+                                <img src="http://inventory.development/{{ $item->image_url }}" alt="">
+                            </div>
+                            <p>Supplier : {{ $item->supplier->name }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

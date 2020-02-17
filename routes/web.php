@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('inventory', 'ItemsController');
+Route::resource('inventory', 'InventoryController');

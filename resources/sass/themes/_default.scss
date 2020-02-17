@@ -11,3 +11,10 @@ body {
     background-color: $white;
     padding: 2rem 3rem;
 }
+
+.img-box {
+    img {
+        width: 300px;
+        height: auto;
+    }
+}
