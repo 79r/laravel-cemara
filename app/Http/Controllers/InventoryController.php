@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str; // untuk generate random string
 
 // include Model Item
 use App\Inventory;

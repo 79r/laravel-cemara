@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model {
 
-    public function item() {
-        return $this->belongsTo('App\Item'); 
+    protected $table = "categories";
+
+    public function inventory() {
+        return $this->hasMany('App\Inventory');
     }
 }

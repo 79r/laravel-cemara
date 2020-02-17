@@ -333,6 +333,13 @@ body {
   height: auto; }
 
 .main-heading h1 {
-  font-size: 22px; }
+  font-size: 32px;
+  font-weight: bold; }
+
+.material-icons {
+  vertical-align: middle; }
+
+.icon-sm {
+  font-size: 15px; }
 
 /*# sourceMappingURL=custom.css.map */

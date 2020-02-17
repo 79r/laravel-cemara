@@ -20,4 +20,8 @@ class Inventory extends Model {
         return $this->belongsTo('App\Supplier');
     }
 
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
+
 }
