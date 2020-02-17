@@ -50,10 +50,9 @@ class InventoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $items = new Inventory;
-        $item = $items::find($id);
-        // dd($item); // check isi data
-        $data = array( 'item' => $item);
+        $data = array(
+            'inventory' => Inventory::find($id)
+        );
         return view('inventory/show', $data);
     }
 

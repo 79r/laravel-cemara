@@ -14,13 +14,13 @@
                     <div class="card-body">
                         <h3 class="card-title">Item</h3>
                         
-                        <p> Nama item : {{ $item->name }} </p>
-                        <p> Harga : {{ $item->price }} </p>
-                        <p> Tanggal Beli : {{ $item->year_of_purchaserice }} </p>
+                        <p> Nama item : {{ $inventory->name }} </p>
+                        <p> Harga : {{ $inventory->price }} </p>
+                        <p> Tanggal Beli : {{ $inventory->year_of_purchaserice }} </p>
                         <div class="img-box img-responsive">
-                            <img src="http://inventory.development/{{ $item->image_url }}" alt="">
+                            <img src="http://inventory.development/{{ $inventory->image_url }}" alt="">
                         </div>
-                        <p>Merek : {{ $item->merk->name }}</p>
+                        <p>Merek : {{ $inventory->merk->name }}</p>
                     </div>
                 </div>
             </div>
