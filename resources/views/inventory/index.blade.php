@@ -95,12 +95,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-             
-                            </tr>
-                            <tr>
-                       
-                            </tr>
+                            @foreach ($inventory as $item)
+                                <tr>
+                                    <td>#</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->price }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                         </table>
                 </div>

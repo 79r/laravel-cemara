@@ -16,7 +16,10 @@ class ItemsController extends Controller
      */
     public function index() {
         $items = new Item;
-        return view('inventory/index');
+        $data = array(
+            'inventory' => $items::all()
+        );
+        return view('inventory/index', $data); // parsing variable ke view melalui variable $data
     }
 
     /**

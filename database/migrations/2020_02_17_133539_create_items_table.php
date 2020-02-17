@@ -23,7 +23,7 @@ class CreateItemsTable extends Migration
             $table->integer('merk_id')->unsigned()->nullable(); // merek apa
 
             $table->timestamp('year_of_purchase')->nullable(); // tahun beli
-            $table->decimal('price', 30, 3)->nullable(); // harga item
+            $table->decimal('price', 30)->nullable(); // harga item
             $table->string('serial_number')->nullable(); // nomor seri
             $table->text('image_url')->nullable(); // image
             $table->timestamps();
