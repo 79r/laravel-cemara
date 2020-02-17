@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// include Model Item
+use App\Item;
+
 class ItemController extends Controller
 {
     /**
@@ -11,9 +14,8 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        
     }
 
     /**
