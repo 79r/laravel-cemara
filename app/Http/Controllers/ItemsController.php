@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 // include Model Item
 use App\Item;
 
-class ItemController extends Controller
+class ItemsController extends Controller
 {
     /**
      * Display a listing of the resource.
