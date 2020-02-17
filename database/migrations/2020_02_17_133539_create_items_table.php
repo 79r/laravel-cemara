@@ -15,11 +15,39 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id'); // yang menginput data
             $table->string('name')->nullable(); // nama item
-            $table->string('price')->nullable(); // harga item
-            $table->text('image')->nullable(); // image
+
+            $table->integer('user_id'); // user siapa yang input data
+            $table->integer('supplier_id')->unsigned()->nullable(); // supplier apa
+            $table->integer('catagory_id')->unsigned()->nullable(); // kategori apa
+            $table->integer('merk_id')->unsigned()->nullable(); // merek apa
+
+            $table->timestamp('year_of_purchase')->nullable(); // tahun beli
+            $table->decimal('price', 30, 3)->nullable(); // harga item
+            $table->string('serial_number')->nullable(); // nomor seri
+            $table->text('image_url')->nullable(); // image
             $table->timestamps();
+
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('supplier_id')
+                ->references('id')
+                ->on('suppliers')
+                ->onDelete('set null');
+
+            $table->foreign('catagory_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('set null');
+
+            $table->foreign('merk_id')
+                ->references('id')
+                ->on('merks')
+                ->onDelete('set null');
         });
     }
 
