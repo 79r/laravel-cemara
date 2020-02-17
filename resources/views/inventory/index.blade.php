@@ -11,6 +11,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -79,29 +81,25 @@
                     <h1>Cemara Inventory</h1>
                 </div>
             </div>
-            <div class="col-md-10 col-lg-6 mx-auto">
+            <div class="col-md-10 col-lg-9 mx-auto">
                 <div class="box">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Nama Item</th>
+                                <th scope="col">Harga</th>
+                                <th scope="col">Merek</th>
+                                <th scope="col">Tahun Beli</th>
+                                <th scope="col">Supplier</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+             
                             </tr>
                             <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
+                       
                             </tr>
                         </tbody>
                         </table>
