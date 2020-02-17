@@ -13,7 +13,6 @@
                 <table class="table table-bordered">
                     <thead> 
                         <tr class="bg-success">
-                            <th scope="col">#</th>
                             <th scope="col">Nama Item</th>
                             <th scope="col">Harga</th>
                             <th scope="col">Merek</th>
@@ -24,12 +23,11 @@
                     <tbody>
                         @foreach ($inventory as $item)
                             <tr>
-                                <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>@currency($item->price)</td>
                                 <td>{{ $item->merk->name }}</td>
                                 <td>{{ $item->tahun_beli }}</td>
-                                <td></td>
+                                <td>{{ $item->supplier->name }}</td>
                             </tr>
                         @endforeach
                     </tbody>

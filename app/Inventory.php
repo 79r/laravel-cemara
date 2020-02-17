@@ -16,4 +16,8 @@ class Inventory extends Model {
         return $this->belongsTo('App\Merk');
     }
 
+    public function supplier() {
+        return $this->belongsTo('App\Supplier');
+    }
+
 }
