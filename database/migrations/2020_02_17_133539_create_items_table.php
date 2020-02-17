@@ -29,25 +29,25 @@ class CreateItemsTable extends Migration
             $table->timestamps();
 
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            // $table->foreign('user_id')
+            //     ->references('id')
+            //     ->on('users') // relasi ke user siapa yang insert data
+            //     ->onDelete('cascade');
 
-            $table->foreign('supplier_id')
-                ->references('id')
-                ->on('suppliers')
-                ->onDelete('set null');
+            // $table->foreign('supplier_id')
+            //     ->references('id')
+            //     ->on('suppliers') // relasi ke supplier
+            //     ->onDelete('set null');
 
-            $table->foreign('catagory_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('set null');
+            // $table->foreign('catagory_id')
+            //     ->references('id')
+            //     ->on('categories') // relasi ke category
+            //     ->onDelete('set null');
 
-            $table->foreign('merk_id')
-                ->references('id')
-                ->on('merks')
-                ->onDelete('set null');
+            // $table->foreign('merk_id')
+            //     ->references('id')
+            //     ->on('merks') // relasi ke merek
+            //     ->onDelete('set null');
         });
     }
 
