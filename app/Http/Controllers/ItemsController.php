@@ -15,7 +15,8 @@ class ItemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        
+        $items = new Item;
+        return view('inventory/index');
     }
 
     /**
