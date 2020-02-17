@@ -304,6 +304,17 @@ template {
 [hidden] {
   display: none; }
 
+.btn {
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #2d995b;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem #2d995b3d; }
+
 body {
   background-color: #f1f1f1; }
 
@@ -314,9 +325,14 @@ body {
   border-radius: .1rem !important;
   background-color: #fff;
   padding: 2rem 3rem; }
+  .box.box-pd-lg {
+    padding: 4rem 7rem; }
 
 .img-box img {
   width: 300px;
   height: auto; }
+
+.main-heading h1 {
+  font-size: 22px; }
 
 /*# sourceMappingURL=custom.css.map */

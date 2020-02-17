@@ -10,11 +10,20 @@ body {
     border-radius: .1rem !important;
     background-color: $white;
     padding: 2rem 3rem;
+    &.box-pd-lg {
+        padding: 4rem 7rem;
+    }
 }
 
 .img-box {
     img {
         width: 300px;
         height: auto;
+    }
+}
+
+.main-heading {
+    h1 {
+        font-size: 22px;
     }
 }
