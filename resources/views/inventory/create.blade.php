@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-10 col-lg-8 mx-auto">
             <div class="box box-pd-lg">
-                <form action="" method="POST">
+                <form action="{{ url('/inventory') }}" method="POST">
                     <div class="form-group">
                         <label for="name">Nama Item</label>
                         <input type="text" name="name" class="form-control">
@@ -38,6 +38,7 @@
                         <label for="tahun_beli">Tahun Beli</label>
                         <input type="text" name="tahun_beli" class="form-control">
                     </div>
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <input type="submit" class="btn btn-block btn-primary">
                     </div>

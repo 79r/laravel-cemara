@@ -39,8 +39,18 @@ class InventoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $data = $request::all();
+
+        // Validasi
+        // $this->validate($request, [
+        //     'name'         => 'required|min:3|max:100',
+        //     'tahun_beli'   => 'required|min:3|max:10',
+        //     'price'        => 'required|min:3|max:100',
+        // ]);
+
+        $data = $request->all();
         return $data;
+        // Inventory::create($data);
+        // return redirect('inventory');
     }
 
     /**

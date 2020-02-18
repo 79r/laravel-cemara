@@ -9,7 +9,7 @@ class Inventory extends Model {
     protected $table = "inventory";
 
     protected $fillable = [
-        'name', 'price', 'image'
+        'name', 'price', 'image', 'merk_id', 'category_id', 'supplier_id', 'tahun_beli'
     ];
 
     public function merk() {
