@@ -17,9 +17,6 @@ class InventoryController extends Controller
      */
     public function index() {
         $items = new Inventory;
-        // $data = array(
-        //     'inventories' => $items::all()
-        // );
         return view('inventory/index', ['inventories' => $items::all()]);
     }
 

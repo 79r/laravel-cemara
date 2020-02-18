@@ -22,15 +22,19 @@
             <tbody>
             @foreach($inventories as $inventory)
             <tr>
-                <th></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th>{{ $inventory->id }}</th>
+                <th>{{ $inventory->name }}</th>
+                <th>{{ $inventory->category->name }}</th>
+                <th>{{ $inventory->merk->name }}</th>
+                <th>{{ $inventory->supplier->name }}</th>
+                <th>@currency($inventory->price)</th>
+                <th>{{ $inventory->qty }}</th>
+                <th>{{ $inventory->years_of_purchase }}</th>
+                <th>
+                    <a href="" class="btn btn-sm btn-primary">Show</a>
+                    <a href="" class="btn btn-sm btn-success">Edit</a>
+                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                </th>
             </tr>
             @endforeach
             </tbody>
