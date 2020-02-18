@@ -25,7 +25,7 @@ class CreateInventoriesTable extends Migration
             $table->unsignedBigInteger('qty')->nullable();
 
             $table->text('image_url')->nullable();
-            $table->timestamp('years_of_purchase')->nullable();
+            $table->timestamp('year_of_purchase')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
 
