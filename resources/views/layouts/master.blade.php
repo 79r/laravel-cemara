@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
     <head>
@@ -765,7 +765,7 @@
         <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
         <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
 
-        <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js') }}"></script>
+        <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
 
 
         <script src="{{ asset('assets/js/app.js') }}"></script>
