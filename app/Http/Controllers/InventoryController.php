@@ -17,10 +17,10 @@ class InventoryController extends Controller
      */
     public function index() {
         $items = new Inventory;
-        $data = array(
-            'inventory' => $items::all()
-        );
-        return view('inventory/index', $data); // parsing variable ke view melalui variable $data
+        // $data = array(
+        //     'inventories' => $items::all()
+        // );
+        return view('inventory/index', ['inventories' => $items::all()]);
     }
 
     /**

@@ -1,42 +1,40 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="col-12">
-    <div class="main-heading mt-5 text-center">
-        <h1>Cemara Inventory</h1>
-    </div>
-</div>
-<div class="col-md-10 col-lg-12 mx-auto">
-    <div class="box">
-        <table class="table table-bordered">
-            <thead> 
-                <tr class="table-primary">
-                    <th scope="col">Nama</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Merek</th>
-                    <th scope="col">Supplier</th>
-                    <th scope="col">Tahun Beli</th>
-                    <th scope="col">Action</th>
-                </tr>
+<h4 class="header-title">Example</h4>
+<p class="card-title-desc">This is an experimental awesome solution for responsive tables with complex data.</p>
+<div class="table-rep-plugin">
+    <div class="table-responsive mb-0" data-pattern="priority-columns">
+        <table id="tech-companies-1" class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th data-priority="1">Nama</th>
+                <th data-priority="3">Kategori</th>
+                <th data-priority="1">Merek</th>
+                <th data-priority="3">Supplier</th>
+                <th data-priority="3">Harga</th>
+                <th data-priority="6">Qty</th>
+                <th data-priority="6">Tahun Beli</th>
+                <th data-priority="6">Actions</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach ($inventory as $item)
-                    <tr>
-                        <td class="font-weight-bold">{{ $item->name }}</td>
-                        <td>@currency($item->price)</td>
-                        <td>{{ $item->category->name }}</td>
-                        <td>{{ $item->merk->name }}</td>
-                        <td>{{ $item->supplier->name }}</td>
-                        <td>{{ $item->tahun_beli }}</td>
-                        <td class="text-center">
-                            <a href="" class="btn btn-sm btn-success"><i class="material-icons icon-sm">search</i></a>
-                            <a href="" class="btn btn-sm btn-primary"><i class="material-icons icon-sm">edit</i></a>
-                        </td>
-                    </tr>
-                @endforeach
+            @foreach($inventories as $inventory)
+            <tr>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            @endforeach
             </tbody>
-            </table>
+        </table>
     </div>
 </div>
 @endsection
