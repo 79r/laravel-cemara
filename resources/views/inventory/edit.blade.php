@@ -93,7 +93,7 @@
                 <div class="col-md-10">
                     <input 
                             class="form-control"
-                            type="date"
+                            type="text"
                             name="year_of_purchase"
                             placeholder="2019-01-01"
                             id="input-year-of-purchase"
