@@ -32,7 +32,7 @@
 
                 <li>
                     <a href="" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-girds"></i></div>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-grids"></i></div>
                         <span>Update</span>
                     </a>
                 </li>
