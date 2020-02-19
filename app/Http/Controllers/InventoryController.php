@@ -107,9 +107,23 @@ class InventoryController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+
+        $inventory = Inventory::find($id);
+
+        $category = Category::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
+
+        $brand = Brand::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
+
+        $supplier = Supplier::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
+        
+        return view('inventory.edit', compact('inventory', 'category', 'brand', 'supplier'));
     }
 
     /**

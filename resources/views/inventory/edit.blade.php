@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-body">
         <div class="card-title text-center">
-            <h4 class="header-title-lg">Input Data Inventory</h4>
+            <h4 class="header-title-lg">Edit Inventory</h4>
             <p class="card-title-desc"></p>
         </div>
 
@@ -22,7 +22,12 @@
             <div class="form-group row">
                 <label for="example-text-input" class="col-md-2 col-form-label">Nama item</label>
                 <div class="col-md-10">
-                    <input class="form-control" name="name" type="text" placeholder="Masukan nama inventory" id="input-name">
+                    <input class="form-control" 
+                            name="name" 
+                            type="text" 
+                            placeholder="Masukan nama inventory" 
+                            id="input-name"
+                            value="{{ $inventory->name }}">
                 </div>
             </div>
             
@@ -48,7 +53,7 @@
             </div>
         
             <div class="form-group row">
-                <label for="example-number-input" class="col-md-2 col-form-label">Harga (TANPA RP)</label>
+                <label for="example-number-input" class="col-md-2 col-form-label">Harga</label>
                 <div class="col-md-10">
                     <div class="input-group mt-3 mt-sm-0">
                         <div class="input-group-prepend">
@@ -62,31 +67,51 @@
             <div class="form-group row">
                 <label for="example-number-input" class="col-md-2 col-form-label">Qty</label>
                 <div class="col-md-10">
-                    <input class="form-control" name="qty" type="number" placeholder="" id="input-qty">
+                    <input 
+                            class="form-control"
+                            name="qty" type="number"
+                            placeholder="" id="input-qty"
+                            value="{{ $inventory->qty }}">
                 </div>
             </div>
         
             <div class="form-group row">
                 <label for="example-date-input" class="col-md-2 col-form-label">Tahun Beli</label>
                 <div class="col-md-10">
-                    <input class="form-control" type="date" name="year_of_purchase" placeholder="2019-01-01" id="input-year-of-purchase">
+                    <input 
+                            class="form-control"
+                            type="date"
+                            name="year_of_purchase"
+                            placeholder="2019-01-01"
+                            id="input-year-of-purchase"
+                            value="{{ $inventory->year_of_purchase }}">
                 </div>
             </div>
         
             <div class="form-group row">
                 <label for="example-date-input" class="col-md-2 col-form-label">Catatan (Opsional)</label>
                 <div class="col-md-10">
-                    <textarea class="form-control" type="date" name="notes" placeholder="Tulis catatan bila diperlukan" id="input-notes"></textarea>
+                    <textarea 
+                            class="form-control"
+                            type="date" name="notes"
+                            placeholder="Tulis catatan bila diperlukan"
+                            id="input-notes">{{ $inventory->notes }}</textarea>
                 </div>
             </div>
         
             <div class="form-group row">
                 <label for="example-date-input" class="col-md-2 col-form-label">Photo Inventory</label>
                 <div class="col-md-10">
-                    <input class="form-control" type="file" name="image_url" id="input-image-url">
+                    <input
+                        class="form-control"
+                        type="file"
+                        name="image_url"
+                        id="input-image-url"
+                        value="{{ $inventory->image_url }}">
                 </div>
             </div>
-        
+            
+            <input type="hidden" name="_method" value="PUT">
             {{ csrf_field() }}
             <div class="form-group row">
                 <div class="col-12 text-center">
