@@ -25,7 +25,7 @@
                 <th>{{ $inventory->id }}</th>
                 <th>{{ $inventory->name }}</th>
                 <th>{{ $inventory->category->name }}</th>
-                <th>{{ $inventory->merk->name }}</th>
+                <th>{{ $inventory->brand->name }}</th>
                 <th>{{ $inventory->supplier->name }}</th>
                 <th>@currency($inventory->price)</th>
                 <th>{{ $inventory->qty }}</th>
