@@ -9,6 +9,7 @@ use Illuminate\Support\Str; // untuk generate random string
 use App\Brand;
 use App\Category;
 use App\Supplier;
+use App\Division;
 use App\Inventory;
 
 class InventoryController extends Controller {
@@ -52,8 +53,12 @@ class InventoryController extends Controller {
             ->get()
             ->pluck('name','id');
             
+        $division = Division::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
+
         $inventory = Inventory::all();
-        return view('inventory.create', compact('category', 'brand', 'supplier'));
+        return view('inventory.create', compact('category', 'brand', 'supplier', 'division'));
     }
 
     /**
@@ -122,8 +127,12 @@ class InventoryController extends Controller {
         $supplier = Supplier::orderBy('name','ASC')
             ->get()
             ->pluck('name','id');
+
+        $division = Division::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
         
-        return view('inventory.edit', compact('inventory', 'category', 'brand', 'supplier'));
+        return view('inventory.edit', compact('inventory', 'category', 'brand', 'supplier', 'division'));
     }
 
     /**
