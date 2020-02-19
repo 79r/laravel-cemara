@@ -12,8 +12,8 @@ class Inventory extends Model {
         'name', 'price', 'image_url', 'merk_id', 'category_id', 'supplier_id', 'year_of_purchase'
     ];
 
-    public function merk() {
-        return $this->belongsTo('App\Merk');
+    public function brand() {
+        return $this->belongsTo('App\Brand');
     }
 
     public function supplier() {
