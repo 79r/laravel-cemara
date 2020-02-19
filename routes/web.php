@@ -22,3 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::resource('inventory', 'InventoryController');
+
+Route::resource('category', 'CategoryController');
+
+Route::resource('brand', 'BrandController');
+
+Route::resource('supplier', 'SupplierController');
+
+Route::resource('division', 'DivisionController');
