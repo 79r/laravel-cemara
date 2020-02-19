@@ -78,9 +78,11 @@ class InventoryController extends Controller {
 
         $input['image_url'] = null; // defaultnya null
 
+        $dirname = '/uploads/inventories/';
+
         if ($request->hasFile('image_url')){
-            $input['image_url'] = '/uploads/inventories/'.str_slug($input['name'], '-').'.'.$request->image_url->getClientOriginalExtension();
-            $request->image_url->move(public_path('/uploads/inventories/'), $input['image_url']);
+            $input['image_url'] = $dirname .str_slug($input['name'], '-').'.'.$request->image_url->getClientOriginalExtension();
+            $request->image_url->move(public_path($dirname), $input['image_url']);
         }
         Inventory::create($input);
         return redirect('inventory');

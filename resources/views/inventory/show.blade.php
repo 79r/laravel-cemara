@@ -106,10 +106,10 @@
     
     <div class="col-xl-5">
         <div class="image-inventory">
-    
+
             @if (!empty($inventory->image_url))
-            <div class="img-fluid">
-                <img src="" alt="">
+            <div class="img-thumbnail rounded">
+                <img class="img-fluid" src="{{ url($inventory->image_url) }}" alt="">
             </div>
             @else
                 <h4>Item ini tidak memiliki foto</h4>
