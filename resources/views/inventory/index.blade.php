@@ -20,6 +20,7 @@
                 <th data-priority="5">Harga</th>
                 <th class="text-center" data-priority="6">Qty</th>
                 <th data-priority="7">Tahun Beli</th>
+                <th data-priority="7">Division</th>
                 <th data-priority="8">Actions</th>
             </tr>
             </thead>
@@ -34,6 +35,7 @@
                 <th>@currency($inventory->price)</th>
                 <th class="text-center">{{ $inventory->qty }}</th>
                 <th>{{ date('Y', strtotime($inventory->year_of_purchase)) }}</th>
+                <th>{{ $inventory->division->name }}</th>
                 <th>
                     <div class="btn-group" role="group">
                         <a href="{{ route('inventory.index') }}/{{ $inventory->id }}" class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Lihat">
