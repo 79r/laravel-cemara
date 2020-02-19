@@ -32,4 +32,11 @@
     color: #636363;
     font-weight: bold; }
 
+table#table-cemara-inventory thead {
+  background: #2fa97c;
+  color: #fff; }
+table#table-cemara-inventory tbody th,
+table#table-cemara-inventory tbody td {
+  font-weight: 600; }
+
 /*# sourceMappingURL=app.css.map */

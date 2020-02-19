@@ -95,7 +95,7 @@
                             <div class="media-body">
                                 <p class="text-muted mb-1">Tahun Beli</p>
                                 <h5 class="mb-0">
-                                    {{ date('F d Y', strtotime($inventory->year_of_purchase)) }}
+                                    {{ date('Y', strtotime($inventory->year_of_purchase)) }}
                                 </h5>
                             </div>
                             <div class="icons-lg ml-2 align-self-center">
