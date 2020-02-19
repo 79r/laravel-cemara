@@ -59,7 +59,13 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">Rp. </div>
                         </div>
-                        <input type="text" class="form-control" name="price" id="input-price" placeholder="100000">
+                        <input 
+                                type="text"
+                                class="form-control"
+                                name="price"
+                                id="input-price"
+                                placeholder="100000"
+                                value={{ $inventory->price }}>
                     </div>
                 </div>
             </div>
