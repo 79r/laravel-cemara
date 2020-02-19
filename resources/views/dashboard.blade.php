@@ -277,12 +277,12 @@
                                                 <table class="table table-centered table-hover mb-0">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">Transaction ID</th>
-                                                            <th scope="col">Name</th>
-                                                            <th scope="col">Date</th>
-                                                            <th scope="col">status</th>
-                                                            <th scope="col">Amount</th>
-                                                            <th scope="col">Action</th>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col"></th>
+                                                            <th scope="col"></th>
+                                                            <th scope="col"></th>
+                                                            <th scope="col"></th>
+                                                            <th scope="col"></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -290,108 +290,12 @@
                                                             <th scope="row">
                                                                 <a href="#"># XO1345</a>
                                                             </th>
-                                                            <td>Danny Johnson</td>
-                                                            <td>26 Jan</td>
+                                                            <td></td>
+                                                            <td></td>
                                                             <td>
                                                                 <div class="badge badge-soft-primary">Confirm</div>
                                                             </td>
-                                                            <td>$124</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1346</a>
-                                                            </th>
-                                                            <td>Alvin Newton</td>
-                                                            <td>21 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-warning">Pending</div>
-                                                            </td>
-                                                            <td>$112</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1347</a>
-                                                            </th>
-                                                            <td>Bennie Perez</td>
-                                                            <td>15 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td>$106</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1348</a>
-                                                            </th>
-                                                            <td>Steven Kwon</td>
-                                                            <td>11 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td>$115</td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">
-                                                                <a href="#"># XO1349</a>
-                                                            </th>
-                                                            <td>Bryan Roark</td>
-                                                            <td>08 Jan</td>
-                                                            <td>
-                                                                <div class="badge badge-soft-danger">Cancel</div>
-                                                            </td>
-                                                            <td>$105</td>
+                                                            <td></td>
                                                             <td>
                                                                 <div class="btn-group" role="group">
                                                                     <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
