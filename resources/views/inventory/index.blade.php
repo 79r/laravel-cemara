@@ -35,8 +35,19 @@
                 <th class="text-center">{{ $inventory->qty }}</th>
                 <th>{{ date('Y', strtotime($inventory->year_of_purchase)) }}</th>
                 <th>
-                    <a href="{{ route('inventory.index') }}/{{ $inventory->id }}" class="btn btn-sm btn-primary">Show</a>
-                    <a href="" class="btn btn-sm btn-success">Edit</a>
+                    <div class="btn-group" role="group">
+                        <a href="{{ route('inventory.index') }}/{{ $inventory->id }}" class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Lihat">
+                            <i class="mdi mdi-eye"></i>
+                        </a>
+
+                        <a href="{{ route('inventory.index') }}/{{ $inventory->id }}/edit" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                            <i class="mdi mdi-pencil"></i>
+                        </a>
+
+                        <a href="{{ route('inventory.index') }}/{{ $inventory->id }}" class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Hapus">
+                            <i class="mdi mdi-trash-can"></i>
+                        </a>
+                    </div>
                 </th>
             </tr>
             @endforeach
