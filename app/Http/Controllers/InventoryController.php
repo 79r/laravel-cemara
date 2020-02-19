@@ -6,18 +6,32 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str; // untuk generate random string
 
 // include Model Item
+use App\Brand;
+use App\Category;
+use App\Supplier;
 use App\Inventory;
 
-class InventoryController extends Controller
-{
+class InventoryController extends Controller {
+
+
+    /* Controller ini di proteksi dengan middleware 
+        hanya admin dan staff yang boleh masuk */
+        
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $items = new Inventory;
-        return view('inventory/index', ['inventories' => $items::all()]);
+        $data  = array(
+            'inventories' => Inventory::all()
+        );
+        return view('inventory.index', $data);
     }
 
     /**
@@ -26,7 +40,20 @@ class InventoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('inventory/create');
+        $category = Category::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
+
+        $brand = Brand::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
+
+        $supplier = Supplier::orderBy('name','ASC')
+            ->get()
+            ->pluck('name','id');
+            
+        $inventory = Inventory::all();
+        return view('inventory.create', compact('category', 'brand', 'supplier'));
     }
 
     /**
@@ -36,18 +63,30 @@ class InventoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        
 
-        // Validasi
-        // $this->validate($request, [
-        //     'name'         => 'required|min:3|max:100',
-        //     'tahun_beli'   => 'required|min:3|max:10',
-        //     'price'        => 'required|min:3|max:100',
-        // ]);
+        $this->validate($request, [
+            'name'          => 'required|min:3|max:100',
+            'price'         => 'required',
+            'brand_id'      => 'required',
+            'category_id'   => 'required',
+            'supplier_id'   => 'required',
+        ]);
 
-        $data = $request->all();
-        return $data;
-        // Inventory::create($data);
-        // return redirect('inventory');
+        $input = $request->all();
+        $input['user_id'] = 1; // defaultnya adalah 1 (ini adalah admin)
+
+        $input['image_url'] = null; // defaultnya null
+
+        if ($request->hasFile('image_url')){
+            $input['image_url'] = '/uploads/inventories/'.str_slug($input['id'], '-').'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('/uploads/inventories/'), $input['image_url']);
+        }
+
+        dd($input);
+
+        Inventory::create($input);
+        return redirect('inventory');
     }
 
     /**

@@ -4,115 +4,92 @@
 <h4 class="header-title">Input Data Inventory</h4>
 <p class="card-title-desc"></p>
 
-<form class="col-sm-12 col-md-10 mx-auto" id="form-input-data-inventory" action="{{ url('/inventory') }}" method="POST">
+<form class="col-sm-12 col-md-10 mx-auto" 
+            id="form-input-data-inventory"
+            action="{{ url('/inventory') }}"
+            enctype="multipart/form-data" method="POST">
+
+    <div id="error">
+    @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+    @endforeach
+    </div>
+
     <div class="form-group row">
         <label for="example-text-input" class="col-md-2 col-form-label">Nama item</label>
         <div class="col-md-10">
-            <input class="form-control" type="text" placeholder="Masukan nama inventory" id="example-text-input">
+            <input class="form-control" name="name" type="text" placeholder="Masukan nama inventory" id="input-name">
         </div>
     </div>
     
     <div class="form-group row">
         <label class="col-md-2 col-form-label">Pilih Kategori</label>
         <div class="col-md-10">
-            <select class="custom-select">
-                <option selected>Pilih Katgeori</option>
-                <option placeholder="1">One</option>
-                <option placeholder="2">Two</option>
-                <option placeholder="3">Three</option>
-            </select>
-        </div>
-    </div>
-    
-    <div class="form-group row">
-        <label for="example-search-input" class="col-md-2 col-form-label">Search</label>
-        <div class="col-md-10">
-            <input class="form-control" type="search" placeholder="How do I shoot web" id="example-search-input">
+            {!! Form::select('category_id', $category, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Kategori Inventory', 'id' => 'input-catagory-id', 'required']) !!}
         </div>
     </div>
 
     <div class="form-group row">
-        <label >Category</label>
-        {!! Form::select('category_id', $category, null, ['class' => 'form-control select', 'placeholder' => '-- Choose Category --', 'id' => 'category_id', 'required']) !!}
-        <span class="help-block with-errors"></span>
-    </div>
-    
-    <div class="form-group row">
-        <label for="example-email-input" class="col-md-2 col-form-label">Email</label>
+        <label class="col-md-2 col-form-label">Pilih Merek</label>
         <div class="col-md-10">
-            <input class="form-control" type="email" placeholder="bootstrap@example.com" id="example-email-input">
+            {!! Form::select('brand_id', $brand, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Merk Inventory', 'id' => 'input-brand-id', 'required']) !!}
         </div>
     </div>
+
     <div class="form-group row">
-        <label for="example-url-input" class="col-md-2 col-form-label">URL</label>
+        <label class="col-md-2 col-form-label">Pilih Supplier</label>
         <div class="col-md-10">
-            <input class="form-control" type="url" placeholder="https://getbootstrap.com" id="example-url-input">
+            {!! Form::select('supplier_id', $supplier, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Supplier', 'id' => 'input-supplier-id', 'required']) !!}
         </div>
     </div>
+
     <div class="form-group row">
-        <label for="example-tel-input" class="col-md-2 col-form-label">Telephone</label>
+        <label for="example-number-input" class="col-md-2 col-form-label">Harga (TANPA RP)</label>
         <div class="col-md-10">
-            <input class="form-control" type="tel" placeholder="1-(555)-555-5555" id="example-tel-input">
+            <div class="input-group mt-3 mt-sm-0">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Rp. </div>
+                </div>
+                <input type="text" class="form-control" name="price" id="input-price" placeholder="100000">
+            </div>
         </div>
     </div>
+
     <div class="form-group row">
-        <label for="example-password-input" class="col-md-2 col-form-label">Password</label>
+        <label for="example-number-input" class="col-md-2 col-form-label">Qty</label>
         <div class="col-md-10">
-            <input class="form-control" type="password" placeholder="hunter2" id="example-password-input">
+            <input class="form-control" name="qty" type="number" placeholder="" id="input-qty">
         </div>
     </div>
+
     <div class="form-group row">
-        <label for="example-number-input" class="col-md-2 col-form-label">Number</label>
+        <label for="example-date-input" class="col-md-2 col-form-label">Tahun Beli</label>
         <div class="col-md-10">
-            <input class="form-control" type="number" placeholder="42" id="example-number-input">
+            <input class="form-control" type="date" name="year_of_purchase" placeholder="2019-01-01" id="input-year-of-purchase">
         </div>
     </div>
+
     <div class="form-group row">
-        <label for="example-datetime-local-input" class="col-md-2 col-form-label">Date and time</label>
+        <label for="example-date-input" class="col-md-2 col-form-label">Catatan (Opsional)</label>
         <div class="col-md-10">
-            <input class="form-control" type="datetime-local" placeholder="2019-08-19T13:45:00" id="example-datetime-local-input">
+            <textarea class="form-control" type="date" name="notes" placeholder="Tulis catatan bila diperlukan" id="input-notes"></textarea>
         </div>
     </div>
+
     <div class="form-group row">
-        <label for="example-date-input" class="col-md-2 col-form-label">Date</label>
+        <label for="example-date-input" class="col-md-2 col-form-label">Photo Inventory</label>
         <div class="col-md-10">
-            <input class="form-control" type="date" placeholder="2019-08-19" id="example-date-input">
+            <input class="form-control" type="file" name="image_url" placeholder="2019-01-01" id="input-year-of-purchase">
         </div>
     </div>
+
+    {{ csrf_field() }}
     <div class="form-group row">
-        <label for="example-month-input" class="col-md-2 col-form-label">Month</label>
-        <div class="col-md-10">
-            <input class="form-control" type="month" placeholder="2019-08" id="example-month-input">
+        <div class="col-12 text-center">
+            <input type="submit" class="btn btn-primary waves-effect waves-light" value="Submit">
         </div>
     </div>
-    <div class="form-group row">
-        <label for="example-week-input" class="col-md-2 col-form-label">Week</label>
-        <div class="col-md-10">
-            <input class="form-control" type="week" placeholder="2019-W33" id="example-week-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-time-input" class="col-md-2 col-form-label">Time</label>
-        <div class="col-md-10">
-            <input class="form-control" type="time" placeholder="13:45:00" id="example-time-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-color-input" class="col-md-2 col-form-label">Color</label>
-        <div class="col-md-10">
-            <input class="form-control" type="color" placeholder="#3051d3" id="example-color-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label class="col-md-2 col-form-label">Select</label>
-        <div class="col-md-10">
-            <select class="form-control">
-                <option>Select</option>
-                <option>Large select</option>
-                <option>Small select</option>
-            </select>
-        </div>
-    </div>
+
 </form> 
 
 @endsection
