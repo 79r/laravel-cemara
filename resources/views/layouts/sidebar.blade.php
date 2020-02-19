@@ -18,42 +18,42 @@
 
                 <li>
                     <a href="{{ route('inventory.index') }}" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-table"></i></div>
                         <span>Inventory</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('inventory.create') }}" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-comment-message"></i></div>
                         <span>Input Data</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-girds"></i></div>
                         <span>Update</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                         <span>Category</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                         <span>Supplier</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                         <span>Merek</span>
                     </a>
                 </li>
