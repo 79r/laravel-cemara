@@ -11,7 +11,7 @@ class CategoryController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +21,7 @@ class CategoryController extends Controller {
         $data = array(
             'category' => Category::all(),
         );
-        return view('inventory.category.index');
+        return view('inventory.category.index', $data);
     }
 
     /**
@@ -29,9 +29,11 @@ class CategoryController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $data = array(
+            'category' => Category::all(),
+        );
+        return view('inventory.category.index', $data);
     }
 
     /**
@@ -40,9 +42,10 @@ class CategoryController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $input = $request->all();
+        Category::create($input);
+        redirect('inventory.category.index');
     }
 
     /**
