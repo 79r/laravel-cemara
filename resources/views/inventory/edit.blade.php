@@ -44,6 +44,13 @@
                     {!! Form::select('brand_id', $brand, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Merk Inventory', 'id' => 'input-brand-id', 'required']) !!}
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label">Pilih Divisi</label>
+                <div class="col-md-10">
+                    {!! Form::select('division_id', $division, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Divisi', 'id' => 'input-brand-id', 'required']) !!}
+                </div>
+            </div>
         
             <div class="form-group row">
                 <label class="col-md-2 col-form-label">Pilih Supplier</label>
