@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-xl-7">
-        <div class="card">
+        <div class="card pl-4">
             <div class="card-header bg-transparent p-3">
                 <h5 class="header-title-lg mb-0">{{ $inventory->name }}</h5>
             </div>
@@ -19,6 +19,24 @@
                         </div>
                     </div>
                 </li>
+                <li class="list-group-item">
+                    <div class="media my-2">
+                        <div class="media-body">
+                            <p class="text-muted mb-2">Photo Inventory</p>
+                            @if (!empty($inventory->image_url))
+                            <div class="img-thumbnail rounded">
+                                <img class="img-fluid" src="{{ url($inventory->image_url) }}" alt="">
+                            </div>
+                            @else
+                                <h4>Tidak ada foto</h4>
+                            @endif
+                        </div>
+                        <div class="icons-lg ml-2 align-self-center">
+                            <i class="uim uim-layer-group"></i>
+                        </div>
+                    </div>
+                </li>
+
                 <li class="list-group-item">
                     <div class="media my-2">
                         <div class="media-body">
@@ -105,18 +123,13 @@
     </div>
     
     <div class="col-xl-5">
-        <div class="image-inventory">
-
-            @if (!empty($inventory->image_url))
-            <div class="img-thumbnail rounded">
-                <img class="img-fluid" src="{{ url($inventory->image_url) }}" alt="">
+        <div class="barcode-inventory">
+            <div class="rounded">
+                <img class="img-fluid" src="{{ asset('barcode/1.png') }}" alt="">
             </div>
-            @else
-                <h4>Item ini tidak memiliki foto</h4>
-            @endif
-    
         </div>
     </div>
+
 </div>    
 
 @endsection

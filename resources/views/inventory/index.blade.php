@@ -1,8 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-<h4 class="header-title">Example</h4>
-<p class="card-title-desc">This is an experimental awesome solution for responsive tables with complex data.</p>
+<div class="text-center mt-5">
+    <h4 class="header-title-lg mb-0">Data Inventory Global</h4>
+    <p class="card-title-desc">Cemara Multi Kreatif</p>
+</div>
 <div class="table-rep-plugin">
     <div class="table-responsive mb-0" data-pattern="priority-columns">
         <table id="tech-companies-1" class="table table-striped">

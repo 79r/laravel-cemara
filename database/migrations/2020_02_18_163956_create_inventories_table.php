@@ -27,8 +27,9 @@ class CreateInventoriesTable extends Migration
             $table->text('image_url')->nullable();
             $table->timestamp('year_of_purchase')->nullable();
             $table->text('notes')->nullable();
+            $table->string('serial_number')->nullable();
+            $table->text('barcode')->nullable();
             $table->timestamps();
-
             
             /** Foreign Key */
             $table->foreign('user_id')->references('id')->on('users')
