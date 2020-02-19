@@ -4,7 +4,7 @@
 <div id="inventory-item">
     <div class="row">
         <div class="col-xl-7">
-            <div class="card pl-4">
+            <div class="card pl-sm-0 pl-md-4">
                 <div class="bg-transparent">
                     <h5 class="header-title-lg mb-3">{{ $inventory->name }}</h5>
                 </div>
@@ -24,13 +24,13 @@
                         <div class="media my-2">
                             <div class="media-body">
                                 <p class="text-muted mb-1">Photo Inventory</p>
-                                @if (!empty($inventory->image_url))
-                                <div class="img-thumbnail rounded">
-                                    <img class="img-fluid" src="{{ url($inventory->image_url) }}" alt="">
+                                <div class="col-sm-8 col-md-6 mx-auto">
+                                    <div class="barcode-inventory">
+                                        <div class="rounded">
+                                            <img class="img-fluid" src="{{ asset('barcode/1.png') }}" alt="">
+                                        </div>
+                                    </div>
                                 </div>
-                                @else
-                                    <h4>Tidak ada foto</h4>
-                                @endif
                             </div>
                         </div>
                     </li>
@@ -123,12 +123,17 @@
         </div>
         
         <div class="col-xl-5">
-            <div class="barcode-inventory">
-                <div class="rounded">
-                    <img class="img-fluid" src="{{ asset('barcode/1.png') }}" alt="">
-                </div>
+            @if (!empty($inventory->image_url))
+            <div class="img-thumbnail rounded">
+                <img class="img-fluid" src="{{ url($inventory->image_url) }}" alt="">
             </div>
+            @else
+                <h4>Tidak ada foto</h4>
+            @endif
         </div>
     </div>    
 </div>
+
+
+
 @endsection
