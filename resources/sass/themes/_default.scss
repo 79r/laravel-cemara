@@ -4,3 +4,41 @@
         font-weight: bold;
     }
 }
+.header-title-lg {
+    font-size: 36px;
+    font-weight: bold;
+}
+#inventory-item {
+    .list-group {
+        .list-group-item {
+            padding: 0;
+            .media-body h5 {
+                color: #129263;
+                font-weight: 800;
+            }
+        }
+    }
+}
+.page-content {
+    padding: 70px calc(24px / 2) 100px calc(24px / 2);
+}
+.footer {
+    bottom: 0;
+    padding: 20px calc(24px / 2);
+    position: absolute;
+    right: 0;
+    color: #74788d;
+    left: 250px;
+    height: 100px;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.08);
+    box-shadow: 0 2px 4px rgba(0,0,0,.08);
+    background-color: #fff;
+    
+    .copyright {
+        p {
+            margin-bottom: 0;
+            color: #636363;
+            font-weight: bold;
+        }
+    }
+}

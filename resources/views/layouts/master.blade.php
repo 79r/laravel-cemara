@@ -235,13 +235,11 @@
                 
                 <footer class="footer">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                2020 © Laravel Cemara Inventory.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-right d-none d-sm-block">
-                                    Developed with <i class="mdi mdi-heart text-danger"></i> by <a href="https://riskiwebid.web.id" target="_blank">Riski</a>
+                        <div class="row text-center">
+                            <div class="col-sm-12">
+                                <div class="copyright">
+                                    <p>2020 © Laravel Cemara Inventory.</p>
+                                    <p> Developed with <i class="mdi mdi-heart text-danger"></i> by <a href="https://riskiwebid.web.id" target="_blank">Riski</a></p>
                                 </div>
                             </div>
                         </div>
@@ -254,7 +252,7 @@
         <!-- END layout-wrapper -->
 
         <!-- Right Sidebar -->
-        <div class="right-bar">
+        <div class="right-bar" style="display: none">
             <div data-simplebar class="h-100">
     
                 <!-- Nav tabs -->

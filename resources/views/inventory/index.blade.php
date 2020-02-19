@@ -33,9 +33,8 @@
                 <th>{{ $inventory->qty }}</th>
                 <th>{{ $inventory->years_of_purchase }}</th>
                 <th>
-                    <a href="" class="btn btn-sm btn-primary">Show</a>
+                    <a href="{{ route('inventory.index') }}/{{ $inventory->id }}" class="btn btn-sm btn-primary">Show</a>
                     <a href="" class="btn btn-sm btn-success">Edit</a>
-                    <a href="" class="btn btn-sm btn-danger">Delete</a>
                 </th>
             </tr>
             @endforeach
