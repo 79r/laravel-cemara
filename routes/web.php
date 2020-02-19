@@ -23,10 +23,10 @@ Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::resource('inventory', 'InventoryController');
 
-Route::resource('category', 'CategoryController');
+Route::resource('inventory/category', 'CategoryController');
 
-Route::resource('brand', 'BrandController');
+Route::resource('inventory/brand', 'BrandController');
 
-Route::resource('supplier', 'SupplierController');
+Route::resource('inventory/supplier', 'SupplierController');
 
-Route::resource('division', 'DivisionController');
+Route::resource('inventory/division', 'DivisionController');
