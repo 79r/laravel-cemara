@@ -38,6 +38,27 @@
                 </li>
 
                 <li>
+                    <a href="" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <span>Category</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <span>Supplier</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <span>Merek</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
                         <span>Multi Level</span>
