@@ -20,6 +20,7 @@ class CreateInventoriesTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('brand_id')->unsigned();
             $table->bigInteger('supplier_id')->unsigned();
+            $table->bigInteger('division_id')->unsigned();
 
             $table->unsignedDecimal('price', 12, 0)->nullable();
             $table->unsignedBigInteger('qty')->nullable();
@@ -42,6 +43,9 @@ class CreateInventoriesTable extends Migration
             ->onDelete('cascade');
     
             $table->foreign('supplier_id')->references('id')->on('suppliers')
+            ->onDelete('cascade');
+
+            $table->foreign('division_id')->references('id')->on('divisions')
             ->onDelete('cascade');
         });
     }
