@@ -10,7 +10,7 @@
 
         <form class="col-sm-12 col-md-10 mx-auto" 
                     id="form-input-data-inventory"
-                    action="{{ url('/inventory') }}"
+                    action="{{url('/inventory', $inventory->id)}}"
                     enctype="multipart/form-data" method="POST">
         
             <div id="error">
@@ -68,10 +68,10 @@
                 <label for="example-number-input" class="col-md-2 col-form-label">Qty</label>
                 <div class="col-md-10">
                     <input 
-                            class="form-control"
-                            name="qty" type="number"
-                            placeholder="" id="input-qty"
-                            value="{{ $inventory->qty }}">
+                        class="form-control"
+                        name="qty" type="number"
+                        placeholder="" id="input-qty"
+                        value="{{ $inventory->qty }}">
                 </div>
             </div>
         
