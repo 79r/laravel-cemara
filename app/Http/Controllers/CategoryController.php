@@ -19,7 +19,7 @@ class CategoryController extends Controller {
      */
     public function index() {
         $data = array(
-            'category' => Category::all(),
+            'categories' => Category::all(),
         );
         return view('inventory.category.index', $data);
     }
@@ -31,7 +31,7 @@ class CategoryController extends Controller {
      */
     public function create() {
         $data = array(
-            'category' => Category::all(),
+            'categories' => Category::all(),
         );
         return view('inventory.category.index', $data);
     }
