@@ -3,3 +3,9 @@
         left: 200px;
     }
 }
+
+@media (max-width: 992px) {
+    .main-content .footer {
+        left: 0 !important;
+    }
+}
