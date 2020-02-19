@@ -1,4 +1,8 @@
 /** Entry file untuk semua file sass */
+#sidebar-menu ul li a {
+  font-size: 14px;
+  font-weight: 600; }
+
 .card .header-title-lg {
   font-size: 30px;
   font-weight: 800; }
