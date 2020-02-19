@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
-{
+use App\Category;
+
+class CategoryController extends Controller {
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $data = array(
+            'category' => Category::all(),
+        );
+        return view('inventory.category.index');
     }
 
     /**
