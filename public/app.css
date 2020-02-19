@@ -1,7 +1,14 @@
 /** Entry file untuk semua file sass */
+.navbar-brand-box,
+.vertical-menu {
+  width: 200px; }
+
 #sidebar-menu ul li a {
   font-size: 14px;
   font-weight: 600; }
+
+.main-content .footer {
+  left: 200px; }
 
 .card .header-title-lg {
   font-size: 30px;
@@ -56,5 +63,7 @@ table#table-cemara-inventory tbody td {
 @media (max-width: 768px) {
   page-content {
     padding: 70px calc(5px / 2) 100px calc(5px / 2) !important; } }
+.main-content {
+  margin-left: 200px; }
 
 /*# sourceMappingURL=app.css.map */
