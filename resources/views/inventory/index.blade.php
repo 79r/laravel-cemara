@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="text-center mt-5">
-    <h4 class="header-title-lg">Data Inventory Global</h4>
+    <h4 class="header-title-lg">{{ strtoupper('Data Inventory Global') }}</h4>
     <div class="sub-str mb-3">
         <p>Cemara Multi Kreatif</p>
     </div>

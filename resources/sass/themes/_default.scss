@@ -1,12 +1,12 @@
 .card {
     .header-title-lg {
-        font-size: 36px;
-        font-weight: bold;
+        font-size: 30px;
+        font-weight: 800;
     }
 }
 .header-title-lg {
-    font-size: 36px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 800;
 }
 #inventory-item {
     .list-group {
@@ -19,6 +19,7 @@
         }
     }
 }
+
 .page-content {
     padding: 70px calc(24px / 2) 100px calc(24px / 2);
 }
@@ -57,4 +58,9 @@ table {
             }
         }
     }
+}
+
+.sub-str {
+    font-weight: 700;
+    font-size: 22px;
 }
