@@ -11,28 +11,28 @@
 
                 <li>
                     <a href="{{ route('dashboard') }}" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div><span class="badge badge-pill badge-success float-right">3</span>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('inventory.index') }}" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div><span class="badge badge-pill badge-success float-right">3</span>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
                         <span>Inventory</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{ route('inventory.create') }}" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div><span class="badge badge-pill badge-success float-right">3</span>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
                         <span>Input Data</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div><span class="badge badge-pill badge-success float-right">3</span>
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
                         <span>Update</span>
                     </a>
                 </li>
