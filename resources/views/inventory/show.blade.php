@@ -6,6 +6,11 @@
         <div class="col-xl-7">
             <div class="card pl-sm-0 pl-md-4">
                 <div class="bg-transparent">
+                    <div class="my-3">
+                        <a href="{{ route('inventory.index') }}/{{ $inventory->id }}/edit" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                            <i class="mdi mdi-pencil"></i> <span>Edit item ini</span>
+                        </a>
+                    </div>
                     <h5 class="header-title-lg mb-3">{{ $inventory->name }}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
