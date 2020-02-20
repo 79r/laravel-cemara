@@ -51,7 +51,7 @@ class SupplierController extends Controller
             $request->image_url->move(public_path($dirname), $input['image_url']);
         }
         Supplier::create($input);
-        return redirect('inventory.supplier.index');
+        return redirect('inventory.suppliers.index');
     }
 
     /**
