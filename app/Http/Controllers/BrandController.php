@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Brand;
+
 class BrandController extends Controller
 {
     /**
@@ -11,9 +13,9 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $brands = Brand::all();
+        return view('inventory/brands/index', ['brands' => $brands]);
     }
 
     /**
@@ -43,9 +45,11 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        $data = array(
+            'brand' => Brand::find($id)
+        );
+        return view('inventory/brands/show', $data);
     }
 
     /**
