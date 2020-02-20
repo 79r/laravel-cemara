@@ -21,10 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::resource('inventory/division', 'DivisionController');
-Route::resource('inventory/category', 'CategoryController');
-Route::resource('inventory/brand', 'BrandController');
-Route::resource('inventory/supplier', 'SupplierController');
+Route::resource('inventory/divisions', 'DivisionController');
+Route::resource('inventory/categories', 'CategoryController');
+Route::resource('inventory/brands', 'BrandController');
+Route::resource('inventory/suppliers', 'SupplierController');
 
 /* import excel */
 Route::post('/inventory/store-excel', 'InventoryImportController@store')->name('inventory.import.post');

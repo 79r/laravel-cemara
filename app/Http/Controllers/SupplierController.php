@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Supplier;
+
 class SupplierController extends Controller
 {
     /**
@@ -11,9 +13,9 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $suppliers = Supplier::all();
+        return view('inventory/suppliers/index', ['suppliers' => $suppliers]);
     }
 
     /**
