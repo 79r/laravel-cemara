@@ -19,8 +19,9 @@ class CreateUsersTable extends Migration {
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('role')->default(1); // jika rolenya 1 user biasa. Jika role 2 admin
-            $table->tinyInteger('status')->default(1);  // jika status 0 inactive
+            $table->text('privilege')->default(1)->nullable()->comment('JSON Privilege');
+            $table->tinyInteger('status')->default(1)->comment('0 is inactive');
+            $table->timestamp('deleted_at')->default(null);
             $table->rememberToken();
             $table->timestamps();
         });
