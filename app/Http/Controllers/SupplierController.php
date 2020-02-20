@@ -23,9 +23,9 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $supplier = Supplier::all();
+        return view('inventory.suppliers.create', $supplier);
     }
 
     /**
@@ -34,9 +34,24 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+
+        $this->validate($request, [
+            'name'          => 'required|min:3|max:100',
+        ]);
+
+        $input = $request->all();
+
+        $input['image_url'] = null; // defaultnya null
+
+        $dirname = '/uploads/inventories/suppliers';
+
+        if ($request->hasFile('image_url')){
+            $input['image_url'] = $dirname .str_slug($input['name'], '-').'.'.$request->image_url->getClientOriginalExtension();
+            $request->image_url->move(public_path($dirname), $input['image_url']);
+        }
+        Supplier::create($input);
+        return redirect('inventory.supplier.index');
     }
 
     /**
