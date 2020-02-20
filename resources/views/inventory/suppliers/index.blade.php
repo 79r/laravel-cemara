@@ -1,11 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="text-center mt-5">
-    <h4 class="header-title-lg">{{ strtoupper('Data Inventory Global') }}</h4>
-    <div class="sub-str mb-3">
-        <p>Cemara Multi Kreatif</p>
-    </div>
+<div class="text-center my-4">
+    <h4 class="header-title-lg">{{ strtoupper('Daftar Supplier') }}</h4>
 </div>
 <div class="table-rep-plugin">
     <div class="table-responsive mb-0" data-pattern="priority-columns">
@@ -31,15 +28,15 @@
                 <th>
                     <div class="btn-group" role="group">
 
-                        <a href="{{ route('inventory.index') }}/{{ $supplier->id }}" class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Lihat">
+                        <a href="{{ route('suppliers.index') }}/{{ $supplier->id }}" class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Lihat">
                             <i class="mdi mdi-eye"></i>
                         </a>
 
-                        <a href="{{ route('inventory.index') }}/{{ $supplier->id }}/edit" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <a href="{{ route('suppliers.index') }}/{{ $supplier->id }}/edit" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
                             <i class="mdi mdi-pencil"></i>
                         </a>
 
-                        <a href="{{ route('inventory.index') }}/{{ $supplier->id }}" class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Hapus">
+                        <a href="{{ route('suppliers.index') }}/{{ $supplier->id }}" class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Hapus">
                             <i class="mdi mdi-trash-can"></i>
                         </a>
                         
