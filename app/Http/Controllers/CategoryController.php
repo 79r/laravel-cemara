@@ -21,7 +21,7 @@ class CategoryController extends Controller {
         $data = array(
             'categories' => Category::all(),
         );
-        return view('inventory.category.index', $data);
+        return view('inventory.categories.index', $data);
     }
 
     /**
@@ -54,9 +54,11 @@ class CategoryController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        $data = array(
+            'category' => Category::find($id)
+        );
+        return view('inventory/categories/show', $data);
     }
 
     /**
