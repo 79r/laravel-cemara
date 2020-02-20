@@ -12,11 +12,9 @@ class DivisionsTableSeeder extends Seeder {
         DB::table('divisions')->insert(
             [
                 'name'  => 'Divisi IT',
-                'notes'  => 'Nothing'
             ],
             [
                 'name'  => 'Divisi Produksi',
-                'notes'  => 'Nothing'
             ],
         );
     }

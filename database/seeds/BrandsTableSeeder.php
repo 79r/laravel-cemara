@@ -13,7 +13,11 @@ class BrandsTableSeeder extends Seeder {
             ['name'  => 'Logitech'],
             ['name'  => 'HP'],
             ['name'  => 'Xiaomi'],
-            ['name'  => 'Smartfren']
+            ['name'  => 'Smartfren'],
+            ['name'  => 'Samsung'],
+            ['name'  => 'Dell'],
+            ['name'  => 'Asus'],
+            ['name'  => 'Bosch'],
         );
     }
 }

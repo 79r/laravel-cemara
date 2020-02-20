@@ -12,11 +12,11 @@ class CategoriesTableSeeder extends Seeder {
         DB::table('categories')->insert(
             [
                 'name'  => 'Alat Kerja',
-                'notes'  => 'Nothing'
+                'notes'  => 'Kategori inventori alat kerja'
             ],
             [
                 'name'  => 'Bahan Baku',
-                'notes'  => 'Nothing'
+                'notes'  => 'Kategori inventori bahan baku'
             ],
         );
     }
