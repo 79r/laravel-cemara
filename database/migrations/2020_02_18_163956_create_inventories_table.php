@@ -30,6 +30,7 @@ class CreateInventoriesTable extends Migration
             $table->text('notes')->nullable();
             $table->string('serial_number')->nullable();
             $table->text('barcode')->nullable();
+            $table->timestamp('deleted_at')->default(null);
             $table->timestamps();
             
             /** Foreign Key */
