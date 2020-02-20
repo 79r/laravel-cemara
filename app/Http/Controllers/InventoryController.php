@@ -144,9 +144,39 @@ class InventoryController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+
+        $this->validate($request, [
+            'name'          => 'required|min:3|max:100',
+            'price'         => 'required',
+        ]);
+
+        $inventory = Inventory::find($id);
+        
+        $inventory->name                = $request['name'];
+        $inventory->category_id         = $request['category_id'];
+        $inventory->brand_id            = $request['brand_id'];
+        $inventory->supplier_id         = $request['supplier_id'];
+        $inventory->division_id         = $request['division_id'];
+        $inventory->price               = $request['price'];
+        $inventory->qty                 = $request['qty'];
+        $inventory->year_of_purchase    = $request['year_of_purchase'];
+        $inventory->barcode             = $request['barcode'];
+        $inventory->serial_number       = $request['serial_number'];
+        $inventory->notes               = $request['notes'];
+        $inventory->image_url           = null;
+
+        $dirname = '/uploads/inventories/';
+
+        if ($request->hasFile('image_url')) {
+            $inventory['image_url'] = $dirname .str_slug($request['name'], '-').'.'.$request->image_url->getClientOriginalExtension();
+            $request->image_url->move(public_path($dirname), $inventory['image_url']);
+        }
+        
+
+        $inventory->save();
+
+        return redirect('inventory/', $inventory->id);
     }
 
     /**
