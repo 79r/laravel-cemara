@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('notes')->nullable();
+            $table->string('image_url')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
