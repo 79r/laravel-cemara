@@ -102,8 +102,20 @@ class InventoryController extends Controller {
 
     
     /* Store data by excel file */
-    public function storeDataExcel(){
+    public function storeDataExcel(Request $request) {
 
+        /* validation */
+        $this->validate($request,
+            ['file' => 'required|mimes:xls,xlsx']
+        );
+
+        if($request->hasFile('file')) {
+            $file = $request->file('file'); // get a file
+            Excel::import(new InventoryImport, $file); // import file
+            return redirect()->back()->with(['success' => 'Upload success']);
+        }
+        
+        return redirect()->back()->width(['error' => 'Please choose a file']);
     }
 
 
