@@ -28,7 +28,7 @@ class CreateItemsTable extends Migration
             $table->text('image_url')->nullable();
             $table->timestamp('year_of_purchase')->nullable();
             $table->text('notes')->nullable();
-            $table->string('serial_number')->nullable();
+            $table->string('serial_number')->nullable()->unique();
             $table->text('barcode')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
