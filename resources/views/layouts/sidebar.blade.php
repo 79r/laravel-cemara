@@ -31,6 +31,13 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('inventory.import.excel') }}" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-sign-in-alt"></i></div>
+                        <span>Import Excel</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-grids"></i></div>
                         <span>Update</span>

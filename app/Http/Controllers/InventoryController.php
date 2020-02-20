@@ -12,12 +12,6 @@ use App\Supplier;
 use App\Division;
 use App\Inventory;
 
-
-/* excel */
-use App\Imports\InventoryImport;
-use Excel;
-
-
 class InventoryController extends Controller {
 
 
@@ -67,6 +61,7 @@ class InventoryController extends Controller {
         return view('inventory.create', compact('category', 'brand', 'supplier', 'division'));
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -98,26 +93,6 @@ class InventoryController extends Controller {
         Inventory::create($input);
         return redirect('inventory');
     }
-
-
-    
-    /* Store data by excel file */
-    public function storeDataExcel(Request $request) {
-
-        /* validation */
-        $this->validate($request,
-            ['file' => 'required|mimes:xls,xlsx']
-        );
-
-        if($request->hasFile('file')) {
-            $file = $request->file('file'); // get a file
-            Excel::import(new InventoryImport, $file); // import file
-            return redirect()->back()->with(['success' => 'Upload success']);
-        }
-        
-        return redirect()->back()->width(['error' => 'Please choose a file']);
-    }
-
 
 
     /**

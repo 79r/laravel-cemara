@@ -7,27 +7,34 @@ use Maatwebsite\Excel\Concerns\ToModel;
 
 use Carbon\Carbon;
 
-class InventoryImport implements ToModel {
+class InventoryImport implements ToModel, WithHeadingRow {
     /**
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function model(array $row) {
+
+        if ($row['status'] == "Belum Verifikasi"){
+            $status = 0;
+        } else {
+            $status = 1;
+        }
+
         return new Inventory([
-            'name'              => $row[0],
-            'user_id'           => $row[1],
-            'category_id'       => $row[2],
-            'brand_id'          => $row[3],
-            'supplier_id'       => $row[4],
-            'division_id'       => $row[5],
-            'price'             => $row[6],
-            'qty'               => $row[7],
-            'image_url'         => $row[8],
-            'year_of_purchase'  => $row[9],
-            'notes'             => $row[10],
-            'serial_number'     => $row[11],
-            'barcode'           => $row[12],
+            'name'              => $row['name'],
+            'user_id'           => $row['user_id'],
+            'category_id'       => $row['category_id'],
+            'brand_id'          => $row['brand_id'],
+            'supplier_id'       => $row['supplier_id'],
+            'division_id'       => $row['division_id'],
+            'price'             => $row['price'],
+            'qty'               => $row['qty'],
+            'image_url'         => $row['image_url'],
+            'year_of_purchase'  => date('Y-m-d H:i:s'),
+            'notes'             => $row['notes'],
+            'serial_number'     => $row['serial_number'],
+            'barcode'           => $row['barcode'],
             'created_at'        => Carbon::now(),
         ]);
     }

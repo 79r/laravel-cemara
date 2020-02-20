@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::resource('inventory/division', 'DivisionController');
 Route::resource('inventory/category', 'CategoryController');
@@ -27,7 +27,7 @@ Route::resource('inventory/brand', 'BrandController');
 Route::resource('inventory/supplier', 'SupplierController');
 
 /* import excel */
-Route::post('inventory/import', 'InventoryController@createDataExcel');
-Route::get('inventory/import', 'InventoryController@storeDataExcel');
+Route::get('inventory/import-excel','InventoryImportController@import')->name('inventory.import.excel');
+Route::post('inventory/store-excel','InventoryImportController@import')->name('inventory.store.excel');
 
 Route::resource('inventory', 'InventoryController');
