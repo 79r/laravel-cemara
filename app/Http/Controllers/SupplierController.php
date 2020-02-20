@@ -45,9 +45,11 @@ class SupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        $data = array(
+            'supplier' => Supplier::find($id)
+        );
+        return view('inventory/suppliers/show', $data);
     }
 
     /**
