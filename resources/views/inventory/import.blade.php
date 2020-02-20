@@ -7,11 +7,7 @@
             <h4 class="header-title-lg">Import Data Excel</h4>
             <p class="card-title-desc"></p>
         </div>
-        <form
-            method="POST"
-            enctype="multipart/form-data"
-            action="{{ route('inventory.store.excel') }}">
-            
+        <form action="{{ route('inventory.import.post') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             @if (session('success'))
@@ -21,7 +17,7 @@
             @endif
 
             @if (session('error'))
-                <div class="alert alert-success">
+                <div class="alert alert-danger">
                     {{ session('error') }}
                 </div>
             @endif

@@ -16,19 +16,16 @@ class InventoryImportController extends Controller {
 
     public function store(Request $request) {
 
-        /* validation */
-        $this->validate($request,
-            ['file' => 'required|mimes:xls,xlsx']
-        );
+        $this->validate($request, [
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
 
-        if($request->hasFile('file')) {
-            $file = $request->file('file'); // get a file
-            Excel::import(new InventoryImport, $file); // import file
+        if ($request->hasFile('file')) {
+            $file = $request->file('file'); //GET FILE
+            Excel::import(new ProductsImport, $file); //IMPORT FILE 
             return redirect()->back()->with(['success' => 'Upload success']);
-        }
-        
-        return redirect()->back()->width(['error' => 'Please choose a file']);
-
+        }  
+        return redirect()->back()->with(['error' => 'Please choose file before']);
     }
 
 

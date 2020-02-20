@@ -5,6 +5,9 @@ namespace App\Imports;
 use App\Inventory;
 use Maatwebsite\Excel\Concerns\ToModel;
 
+/* excel with heading */
+use Maatwebsite\Excel\Concerns\WithHeadingRow; 
+
 use Carbon\Carbon;
 
 class InventoryImport implements ToModel, WithHeadingRow {
@@ -14,12 +17,6 @@ class InventoryImport implements ToModel, WithHeadingRow {
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function model(array $row) {
-
-        if ($row['status'] == "Belum Verifikasi"){
-            $status = 0;
-        } else {
-            $status = 1;
-        }
 
         return new Inventory([
             'name'              => $row['name'],
