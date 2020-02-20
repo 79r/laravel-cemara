@@ -18,16 +18,16 @@ class SuppliersTableSeeder extends Seeder {
         $suppliers = array(
             array(
                 'name'      => 'Supplier 1',
-                'phone'     => '123456789',
+                'phone'     => '0812 3456 7899',
                 'email'     => 'supplier1@example.com',
-                'address'   => '....',
+                'address'   => 'Jl. Cemara No.67, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161',
                 'created_at'=> Carbon::now(),
             ),
             array(
                 'name'      => 'Supplier 2',
-                'phone'     => '123456789',
+                'phone'     => '0812 3456 7899',
                 'email'     => 'supplier2@example.com',
-                'address'   => '....',
+                'address'   => 'Jl. Cemara No.67, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161',
                 'created_at'=> Carbon::now(),
             )
         );
