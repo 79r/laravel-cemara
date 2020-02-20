@@ -27,6 +27,7 @@ Route::resource('inventory/brand', 'BrandController');
 Route::resource('inventory/supplier', 'SupplierController');
 
 /* import excel */
+Route::post('inventory/import', 'InventoryController@createDataExcel');
 Route::get('inventory/import', 'InventoryController@storeDataExcel');
 
 Route::resource('inventory', 'InventoryController');
