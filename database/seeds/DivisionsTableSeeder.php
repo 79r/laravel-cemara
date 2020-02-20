@@ -1,21 +1,31 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class DivisionsTableSeeder extends Seeder {
+
+    private $tableName = 'divisions';
     /**
      * Run the database seeds.
      *
      * @return void
      */
     public function run() {
-        DB::table('divisions')->insert(
-            [
-                'name'  => 'Divisi IT',
-            ],
-            [
-                'name'  => 'Divisi Produksi',
-            ],
+
+        DB::table($this->tableName)->delete();
+
+        $divisions = array(
+            array(
+                'name' => 'Divisi IT',
+                'created_at'=> Carbon::now()
+            ),
+            array(
+                'name' => 'Divisi Produksi',
+                'created_at'=> Carbon::now()
+            )
         );
+
+        DB::table($this->tableName)->insert($divisions);
     }
 }
