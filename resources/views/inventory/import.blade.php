@@ -7,23 +7,33 @@
             <h4 class="header-title-lg">Import Data Excel</h4>
             <p class="card-title-desc"></p>
         </div>
-        <form 
+        <form
             method="POST"
             enctype="multipart/form-data"
             action="{{ route('inventory.store.excel') }}">
-            {{ csrf_field() }}
+            
+            @csrf
 
-            <div id="error">
-            @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
             </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-success">
+                    {{ session('error') }}
+                </div>
+            @endif
 
             <div class="form-group">
-                <label for="file">Upload file excel</label>
-                <input type="file" class="form-control-file" name="file" id="file" placeholder="">
+                <label for="">File (.xls, .xlsx)</label>
+                <input type="file" class="form-control" name="file">
+                <p class="text-danger">{{ $errors->first('file') }}</p>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <button class="btn btn-primary btn-sm">Upload</button>
+            </div>
         </form>
     </div>
 </div>

@@ -29,17 +29,6 @@ class InventoryImportController extends Controller {
         
         return redirect()->back()->width(['error' => 'Please choose a file']);
 
-
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-
-            Excel::import(new PesertaImportCollection, $file);
-            Excel::import(new PesertaImport, $file);
-            Excel::import(new InventoryImport, $file);
-
-
-            return redirect('import/excel');
-        }   
     }
 
 
