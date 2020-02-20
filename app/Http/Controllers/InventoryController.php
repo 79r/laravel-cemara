@@ -12,6 +12,12 @@ use App\Supplier;
 use App\Division;
 use App\Inventory;
 
+
+/* excel */
+use App\Imports\InventoryImport;
+use Excel;
+
+
 class InventoryController extends Controller {
 
 
@@ -92,6 +98,15 @@ class InventoryController extends Controller {
         Inventory::create($input);
         return redirect('inventory');
     }
+
+
+    
+    /* Store data by excel file */
+    public function storeDataExcel(){
+
+    }
+
+
 
     /**
      * Display the specified resource.
