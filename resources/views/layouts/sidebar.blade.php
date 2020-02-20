@@ -45,28 +45,28 @@
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="{{ route('categories.index') }}" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                         <span>Category</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="{{ route('suppliers.index') }}" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                         <span>Supplier</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="{{ route('brands.index') }}" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                         <span>Merek</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="{{ route('divisions.index') }}" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-box"></i></div>
                         <span>Divisi</span>
                     </a>
