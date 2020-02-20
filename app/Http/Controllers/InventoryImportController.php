@@ -22,7 +22,7 @@ class InventoryImportController extends Controller {
 
         if ($request->hasFile('file')) {
             $file = $request->file('file'); //GET FILE
-            Excel::import(new ProductsImport, $file); //IMPORT FILE 
+            Excel::import(new InventoryImport, $file); //IMPORT FILE 
             return redirect()->back()->with(['success' => 'Upload success']);
         }  
         return redirect()->back()->with(['error' => 'Please choose file before']);
