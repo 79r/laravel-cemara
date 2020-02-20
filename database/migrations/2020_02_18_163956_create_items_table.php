@@ -30,7 +30,7 @@ class CreateItemsTable extends Migration
             $table->text('notes')->nullable();
             $table->string('serial_number')->nullable();
             $table->text('barcode')->nullable();
-            $table->timestamp('deleted_at')->default(null);
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
             
             /** Foreign Key */

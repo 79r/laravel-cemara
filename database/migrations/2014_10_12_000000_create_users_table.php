@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration {
             $table->string('password');
             $table->text('privilege')->default(null)->nullable()->comment('JSON Privilege');
             $table->tinyInteger('status')->default(1)->comment('0 is inactive');
-            $table->timestamp('deleted_at')->default(null);
+            $table->timestamp('deleted_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

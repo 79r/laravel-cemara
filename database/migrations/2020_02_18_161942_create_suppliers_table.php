@@ -20,7 +20,7 @@ class CreateSuppliersTable extends Migration
             $table->string('email')->nullable();
             $table->text('address')->nullable();
             $table->string('notes')->nullable();
-            $table->timestamp('deleted_at')->default(null);
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }
