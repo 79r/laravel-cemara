@@ -38,13 +38,6 @@
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-grids"></i></div>
-                        <span>Update</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="{{ route('categories.index') }}" class="waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-document-layout-left"></i></div>
                         <span>Category</span>
