@@ -46,21 +46,20 @@
                         <div class="container-fluid">
                             <div class="row">
 
-
-                                <div class="col-xl-4">
+                                <div class="col-md-6 col-lg-3">
                                     <div class="card">
                                         <div class="card-body">
                                         <div class="row">
-                                                <div class="col-6">
-                                                    <h5>Selamat sore Bos!!</h5>
-                                                    <p class="text-muted">Welcome back!</p>
+                                                <div class="col-7">
+                                                    <h5>Brand</h5>
+                                                    <span class="big-count">{{ \App\Brand::count() }}</span>
 
                                                     <div class="mt-4">
                                                         <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-5 ml-auto">
+                                                <div class="col-5 ml-auto d-none">
                                                     <div>
                                                         <img src="assets/images/widget-img.png" alt="" class="img-fluid">
                                                     </div>
@@ -70,72 +69,93 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xl-8">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-7">
+                                                    <h5>Category</h5>
+                                                    <span class="big-count">{{ \App\Category::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-7">
+                                                    <h5>Total Asset</h5>
+                                                    <span class="big-count">{{ \App\Inventory::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="float-right ml-2">
                                                 <a href="#">View all</a>
                                             </div>
-                                            <h5 class="header-title mb-4">Simple Table (Cemara Inventory)</h5>
-
+                                            <h5 class="text-center header-title mb-4">Overview</h5>
                                             <div class="table-responsive">
-                                                <table class="table table-centered table-hover mb-0">
+                                                <table id="table-cemara-inventory" class="table table-centered table-hover mb-0">
                                                     <thead>
                                                         <tr>
+                                                            <th scope="col">Serial Number</th>
                                                             <th scope="col">Nama</th>
                                                             <th scope="col">Qty</th>
                                                             <th scope="col">Kategori</th>
-                                                            <th scope="col">Brand</th>
-                                                            <th scope="col">Tahun</th>
-                                                            <th scope="col">Actions</th>
+                                                            <th scope="col">Harga (Rp)</th>
+                                                            <th scope="col">Tahun Beli</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @foreach ($inventories as $item)
                                                         <tr>
                                                             <th scope="row">
-                                                                <a href="#"># XO1345</a>
+                                                                <a href="{{ url('inventory', $item->id) }}"><span class="badge badge-primary badge-sn">{{ $item->serial_number }}</a></span>
                                                             </th>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td>
-                                                                <div class="badge badge-soft-primary">Confirm</div>
-                                                            </td>
-                                                            <td></td>
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="View">
-                                                                        <i class="mdi mdi-eye"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                        <i class="mdi mdi-pencil"></i>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                        <i class="mdi mdi-trash-can"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </td>
+                                                            <td>{{ $item->name }}</td>
+                                                            <td>{{ $item->qty }}</td>
+                                                            <td>{{ $item->category->name }}</td>
+                                                            <td class="font-weight-bold">@currency($item->price)</td>
+                                                            <td>{{ date('Y', strtotime($item->year_of_purchase)) }}</td>
                                                         </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
 
                                             <div class="mt-4">
-                                                <ul class="pagination pagination-rounded justify-content-center mb-0">
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link" href="#" aria-label="Previous">
-                                                            <i class="mdi mdi-chevron-left"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
-                                                            <i class="mdi mdi-chevron-right"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                <div class="text-center">
+                                                    {{ $inventories->links() }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

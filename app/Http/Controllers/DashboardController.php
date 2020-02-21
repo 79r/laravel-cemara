@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Inventory;
+
 class DashboardController extends Controller {
 
     /* Controller ini di proteksi dengan middleware 
@@ -14,7 +16,12 @@ class DashboardController extends Controller {
     }
 
     public function index() {
-        return view('dashboard/index');
+
+        $inventories = array(
+            'inventories' => Inventory::paginate(10)
+        );
+
+        return view('dashboard/index', $inventories);
     }
 
 }
