@@ -12,22 +12,25 @@
         <table id="table-cemara-inventory" class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
+                <th>Serial Number</th>
                 <th data-priority="1">Nama</th>
                 <th data-priority="2">Kategori</th>
                 <th data-priority="3">Merek</th>
                 <th data-priority="4">Supplier</th>
                 <th data-priority="5">Harga</th>
                 <th class="text-center" data-priority="6">Qty</th>
-                <th data-priority="7">Tahun Beli</th>
-                <th data-priority="7">Division</th>
+                <th data-priority="7">Tahun</th>
                 <th data-priority="8">Actions</th>
             </tr>
             </thead>
             <tbody>
             @foreach($inventories as $inventory)
             <tr>
-                <th>{{ $inventory->id }}</th>
+                <th>
+                    <span class="badge badge-primary badge-sn">
+                        {{ $inventory->serial_number }}
+                    </span>
+                </th>
                 <th>{{ $inventory->name }}</th>
                 <th>{{ $inventory->category->name }}</th>
                 <th>{{ $inventory->brand->name }}</th>
@@ -35,7 +38,6 @@
                 <th>@currency($inventory->price)</th>
                 <th class="text-center">{{ $inventory->qty }}</th>
                 <th>{{ date('Y', strtotime($inventory->year_of_purchase)) }}</th>
-                <th>{{ $inventory->division->name }}</th>
                 <th>
                     <div class="btn-group" role="group">
                         <a href="{{ route('inventory.index') }}/{{ $inventory->id }}" class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Lihat">
