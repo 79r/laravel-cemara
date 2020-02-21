@@ -30,32 +30,44 @@
                             value="{{ $inventory->name }}">
                 </div>
             </div>
+
+            <div class="form-group row">
+                <label for="example-text-input" class="col-md-2 col-form-label">Serial Number</label>
+                <div class="col-md-10">
+                    <input class="form-control" 
+                            name="serial_number" 
+                            type="text" 
+                            placeholder="Isi serial number (harus unik)" 
+                            id="input-serial-number"
+                            value="{{ $inventory->serial_number }}">
+                </div>
+            </div>
             
             <div class="form-group row">
                 <label class="col-md-2 col-form-label">Pilih Kategori</label>
                 <div class="col-md-10">
-                    {!! Form::select('category_id', $category, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Kategori Inventory', 'id' => 'input-catagory-id', 'required']) !!}
+                    {!! Form::select('category_id', $category, $inventory->category->id, ['class' => 'form-control select', 'placeholder' => 'Pilih Kategori Inventory', 'id' => 'input-catagory-id', 'required']) !!}
                 </div>
             </div>
         
             <div class="form-group row">
                 <label class="col-md-2 col-form-label">Pilih Merek</label>
                 <div class="col-md-10">
-                    {!! Form::select('brand_id', $brand, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Merk Inventory', 'id' => 'input-brand-id', 'required']) !!}
+                    {!! Form::select('brand_id', $brand, $inventory->brand->id, ['class' => 'form-control select', 'placeholder' => 'Pilih Merk Inventory', 'id' => 'input-brand-id', 'required']) !!}
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row d-none">
                 <label class="col-md-2 col-form-label">Pilih Divisi</label>
                 <div class="col-md-10">
-                    {!! Form::select('division_id', $division, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Divisi', 'id' => 'input-brand-id', 'required']) !!}
+                    {!! Form::select('division_id', $division, $inventory->division->id, ['class' => 'form-control select', 'placeholder' => 'Pilih Divisi', 'id' => 'input-brand-id', 'required']) !!}
                 </div>
             </div>
         
             <div class="form-group row">
                 <label class="col-md-2 col-form-label">Pilih Supplier</label>
                 <div class="col-md-10">
-                    {!! Form::select('supplier_id', $supplier, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Supplier', 'id' => 'input-supplier-id', 'required']) !!}
+                    {!! Form::select('supplier_id', $supplier, $inventory->supplier->id, ['class' => 'form-control select', 'placeholder' => 'Pilih Supplier', 'id' => 'input-supplier-id', 'required']) !!}
                 </div>
             </div>
         
