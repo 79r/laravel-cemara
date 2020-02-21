@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
 
 class CategoriesTableSeeder extends Seeder {
 
@@ -17,16 +16,14 @@ class CategoriesTableSeeder extends Seeder {
         DB::table($this->tableName)->delete();
 
         $categories = array(
-            array(
-                'name'  => 'Alat Kerja',
-                'notes'  => 'Kategori inventori alat kerja',
-                'created_at'=> Carbon::now(),
-            ),
-            array(
-                'name'  => 'Bahan Baku',
-                'notes'  => 'Kategori inventori bahan baku',
-                'created_at'=> Carbon::now(),
-            )
+            array( 'name'  => 'Tanpa Kategori' ),
+            array( 'name'  => 'Alat Kerja' ),
+            array( 'name'  => 'Alat Laser' ),
+            array( 'name'  => 'Alat Produksi' ),
+            array( 'name'  => 'ATK' ),
+            array( 'name'  => 'Bahan Laser' ),
+            array( 'name'  => 'Elektronik' ),
+            array( 'name'  => 'Rumah Tangga' )
         );
 
         DB::table($this->tableName)->insert($categories);
