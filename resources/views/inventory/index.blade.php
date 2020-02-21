@@ -57,4 +57,9 @@
         </table>
     </div>
 </div>
+
+<div class="mt-4 text-center">
+    {{ $inventories->links() }}
+</div>
+
 @endsection
