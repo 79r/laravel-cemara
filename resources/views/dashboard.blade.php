@@ -54,12 +54,17 @@
                         </button>
 
                         <!-- App Search-->
-                        <form class="app-search d-none d-lg-block">
-                            <div class="position-relative">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="mdi mdi-magnify"></span>
-                            </div>
-                        </form>
+                        {!! Form::open( array(
+                            'method' => 'GET',
+                            'url' => route('inventories.search'),
+                            'class' => 'app-search d-none d-lg-block',
+                            'placeholder' => 'Cari inventory',
+                            'value' => old('keyword')
+                            )) !!}
+                            <input type="text" class="form-control" name="keyword" placeholder="Cari .." value="{{ old('keyword') }}">
+                            <span class="mdi mdi-magnify"></span>
+                        {!! Form::close() !!}
+
                     </div>
 
                     <div class="d-flex">
@@ -71,20 +76,25 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
                                 aria-labelledby="page-header-search-dropdown">
-                    
-                                <form class="p-3">
+
+                                {!! Form::open( array(
+                                    'method' => 'GET',
+                                    'url' => route('inventories.search'),
+                                    'class' => 'p-3'
+                                    )) !!}
                                     <div class="form-group m-0">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <input type="text" class="form-control" name="keyword" placeholder="Cari .." value="{{ old('keyword') }}">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                {!! Form::close() !!}
+
                             </div>
                         </div>
-            
+
                         <div class="dropdown d-inline-block">
                         </div>
 
@@ -112,7 +122,7 @@
                         </div>
                         @endguest
                     </div>
-            
+
                     </div>
                 </div>
 
@@ -136,7 +146,7 @@
                     <div class="page-content-wrapper">
                         <div class="container-fluid">
                             <div class="row">
-                                
+
 
                                 <div class="col-xl-4">
                                     <div class="card">
@@ -237,20 +247,20 @@
 
 
                             <div class="row">
-                                
-                                
+
+
                             </div>
                             <!-- end row -->
 
 
                         </div>
                         <!-- end container-fluid -->
-                    </div> 
+                    </div>
                     <!-- end page-content-wrapper -->
                 </div>
                 <!-- End Page-content -->
 
-                
+
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row text-center">
@@ -272,7 +282,7 @@
         <!-- Right Sidebar -->
         <div class="right-bar" style="display: none">
             <div data-simplebar class="h-100">
-    
+
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-tabs-custom rightbar-nav-tab nav-justified" role="tablist">
                     <li class="nav-item">
@@ -295,7 +305,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content text-muted">
                     <div class="tab-pane active" id="chat-tab" role="tabpanel">
-                
+
                         <form class="search-bar py-4 px-3">
                             <div class="position-relative">
                                 <input type="text" class="form-control" placeholder="Search...">
