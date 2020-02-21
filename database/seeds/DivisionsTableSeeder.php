@@ -17,6 +17,10 @@ class DivisionsTableSeeder extends Seeder {
 
         $divisions = array(
             array(
+                'name' => 'Tanpa Divisi',
+                'created_at'=> Carbon::now()
+            ),
+            array(
                 'name' => 'Divisi IT',
                 'created_at'=> Carbon::now()
             ),
