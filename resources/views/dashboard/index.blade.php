@@ -55,7 +55,7 @@
                                                     <span class="big-count">{{ \App\Brand::count() }}</span>
 
                                                     <div class="mt-4">
-                                                        <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('brands.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -78,7 +78,7 @@
                                                     <span class="big-count">{{ \App\Category::count() }}</span>
 
                                                     <div class="mt-4">
-                                                        <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -101,7 +101,7 @@
                                                     <span class="big-count">{{ \App\Inventory::count() }}</span>
 
                                                     <div class="mt-4">
-                                                        <a href="#" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -120,7 +120,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="float-right ml-2">
-                                                <a href="#">View all</a>
+                                                <a href="{{ route('inventory.index') }}">View all</a>
                                             </div>
                                             <h5 class="text-center header-title mb-4">Overview</h5>
                                             <div class="table-responsive">
