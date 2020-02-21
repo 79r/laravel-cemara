@@ -19,19 +19,16 @@ class InventoryImport implements ToModel, WithHeadingRow {
     public function model(array $row) {
 
         return new Inventory([
-            'name'              => $row['name'],
-            'user_id'           => $row['user_id'],
+            'name'              => $row['name'], // ok
+            'user_id'           => $row['user_id'], // ok
             'category_id'       => $row['category_id'],
-            'brand_id'          => $row['brand_id'],
+            'brand_id'          => $row['brand_id'], // ok
             'supplier_id'       => $row['supplier_id'],
-            'division_id'       => $row['division_id'],
-            'price'             => $row['price'],
-            'qty'               => $row['qty'],
-            'image_url'         => $row['image_url'],
-            'year_of_purchase'  => date('Y-m-d H:i:s'),
-            'notes'             => $row['notes'],
-            'serial_number'     => $row['serial_number'],
-            'barcode'           => $row['barcode'],
+            'division_id'       => $row['division_id'], // ok
+            'price'             => $row['price'], // ok
+            'qty'               => $row['qty'], // ok
+            'year_of_purchase'  => $row['year'], // ok
+            'serial_number'     => $row['serial_number'], // ok
             'created_at'        => Carbon::now(),
         ]);
     }
