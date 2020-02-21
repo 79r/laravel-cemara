@@ -35,6 +35,17 @@ class InventoryController extends Controller {
         return view('inventory.index', $data);
     }
 
+
+    public function search(Request $request) {
+
+        /* ambil keyword yang di input user */
+        $keyword = $request->keyword;
+
+        /* mengambil data dari table inventory sesuai pencarian */
+        $inventories = Inventory::where('name', 'like',"%".$keyword."%")->paginate(10);
+        return view('inventory.index', compact('inventories'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
