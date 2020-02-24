@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Inventory;
 
 class DashboardController extends Controller {
@@ -18,7 +18,8 @@ class DashboardController extends Controller {
     public function index() {
 
         $inventories = array(
-            'inventories' => Inventory::paginate(10)
+            'inventories'   => Inventory::paginate(10),
+            'total_rp'      => Inventory::sum('price')
         );
 
         return view('dashboard/index', $inventories);

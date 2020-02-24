@@ -97,8 +97,8 @@
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-7">
-                                                    <h5>Total Asset</h5>
-                                                    <span class="big-count">{{ \App\Inventory::count() }}</span>
+                                                    <h5>Total</h5>
+                                                    <span class="big-count">@currency($total_rp)</span>
 
                                                     <div class="mt-4">
                                                         <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
