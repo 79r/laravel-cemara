@@ -1,0 +1,1005 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Waktu pembuatan: 24 Feb 2020 pada 10.10
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `laravel_cemara_inventory_dummy`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `brands`
+--
+
+INSERT INTO `brands` (`id`, `name`, `notes`, `image_url`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Tanpa Merk', NULL, NULL, NULL, NULL, NULL),
+(2, '555', NULL, NULL, NULL, NULL, NULL),
+(3, 'A3', NULL, NULL, NULL, NULL, NULL),
+(4, 'Aceclafied', NULL, NULL, NULL, NULL, NULL),
+(5, 'Acer', NULL, NULL, NULL, NULL, NULL),
+(6, 'Alfamart', NULL, NULL, NULL, NULL, NULL),
+(7, 'Alison', NULL, NULL, NULL, NULL, NULL),
+(8, 'Aqua', NULL, NULL, NULL, NULL, NULL),
+(9, 'Araldite', NULL, NULL, NULL, NULL, NULL),
+(10, 'Artline', NULL, NULL, NULL, NULL, NULL),
+(11, 'Asus', NULL, NULL, NULL, NULL, NULL),
+(12, 'ATS', NULL, NULL, NULL, NULL, NULL),
+(13, 'Avx', NULL, NULL, NULL, NULL, NULL),
+(14, 'Axeel', NULL, NULL, NULL, NULL, NULL),
+(15, 'Bantex', NULL, NULL, NULL, NULL, NULL),
+(16, 'Baofeng', NULL, NULL, NULL, NULL, NULL),
+(17, 'Benex', NULL, NULL, NULL, NULL, NULL),
+(18, 'Bison', NULL, NULL, NULL, NULL, NULL),
+(19, 'Bitec', NULL, NULL, NULL, NULL, NULL),
+(20, 'Black & D', NULL, NULL, NULL, NULL, NULL),
+(21, 'Borma', NULL, NULL, NULL, NULL, NULL),
+(22, 'Bosch', NULL, NULL, NULL, NULL, NULL),
+(23, 'Camel', NULL, NULL, NULL, NULL, NULL),
+(24, 'Canon M100', NULL, NULL, NULL, NULL, NULL),
+(25, 'Casio', NULL, NULL, NULL, NULL, NULL),
+(26, 'China', NULL, NULL, NULL, NULL, NULL),
+(27, 'Dacom', NULL, NULL, NULL, NULL, NULL),
+(28, 'Dca', NULL, NULL, NULL, NULL, NULL),
+(29, 'Deli', NULL, NULL, NULL, NULL, NULL),
+(30, 'Dexsta', NULL, NULL, NULL, NULL, NULL),
+(31, 'Dextone', NULL, NULL, NULL, NULL, NULL),
+(32, 'Drekcell', NULL, NULL, NULL, NULL, NULL),
+(33, 'Dunia Mas', NULL, NULL, NULL, NULL, NULL),
+(34, 'Ekonomi', NULL, NULL, NULL, NULL, NULL),
+(35, 'Entena', NULL, NULL, NULL, NULL, NULL),
+(36, 'Epson', NULL, NULL, NULL, NULL, NULL),
+(37, 'Essen', NULL, NULL, NULL, NULL, NULL),
+(38, 'Eterna', NULL, NULL, NULL, NULL, NULL),
+(39, 'Etona', NULL, NULL, NULL, NULL, NULL),
+(40, 'Excel', NULL, NULL, NULL, NULL, NULL),
+(41, 'F75', NULL, NULL, NULL, NULL, NULL),
+(42, 'Faber', NULL, NULL, NULL, NULL, NULL),
+(43, 'Fox', NULL, NULL, NULL, NULL, NULL),
+(44, 'FSK', NULL, NULL, NULL, NULL, NULL),
+(45, 'GCC', NULL, NULL, NULL, NULL, NULL),
+(46, 'Gold Fox', NULL, NULL, NULL, NULL, NULL),
+(47, 'Grebel', NULL, NULL, NULL, NULL, NULL),
+(48, 'Gunindo', NULL, NULL, NULL, NULL, NULL),
+(49, 'Haier', NULL, NULL, NULL, NULL, NULL),
+(50, 'Haston', NULL, NULL, NULL, NULL, NULL),
+(51, 'Genius', NULL, NULL, NULL, NULL, NULL),
+(52, 'HP', NULL, NULL, NULL, NULL, NULL),
+(53, 'Hurica', NULL, NULL, NULL, NULL, NULL),
+(54, 'Imudex', NULL, NULL, NULL, NULL, NULL),
+(55, 'IN3106', NULL, NULL, NULL, NULL, NULL),
+(56, 'Index', NULL, NULL, NULL, NULL, NULL),
+(57, 'Informa', NULL, NULL, NULL, NULL, NULL),
+(58, 'Inspiroy', NULL, NULL, NULL, NULL, NULL),
+(59, 'Joyko', NULL, NULL, NULL, NULL, NULL),
+(60, 'Kangaro', NULL, NULL, NULL, NULL, NULL),
+(61, 'Ken Master', NULL, NULL, NULL, NULL, NULL),
+(62, 'Kenko', NULL, NULL, NULL, NULL, NULL),
+(63, 'Kiki', NULL, NULL, NULL, NULL, NULL),
+(64, 'Kin', NULL, NULL, NULL, NULL, NULL),
+(65, 'Kingstone', NULL, NULL, NULL, NULL, NULL),
+(66, 'Kingstone Tape', NULL, NULL, NULL, NULL, NULL),
+(67, 'Kirin', NULL, NULL, NULL, NULL, NULL),
+(68, 'Korea', NULL, NULL, NULL, NULL, NULL),
+(69, 'Kris', NULL, NULL, NULL, NULL, NULL),
+(70, 'Krisbow', NULL, NULL, NULL, NULL, NULL),
+(71, 'Laba Laba', NULL, NULL, NULL, NULL, NULL),
+(72, 'Larkin', NULL, NULL, NULL, NULL, NULL),
+(73, 'Leister', NULL, NULL, NULL, NULL, NULL),
+(74, 'Lenovo', NULL, NULL, NULL, NULL, NULL),
+(75, 'LG', NULL, NULL, NULL, NULL, NULL),
+(76, 'Linex', NULL, NULL, NULL, NULL, NULL),
+(77, 'Lionstar', NULL, NULL, NULL, NULL, NULL),
+(78, 'Logitech', NULL, NULL, NULL, NULL, NULL),
+(79, 'Max', NULL, NULL, NULL, NULL, NULL),
+(80, 'MDM', NULL, NULL, NULL, NULL, NULL),
+(81, 'Meiden', NULL, NULL, NULL, NULL, NULL),
+(82, 'Metabo', NULL, NULL, NULL, NULL, NULL),
+(83, 'Mimaki', NULL, NULL, NULL, NULL, NULL),
+(84, 'Molab', NULL, NULL, NULL, NULL, NULL),
+(85, 'MTM', NULL, NULL, NULL, NULL, NULL),
+(86, 'Multiopro', NULL, NULL, NULL, NULL, NULL),
+(87, 'Mutoh', NULL, NULL, NULL, NULL, NULL),
+(88, 'Nachi Tape', NULL, NULL, NULL, NULL, NULL),
+(89, 'Nelson', NULL, NULL, NULL, NULL, NULL),
+(90, 'Neudelan', NULL, NULL, NULL, NULL, NULL),
+(91, 'Nipon Tape', NULL, NULL, NULL, NULL, NULL),
+(92, 'Nito', NULL, NULL, NULL, NULL, NULL),
+(93, 'Ocean', NULL, NULL, NULL, NULL, NULL),
+(94, 'Onemed', NULL, NULL, NULL, NULL, NULL),
+(95, 'Panasonic', NULL, NULL, NULL, NULL, NULL),
+(96, 'Paperline', NULL, NULL, NULL, NULL, NULL),
+(97, 'Paperone', NULL, NULL, NULL, NULL, NULL),
+(98, 'Pextons', NULL, NULL, NULL, NULL, NULL),
+(99, 'Philip', NULL, NULL, NULL, NULL, NULL),
+(100, 'Piorus', NULL, NULL, NULL, NULL, NULL),
+(101, 'Post It', NULL, NULL, NULL, NULL, NULL),
+(102, 'Prohek', NULL, NULL, NULL, NULL, NULL),
+(103, 'Propan', NULL, NULL, NULL, NULL, NULL),
+(104, 'Rakitan Intel', NULL, NULL, NULL, NULL, NULL),
+(106, 'Repil x', NULL, NULL, NULL, NULL, NULL),
+(107, 'Roland', NULL, NULL, NULL, NULL, NULL),
+(108, 'Rotring', NULL, NULL, NULL, NULL, NULL),
+(109, 'Ryu', NULL, NULL, NULL, NULL, NULL),
+(110, 'Salery', NULL, NULL, NULL, NULL, NULL),
+(111, 'Samsung', NULL, NULL, NULL, NULL, NULL),
+(112, 'Samurai Paint', NULL, NULL, NULL, NULL, NULL),
+(113, 'Sandplex', NULL, NULL, NULL, NULL, NULL),
+(114, 'Sapord', NULL, NULL, NULL, NULL, NULL),
+(115, 'SC', NULL, NULL, NULL, NULL, NULL),
+(116, 'SDI', NULL, NULL, NULL, NULL, NULL),
+(117, 'Seagate', NULL, NULL, NULL, NULL, NULL),
+(119, 'Sensi', NULL, NULL, NULL, NULL, NULL),
+(120, 'Sharp', NULL, NULL, NULL, NULL, NULL),
+(121, 'Shayu', NULL, NULL, NULL, NULL, NULL),
+(122, 'Sidu', NULL, NULL, NULL, NULL, NULL),
+(123, 'Smartfren', NULL, NULL, NULL, NULL, NULL),
+(124, 'Snowman', NULL, NULL, NULL, NULL, NULL),
+(125, 'SPC', NULL, NULL, NULL, NULL, NULL),
+(126, 'SPS', NULL, NULL, NULL, NULL, NULL),
+(127, 'Staedtier', NULL, NULL, NULL, NULL, NULL),
+(128, 'Standard', NULL, NULL, NULL, NULL, NULL),
+(129, 'Stanly', NULL, NULL, NULL, NULL, NULL),
+(130, 'Stanvik', NULL, NULL, NULL, NULL, NULL),
+(131, 'Suzuki', NULL, NULL, NULL, NULL, NULL),
+(132, 'Tangit', NULL, NULL, NULL, NULL, NULL),
+(133, 'Tiger', NULL, NULL, NULL, NULL, NULL),
+(134, 'Tokay', NULL, NULL, NULL, NULL, NULL),
+(135, 'Top', NULL, NULL, NULL, NULL, NULL),
+(136, 'Toshiba', NULL, NULL, NULL, NULL, NULL),
+(137, 'Toyo', NULL, NULL, NULL, NULL, NULL),
+(138, 'TP-LINK', NULL, NULL, NULL, NULL, NULL),
+(139, 'Turbo', NULL, NULL, NULL, NULL, NULL),
+(140, 'Type Super', NULL, NULL, NULL, NULL, NULL),
+(141, 'Ultra', NULL, NULL, NULL, NULL, NULL),
+(142, 'Uniken', NULL, NULL, NULL, NULL, NULL),
+(143, 'Uticon', NULL, NULL, NULL, NULL, NULL),
+(144, 'Velix', NULL, NULL, NULL, NULL, NULL),
+(145, 'Vezel', NULL, NULL, NULL, NULL, NULL),
+(146, 'Votre', NULL, NULL, NULL, NULL, NULL),
+(147, 'Vtec', NULL, NULL, NULL, NULL, NULL),
+(148, 'WD40', NULL, NULL, NULL, NULL, NULL),
+(149, 'Wipol', NULL, NULL, NULL, NULL, NULL),
+(150, 'Workpro 24\"', NULL, NULL, NULL, NULL, NULL),
+(151, 'Xiaomi', NULL, NULL, NULL, NULL, NULL),
+(152, 'Xinta', NULL, NULL, NULL, NULL, NULL),
+(153, 'Zebra', NULL, NULL, NULL, NULL, NULL),
+(154, 'Broco', NULL, NULL, NULL, NULL, NULL),
+(155, 'Targus', NULL, NULL, NULL, NULL, NULL),
+(156, 'Tekiro', NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `notes`, `image_url`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Tanpa Kategori', NULL, NULL, NULL, NULL, NULL),
+(2, 'Alat Kerja', NULL, NULL, NULL, NULL, NULL),
+(3, 'Alat Laser', NULL, NULL, NULL, NULL, NULL),
+(4, 'Alat Produksi', NULL, NULL, NULL, NULL, NULL),
+(5, 'ATK', NULL, NULL, NULL, NULL, NULL),
+(6, 'Bahan Laser', NULL, NULL, NULL, NULL, NULL),
+(7, 'Elektronik', NULL, NULL, NULL, NULL, NULL),
+(8, 'Rumah Tangga', NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `divisions`
+--
+
+CREATE TABLE `divisions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `divisions`
+--
+
+INSERT INTO `divisions` (`id`, `name`, `notes`, `image_url`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Tanpa Divisi', NULL, NULL, NULL, '2020-02-21 03:25:01', NULL),
+(2, 'Divisi IT', NULL, NULL, NULL, '2020-02-21 03:25:01', NULL),
+(3, 'Divisi Produksi', NULL, NULL, NULL, '2020-02-21 03:25:01', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `items`
+--
+
+CREATE TABLE `items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `brand_id` bigint(20) UNSIGNED NOT NULL,
+  `supplier_id` bigint(20) UNSIGNED NOT NULL,
+  `division_id` bigint(20) UNSIGNED NOT NULL,
+  `price` decimal(12,0) UNSIGNED DEFAULT NULL,
+  `qty` bigint(20) UNSIGNED DEFAULT NULL,
+  `image_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `year_of_purchase` timestamp NULL DEFAULT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `serial_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `barcode` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `items`
+--
+
+INSERT INTO `items` (`id`, `name`, `user_id`, `category_id`, `brand_id`, `supplier_id`, `division_id`, `price`, `qty`, `image_url`, `year_of_purchase`, `notes`, `serial_number`, `barcode`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Patri Besar', 1, 2, 2, 1, 1, '70000', 1, NULL, '2019-02-21 11:32:43', NULL, 'CMK-AKP0043', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(2, 'Helm Proyek', 1, 2, 3, 1, 1, '29700', 1, NULL, '2019-02-21 11:32:44', NULL, 'CMK-AKP0087', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(3, 'Kuas 6mm', 1, 5, 4, 1, 1, '9000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-50071', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(4, 'Monitor Acer 17\" Kotak (Vita)', 1, 7, 5, 1, 1, '300000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-E0034', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(5, 'Solasi updated againaaaaa', 1, 5, 6, 1, 1, '5000', 1, '/opt/lampp/temp/phpKS9PVw', '2019-02-21 11:32:47', NULL, 'CMK-50098', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 07:38:01'),
+(6, 'Solasi Bening 1/2 in', 1, 5, 6, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:48', NULL, 'CMK-50099', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(7, 'Senar Nylon', 1, 6, 7, 1, 1, '25000', 5, NULL, '2019-02-21 11:32:49', NULL, 'CMK-BL0036', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(8, 'Timah Solder', 1, 6, 7, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-BL0037', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(9, 'Galon Aqua', 1, 8, 8, 1, 1, '195000', 3, NULL, '2019-02-21 11:32:51', NULL, 'CMK-RT0023', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(10, 'Lem Araldite', 1, 5, 9, 1, 1, '75000', 3, NULL, '2019-02-21 11:32:52', NULL, 'CMK-50039', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(11, 'Tinta Stampad', 1, 5, 10, 1, 1, '7500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50077', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(12, 'Laptop (Pak Agus)', 1, 7, 11, 1, 1, '3900000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0014', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(13, 'Laptop Asus A8 (Adam)', 1, 7, 11, 1, 1, '3000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0017', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(14, 'Waterpas', 1, 2, 12, 1, 1, '65000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0051', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(15, 'AC AVX', 1, 8, 13, 1, 1, '4000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0001', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(16, 'Kape Sedang', 1, 2, 14, 1, 1, '8500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0148', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(17, 'Ordner Besar', 1, 5, 15, 1, 1, '56000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50034', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(18, 'Ordner Sedang', 1, 5, 15, 1, 1, '44000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50047', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(19, 'Ordner Kecil', 1, 5, 15, 1, 1, '19000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50050', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(20, 'Mouse Pad', 1, 5, 15, 1, 1, '30000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50058', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(21, 'Walkie Talkie', 1, 2, 16, 1, 1, '639000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0021', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(22, 'Kunci Pas 10-11', 1, 2, 16, 1, 1, '38000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0081', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(23, 'Odner Sedang', 1, 5, 17, 1, 1, '28000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50033', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(24, 'Gergaji Kayu', 1, 2, 18, 1, 1, '18500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0118', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(25, 'Mesin Paku Tembak', 1, 2, 19, 1, 1, '575000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0010', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(26, 'Jigsaw', 1, 2, 20, 1, 1, '385000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0015', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(27, 'Sarung Tangan Kain', 1, 2, 21, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0159', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(28, 'Mesin Router', 1, 2, 22, 1, 1, '527000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0013', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(29, 'Mata Jigsaw 1 Set', 1, 2, 22, 1, 1, '136000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0028', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(30, 'Cuter Besar', 1, 2, 22, 1, 1, '96000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0033', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(31, 'Palu Ungkit K', 1, 2, 22, 1, 1, '65700', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0047', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(32, 'Mata Bor ', 1, 2, 22, 1, 1, '55000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0057', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(33, 'Kunci Inggris Kecil', 1, 2, 22, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0063', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(34, 'Senter Kecil', 1, 2, 22, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0083', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(35, 'Tang Sedang', 1, 2, 22, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0115', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(36, 'Gergaji Besi Kecil', 1, 2, 22, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0124', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(37, 'Mata Obeng ', 1, 2, 22, 1, 1, '60000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0130', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(38, 'Mata Shock', 1, 2, 22, 1, 1, '40000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0144', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(39, 'Bor Kaca', 1, 2, 23, 1, 1, '60000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0054', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(40, 'Saklar 2', 1, 2, 154, 1, 1, '14000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0137', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(41, 'Dudukan Saklar', 1, 2, 154, 1, 1, '4000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0160', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(42, 'Palu Ungkit', 1, 2, 23, 1, 1, '65700', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0046', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(43, 'Kalkulator Besar', 1, 5, 25, 1, 1, '117000', 1, NULL, '2019-02-21 11:32:43', NULL, 'CMK-50005', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(44, 'Kalkulator', 1, 5, 25, 1, 1, '100000', 1, NULL, '2019-02-21 11:32:44', NULL, 'CMK-50006', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(45, 'CCTV + Endcoder', 1, 7, 26, 1, 1, '5000000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-E0010', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(46, 'Kunci Shock 10', 1, 2, 27, 1, 1, '18000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-AKP0119', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(47, 'Mesin Amplas Kecil', 1, 2, 28, 1, 1, '385000', 1, NULL, '2019-02-21 11:32:47', NULL, 'CMK-AKP0016', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(48, 'Paper Clip Sedang', 1, 5, 29, 1, 1, '378000', 6, NULL, '2019-02-21 11:32:48', NULL, 'CMK-50014', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(49, 'Perforator', 1, 5, 29, 1, 1, '42000', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-50025', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(50, 'Penggaris Setiga 1 Set', 1, 5, 29, 1, 1, '28500', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-50032', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(51, 'Binder Klip Kecil', 1, 5, 29, 1, 1, '25000', 3, NULL, '2019-02-21 11:32:51', NULL, 'CMK-50038', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(52, 'Stampad', 1, 5, 29, 1, 1, '23000', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-50045', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(53, 'Tempat Solatip', 1, 5, 29, 1, 1, '17000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50053', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(54, 'Paper Clip ', 1, 5, 29, 1, 1, '14000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50079', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(55, 'Push Pins', 1, 5, 29, 1, 1, '6500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50082', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(56, 'Saklar 1', 1, 2, 30, 1, 1, '14000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0136', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(57, 'Glue Stik', 1, 5, 31, 1, 1, '94400', 8, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50065', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(58, 'Kunci Ring 18+19', 1, 2, 32, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0093', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(59, 'Kertas A4', 1, 5, 33, 1, 1, '39000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50026', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(60, 'Sabun Cream', 1, 8, 34, 1, 1, '4000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0062', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(61, 'Koas 2in', 1, 2, 35, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0062', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(62, 'Printer Epson L1800', 1, 7, 36, 1, 1, '7000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0004', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(63, 'Printer Dot Matrix LX 310', 1, 7, 36, 1, 1, '4000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0013', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(64, 'Printer Epson M110B (Helm)', 1, 7, 36, 1, 1, '2500000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0018', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(65, 'Tang Besar', 1, 2, 37, 1, 1, '49000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0068', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(66, 'Koas 1 1/2 in', 1, 2, 38, 1, 1, '6000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0154', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(67, 'Paku Tembak Besar', 1, 2, 39, 1, 1, '60000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0055', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(68, 'Staples Etong', 1, 5, 39, 1, 1, '60000', 20, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50015', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(69, 'Staples / Isi Hekter', 1, 5, 39, 1, 1, '1200', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50117', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(70, 'Spray Gun', 1, 2, 41, 1, 1, '418000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0014', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(71, 'Serutan', 1, 5, 42, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50097', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(72, 'Lemfox 300gr', 1, 6, 43, 1, 1, '26000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0023', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(73, 'Cover Plat LED', 1, 6, 43, 1, 1, '24000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0026', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(74, 'Thiner Herin', 1, 2, 43, 1, 1, '57000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0117', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(75, 'Cover Plat Nomor', 1, 6, 43, 1, 1, '13000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0031', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(76, '1 Set Mata Obeng Pembolong', 1, 2, 44, 1, 1, '52000', 7, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0061', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(77, 'Mesin Laser', 1, 4, 45, 1, 1, '285000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0001', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(78, 'Oksigen', 1, 4, 45, 1, 1, '8000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0006', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(79, 'Inverter', 1, 4, 45, 1, 1, '5500000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0007', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(80, 'Keyboard Genius (Ivan)', 1, 7, 51, 1, 1, '98000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0045', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(81, 'Mouse Genius (pc-print)', 1, 7, 51, 1, 1, '45000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0050', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(82, 'Solasi Kertas 1in', 1, 5, 46, 1, 1, '189000', 27, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50081', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(83, 'Water Glue', 1, 5, 47, 1, 1, '3000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50112', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(84, 'Gunting Besar', 1, 5, 48, 1, 1, '74000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50028', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(85, 'AC Haier', 1, 7, 49, 1, 1, '4000000', 1, NULL, '2019-02-21 11:32:43', NULL, 'CMK-E0012', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(86, 'Obeng Min Besar', 1, 2, 50, 1, 1, '90000', 1, NULL, '2019-02-21 11:32:44', NULL, 'CMK-AKP0036', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(87, 'Kunci Pipa', 1, 2, 50, 1, 1, '80000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-AKP0038', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(88, 'Obeng Min Sedang', 1, 2, 50, 1, 1, '68000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-AKP0045', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(89, 'Tang Buaya Sedang', 1, 2, 50, 1, 1, '65000', 1, NULL, '2019-02-21 11:32:47', NULL, 'CMK-AKP0050', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(90, 'Masker', 1, 2, 50, 1, 1, '45000', 1, NULL, '2019-02-21 11:32:48', NULL, 'CMK-AKP0071', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(91, 'Obeng Plus Sedang', 1, 2, 50, 1, 1, '135000', 3, NULL, '2019-02-21 11:32:49', NULL, 'CMK-AKP0072', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(92, 'Catok Besar', 1, 2, 50, 1, 1, '43000', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-AKP0075', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(93, 'Catok Kecil', 1, 2, 50, 1, 1, '43000', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-AKP0076', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(94, 'Catok Sedang', 1, 2, 50, 1, 1, '43000', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-AKP0077', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(95, 'Obeng Min Plus Kecil Panjang', 1, 2, 50, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0082', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(96, 'Sikat Kawat Kecil', 1, 2, 50, 1, 1, '16900', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0123', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(97, 'Obeng Min Besar', 1, 2, 50, 1, 1, '10000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0145', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(98, 'Sikat Kawat', 1, 2, 50, 1, 1, '6000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0155', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(99, 'Jigsaw', 1, 2, 53, 1, 1, '600000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0008', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(100, 'Phiser S6', 1, 2, 54, 1, 1, '45000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0150', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(101, 'Infocus IN3106', 1, 7, 55, 1, 1, '3500000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0015', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(102, 'Odner Sedang', 1, 5, 56, 1, 1, '22000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50046', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(103, 'Kursi Besi Bulat', 1, 8, 57, 1, 1, '525000', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0020', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(104, 'Pen Tablet ', 1, 7, 58, 1, 1, '800000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0028', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(105, 'Staple Lunas', 1, 5, 59, 1, 1, '70000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50012', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(106, 'Alat Potong Cutter', 1, 5, 59, 1, 1, '192000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50017', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(107, 'Binder Klip Besar', 1, 5, 59, 1, 1, '45000', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50021', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(108, 'Penggaris 60cm', 1, 5, 59, 1, 1, '42000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50023', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(109, 'Penggaris 60cm', 1, 5, 59, 1, 1, '84000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50024', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(110, 'Gunting', 1, 5, 59, 1, 1, '74000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50027', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(111, 'Binder Klip Sedang', 1, 5, 59, 1, 1, '30000', 12, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50031', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(112, 'Hekter Besar', 1, 2, 59, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0106', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(113, 'Gunting Besar', 1, 5, 59, 1, 1, '45000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50056', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(114, 'Gunting Besar', 1, 5, 59, 1, 1, '75000', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50057', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(115, 'Gunting Kecil', 1, 5, 59, 1, 1, '36000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50062', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(116, 'Cutter Besar', 1, 5, 59, 1, 1, '88000', 8, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50067', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(117, 'Stapler', 1, 5, 59, 1, 1, '26400', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50072', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(118, 'Penggaris 15m', 1, 5, 59, 1, 1, '16000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50073', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(119, 'Penggaris 30cm', 1, 5, 59, 1, 1, '24000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50074', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(120, 'Double Tape 2in', 1, 5, 59, 1, 1, '17700', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50086', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(121, 'Cutter Kecil', 1, 5, 59, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50089', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(122, 'Cutter Kecil', 1, 5, 59, 1, 1, '35000', 7, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50090', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(123, 'Double Tape 1in', 1, 5, 59, 1, 1, '55000', 11, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50091', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(124, 'Isi Cutter', 1, 5, 59, 1, 1, '35000', 7, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50092', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(125, 'Isi Cutter Besar', 1, 5, 59, 1, 1, '5000', 12, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50093', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(126, 'Stabilo Pink', 1, 5, 59, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50100', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(127, 'Stabilo Yellow', 1, 5, 59, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:43', NULL, 'CMK-50101', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(128, 'Tip X', 1, 5, 59, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:44', NULL, 'CMK-50103', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(129, 'Tip X Kertas', 1, 5, 59, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-50105', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(130, 'Double Tape kecil', 1, 5, 59, 1, 1, '18000', 4, NULL, '2019-02-21 11:32:46', NULL, 'CMK-50106', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(131, 'Double Tape 1/2 in', 1, 5, 59, 1, 1, '52000', 13, NULL, '2019-02-21 11:32:47', NULL, 'CMK-50107', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(132, 'Stabilo', 1, 5, 59, 1, 1, '36000', 9, NULL, '2019-02-21 11:32:48', NULL, 'CMK-50108', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(133, 'Paperclip', 1, 5, 59, 1, 1, '3950', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-50109', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(134, 'Gun Tacker', 1, 2, 60, 1, 1, '138500', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-AKP0027', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(135, 'Isi Stepgun 10mm', 1, 2, 60, 1, 1, '22000', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-AKP0102', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(136, 'Pembolong Kertas', 1, 5, 60, 1, 1, '11800', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-50066', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(137, 'Solder Tembak', 1, 2, 61, 1, 1, '29700', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0088', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(138, 'Penggaris 100cm', 1, 5, 62, 1, 1, '352000', 8, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50022', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(139, 'Staples Kenko', 1, 5, 62, 1, 1, '28000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50035', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(140, 'Tempat Solatip', 1, 5, 62, 1, 1, '50000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50043', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(141, 'Kater Besar', 1, 2, 62, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0108', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(142, 'Cutter Bekas Besar', 1, 5, 62, 1, 1, '30000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50055', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(143, 'Cuter Kecil', 1, 2, 62, 1, 1, '6500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0153', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(144, 'Cutter Bekas Besar', 1, 5, 62, 1, 1, '30000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50088', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(145, 'Tip X', 1, 5, 62, 1, 1, '10000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50104', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(146, 'Binder Clip Besar', 1, 5, 62, 1, 1, '2000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50118', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(147, 'Amplop', 1, 5, 63, 1, 1, '8000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50113', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(148, 'Resibon Gurindra', 1, 2, 64, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0113', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(149, 'Kunci T 14\"', 1, 2, 65, 1, 1, '17500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0121', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(150, 'Solasi Kertas 2in', 1, 5, 66, 1, 1, '13000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50083', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(151, 'Kipas Basement', 1, 7, 67, 1, 1, '350000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0032', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(152, 'vinyl welding roll', 1, 2, 68, 1, 1, '1400000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0003', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(153, 'Ac Cooler', 1, 8, 69, 1, 1, '1000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0004', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(154, 'Stablizer', 1, 4, 70, 1, 1, '2000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0008', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(155, 'Vacum Cleaner', 1, 8, 70, 1, 1, '600000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0007', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(156, 'Bor Cordles + Charger', 1, 2, 70, 1, 1, '550000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0012', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(157, 'Organiser Krisbow', 1, 2, 70, 1, 1, '612000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0024', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(158, 'Gun Tacker Kecil', 1, 2, 70, 1, 1, '150000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0025', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(159, 'Obeng Min Sedang', 1, 2, 70, 1, 1, '65000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0048', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(160, 'Obeng Sedang +', 1, 2, 70, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0112', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(161, 'Thiner 1 Liter', 1, 2, 71, 1, 1, '12000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0139', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(162, 'Kap Lampu 1/2 Bola', 1, 2, 72, 1, 1, '114000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0116', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(163, 'Catok Akrilik', 1, 2, 73, 1, 1, '700000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0005', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(164, 'Monitor 24\" Lenovo (pc print)', 1, 7, 74, 1, 1, '800000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0026', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(165, 'Monitor 24\" Lenovo (pc-print)', 1, 7, 74, 1, 1, '800000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0027', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(166, 'TV LG 22 in (CCTV)', 1, 7, 75, 1, 1, '3000000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0022', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(167, 'LCD LG 19 in (Riski)', 1, 7, 75, 1, 1, '500000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0031', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(168, 'Kompas Cutter', 1, 5, 76, 1, 1, '96500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50008', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(169, 'Pot Bunga No. 5', 1, 8, 77, 1, 1, '220000', 2, NULL, '2019-02-21 11:32:43', NULL, 'CMK-RT0019', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(170, 'Paket Mouse Key Logitech (Riski)', 1, 7, 78, 1, 1, '200000', 1, NULL, '2019-02-21 11:32:44', NULL, 'CMK-E0037', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(171, 'Mouse Logitech b100 (PC-LASER)', 1, 7, 78, 1, 1, '95000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-E0046', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(172, 'Mouse Logitech M185 (Ivan)', 1, 7, 78, 1, 1, '85000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-E0047', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(173, 'Keyboard Logitech k100', 1, 7, 78, 1, 1, '80000', 1, NULL, '2019-02-21 11:32:47', NULL, 'CMK-E0049', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(174, 'PakuTembak Kecil', 1, 2, 79, 1, 1, '45000', 1, NULL, '2019-02-21 11:32:48', NULL, 'CMK-AKP0073', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(175, 'Isi Stepgun 12mm', 1, 2, 79, 1, 1, '22000', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-AKP0103', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(176, 'Meteran Rol', 1, 2, 80, 1, 1, '55000', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-AKP0058', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(177, 'Gunting Bedah', 1, 5, 81, 1, 1, '40000', 2, NULL, '2019-02-21 11:32:51', NULL, 'CMK-50048', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(178, 'Hot Gun', 1, 2, 82, 1, 1, '1400000', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-AKP0002', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(179, 'Cutting', 1, 4, 83, 1, 1, '45000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0004', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(180, 'Mesin Gurindra Sedang', 1, 2, 84, 1, 1, '620000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0007', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(181, 'Kunci Roda', 1, 2, 85, 1, 1, '14000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0135', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(182, 'Kunci Pas 10', 1, 2, 85, 1, 1, '10000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0141', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(183, 'Kompresor Kuning', 1, 2, 86, 1, 1, '1450000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0001', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(184, 'Printer', 1, 4, 87, 1, 1, '160000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0003', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(185, 'Lakban Bening', 1, 5, 88, 1, 1, '14000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50061', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(186, 'Solasi', 1, 5, 88, 1, 1, '12000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50064', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(187, 'Solasi Bening', 1, 5, 88, 1, 1, '50000', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50070', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(188, 'Solasi Bening 1/2 in', 1, 5, 88, 1, 1, '78000', 13, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50085', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(189, 'Corong Plastik', 1, 3, 89, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AL0008', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(190, 'Kunci Inggris Sedang', 1, 2, 90, 1, 1, '53000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0060', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(191, 'Double Tape Foam', 1, 5, 91, 1, 1, '14000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50078', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(192, 'Pvc Tape 3/4 in', 1, 5, 92, 1, 1, '29000', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50087', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(193, 'Senar', 1, 2, 93, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0066', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(194, 'Masker', 1, 5, 94, 1, 1, '23000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50044', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(195, 'Steker', 1, 2, 95, 1, 1, '11000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0140', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(196, 'Cashing Saklar', 1, 2, 95, 1, 1, '63000', 9, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0151', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(197, 'Kertas NCR', 1, 5, 96, 1, 1, '200000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50002', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(198, 'Buku Batik', 1, 5, 96, 1, 1, '27000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50036', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(199, 'Kertas 3 809', 1, 5, 97, 1, 1, '451000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50001', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(200, 'Kertas B5 709', 1, 5, 97, 1, 1, '34000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50030', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(201, 'Penggaris BS Kertas', 1, 5, 97, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50096', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(202, 'Lem Tembak', 1, 2, 98, 1, 1, '29000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0090', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(203, 'Lamu Spot + Stand', 1, 2, 99, 1, 1, '155000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0023', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(204, 'Dudukan Lampu LED', 1, 2, 99, 1, 1, '85000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0037', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(205, 'Lampu LED', 1, 2, 99, 1, 1, '30000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0142', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(206, 'Lampu LED', 1, 2, 99, 1, 1, '10000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0143', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(207, 'Jam Dinding', 1, 8, 100, 1, 1, '59000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0026', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(208, 'Sticky Notes', 1, 5, 101, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50060', NULL, NULL, '2020-02-21 05:44:54', '2020-02-21 05:44:54'),
+(209, 'Pahat Kecil', 1, 2, 102, 1, 1, '30000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0086', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(210, 'Electric Glinder', 1, 2, 103, 1, 1, '1000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0004', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(211, 'PC (IVAN)', 1, 7, 104, 1, 1, '10000000', 1, NULL, '2019-02-21 11:32:43', NULL, 'CMK-E0001', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(212, 'PC Poppy ', 1, 7, 104, 1, 1, '10000000', 1, NULL, '2019-02-21 11:32:44', NULL, 'CMK-E0002', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(213, 'PC (PC-LASER)', 1, 7, 104, 1, 1, '6000000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-E0006', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(214, 'PC (PC-PRINT)', 1, 7, 104, 1, 1, '6000000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-E0007', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(215, 'PC Vita ', 1, 7, 104, 1, 1, '6000000', 1, NULL, '2019-02-21 11:32:47', NULL, 'CMK-E0008', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(216, 'PC (Riski)', 1, 7, 104, 1, 1, '5000000', 1, NULL, '2019-02-21 11:32:48', NULL, 'CMK-E0011', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(217, 'Handphone Ivan ', 1, 7, 151, 1, 1, '3200000', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-E0016', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(218, 'Pematik Api', 1, 3, 106, 1, 1, '65000', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-AL0002', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(219, 'Printer', 1, 4, 107, 1, 1, '180000000', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-AP0002', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(220, 'Penggaris Segitiga', 1, 5, 108, 1, 1, '150000', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-50003', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(221, 'Gergaji Duduk', 1, 2, 109, 1, 1, '559900', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0011', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(222, 'Spray Gun Plastik', 1, 2, 109, 1, 1, '317000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0017', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(223, 'Kunci Ring Pas 9', 1, 2, 110, 1, 1, '290000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0018', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(224, 'Tang Ripet', 1, 2, 110, 1, 1, '80000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0039', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(225, 'Palu Ungkit', 1, 2, 110, 1, 1, '65000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0049', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(226, 'Kunci Ring Pas 8', 1, 2, 100, 1, 1, '21500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0105', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(227, 'Kulkas 2 Pintu', 1, 8, 111, 1, 1, '4000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0002', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(228, 'Samsung J7 Prime', 1, 7, 111, 1, 1, '1700000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0019', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(229, 'Monitor Samsung 24\" Curved (Poppy)', 1, 7, 111, 1, 1, '1500000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0021', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(230, 'Monitor Laser', 1, 7, 111, 1, 1, '300000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0035', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(231, 'Aerosol Cat Clear', 1, 6, 112, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0006', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(232, 'Aerosol Cat Gold', 1, 6, 112, 1, 1, '70000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0008', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(233, 'Aerosol Cat Hologram', 1, 6, 112, 1, 1, '70000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0011', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(234, 'Aerosol Cat Silver', 1, 6, 112, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0013', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(235, 'Aerosol Cat White', 1, 6, 112, 1, 1, '70000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0014', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(236, 'Lem Bakar', 1, 6, 112, 1, 1, '70000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0025', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(237, 'Reflektor Stiker', 1, 6, 112, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0028', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(238, 'Gergaji Besi', 1, 2, 113, 1, 1, '90000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0035', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(239, 'Aerosol Cat Clear', 1, 6, 114, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0007', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(240, 'Aerosol Cat Grape', 1, 6, 114, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0009', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(241, 'Aerosol Cat Green', 1, 6, 114, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0010', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(242, 'Aerosol Cat Pearl', 1, 6, 114, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0012', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(243, 'Aerosol Cat White', 1, 6, 114, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0015', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(244, 'Layerd Hitam', 1, 6, 114, 1, 1, '110000', 11, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0032', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(245, 'Pin Plastik', 1, 6, 114, 1, 1, '30000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0034', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(246, 'Pin Tusuk Peniti', 1, 6, 114, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0035', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(247, 'Ganci Pin Plastik', 1, 6, 114, 1, 1, '52000', 13, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0038', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(248, 'Led Strip 12v / 5m', 1, 6, 115, 1, 1, '40000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0005', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(249, 'Led Strip 12v / 5m', 1, 6, 115, 1, 1, '29000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0019', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(250, 'Led Strip 12v / 5m', 1, 6, 115, 1, 1, '29000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0020', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(251, 'Led Strip 12v / 5m', 1, 6, 115, 1, 1, '29000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0021', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(252, 'Led Strip 12v / 5m', 1, 6, 115, 1, 1, '29000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0022', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(253, 'Isi Cutter Kecil', 1, 5, 116, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:43', NULL, 'CMK-50094', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(254, 'Isi Cutter Kecil', 1, 5, 116, 1, 1, '42000', 14, NULL, '2019-02-21 11:32:44', NULL, 'CMK-50111', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(255, 'Hardisk Eks 4TB', 1, 7, 117, 1, 1, '1500000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-E0020', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(256, 'Hardisk Eks 2TB', 1, 7, 117, 1, 1, '1300000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-E0023', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(257, 'Kunci Pas No.10', 1, 2, 110, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:47', NULL, 'CMK-AKP0110', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(258, 'Latex Glover', 1, 3, 119, 1, 1, '18000', 1, NULL, '2019-02-21 11:32:48', NULL, 'CMK-AL0007', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(259, 'Resin Lical Catalist', 1, 6, 119, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-BL0029', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(260, 'Voucher Sticker', 1, 6, 119, 1, 1, '10000', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-BL0033', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(261, 'Kulkas Chiler', 1, 8, 120, 1, 1, '1000000', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-RT0005', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(262, 'Penggaris 20cm', 1, 5, 121, 1, 1, '7000', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-50080', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(263, 'Kertas 3', 1, 5, 122, 1, 1, '85000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50009', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(264, 'Modem M6x', 1, 7, 123, 1, 1, '550000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0030', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(265, 'Spidol Snowman', 1, 5, 124, 1, 1, '32000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50075', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(266, 'Spidol Snowman', 1, 5, 124, 1, 1, '31500', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50084', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(267, 'Pulpen', 1, 5, 124, 1, 1, '3900', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50110', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(268, 'Keyboard SPC (Poppy)', 1, 7, 125, 1, 1, '100000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0043', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(269, 'Katrol Kecil', 1, 2, 126, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0109', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(270, 'Penghapus', 1, 5, 127, 1, 1, '30000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50068', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(271, 'Jam Dinding', 1, 8, 128, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0027', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(272, 'Pulpen', 1, 5, 128, 1, 1, '1500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50115', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(273, 'Pulpen', 1, 5, 128, 1, 1, '4500', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50116', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(274, '1 Set Kunci SOK P3-P10', 1, 2, 129, 1, 1, '245000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0020', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(275, 'Tang Kabel', 1, 2, 129, 1, 1, '120000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0031', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(276, 'Ring Pas', 1, 2, 129, 1, 1, '95000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0034', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(277, '1 Set Kunci', 1, 2, 129, 1, 1, '73100', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0042', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(278, '1 Set Kunci Bintang', 1, 2, 129, 1, 1, '62000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0052', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(279, '1 Set Mata Obeng - + Panjang', 1, 2, 129, 1, 1, '58000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0056', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(280, 'Mata Obeng + Pendek', 1, 2, 129, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0064', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(281, 'Mata Obeng Min Pendek', 1, 2, 129, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0065', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(282, 'Palu Karet', 1, 2, 129, 1, 1, '30300', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0085', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(283, 'Cuter Besar', 1, 2, 129, 1, 1, '13000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0138', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(284, '1 Set Mata Bor', 1, 2, 129, 1, 1, '86000', 33, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0161', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(285, 'Kunci Ring Pas 11', 1, 2, 130, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0094', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(286, 'Kunci Ring Pas 12', 1, 2, 130, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0095', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(287, 'Kunci Ring Pas 13', 1, 2, 130, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0096', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(288, 'Kunci Ring Pas 14', 1, 2, 130, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0097', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(289, 'Kunci Ring Pas 15', 1, 2, 130, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0098', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(290, 'Kunci Ring Pas 19', 1, 2, 130, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0099', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(291, 'Kunci Ring Pas 24', 1, 2, 130, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0100', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(292, 'Kunci Ring + Pas No.9', 1, 2, 130, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0111', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(293, 'Dongrak Mobil Buaya', 1, 2, 131, 1, 1, '275000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0019', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(294, 'Lem PPC', 1, 2, 132, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0129', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(295, 'Kulkas 2 Pintu', 1, 8, 1, 1, 1, '3000000', 1, NULL, '2019-02-21 11:32:43', NULL, 'CMK-RT0003', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(296, 'Meja Kotak', 1, 8, 1, 1, 1, '6200000', 8, NULL, '2019-02-21 11:32:44', NULL, 'CMK-RT0006', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(297, 'FingerPrint', 1, 7, 1, 1, 1, '700000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-E0029', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(298, 'Microwave', 1, 8, 1, 1, 1, '500000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-RT0008', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(299, 'Gas Besar', 1, 8, 1, 1, 1, '400000', 1, NULL, '2019-02-21 11:32:47', NULL, 'CMK-RT0009', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(300, 'Gas Sedang', 1, 8, 1, 1, 1, '250000', 1, NULL, '2019-02-21 11:32:48', NULL, 'CMK-RT0010', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(301, 'Kompor Gas', 1, 8, 1, 1, 1, '250000', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-RT0011', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(302, 'Terminal 5 Lubang', 1, 2, 1, 1, 1, '200000', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-AKP0022', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(303, 'Gordeng', 1, 8, 1, 1, 1, '200000', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-RT0013', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(304, 'Papan Tulis', 1, 8, 1, 1, 1, '200000', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-RT0014', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(305, 'Kursi Besi', 1, 8, 1, 1, 1, '960000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0015', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(306, 'Modul RGB 12V', 1, 6, 1, 1, 1, '150000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0001', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(307, 'Rak Sepatu', 1, 8, 1, 1, 1, '150000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0016', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(308, 'Tempat Pel', 1, 8, 1, 1, 1, '300000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0017', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(309, 'Kabel Hdmi 5m (Infocus)', 1, 7, 1, 1, 1, '135000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0041', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(310, '1 Set Janka', 1, 5, 1, 1, 1, '126000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50004', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(311, 'Led Strip 220c/10m', 1, 6, 1, 1, 1, '500000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0002', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(312, 'Sigmat', 1, 3, 1, 1, 1, '124000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AL0001', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(313, 'Dispenser', 1, 8, 1, 1, 1, '110000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0018', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(314, 'Socket RGB', 1, 6, 1, 1, 1, '105000', 13, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0004', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55');
+INSERT INTO `items` (`id`, `name`, `user_id`, `category_id`, `brand_id`, `supplier_id`, `division_id`, `price`, `qty`, `image_url`, `year_of_purchase`, `notes`, `serial_number`, `barcode`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(315, 'Tinta Printer', 1, 5, 1, 1, 1, '100000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50007', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(316, 'Regulator Gas', 1, 8, 1, 1, 1, '100000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0021', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(317, 'Tong Sampah Besar', 1, 8, 1, 1, 1, '90000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0022', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(318, 'Gunting Seng', 1, 2, 1, 1, 1, '77000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0041', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(319, 'Rak Piring', 1, 8, 1, 1, 1, '63000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0024', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(320, 'Amplas 60', 1, 2, 1, 1, 1, '60000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0053', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(321, 'Gelas Kaca Besar', 1, 8, 1, 1, 1, '120000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0025', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(322, 'Mata Jangka', 1, 5, 1, 1, 1, '51000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50016', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(323, 'Pot Bunga No.12', 1, 8, 1, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0028', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(324, 'Tunggu Kompor', 1, 8, 1, 1, 1, '50000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0029', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(325, 'Kertas ID Card', 1, 5, 1, 1, 1, '47000', 35, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50018', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(326, 'Kertas ID Card Baru', 1, 5, 1, 1, 1, '47000', 35, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50019', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(327, 'Kertas ID Card Lama', 1, 5, 1, 1, 1, '47000', 69, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50020', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(328, 'Tang Crimping', 1, 7, 1, 1, 1, '45000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0051', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(329, 'Kunci Kecil', 1, 2, 1, 1, 1, '190000', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0080', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(330, 'Pengki', 1, 8, 1, 1, 1, '112200', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0030', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(331, 'Suntikan Lem Akrilik', 1, 3, 1, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AL0003', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(332, 'Hekter', 1, 5, 1, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50029', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(333, 'Kabel Jack Female', 1, 6, 1, 1, 1, '35000', 13, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0016', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(334, 'Pen Iklan Stainless', 1, 6, 1, 1, 1, '210000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0017', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(335, 'Pen Iklan Stainless', 1, 6, 1, 1, 1, '70000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0018', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(336, 'Asbak', 1, 8, 1, 1, 1, '96000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0032', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(337, 'Pot Bunga No .10', 1, 8, 1, 1, 1, '64000', 2, NULL, '2019-02-21 11:32:43', NULL, 'CMK-RT0033', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(338, 'Tempat Tisu Toilet', 1, 8, 1, 1, 1, '64000', 2, NULL, '2019-02-21 11:32:44', NULL, 'CMK-RT0034', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(339, 'Konverter HDMI to VGA', 1, 7, 1, 1, 1, '60000', 2, NULL, '2019-02-21 11:32:45', NULL, 'CMK-E0052', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(340, 'Pompa Galon', 1, 8, 1, 1, 1, '90000', 3, NULL, '2019-02-21 11:32:46', NULL, 'CMK-RT0035', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(341, 'Pot Bunga Item Sedang', 1, 8, 1, 1, 1, '120000', 4, NULL, '2019-02-21 11:32:47', NULL, 'CMK-RT0036', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(342, 'Tempat Sendok', 1, 8, 1, 1, 1, '60000', 2, NULL, '2019-02-21 11:32:48', NULL, 'CMK-RT0037', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(343, 'Solder Tembak', 1, 2, 1, 1, 1, '29700', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-AKP0089', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(344, 'Siltip', 1, 2, 1, 1, 1, '28000', 1, NULL, '2019-02-21 11:32:50', NULL, 'CMK-AKP0091', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(345, 'Skrap Besi', 1, 2, 1, 1, 1, '28000', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-AKP0092', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(346, 'Dispenser Sabun', 1, 8, 1, 1, 1, '56000', 2, NULL, '2019-02-21 11:32:52', NULL, 'CMK-RT0038', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(347, 'Ember Sedang', 1, 8, 1, 1, 1, '52000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0039', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(348, 'Mouse Pad', 1, 5, 1, 1, 1, '75000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50040', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(349, 'Penggaris Plastik 30cm', 1, 5, 1, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50041', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(350, 'Lem Araldite', 1, 6, 1, 1, 1, '75000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0024', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(351, 'Obeng Plus Pendek', 1, 2, 1, 1, 1, '24000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0101', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(352, 'Obeng Min Merah Besar', 1, 2, 1, 1, 1, '22000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0104', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(353, 'Kabel Tease', 1, 2, 1, 1, 1, '40000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0107', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(354, 'Resibon Keramik', 1, 2, 1, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0114', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(355, 'Kabel HDMI 1,5m', 1, 7, 1, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0055', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(356, 'Obeng Set (Mini)', 1, 7, 1, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0056', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(357, 'Payung', 1, 8, 1, 1, 1, '40000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0040', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(358, 'Payung Lipat', 1, 8, 1, 1, 1, '40000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0041', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(359, 'Pot Bunga Item Kecil', 1, 8, 1, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0042', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(360, 'Sapu', 1, 8, 1, 1, 1, '40000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0043', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(361, 'Sapu', 1, 8, 1, 1, 1, '20000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0044', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(362, 'Pasekon', 1, 2, 1, 1, 1, '18000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0120', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(363, 'Cutter Akrilik', 1, 3, 1, 1, 1, '18000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AL0006', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(364, 'Tali Rapia', 1, 5, 1, 1, 1, '18000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50051', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(365, 'Peniti Pin Plastik', 1, 6, 1, 1, 1, '18000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-BL0027', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(366, 'Pot Bunga No.6', 1, 8, 1, 1, 1, '36000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0046', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(367, 'Gunting Kecil', 1, 5, 1, 1, 1, '17000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50052', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(368, 'Tong Sampah Bulat Plastik', 1, 8, 1, 1, 1, '17000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0047', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(369, 'Kunci Pas 10 + 12', 1, 2, 1, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0125', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(370, 'Kunci T 12\"', 1, 2, 1, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0128', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(371, 'Skrap Besar Plastik', 1, 2, 1, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0132', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(372, 'Tambang Plastik', 1, 2, 1, 1, 1, '150000', 10, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0133', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(373, 'Terminal 3 Lubang', 1, 2, 1, 1, 1, '30000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0134', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(374, 'Notebook AS', 1, 5, 1, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50059', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(375, 'Gelas Kaca Kecil', 1, 8, 1, 1, 1, '75000', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0048', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(376, 'Sikat WC', 1, 8, 1, 1, 1, '60000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0049', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(377, 'Card Reader', 1, 7, 1, 1, 1, '14000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0058', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(378, 'Ripet Kabel IT', 1, 7, 1, 1, 1, '14000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0059', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(379, 'Adaptor 12 v', 1, 6, 1, 1, 1, '26000', 2, NULL, '2019-02-21 11:32:43', NULL, 'CMK-BL0030', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(380, 'Pingset Besar ', 1, 5, 1, 1, 1, '48000', 4, NULL, '2019-02-21 11:32:44', NULL, 'CMK-50063', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(381, 'Obeng Plus Sedang Amerika', 1, 2, 1, 1, 1, '10000', 1, NULL, '2019-02-21 11:32:45', NULL, 'CMK-AKP0146', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(382, 'Pingset Kecil', 1, 5, 1, 1, 1, '40000', 4, NULL, '2019-02-21 11:32:46', NULL, 'CMK-50069', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(383, 'Ember Kecil', 1, 8, 1, 1, 1, '40000', 4, NULL, '2019-02-21 11:32:47', NULL, 'CMK-RT0050', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(384, 'Gayung', 1, 8, 1, 1, 1, '20000', 2, NULL, '2019-02-21 11:32:48', NULL, 'CMK-RT0051', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(385, 'Saringan', 1, 8, 1, 1, 1, '10000', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-RT0052', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(386, 'Mata Obeng Bor Kecil', 1, 2, 1, 1, 1, '92000', 10, NULL, '2019-02-21 11:32:50', NULL, 'CMK-AKP0147', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(387, 'Superpel 770ml', 1, 8, 1, 1, 1, '8500', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-RT0053', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(388, 'Mata Bor + -', 1, 2, 1, 1, 1, '72000', 9, NULL, '2019-02-21 11:32:52', NULL, 'CMK-AKP0149', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(389, 'Name tag', 1, 5, 1, 1, 1, '71100', 9, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50076', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(390, 'Redos 3 LB', 1, 2, 1, 1, 1, '7000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0152', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(391, 'Steak Weper Kaca', 1, 8, 1, 1, 1, '13000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0054', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(392, 'Piring Plastik', 1, 8, 1, 1, 1, '42000', 7, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0055', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(393, 'Sendok Stainless', 1, 8, 1, 1, 1, '12000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0056', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(394, 'Garpu Stainless', 1, 8, 1, 1, 1, '27500', 5, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0057', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(395, 'Kape Plastik', 1, 2, 1, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0156', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(396, 'Mata Obeng ', 1, 2, 1, 1, 1, '60000', 12, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0157', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(397, 'Obeng Plus Merah Kecil', 1, 2, 1, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0158', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(398, 'Lem Korea', 1, 5, 1, 1, 1, '15000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50095', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(399, 'Stiker Label Kain', 1, 5, 1, 1, 1, '20000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50102', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(400, 'Cangkir', 1, 8, 1, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0058', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(401, 'Penghapus Papan Tulis', 1, 8, 1, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0059', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(402, 'Sendok Plastik', 1, 8, 1, 1, 1, '15000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0060', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(403, 'Sikat', 1, 8, 1, 1, 1, '5000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0061', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(404, 'Garpu Plastik', 1, 8, 1, 1, 1, '6000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0063', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(405, 'Trashbag', 1, 8, 1, 1, 1, '12000', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0064', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(406, 'Gelas Plastik', 1, 8, 1, 1, 1, '10800', 6, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0065', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(407, 'Mouse Targus AMW600 (Poppy)', 1, 7, 155, 1, 1, '100000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0044', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(408, 'Kunci Shock', 1, 2, 156, 1, 1, '664100', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0006', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(409, 'Kunci Ring Pas 8 -32', 1, 2, 156, 1, 1, '595000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0009', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(410, 'Pahat 1 Set', 1, 2, 156, 1, 1, '127500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0030', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(411, 'Tang Knip Sedang', 1, 2, 156, 1, 1, '99000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0032', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(412, 'Tang Buaya', 1, 2, 156, 1, 1, '79500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0040', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(413, 'Tang Biasa Sedang', 1, 2, 156, 1, 1, '55000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0059', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(414, 'Obeng Plus Kecil', 1, 2, 156, 1, 1, '47300', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0070', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(415, 'Palu Bulet Besar', 1, 2, 156, 1, 1, '45000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0074', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(416, 'Tang SKnip Kecil', 1, 2, 156, 1, 1, '39500', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0079', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(417, 'Kunci T 10', 1, 2, 156, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0126', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(418, 'Kunci T 10\"', 1, 2, 156, 1, 1, '15000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0127', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(419, 'Kursi Kantor', 1, 8, 133, 1, 1, '500000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0012', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(420, 'Bensin Gas', 1, 5, 134, 1, 1, '26000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50037', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(421, 'Stampel', 1, 5, 135, 1, 1, '140000', 2, NULL, '2019-02-21 11:32:43', NULL, 'CMK-50010', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(422, 'Stample', 1, 5, 135, 1, 1, '140000', 2, NULL, '2019-02-21 11:32:44', NULL, 'CMK-50011', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(423, 'Stempel', 1, 5, 135, 1, 1, '140000', 2, NULL, '2019-02-21 11:32:45', NULL, 'CMK-50013', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(424, 'Flashdisk 32GB', 1, 7, 136, 1, 1, '100000', 1, NULL, '2019-02-21 11:32:46', NULL, 'CMK-E0042', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(425, 'Odner Besar', 1, 5, 137, 1, 1, '57000', 3, NULL, '2019-02-21 11:32:47', NULL, 'CMK-50049', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(426, 'Router Basement', 1, 7, 138, 1, 1, '150000', 1, NULL, '2019-02-21 11:32:48', NULL, 'CMK-E0039', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(427, 'Router Lantai 1', 1, 7, 138, 1, 1, '150000', 1, NULL, '2019-02-21 11:32:49', NULL, 'CMK-E0040', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(428, 'USB Wifi Adapter ', 1, 7, 138, 1, 1, '170000', 2, NULL, '2019-02-21 11:32:50', NULL, 'CMK-E0048', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(429, 'Kipas Angin', 1, 8, 139, 1, 1, '35000', 1, NULL, '2019-02-21 11:32:51', NULL, 'CMK-RT0031', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(430, 'Lem Akrilik 500ml', 1, 6, 140, 1, 1, '105000', 1, NULL, '2019-02-21 11:32:52', NULL, 'CMK-BL0003', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(431, 'Koas 4in', 1, 2, 141, 1, 1, '32000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0084', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(432, 'Pisau Router 1/4,5', 1, 2, 142, 1, 1, '135000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0029', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(433, 'Pisau Router 1/4 x 3/8', 1, 2, 142, 1, 1, '70000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0044', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(434, 'Pisau Router 1/4', 1, 2, 142, 1, 1, '48000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0069', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(435, 'Lem Aibon 2,5 Kg', 1, 2, 143, 1, 1, '444000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0026', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(436, 'Terminal 6 Lubang', 1, 3, 143, 1, 1, '21800', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AL0005', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(437, 'Map Bening', 1, 5, 144, 1, 1, '2000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50114', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(438, 'Kikir Besi B', 1, 2, 145, 1, 1, '41800', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0078', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(439, 'Gegef', 1, 2, 145, 1, 1, '16900', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0122', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(440, 'Keyboard Votre Biasa', 1, 7, 146, 1, 1, '75000', 3, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0054', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(441, 'Mouse Votre ', 1, 7, 146, 1, 1, '60000', 4, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0057', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(442, 'Laminator Dingin', 1, 4, 147, 1, 1, '15000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0005', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(443, 'Laminator hot', 1, 4, 147, 1, 1, '1000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0009', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(444, 'Punch id card', 1, 4, 147, 1, 1, '900000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0010', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(445, 'Mesin Mata Titik', 1, 4, 147, 1, 1, '850000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0011', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(446, 'Paper Trimer', 1, 4, 147, 1, 1, '250000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AP0012', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(447, 'WD40', 1, 3, 148, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AL0004', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(448, 'Resibon Cutting Besi', 1, 2, 148, 1, 1, '105000', 7, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0131', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(449, 'Karbol 450ml', 1, 8, 149, 1, 1, '36000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-RT0045', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(450, 'Linggis', 1, 2, 150, 1, 1, '49200', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-AKP0067', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(451, 'Redmi 6a (Poppy)', 1, 7, 151, 1, 1, '900000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0024', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(452, 'Redmi Note 4', 1, 7, 151, 1, 1, '900000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0025', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(453, 'Cutter Pisau', 1, 5, 152, 1, 1, '15400', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50054', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(454, 'Stabilo Pulpen', 1, 5, 153, 1, 1, '25000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-50042', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(455, 'Tong Sampah', 1, 7, 1, 1, 1, '26000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0053', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(456, 'Tripod', 1, 7, 40, 2, 1, '250000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0036', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(457, 'Mouse M170', 1, 7, 78, 2, 1, '340000', 2, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0038', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(458, 'Laptop Asus TP-300L (Panji)', 1, 7, 11, 3, 1, '6000000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0005', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(459, 'Laptop Cm 1475au (Angga)', 1, 7, 52, 3, 1, '7750000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0003', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(460, 'Kamera', 1, 7, 24, 4, 1, '5500000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0009', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(461, 'Kipas Kirin', 1, 7, 67, 5, 1, '350000', 1, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0033', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55'),
+(462, 'Konektor RJ 45', 1, 7, 1, 5, 1, '20000', 50, NULL, '2019-02-21 11:32:53', NULL, 'CMK-E0060', NULL, NULL, '2020-02-21 05:44:55', '2020-02-21 05:44:55');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `items_temps`
+--
+
+CREATE TABLE `items_temps` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `brand_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2020_02_18_161825_create_categories_table', 1),
+(4, '2020_02_18_161825_create_divisions_table', 1),
+(5, '2020_02_18_161942_create_suppliers_table', 1),
+(6, '2020_02_18_162016_create_brands_table', 1),
+(7, '2020_02_18_163956_create_items_table', 1),
+(8, '2020_02_20_095415_create_items_temps_table', 1),
+(9, '2020_02_21_115015_create_items_table', 2),
+(10, '2020_02_21_124309_create_items_table', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `suppliers`
+--
+
+CREATE TABLE `suppliers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `suppliers`
+--
+
+INSERT INTO `suppliers` (`id`, `name`, `phone`, `email`, `address`, `notes`, `image_url`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Supplier Tidak Diketahui', '0812 3456 7899', 'supplier1@example.com', 'Jl. Cemara No.67, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161', NULL, NULL, NULL, '2020-02-21 03:25:01', NULL),
+(2, 'BEC', '0812 3456 7899', 'supplier1@example.com', 'Jl. Cemara No.67, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161', NULL, NULL, NULL, '2020-02-21 03:25:01', NULL),
+(3, 'Abdurahman Store', '0812 3456 7899', 'supplier2@example.com', 'Jl. Cemara No.67, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161', NULL, NULL, NULL, '2020-02-21 03:25:01', NULL),
+(4, 'Akulaku', '0812 3456 7899', 'supplier2@example.com', 'Jl. Cemara No.67, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161', NULL, NULL, NULL, NULL, NULL),
+(5, 'Borma', '0812 3456 7899', 'supplier2@example.com', 'Jl. Cemara No.67, Pasteur, Kec. Sukajadi, Kota Bandung, Jawa Barat 40161', NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `privilege` text COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'JSON Privilege',
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0 is inactive',
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `privilege`, `status`, `deleted_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@example.com', NULL, NULL, '$2y$10$4VVjf8dMlB6Evu9KG82SwuZim8ZWAUlad0YO5Ms1baQfDvyOEXJAa', NULL, 1, NULL, NULL, '2020-02-21 03:25:01', NULL),
+(2, 'Staff', 'staff@example.com', NULL, NULL, '$2y$10$1kvmux8i601kkn8At8BDZOLgY9iNOihHcbozYYTlODBrMct8HijVW', NULL, 1, NULL, NULL, '2020-02-21 03:25:01', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `brands_name_unique` (`name`);
+
+--
+-- Indeks untuk tabel `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categories_name_unique` (`name`);
+
+--
+-- Indeks untuk tabel `divisions`
+--
+ALTER TABLE `divisions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `divisions_name_unique` (`name`);
+
+--
+-- Indeks untuk tabel `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `items_serial_number_unique` (`serial_number`),
+  ADD KEY `items_user_id_foreign` (`user_id`),
+  ADD KEY `items_category_id_foreign` (`category_id`),
+  ADD KEY `items_brand_id_foreign` (`brand_id`),
+  ADD KEY `items_supplier_id_foreign` (`supplier_id`),
+  ADD KEY `items_division_id_foreign` (`division_id`);
+
+--
+-- Indeks untuk tabel `items_temps`
+--
+ALTER TABLE `items_temps`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `items_temps_name_unique` (`name`);
+
+--
+-- Indeks untuk tabel `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indeks untuk tabel `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `suppliers_name_unique` (`name`);
+
+--
+-- Indeks untuk tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+
+--
+-- AUTO_INCREMENT untuk tabel `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `divisions`
+--
+ALTER TABLE `divisions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=463;
+
+--
+-- AUTO_INCREMENT untuk tabel `items_temps`
+--
+ALTER TABLE `items_temps`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `suppliers`
+--
+ALTER TABLE `suppliers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `items`
+--
+ALTER TABLE `items`
+  ADD CONSTRAINT `items_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `items_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `items_division_id_foreign` FOREIGN KEY (`division_id`) REFERENCES `divisions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `items_supplier_id_foreign` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `items_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
