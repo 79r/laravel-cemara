@@ -85,7 +85,10 @@ table {
 span {
     &.big-count {
         font-weight: bold;
-        font-size: 40px;
+        font-size: 36px;
+        @media screen and (max-width: 600px) {
+            font-size: 30px;
+        }
     }
     &.badge-sn {
         font-size: 14px;

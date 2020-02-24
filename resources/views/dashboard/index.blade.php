@@ -96,7 +96,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                         <div class="row">
-                                                <div class="col-7">
+                                                <div class="col-md-7">
                                                     <h5>Total</h5>
                                                     <span class="big-count">@currency($total_rp)</span>
 
@@ -105,7 +105,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-5 ml-auto d-none">
+                                                <div class="col-md-5 ml-auto d-none">
                                                     <div>
                                                         <img src="assets/images/widget-img.png" alt="" class="img-fluid">
                                                     </div>
