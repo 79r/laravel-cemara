@@ -33,7 +33,7 @@ class CategoryController extends Controller {
         $data = array(
             'categories' => Category::all(),
         );
-        return view('inventory.category.index', $data);
+        return view('inventory.categories.create', $data);
     }
 
     /**
@@ -45,7 +45,7 @@ class CategoryController extends Controller {
     public function store(Request $request) {
         $input = $request->all();
         Category::create($input);
-        redirect('inventory.category.index');
+        redirect('inventory.categories.index');
     }
 
     /**
