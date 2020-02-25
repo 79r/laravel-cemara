@@ -12,6 +12,8 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Style;
+
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -36,18 +38,18 @@ class InventoryExport implements
             $inventories->unit_price,
             $inventories->qty,
             $inventories->price,
-            $inventories->year_of_purchase,
+            date('Y', strtotime($inventories->year_of_purchase)),
             $inventories->category->name,
             $inventories->brand->name,
             $inventories->supplier->name,
             // Date::dateTimeToExcel($i->created_at),
         ];
     }
-    
+
     public function columnFormats(): array {
         return [
-            'B' => NumberFormat::FORMAT_DATE_DDMMYYYY,
-            'D' => NumberFormat::FORMAT_NUMBER,
+            'C' => NumberFormat::FORMAT_CURRENCY_USD,
+            'E' => NumberFormat::FORMAT_CURRENCY_USD,
         ];
     }
 
@@ -69,7 +71,7 @@ class InventoryExport implements
         return [
             AfterSheet::class => function(AfterSheet $event) {
                 $cellRange = 'A1:W1'; // All headers
-                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
+                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(12);
             },
         ];
     }
