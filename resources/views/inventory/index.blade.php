@@ -34,9 +34,11 @@
             @foreach($inventories as $inventory)
             <tr>
                 <th>
-                    <span class="badge badge-primary badge-sn">
-                        {{ $inventory->serial_number }}
-                    </span>
+                    <a href="{{ route('inventory.index') }}/{{ $inventory->id }}">
+                        <span class="badge badge-primary badge-sn">
+                            {{ $inventory->serial_number }}
+                        </span>
+                    </a>
                 </th>
                 <th>{{ $inventory->name }}</th>
                 <th>{{ $inventory->category->name }}</th>
