@@ -22,6 +22,7 @@ class CreateItemsTable extends Migration
             $table->bigInteger('supplier_id')->unsigned();
             $table->bigInteger('division_id')->unsigned();
 
+            $table->unsignedDecimal('unit_price', 12, 0)->nullable();
             $table->unsignedDecimal('price', 12, 0)->nullable();
             $table->unsignedBigInteger('qty')->nullable();
 

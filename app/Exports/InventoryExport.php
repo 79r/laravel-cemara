@@ -33,7 +33,7 @@ class InventoryExport implements
             // 'Cemara Global Inventory',
             $inventories->serial_number,
             $inventories->name,
-            // $inventories->unit_price,
+            $inventories->unit_price,
             $inventories->qty,
             $inventories->price,
             $inventories->year_of_purchase,
@@ -55,7 +55,7 @@ class InventoryExport implements
         return [
             'SERIAL NUMBER',
             'NAMA ITEM',
-            // 'HARGA SATUAN',
+            'HARGA SATUAN',
             'QTY',
             'HARGA',
             'TAHUN BELI',
