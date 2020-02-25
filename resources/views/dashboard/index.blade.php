@@ -46,7 +46,7 @@
                         <div class="container-fluid">
                             <div class="row">
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body">
                                         <div class="row">
@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body">
                                         <div class="row">
@@ -92,13 +92,13 @@
                                     </div>
                                 </div>
 
-                                <div class="d-none col-md-12 col-lg-6">
+                                <div class="col-md-4">
                                     <div class="card">
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-md-7">
-                                                    <h5>Total</h5>
-                                                    <span class="big-count">@currency($total_rp)</span>
+                                                    <h5>Total Inventory</h5>
+                                                    <span class="big-count">{{ \App\Inventory::count() }}</span>
 
                                                     <div class="mt-4">
                                                         <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
