@@ -30,15 +30,17 @@
                 <label class="col-md-2 col-form-label">Pilih Kategori</label>
                 <div class="col-md-10">
                     {!! Form::select('category_id', $category, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Kategori Inventory', 'id' => 'input-catagory-id', 'required']) !!}
+                    <small class="font-weight-bold form-text text-muted">Jika kategori tidak ada di daftar, buat kategori baru ya</small>
+                    <a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">Buat Kategori Baru</a>
                 </div>
             </div>
         
-            <div class="form-group row">
+            {{-- <div class="form-group row">
                 <label class="col-md-2 col-form-label">Pilih Divisi</label>
                 <div class="col-md-10">
                     {!! Form::select('division_id', $division, null, ['class' => 'form-control select', 'placeholder' => 'Pilih Divisi', 'id' => 'input-brand-id', 'required']) !!}
                 </div>
-            </div>
+            </div> --}}
 
             <div class="form-group row">
                 <label class="col-md-2 col-form-label">Pilih Merek</label>
@@ -77,6 +79,7 @@
                 <label for="example-date-input" class="col-md-2 col-form-label">Tahun Beli</label>
                 <div class="col-md-10">
                     <input class="form-control" type="date" name="year_of_purchase" placeholder="2019-01-01" id="input-year-of-purchase">
+                    <small class="font-weight-bold form-text text-muted">Bulan dan tanggal isi sembarang saja</small>
                 </div>
             </div>
         
@@ -84,6 +87,7 @@
                 <label for="example-date-input" class="col-md-2 col-form-label">Catatan (Opsional)</label>
                 <div class="col-md-10">
                     <textarea class="form-control" type="date" name="notes" placeholder="Tulis catatan bila diperlukan" id="input-notes"></textarea>
+                    <small class="font-weight-bold form-text text-muted">(Opsional) Tulis catatan jika memang ada</small>
                 </div>
             </div>
         
