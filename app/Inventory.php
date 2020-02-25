@@ -15,6 +15,7 @@ class Inventory extends Model {
         'brand_id',
         'supplier_id',
         'division_id',
+        'unit_price',
         'price',
         'qty',
         'image_url',
