@@ -7,6 +7,13 @@
         <p>Cemara Multi Kreatif</p>
     </div>
 </div>
+
+<div class="row text-center mb-3">
+    <div class="col-12">
+        <a href="{{ route('inventory.import.excel') }}" class="btn btn-primary btn-sm">Import dari Excel</a>
+        <a href="{{ route('inventory.export.excel') }}" class="btn btn-success btn-sm">Export ke Excel</a>
+    </div>
+</div>
 <div class="table-rep-plugin">
     <div class="table-responsive mb-0" data-pattern="priority-columns">
         <table id="table-cemara-inventory" class="table table-striped">

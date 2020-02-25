@@ -31,5 +31,6 @@ Route::get('inventory/search', 'InventoryController@search')->name('inventories.
 /* import excel */
 Route::post('/inventory/store-excel', 'InventoryImportController@store')->name('inventory.import.post');
 Route::get('/inventory/import-excel','InventoryImportController@import')->name('inventory.import.excel');
+Route::get('/inventory/export-excel','InventoryExportController@export')->name('inventory.export.excel');
 
 Route::resource('inventory', 'InventoryController');
