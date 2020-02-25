@@ -198,7 +198,7 @@ class InventoryImport implements ToModel, WithHeadingRow {
             case 'Akulaku';             return 3;   break;
             case 'BEC';                 return 4;   break;
             case 'Borma';               return 5;   break;
-            case 'Marga Cipta';         return 3;   break;
+            case 'Marga Cipta';         return 6;   break;
             default:                    return 1;   break;
         }
     }
