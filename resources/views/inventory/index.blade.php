@@ -69,6 +69,17 @@
     </div>
 </div>
 
+
+{{-- Redirect ke halaman single item jika hasil pencarian yang ditampilkan cuma 1 data --}}
+<script>
+    const result = document.querySelectorAll('.table-responsive tbody tr');
+    if(result.length == 1) {
+        const linkItem = document.querySelector('.table-responsive tbody tr th a');
+        linkItem.click();
+    }
+</script>
+
+
 <div class="mt-4 text-center">
     {{ $inventories->links() }}
 </div>
