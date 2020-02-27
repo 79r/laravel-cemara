@@ -20,4 +20,9 @@
         </div>
     </div>
 </div>
+
+<script>
+window.location.href = "{{ route('inventory.index') }}";
+</script>
+
 @endsection
