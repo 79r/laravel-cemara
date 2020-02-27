@@ -17,7 +17,15 @@
         <!-- App Css-->
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('app.css') }}" rel="stylesheet" type="text/css" />
-
+        <script src="https://cdn.tiny.cloud/1/uv24iy9qtnefaqewnget5o7kicyxonn9yga9kir8gqe3ac9l/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+        tinymce.init({
+            selector:'textarea',
+            plugins: "table",
+            menubar: "table"    
+        });
+        </script>
+        
     </head>
 
     <body data-topbar="colored">

@@ -91,11 +91,17 @@
                         <div class="media my-2">
                             <div class="media-body">
                                 <p class="text-muted mb-1">Catatan</p>
-                                @if (!empty($inventory->notes))
-                                    <h6 class="mb-0">{{ $inventory->notes }}</h6>
-                                @else
-                                    <h6 class="mb-0">Nggak ada catatan untuk item ini</h6>
-                                @endif
+                                <div id="inventory-notes">
+                                    @if (!empty($inventory->notes))
+                                        <h6 class="mb-0">{!! $inventory->notes !!}</h6>
+                                        <script>
+                                            const table = document.querySelector('#inventory-notes table');
+                                            table.classList = 'table table-striped table-dark';
+                                        </script>
+                                    @else
+                                        <h6 class="mb-0">Nggak ada catatan untuk item ini</h6>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </li>
