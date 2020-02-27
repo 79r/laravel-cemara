@@ -11,15 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@index')->name('dashboard');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::resource('inventory/divisions', 'DivisionController');
 Route::resource('inventory/categories', 'CategoryController');
