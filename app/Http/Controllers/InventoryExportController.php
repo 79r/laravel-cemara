@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Inventory;
+use App\InventoryItem;
 use App\Exports\InventoryExport;
 use Maatwebsite\Excel\Facades\Excel;
 

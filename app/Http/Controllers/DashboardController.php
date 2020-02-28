@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Inventory;
+use App\InventoryItem;
 
 class DashboardController extends Controller {
 
@@ -18,8 +18,8 @@ class DashboardController extends Controller {
     public function index() {
 
         $inventories = array(
-            'inventories'   => Inventory::paginate(10),
-            'total_rp'      => Inventory::sum('price')
+            'inventories'   => InventoryItem::paginate(10),
+            'total_rp'      => InventoryItem::sum('price')
         );
 
         return view('dashboard/index', $inventories);

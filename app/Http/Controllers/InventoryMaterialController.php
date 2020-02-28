@@ -4,22 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Supplier;
-
-class SupplierController extends Controller {
-
-    public function __construct() {
-        $this->middleware('auth');
-    }
-    
+class InventoryMaterialController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $suppliers = Supplier::all();
-        return view('inventory/suppliers/index', ['suppliers' => $suppliers]);
+        //
     }
 
     /**
@@ -28,8 +20,7 @@ class SupplierController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $supplier = Supplier::all();
-        return view('inventory.suppliers.create', $supplier);
+        //
     }
 
     /**
@@ -39,23 +30,7 @@ class SupplierController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-
-        $this->validate($request, [
-            'name'          => 'required|min:3|max:100',
-        ]);
-
-        $input = $request->all();
-
-        $input['image_url'] = null; // defaultnya null
-
-        $dirname = '/uploads/inventories/suppliers';
-
-        if ($request->hasFile('image_url')){
-            $input['image_url'] = $dirname .str_slug($input['name'], '-').'.'.$request->image_url->getClientOriginalExtension();
-            $request->image_url->move(public_path($dirname), $input['image_url']);
-        }
-        Supplier::create($input);
-        return redirect('inventory.suppliers.index');
+        //
     }
 
     /**
@@ -65,10 +40,7 @@ class SupplierController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $data = array(
-            'supplier' => Supplier::find($id)
-        );
-        return view('inventory/suppliers/show', $data);
+        //
     }
 
     /**
@@ -77,8 +49,7 @@ class SupplierController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -89,8 +60,7 @@ class SupplierController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -100,8 +70,7 @@ class SupplierController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }

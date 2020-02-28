@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model {
+class InventoryBrand extends Model {
 
     public function inventories() {
-        return $this->hasMany('App\Inventory');
+        return $this->hasMany(InventoryItem::class);
     }
+
 }

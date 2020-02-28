@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inventory extends Model {
+class InventoryItem extends Model {
 
-    protected $table = "items";
+    // protected $table = "inventory_items";
 
     protected $fillable = [
         'name',
@@ -26,15 +26,15 @@ class Inventory extends Model {
     ];
 
     public function brand() {
-        return $this->belongsTo('App\Brand');
+        return $this->belongsTo(InventoryBrand::class);
     }
 
     public function supplier() {
-        return $this->belongsTo('App\Supplier');
+        return $this->belongsTo(InventorySupplier::class);
     }
 
     public function category() {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(InventoryCategory::class);
     }
 
     public function division() {

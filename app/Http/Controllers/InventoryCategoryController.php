@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Category;
+use App\InventoryCategory;
 
-class CategoryController extends Controller {
+class InventoryCategoryController extends Controller {
 
     public function __construct() {
         $this->middleware('auth');
@@ -19,7 +19,7 @@ class CategoryController extends Controller {
      */
     public function index() {
         $data = array(
-            'categories' => Category::all(),
+            'categories' => InventoryCategory::all(),
         );
         return view('inventory.categories.index', $data);
     }
@@ -31,7 +31,7 @@ class CategoryController extends Controller {
      */
     public function create() {
         $data = array(
-            'categories' => Category::all(),
+            'categories' => InventoryCategory::all(),
         );
         return view('inventory.categories.create', $data);
     }
@@ -56,7 +56,7 @@ class CategoryController extends Controller {
      */
     public function show($id) {
         $data = array(
-            'category' => Category::find($id)
+            'category' => InventoryCategory::find($id)
         );
         return view('inventory/categories/show', $data);
     }

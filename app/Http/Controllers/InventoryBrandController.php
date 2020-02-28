@@ -4,14 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MaterialController extends Controller {
+use App\InventoryBrand;
+
+class InventoryBrandController extends Controller {
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        $brands = InventoryBrand::all();
+        return view('inventory/brands/index', ['brands' => $brands]);
     }
 
     /**
@@ -19,7 +27,8 @@ class MaterialController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
@@ -29,7 +38,8 @@ class MaterialController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
@@ -40,7 +50,10 @@ class MaterialController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+        $data = array(
+            'brand' => InventoryBrand::find($id)
+        );
+        return view('inventory/brands/show', $data);
     }
 
     /**
@@ -49,7 +62,8 @@ class MaterialController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         //
     }
 
@@ -60,7 +74,8 @@ class MaterialController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         //
     }
 
@@ -70,7 +85,8 @@ class MaterialController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         //
     }
 }

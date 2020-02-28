@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Division extends Model {
 
     public function inventory() {
-        return $this->hasMany(Division::class);
+        return $this->hasMany(InventoryItem::class);
     }
     
 }

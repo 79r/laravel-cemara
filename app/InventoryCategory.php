@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model {
+class InventoryCategory extends Model {
 
-    protected $table = "categories";
+    protected $table = "inventory_categories";
 
     protected $fillable = array(
         'name',
@@ -15,6 +15,6 @@ class Category extends Model {
     );
 
     public function inventories() {
-        return $this->hasMany('App\Inventory');
+        return $this->hasMany(InventoryItem::class);
     }
 }

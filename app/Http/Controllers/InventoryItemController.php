@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str; // untuk generate random string
 
 // include Model Item
-use App\Brand;
-use App\Category;
-use App\Supplier;
+use App\InventoryBrand;
+use App\InventoryCategory;
+use App\InventorySupplier;
+use App\InventoryItem;
 use App\Division;
-use App\Inventory;
 
-class InventoryController extends Controller {
+class InventoryItemController extends Controller {
 
 
     /* Controller ini di proteksi dengan middleware 
@@ -30,7 +30,7 @@ class InventoryController extends Controller {
      */
     public function index() {
         $data  = array(
-            'inventories' => Inventory::paginate(25),
+            'inventories' => InventoryItem::paginate(25),
         );
         return view('inventory.index', $data);
     }
@@ -42,7 +42,7 @@ class InventoryController extends Controller {
         $keyword = $request->keyword;
 
         /* mengambil data dari table inventory sesuai pencarian */
-        $inventories = Inventory::where('name', 'LIKE',"%".$keyword."%",)
+        $inventories = InventoryItem::where('name', 'LIKE',"%".$keyword."%",)
             // or where
             ->orWhere('serial_number', 'LIKE',"%".$keyword."%")->paginate(10);
         return view('inventory.index', compact('inventories'));
@@ -54,15 +54,15 @@ class InventoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $category = Category::orderBy('name','ASC')
+        $category = InventoryCategory::orderBy('name','ASC')
             ->get()
             ->pluck('name','id');
 
-        $brand = Brand::orderBy('name','ASC')
+        $brand = InventoryBrand::orderBy('name','ASC')
             ->get()
             ->pluck('name','id');
 
-        $supplier = Supplier::orderBy('name','ASC')
+        $supplier = InventorySupplier::orderBy('name','ASC')
             ->get()
             ->pluck('name','id');
             
@@ -70,7 +70,7 @@ class InventoryController extends Controller {
             ->get()
             ->pluck('name','id');
 
-        $inventory = Inventory::all();
+        $inventory = InventoryItem::all();
         return view('inventory.create', compact('category', 'brand', 'supplier', 'division'));
     }
 
@@ -103,7 +103,7 @@ class InventoryController extends Controller {
             $input['image_url'] = $dirname .str_slug($input['name'], '-').'.'.$request->image_url->getClientOriginalExtension();
             $request->image_url->move(public_path($dirname), $input['image_url']);
         }
-        Inventory::create($input);
+        InventoryItem::create($input);
         return redirect('inventory');
     }
 
@@ -116,7 +116,7 @@ class InventoryController extends Controller {
      */
     public function show($id) {
         $data = array(
-            'inventory' => Inventory::find($id)
+            'inventory' => InventoryItem::find($id)
         );
         return view('inventory/show', $data);
     }
@@ -129,17 +129,17 @@ class InventoryController extends Controller {
      */
     public function edit($id) {
 
-        $inventory = Inventory::find($id);
+        $inventory = InventoryItem::find($id);
 
-        $category = Category::orderBy('name','ASC')
+        $category = InventoryCategory::orderBy('name','ASC')
             ->get()
             ->pluck('name','id');
 
-        $brand = Brand::orderBy('name','ASC')
+        $brand = InventoryBrand::orderBy('name','ASC')
             ->get()
             ->pluck('name','id');
 
-        $supplier = Supplier::orderBy('name','ASC')
+        $supplier = InventorySupplier::orderBy('name','ASC')
             ->get()
             ->pluck('name','id');
 
@@ -159,20 +159,20 @@ class InventoryController extends Controller {
      */
     public function update(Request $request, $id) {
 
-        $category = Category::orderBy('name','ASC')
+        $category = InventoryCategory::orderBy('name','ASC')
         ->get()
         ->pluck('name','id');
 
-        $brand = Brand::orderBy('name','ASC')
+        $brand = InventoryBrand::orderBy('name','ASC')
         ->get()
         ->pluck('name','id');
 
-        $supplier = Supplier::orderBy('name','ASC')
+        $supplier = InventorySupplier::orderBy('name','ASC')
         ->get()
         ->pluck('name','id');
 
         $input = $request->all();
-        $inventory = Inventory::findOrFail($id);
+        $inventory = InventoryItem::findOrFail($id);
         $inventory->update($input);
         return redirect('inventory');
     }

@@ -52,7 +52,7 @@
                                         <div class="row">
                                                 <div class="col-7">
                                                     <h5>Brand</h5>
-                                                    <span class="big-count">{{ \App\Brand::count() }}</span>
+                                                    <span class="big-count">{{ \App\InventoryBrand::count() }}</span>
 
                                                     <div class="mt-4">
                                                         <a href="{{ route('brands.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
@@ -75,7 +75,7 @@
                                         <div class="row">
                                                 <div class="col-7">
                                                     <h5>Category</h5>
-                                                    <span class="big-count">{{ \App\Category::count() }}</span>
+                                                    <span class="big-count">{{ \App\InventoryCategory::count() }}</span>
 
                                                     <div class="mt-4">
                                                         <a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
@@ -98,7 +98,7 @@
                                         <div class="row">
                                                 <div class="col-md-7">
                                                     <h5>Total Inventory</h5>
-                                                    <span class="big-count">{{ \App\Inventory::count() }}</span>
+                                                    <span class="big-count">{{ \App\InventoryItem::count() }}</span>
 
                                                     <div class="mt-4">
                                                         <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>

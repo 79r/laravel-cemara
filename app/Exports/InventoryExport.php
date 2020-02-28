@@ -2,10 +2,7 @@
 
 namespace App\Exports;
 
-use App\Inventory;
-use App\Brand;
-use App\Category;
-use App\Supplier;
+use App\InventoryItem;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
@@ -77,7 +74,7 @@ class InventoryExport implements
     }
 
     public function collection() {
-        return Inventory::all();
+        return InventoryItem::all();
     }
 
 }

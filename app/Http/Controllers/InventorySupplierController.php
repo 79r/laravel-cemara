@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Brand;
+use App\InventorySupplier;
 
-class BrandController extends Controller {
+class InventorySupplierController extends Controller {
 
     public function __construct() {
         $this->middleware('auth');
@@ -18,8 +18,8 @@ class BrandController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $brands = Brand::all();
-        return view('inventory/brands/index', ['brands' => $brands]);
+        $suppliers = InventorySupplier::all();
+        return view('inventory/suppliers/index', ['suppliers' => $suppliers]);
     }
 
     /**
@@ -27,9 +27,9 @@ class BrandController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $supplier = InventorySupplier::all();
+        return view('inventory.suppliers.create', $supplier);
     }
 
     /**
@@ -38,9 +38,24 @@ class BrandController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+
+        $this->validate($request, [
+            'name'          => 'required|min:3|max:100',
+        ]);
+
+        $input = $request->all();
+
+        $input['image_url'] = null; // defaultnya null
+
+        $dirname = '/uploads/inventories/suppliers';
+
+        if ($request->hasFile('image_url')){
+            $input['image_url'] = $dirname .str_slug($input['name'], '-').'.'.$request->image_url->getClientOriginalExtension();
+            $request->image_url->move(public_path($dirname), $input['image_url']);
+        }
+        Supplier::create($input);
+        return redirect('inventory.suppliers.index');
     }
 
     /**
@@ -51,9 +66,9 @@ class BrandController extends Controller {
      */
     public function show($id) {
         $data = array(
-            'brand' => Brand::find($id)
+            'supplier' => InventorySupplier::find($id)
         );
-        return view('inventory/brands/show', $data);
+        return view('inventory/suppliers/show', $data);
     }
 
     /**
