@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 class CategoriesTableSeeder extends Seeder {
 
-    private $tableName = 'categories';
+    private $tableName = 'inventory_categories';
 
     /**
      * Run the database seeds.

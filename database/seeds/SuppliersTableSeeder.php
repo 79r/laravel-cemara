@@ -5,7 +5,7 @@ use Carbon\Carbon;
 
 class SuppliersTableSeeder extends Seeder {
 
-    private $tableName = 'suppliers';
+    private $tableName = 'inventory_suppliers';
     /**
      * Run the database seeds.
      *

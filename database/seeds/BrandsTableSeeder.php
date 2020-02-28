@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 class BrandsTableSeeder extends Seeder {
     
-    private $tableName = 'brands';
+    private $tableName = 'inventory_brands';
     /**
      * Run the database seeds.
      *

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemsTable extends Migration
+class CreateInventoryItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('inventory_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->bigInteger('user_id')->unsigned();
@@ -38,13 +38,13 @@ class CreateItemsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('cascade');
     
-            $table->foreign('category_id')->references('id')->on('categories')
+            $table->foreign('category_id')->references('id')->on('inventory_categories')
             ->onDelete('cascade');
     
-            $table->foreign('brand_id')->references('id')->on('brands')
+            $table->foreign('brand_id')->references('id')->on('inventory_brands')
             ->onDelete('cascade');
     
-            $table->foreign('supplier_id')->references('id')->on('suppliers')
+            $table->foreign('supplier_id')->references('id')->on('inventory_suppliers')
             ->onDelete('cascade');
 
             $table->foreign('division_id')->references('id')->on('divisions')
@@ -59,6 +59,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventorys');
+        Schema::dropIfExists('inventory_items');
     }
 }
