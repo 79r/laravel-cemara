@@ -10,7 +10,7 @@ class Jo extends Model {
     protected $dates = ['deleted_at'];
     protected $table = "jo";
     protected $fillable = array(
-        'serial_number',
+        'jo_code',
         'title',
         'start_date',
         'deadline',
@@ -19,6 +19,7 @@ class Jo extends Model {
         'material',
         'finishing',
         'qty',
+        'size',
         'notes',
         'user_id',
         'category_id',
