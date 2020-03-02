@@ -15,11 +15,25 @@
                     array('class' => 'form-control', 'id' => 'parent_id') )
                 }}
             </div>
-    
+
             <div class="form-group">
-                <label for="serial_number">Code JO</label>
-                {{ Form::text('title', 'auto_serial_number',
+                <label for="parent_id">Nama Klien</label>
+                {{ Form::select('client_id', $clients, null,
+                    array('class' => 'form-control', 'id' => 'client_id') )
+                }}
+            </div>
+
+            <div class="form-group">
+                <label for="jo_code">Code JO</label>
+                {{ Form::text('jo_code', 'auto_serial_number',
                     array('class' => 'form-control', 'placeholder' => 'Code JO'))
+                }}
+            </div>
+
+            <div class="form-group">
+                <label for="title">Nama JO</label>
+                {{ Form::text('title', null,
+                    array('class' => 'form-control', 'placeholder' => 'Nama JO'))
                 }}
             </div>
     
@@ -61,6 +75,15 @@
             <div class="form-group">
                 <label for="finishing">Finishing</label>
                 {{ Form::text('finishing', null, array('class' => 'form-control', 'placeholder' => 'Finishingnya apa ?') )}}
+            </div>
+            <div class="form-group">
+                <label for="qty">QTY</label>
+                {{ Form::text('qty', null, array('class' => 'form-control', 'placeholder' => 'QTY Berapa') )}}
+            </div>
+            <div class="form-group">
+                <label for="size">Ukuran</label>
+                {{ Form::text('size', null, array('class' => 'form-control', 'placeholder' => 'Ukurannya berapa') )}}
+                <small class="text-muted">Misal 5x5 CM / 1 M</small>
             </div>
             <div class="form-group">
                 <label for="notes">Notes!. Keterangan untuk Tim Produksi</label>
