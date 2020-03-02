@@ -42,8 +42,7 @@ class InventoryItemController extends Controller {
         $keyword = $request->keyword;
 
         /* mengambil data dari table inventory sesuai pencarian */
-        $inventories = InventoryItem::where('name', 'LIKE',"%".$keyword."%",)
-            // or where
+        $inventories = InventoryItem::where('name', 'LIKE',"%".$keyword."%")
             ->orWhere('serial_number', 'LIKE',"%".$keyword."%")->paginate(10);
         return view('inventory.index', compact('inventories'));
     }
