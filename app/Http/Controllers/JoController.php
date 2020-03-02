@@ -23,15 +23,22 @@ class JoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        
+        return "Hello World";
     }
 
 
-      /* fungsi ambil code jo dari akhir kemudiaan tambahkan nilainya dengan 1 */
+    /* Fungsi Buat JO secara otomatis */
     private function createJoCode() {
         $codeName       = "CK";
-        $lastJoCode     = 'CK00009'; // current last jo code
+
+        //  ambil kode jo terbaru
+        $lastJoCode     = Jo::orderBy('jo_code', 'DESC')->first()->jo_code; 
+
+        /* ambil sebagian karakter misal : CK07914 jadi 7914 sekaligus jadikan integer
+        dan ditambah nilainya dengan 1, sehingga jadi 7915 */
         $newCode        = (int)Str::after($lastJoCode, $codeName) + 1;
+
+        /* uji nomor Jo nya */
         switch(strlen((string)$newCode)) {
             case 1  : $newJoCode = $codeName . "0000" . (string)$newCode; break;
             case 2  : $newJoCode = $codeName  . "000" . (string)$newCode; break;
@@ -39,7 +46,7 @@ class JoController extends Controller {
             case 4  : $newJoCode = $codeName    . "0" . (string)$newCode; break;
             default : $newJoCode = (string)$newCode;
         }
-        return $newJoCode;
+        return $newJoCode; // kembalikan nilai JO baru
     }
 
 
@@ -49,9 +56,10 @@ class JoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $parents = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
-        $clients = Client::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('jo.create', compact('parents', 'clients'));
+        $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
+        $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
+        $new_jo_code    = $this->createJoCode();
+        return view('jo.create', compact('parents', 'clients', 'new_jo_code'));
     }
 
     /**
@@ -62,12 +70,14 @@ class JoController extends Controller {
      */
     public function store(Request $request) {
         $input = $request->all();
+        $input['jo_code']       = $this->createJoCode();
         $input['user_id']       = Auth::user()->id;
-        $input['category_id']   = 1; // buat defaultnya 1 aja
+        $input['category_id']   = 1; // buat defaultnya 1   aja
         $input['parent_id']     = (int)$request->parent_id;
         $input['client_id']     = (int)$request->client_id;
         $input['qty']           = (int)$request->qty;
         Jo::create($input);
+        return redirect()->route('jo.index');
     }
 
     /**

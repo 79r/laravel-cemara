@@ -2,9 +2,11 @@
 
 @section('content')
 <div class="my-5">
-    <div class="card-title text-center">
+    <div class="card-title text-center mb-5">
         <h4 class="header-title-lg">Buat JO</h4>
-        <p class="card-title-desc"></p>
+        <p class="lead font-weight-bold">Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis</p>
+        <p class="mb-0">Nomor JO otomatis</p>
+        <span class="btn btn-primary font-weight-bold">{{ $new_jo_code }}</span>
     </div>
     <div class="col-sm-12 col-md-10 col-lg-7 mx-auto">
         {{ Form::open( array('url' => route('jo.store'), 'files' => true) ) }}
@@ -23,9 +25,9 @@
                 }}
             </div>
 
-            <div class="form-group">
+            <div class="form-group d-none">
                 <label for="jo_code">Code JO</label>
-                {{ Form::text('jo_code', 'auto_serial_number',
+                {{ Form::text('jo_code', $new_jo_code,
                     array('class' => 'form-control', 'placeholder' => 'Code JO'))
                 }}
             </div>
