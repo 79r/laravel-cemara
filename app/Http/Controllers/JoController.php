@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Jo;
+use App\JoParent;
+use App\JoCategory;
 
 class JoController extends Controller {
 
@@ -27,7 +29,8 @@ class JoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        $parents = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view('jo.create', compact('parents'));
     }
 
     /**
