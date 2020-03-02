@@ -13,7 +13,7 @@ class CreateJoTable extends Migration {
     public function up() {
         Schema::create('jo', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('serial_number');
+            $table->string('jo_code');
             $table->string('title');
             $table->timestamp('start_date');
             $table->timestamp('deadline')->nullable();
