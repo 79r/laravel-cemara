@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2020 at 10:37 AM
+-- Generation Time: Mar 02, 2020 at 10:56 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `laravel_cemara_dev`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clients`
+--
+
+CREATE TABLE `clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -825,6 +841,88 @@ INSERT INTO `inventory_suppliers` (`id`, `name`, `phone`, `email`, `address`, `n
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jo`
+--
+
+CREATE TABLE `jo` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `serial_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deadline` timestamp NULL DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `material` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `finishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `qty` int(11) NOT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `parent_id` tinyint(3) UNSIGNED NOT NULL,
+  `category_id` int(10) UNSIGNED NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jo_categories`
+--
+
+CREATE TABLE `jo_categories` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jo_jo_tag`
+--
+
+CREATE TABLE `jo_jo_tag` (
+  `jo_id` bigint(20) UNSIGNED NOT NULL,
+  `tag_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jo_parents`
+--
+
+CREATE TABLE `jo_parents` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
+  `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nama lokasi kantor, misal MIM'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jo_status`
+--
+
+CREATE TABLE `jo_status` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jo_tags`
+--
+
+CREATE TABLE `jo_tags` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -846,7 +944,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2020_02_18_161942_create_inventory_suppliers_table', 1),
 (6, '2020_02_18_162016_create_inventory_brands_table', 1),
 (7, '2020_02_18_163956_create_inventory_items_table', 1),
-(8, '2020_02_25_053711_create_inventory_materials_table', 1);
+(8, '2020_02_25_053711_create_inventory_materials_table', 1),
+(9, '2020_03_02_072752_create_clients_table', 2),
+(10, '2020_03_02_075211_create_jo_parents_table', 2),
+(11, '2020_03_02_075221_create_jo_categories_table', 2),
+(12, '2020_03_02_075241_create_jo_tags_table', 2),
+(13, '2020_03_02_075248_create_jo_status_table', 2),
+(14, '2020_03_02_075257_create_jo_table', 2),
+(15, '2020_03_02_081711_create_jo_jo_tag_table', 3);
 
 -- --------------------------------------------------------
 
@@ -892,6 +997,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `email_verified_at`, `pass
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `divisions`
@@ -940,6 +1051,45 @@ ALTER TABLE `inventory_suppliers`
   ADD UNIQUE KEY `inventory_suppliers_name_unique` (`name`);
 
 --
+-- Indexes for table `jo`
+--
+ALTER TABLE `jo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jo_user_id_foreign` (`user_id`),
+  ADD KEY `jo_parent_id_foreign` (`parent_id`);
+
+--
+-- Indexes for table `jo_categories`
+--
+ALTER TABLE `jo_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jo_jo_tag`
+--
+ALTER TABLE `jo_jo_tag`
+  ADD KEY `jo_jo_tag_jo_id_foreign` (`jo_id`),
+  ADD KEY `jo_jo_tag_tag_id_foreign` (`tag_id`);
+
+--
+-- Indexes for table `jo_parents`
+--
+ALTER TABLE `jo_parents`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jo_status`
+--
+ALTER TABLE `jo_status`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jo_tags`
+--
+ALTER TABLE `jo_tags`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -961,6 +1111,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `divisions`
@@ -999,10 +1155,40 @@ ALTER TABLE `inventory_suppliers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `jo`
+--
+ALTER TABLE `jo`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jo_categories`
+--
+ALTER TABLE `jo_categories`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jo_parents`
+--
+ALTER TABLE `jo_parents`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jo_status`
+--
+ALTER TABLE `jo_status`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jo_tags`
+--
+ALTER TABLE `jo_tags`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1023,6 +1209,20 @@ ALTER TABLE `inventory_items`
   ADD CONSTRAINT `inventory_items_division_id_foreign` FOREIGN KEY (`division_id`) REFERENCES `divisions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `inventory_items_supplier_id_foreign` FOREIGN KEY (`supplier_id`) REFERENCES `inventory_suppliers` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `inventory_items_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `jo`
+--
+ALTER TABLE `jo`
+  ADD CONSTRAINT `jo_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `jo_parents` (`id`),
+  ADD CONSTRAINT `jo_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `jo_jo_tag`
+--
+ALTER TABLE `jo_jo_tag`
+  ADD CONSTRAINT `jo_jo_tag_jo_id_foreign` FOREIGN KEY (`jo_id`) REFERENCES `jo` (`id`),
+  ADD CONSTRAINT `jo_jo_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `jo_tags` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
