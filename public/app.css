@@ -13,6 +13,9 @@
 @media (max-width: 992px) {
   .main-content .footer {
     left: 0 !important; } }
+body {
+  font-family: "Source Sans Pro", "Roboto", sans-serif !important; }
+
 .card .header-title-lg {
   font-size: 30px;
   font-weight: 800; }
