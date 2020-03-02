@@ -10,6 +10,7 @@ class Jo extends Model {
     protected $dates = ['deleted_at'];
     protected $table = "jo";
     protected $fillable = array(
+        'client_id',
         'jo_code',
         'title',
         'start_date',
@@ -28,6 +29,10 @@ class Jo extends Model {
 
     public function parent() {
         return $this->belongsTo(JoParent::class);
+    }
+
+    public function client() {
+        return $this->belongsTo(Client::class);
     }
 
 }

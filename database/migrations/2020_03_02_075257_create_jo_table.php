@@ -13,6 +13,7 @@ class CreateJoTable extends Migration {
     public function up() {
         Schema::create('jo', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('client_id');
             $table->string('jo_code');
             $table->string('title');
             $table->timestamp('start_date');
@@ -35,6 +36,10 @@ class CreateJoTable extends Migration {
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
+
+            $table->foreign('client_id')
+                ->references('id')
+                ->on('clients');
 
             $table->foreign('parent_id')
                 ->references('id')
