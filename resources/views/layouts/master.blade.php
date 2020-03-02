@@ -12,20 +12,15 @@
 
         <!-- Bootstrap Css -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+
+        <!-- datepicker -->
+        <link href="{{ asset('assets/libs/air-datepicker/css/datepicker.min.css') }}" rel="stylesheet" type="text/css" />
+
         <!-- Icons Css -->
         <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('app.css') }}" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.tiny.cloud/1/uv24iy9qtnefaqewnget5o7kicyxonn9yga9kir8gqe3ac9l/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>
-        tinymce.init({
-            selector:'textarea',
-            plugins: "table",
-            menubar: "table"    
-        });
-        </script>
-        
     </head>
 
     <body data-topbar="colored">
@@ -96,7 +91,19 @@
 
         <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
 
+        <!-- datepicker -->
+        <script src="{{ asset('assets/libs/air-datepicker/js/datepicker.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/air-datepicker/js/i18n/datepicker.en.js') }}"></script>
 
+        <!--tinymce js-->
+        <script src="{{ asset('assets/libs/tinymce/tinymce.min.js') }}"></script>
+        <script>
+            tinymce.init({
+                selector:'textarea',
+                plugins: "table",
+                menubar: "table"    
+            });
+        </script>
         <script src="{{ asset('assets/js/app.js') }}"></script>
 
     </body>
