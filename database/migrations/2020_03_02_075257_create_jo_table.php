@@ -19,9 +19,10 @@ class CreateJoTable extends Migration {
             $table->timestamp('deadline')->nullable();
             $table->text('description')->nullable();
             $table->text('image_url')->nullable();
-            $table->string('material');
-            $table->string('finishing');
-            $table->integer('qty');
+            $table->string('material')->nullable();
+            $table->string('finishing')->nullable();
+            $table->integer('qty')->nullable();
+            $table->string('size')->nullable();
             $table->text('notes')->nullable();
             
             $table->unsignedBigInteger('user_id');
