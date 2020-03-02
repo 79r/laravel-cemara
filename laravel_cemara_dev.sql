@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2020 at 01:22 PM
+-- Generation Time: Mar 02, 2020 at 10:37 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -841,12 +841,12 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2020_02_18_161825_create_categories_table', 1),
-(4, '2020_02_18_161825_create_divisions_table', 1),
-(5, '2020_02_18_161942_create_suppliers_table', 1),
-(6, '2020_02_18_162016_create_brands_table', 1),
-(7, '2020_02_18_163956_create_items_table', 1),
-(8, '2020_02_25_053711_create_materials_table', 1);
+(3, '2020_02_18_161825_create_divisions_table', 1),
+(4, '2020_02_18_161825_create_inventory_categories_table', 1),
+(5, '2020_02_18_161942_create_inventory_suppliers_table', 1),
+(6, '2020_02_18_162016_create_inventory_brands_table', 1),
+(7, '2020_02_18_163956_create_inventory_items_table', 1),
+(8, '2020_02_25_053711_create_inventory_materials_table', 1);
 
 -- --------------------------------------------------------
 
