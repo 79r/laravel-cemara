@@ -30,3 +30,8 @@ Route::get('/inventory/import-excel','InventoryImportController@import')->name('
 Route::get('/inventory/export-excel','InventoryExportController@export')->name('inventory.export.excel');
 
 Route::resource('inventory', 'InventoryItemController');
+
+
+
+/** Routes JO */
+Route::resource('jo', 'JoController');
