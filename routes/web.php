@@ -34,4 +34,5 @@ Route::resource('inventory', 'InventoryItemController');
 
 
 /** Routes JO */
-Route::resource('jo', 'JoController');
+Route::resource('jo/cemara', 'JoCemaraController', array('as' => 'jo'));
+Route::resource('jo/mim', 'JoMimController', array('as' => 'jo'));

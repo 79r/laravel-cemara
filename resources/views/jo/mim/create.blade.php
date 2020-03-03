@@ -5,14 +5,12 @@
     <div class="card-title text-center mb-5">
         <h4 class="header-title-lg">Buat JO</h4>
         <p class="lead font-weight-bold">Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis</p>
-        <p class="mb-0">Nomor JO otomatis</p>
-        <span class="btn btn-primary font-weight-bold">{{ $new_jo_code }}</span>
     </div>
     <div class="col-sm-12 col-md-10 col-lg-7 mx-auto">
-        {{ Form::open( array('url' => route('jo.store'), 'files' => true) ) }}
+        {{ Form::open( array('url' => route('jo.mim.store'), 'files' => true) ) }}
     
             <div class="form-group">
-                <label for="parent_id">Jo Untuk di</label>
+                <label for="parent_id">Jo dari</label>
                 {{ Form::select('parent_id', $parents, 1,
                     array('class' => 'form-control', 'id' => 'parent_id') )
                 }}

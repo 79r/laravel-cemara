@@ -97,3 +97,13 @@ span {
         font-size: 14px;
     }
 }
+
+#job-list {
+    table {
+        &#table-cemara-inventory {
+            thead {
+                background: $dark;
+            }
+        }
+    }
+}

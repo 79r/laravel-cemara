@@ -11,7 +11,7 @@ use App\Client;
 use App\JoParent;
 use App\JoCategory;
 
-class JoController extends Controller {
+class JoCemaraController extends Controller {
 
     public function __construct() {
         return $this->middleware('auth');
@@ -23,20 +23,21 @@ class JoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return "Hello World";
+        $job_list  = Jo::where('parent_id', '=', 1)->paginate(20);
+        return view('jo.cemara.index', array('job_list' => $job_list));
     }
 
 
     /* Fungsi Buat JO secara otomatis */
-    private function createJoCode() {
-        $codeName       = "CK";
+    private function createJoCode($codeName) {
 
         //  ambil kode jo terbaru
         $lastJoCode     = Jo::orderBy('jo_code', 'DESC')->first()->jo_code; 
 
         /* ambil sebagian karakter misal : CK07914 jadi 7914 sekaligus jadikan integer
         dan ditambah nilainya dengan 1, sehingga jadi 7915 */
-        $newCode        = (int)Str::after($lastJoCode, $codeName) + 1;
+        $newCode        = (int)Str::after($lastJoCode, 'CK') + 1;
+        $newJoCode;
 
         /* uji nomor Jo nya */
         switch(strlen((string)$newCode)) {
@@ -58,8 +59,7 @@ class JoController extends Controller {
     public function create() {
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
-        $new_jo_code    = $this->createJoCode();
-        return view('jo.create', compact('parents', 'clients', 'new_jo_code'));
+        return view('jo.cemara.create', compact('parents', 'clients'));
     }
 
     /**
@@ -70,14 +70,16 @@ class JoController extends Controller {
      */
     public function store(Request $request) {
         $input = $request->all();
-        $input['jo_code']       = $this->createJoCode();
         $input['user_id']       = Auth::user()->id;
-        $input['category_id']   = 1; // buat defaultnya 1   aja
         $input['parent_id']     = (int)$request->parent_id;
+        $input['jo_code']       = $input['parent_id'] === 1 ? $this->createJoCode('CK') : $this->createJoCode("MIM");
+        
+        $input['category_id']   = 1;
         $input['client_id']     = (int)$request->client_id;
         $input['qty']           = (int)$request->qty;
+        dd($input);
         Jo::create($input);
-        return redirect()->route('jo.index');
+        return redirect()->route('jo.cemara.index');
     }
 
     /**

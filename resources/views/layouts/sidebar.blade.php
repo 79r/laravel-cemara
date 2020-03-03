@@ -67,13 +67,31 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('jo.index') }}" class="waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
                         <span>Job List</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>
+                            <a href="{{ route('jo.cemara.create') }}" class="waves-effect">
+                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-comment-plus"></i></div>
+                                <span>Buat JO</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('jo.cemara.index') }}" class="waves-effect">
+                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                                <span>Jo Cemara</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('jo.mim.index') }}" class="waves-effect">
+                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                                <span>Jo MIM</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-
-
             </ul>
 
         </div>

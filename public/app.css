@@ -85,6 +85,9 @@ span.big-count {
 span.badge-sn {
   font-size: 14px; }
 
+#job-list table#table-cemara-inventory thead {
+  background: #465575; }
+
 .main-content {
   margin-left: 200px; }
 
