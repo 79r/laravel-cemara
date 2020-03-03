@@ -36,3 +36,5 @@ Route::resource('inventory', 'InventoryItemController');
 /** Routes JO */
 Route::resource('jo/cemara', 'JoCemaraController', array('as' => 'jo'));
 Route::resource('jo/mim', 'JoMimController', array('as' => 'jo'));
+
+Route::resource('clientajax', 'ClientController'); // ROUTE AJAX
