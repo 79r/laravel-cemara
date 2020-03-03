@@ -3,9 +3,12 @@
 .vertical-menu {
   width: 200px; }
 
+#sidebar-menu ul li ul.sub-menu li a {
+  padding: .65rem .65rem .65rem 1.5rem; }
 #sidebar-menu ul li a {
   font-size: 14px;
-  font-weight: 600; }
+  font-weight: 600;
+  padding: .75rem; }
 
 .main-content .footer {
   left: 200px; }

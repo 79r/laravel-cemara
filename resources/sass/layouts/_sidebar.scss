@@ -6,9 +6,19 @@
 #sidebar-menu {
     ul {
         li {
+            ul {
+                &.sub-menu {
+                    li {
+                        a {
+                            padding: .65rem .65rem .65rem 1.5rem;
+                        }
+                    }
+                }
+            }
             a {
                 font-size: 14px;
                 font-weight: 600;
+                padding: .75rem;
             }
         }
     }
