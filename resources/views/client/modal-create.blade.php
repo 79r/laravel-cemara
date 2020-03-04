@@ -38,22 +38,22 @@
                     {{ Form::open( array('url' => route('clientajax.store'), 'id' => 'clientForm')) }}
                         <div class="form-group">
                             <label for="name">Nama Klien</label>
-                            {{ Form::text('name', null, array('class' => 'form-control')) }}
+                            {{ Form::text('name', null, array('class' => 'form-control', 'placeholder' => 'Tuliskan nama klien')) }}
                             <small>Jika nama perusahaan tuliskan nama perusahaannya</small>
                         </div>
                         <div class="form-group">
                             <label for="phone">HP/Telepon</label>
-                            {{ Form::text('phone', null, array('class' => 'form-control')) }}
+                            {{ Form::text('phone', null, array('class' => 'form-control', 'placeholder' => 'Isi nomor telpon/hp klien jika ada')) }}
                             <small>Isi jika memang ada</small>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            {{ Form::text('email', null, array('class' => 'form-control')) }}
+                            {{ Form::text('email', null, array('class' => 'form-control', 'Isi email klien jika ada')) }}
                             <small>Isi jika memang ada</small>
                         </div>
                         <div class="form-group">
                             <label for="name">Alamat</label>
-                            {{ Form::textarea('address', null, array('class' => 'form-control')) }}
+                            {{ Form::textarea('address', null, array('class' => 'form-control', 'placeholder' => 'Ini alamat klien jika ada')) }}
                             <small>Isi jika memang ada</small>
                         </div>
                         <div class="form-group">
@@ -112,6 +112,7 @@
                     $('#ajaxModel').modal('hide');
                     table.draw();
                     $('#saveBtn').html('Save');
+                    location.reload();
                 },
                 error: function (data) {
                     console.log('Error:', data);
