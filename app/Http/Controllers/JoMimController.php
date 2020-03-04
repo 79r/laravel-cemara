@@ -64,7 +64,7 @@ class JoMimController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        return "<h3>Fitur belum tersedia :((</h3>";
     }
 
     /**
