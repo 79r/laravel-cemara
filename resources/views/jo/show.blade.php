@@ -14,11 +14,40 @@
                     <h5 class="header-title-lg mb-3">{{ $jo->jo_code }}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+                        <div class="media my-2">
+                            <div class="media-body">
+                                <p class="text-muted mb-1">Location</p>
+                                <h5 class="mb-0">{{ $jo->parent->name }}</h5>
+                            </div>
+                        </div>
+                    </li>
+
                     <li class="list-group-item">
                         <div class="media my-2">
                             <div class="media-body">
                                 <p class="text-muted mb-1">Nama Jo</p>
                                 <h5 class="mb-0">{{ $jo->title }}</h5>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="media my-2">
+                            <div class="media-body">
+                                <p class="text-muted mb-1">Klien</p>
+                                <h5 class="mb-0">{{ $jo->client->name }}</h5>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="media my-2">
+                            <div class="media-body">
+                                <p class="text-muted mb-1">Kontak Klien</p>
+                                <h5 class="mb-0">{{ $jo->client->phone }}</h5>
+                                <h5 class="mb-0">{{ $jo->client->email }}</h5>
                             </div>
                         </div>
                     </li>
@@ -43,6 +72,36 @@
                                     <span class="deadline">
                                         {{ date('d-m-Y : H:i', strtotime($jo->deadline)) }}
                                     </span>
+                                </h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media my-2">
+                            <div class="media-body">
+                                <p class="text-muted mb-1">Ukuran</p>
+                                <h5 class="mb-0">
+                                    {{ $jo->size }}
+                                </h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media my-2">
+                            <div class="media-body">
+                                <p class="text-muted mb-1">Material</p>
+                                <h5 class="mb-0">
+                                    {{ $jo->material }}
+                                </h5>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media my-2">
+                            <div class="media-body">
+                                <p class="text-muted mb-1">Finishing</p>
+                                <h5 class="mb-0">
+                                    {{ $jo->finishing }}
                                 </h5>
                             </div>
                         </div>

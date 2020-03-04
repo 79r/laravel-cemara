@@ -39,9 +39,9 @@
   #jo-item .list-group .list-group-item .media-body h5 {
     color: #2f487e;
     font-weight: 800; }
-    #jo-item .list-group .list-group-item .media-body h5.start_date {
+    #jo-item .list-group .list-group-item .media-body h5 span.start_date {
       color: #077d30; }
-    #jo-item .list-group .list-group-item .media-body h5.deadline {
+    #jo-item .list-group .list-group-item .media-body h5 span.deadline {
       color: red; }
 
 .page-content {
