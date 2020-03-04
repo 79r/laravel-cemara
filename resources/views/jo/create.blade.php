@@ -23,12 +23,9 @@
                 }}
                 <div class="mt-2 alert alert-warning">
                     <p>Apabila Klien tidak ada dalam daftar di atas silahkan buat klien baru dengan klik tombol dibawah ini.</p>
-                    <a class="btn btn-primary create-client" data-toggle="modal" data-target="#create-client" class="text-light">Buat Client</a>
+                    <a id="createNewClient" class="btn btn-primary create-client" data-toggle="modal" data-target="#create-client" class="text-light">Buat Client</a>
                 </div>
             </div>
-
-            {{-- Modal Create Client --}}
-            @include('client.modal-create')
 
             <div class="form-group">
                 <label for="title">Nama JO</label>
@@ -94,6 +91,11 @@
                 {{ Form::submit('submit', array('class' => 'btn btn-lg btn-block btn-primary')) }}
             </div>
         {{ Form::close() }}
+
+
+        {{-- Modal Create Client --}}
+        @include('client.modal-create')
+
     </div>
 </div>
 @endsection
