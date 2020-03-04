@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Alamat</label>
-                        {{ Form::text('address', null, array('class' => 'form-control')) }}
+                        {{ Form::textarea('address', null, array('class' => 'form-control')) }}
                         <small>Isi jika memang ada</small>
                     </div>
                 {{ Form::close() }}
