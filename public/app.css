@@ -34,6 +34,16 @@
     color: #129263;
     font-weight: 800; }
 
+#jo-item .list-group .list-group-item {
+  padding: 0; }
+  #jo-item .list-group .list-group-item .media-body h5 {
+    color: #2f487e;
+    font-weight: 800; }
+    #jo-item .list-group .list-group-item .media-body h5.start_date {
+      color: #077d30; }
+    #jo-item .list-group .list-group-item .media-body h5.deadline {
+      color: red; }
+
 .page-content {
   padding: 70px calc(24px / 2) 100px calc(24px / 2); }
 

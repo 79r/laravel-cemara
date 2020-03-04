@@ -23,6 +23,25 @@
         }
     }
 }
+#jo-item {
+    .list-group {
+        .list-group-item {
+            padding: 0;
+            .media-body {
+                h5 {
+                    span.start_date {
+                        color: rgb(7, 125, 48);
+                    }
+                    span.deadline {
+                        color: red;
+                    }
+                    color: #2f487e;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+}
 
 .page-content {
     padding: 70px calc(24px / 2) 100px calc(24px / 2);

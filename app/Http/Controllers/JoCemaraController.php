@@ -98,7 +98,8 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+        $jo = Jo::findOrFail($id);
+        return view('jo.show', array('jo' => $jo));
     }
 
     /**
