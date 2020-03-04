@@ -83,6 +83,10 @@ class JoCemaraController extends Controller {
         $input['user_id']       = Auth::user()->id;
         $input['parent_id']     = (int)$request->parent_id;
         $input['jo_code']       = $input['parent_id'] === 1 ? $this->createJoCode('CK') : $this->createJoCode("MIM");
+
+        
+        $input['start_date']    = $request->start_date;
+        $input['deadline']      = $request->deadline;
         
         $input['category_id']   = 1;
         $input['client_id']     = (int)$request->client_id;
