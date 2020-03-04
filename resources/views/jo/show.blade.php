@@ -46,8 +46,18 @@
                         <div class="media my-2">
                             <div class="media-body">
                                 <p class="text-muted mb-1">Kontak Klien</p>
-                                <h5 class="mb-0">{{ $jo->client->phone }}</h5>
-                                <h5 class="mb-0">{{ $jo->client->email }}</h5>
+                                <h5 class="mb-2">
+                                    <span><i class="mdi mdi-phone"></i></span>
+                                    <span>
+                                        {{ $jo->client->phone }}
+                                    </span>
+                                </h5>
+                                <h5 class="mb-0">
+                                    <span><i class="mdi mdi-email"></i></span>
+                                    <span>
+                                        {{ $jo->client->email }}
+                                    </span>
+                                </h5>
                             </div>
                         </div>
                     </li>
