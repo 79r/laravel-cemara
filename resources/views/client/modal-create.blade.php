@@ -1,9 +1,7 @@
-<div class="container">
-    <div class="container-fluid">
-        <div class="row">
-            <h4 class="one">Client</h4>
-            <button class="btn btn-info ml-auto" id="createNewClient">Add Client</button>
-        </div>
+<div class="d-none">
+    <div class="row">
+        <h4 class="one">Client</h4>
+        <button class="btn btn-info ml-auto" id="createNewClient">Add Client</button>
     </div>
     <br>
     <table id="dataTable" class="table table-striped table-bordered">
