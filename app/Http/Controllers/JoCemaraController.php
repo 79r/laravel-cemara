@@ -77,7 +77,6 @@ class JoCemaraController extends Controller {
         $input['category_id']   = 1;
         $input['client_id']     = (int)$request->client_id;
         $input['qty']           = (int)$request->qty;
-        dd($input);
         Jo::create($input);
         return redirect()->route('jo.cemara.index');
     }
