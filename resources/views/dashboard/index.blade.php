@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Cemara Multi Kreatif App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Cemara Inventory - Build with Laravel" name="description" />
         <meta content="Riski" name="author" />
