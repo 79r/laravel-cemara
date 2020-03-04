@@ -32,10 +32,12 @@ class ClientController extends Controller {
 
     public function store(Request $request) {
         Client::updateOrCreate([
-            'id'    => $request->id
+            'id'        => $request->id
         ],[
-            'name'  => $request->name,
-            'phone' => $request->phone
+            'name'      => $request->name,
+            'phone'     => $request->phone,
+            'email'     => $request->email,
+            'address'   => $request->address
         ]);
 
         // return response
