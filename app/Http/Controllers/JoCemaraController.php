@@ -59,7 +59,7 @@ class JoCemaraController extends Controller {
     public function create() {
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('jo.cemara.create', compact('parents', 'clients'));
+        return view('jo.create', compact('parents', 'clients'));
     }
 
     /**
