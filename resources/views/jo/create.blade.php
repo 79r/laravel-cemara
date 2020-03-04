@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label for="parent_id">Nama Klien</label>
                 {{ Form::select('client_id', $clients, null,
-                    array('class' => 'form-control', 'id' => 'client_id') )
+                    array('class' => 'form-control', 'id' => 'client_id', 'placeholder' => "<-- Mohon Pilih Nama Klien -->") )
                 }}
                 <div class="mt-2 alert alert-warning">
                     <p>Apabila Klien tidak ada dalam daftar di atas silahkan buat klien baru dengan klik tombol dibawah ini.</p>
