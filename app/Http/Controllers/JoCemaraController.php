@@ -32,18 +32,28 @@ class JoCemaraController extends Controller {
     private function createJoCode($codeName) {
 
         //  ambil kode jo terbaru
-        $lastJoCode     = Jo::orderBy('jo_code', 'DESC')->first()->jo_code; 
+        $lastJoCode     = Jo::orderBy('jo_code', 'DESC')->first()->jo_code;
+        
+        $cemara_codename    = "CK";
+        $mim_codename       = "MIM";
+        
+        /* Uji dan ambil sebagian karakter misal : CK07914 jadi 07914 sekaligus jadikan integer */
+        if (Str::contains($lastJoCode, $cemara_codename)) {
+            $newCode        = (int)substr($lastJoCode, 2);
+        }
+        else {
+            $newCode        = (int)substr($lastJoCode, 3);
+        }
 
-        /* ambil sebagian karakter misal : CK07914 jadi 7914 sekaligus jadikan integer
-        dan ditambah nilainya dengan 1, sehingga jadi 7915 */
-        $newCode        = (int)Str::after($lastJoCode, 'CK') + 1;
+        /* tambah nomor jo dengan 1, sehingga jadi 7915 */
+        $codePlusOne       = $newCode + 1;
         $newJoCode;
 
         /* uji nomor Jo nya */
         switch(strlen((string)$newCode)) {
-            case 1  : $newJoCode = $codeName . "0000" . (string)$newCode; break;
-            case 2  : $newJoCode = $codeName  . "000" . (string)$newCode; break;
-            case 3  : $newJoCode = $codeName   . "00" . (string)$newCode; break;
+            case 1  : $newJoCode = $codeName . "0000" . (string)$codePlusOne; break;
+            case 2  : $newJoCode = $codeName  . "000" . (string)$codePlusOne; break;
+            case 3  : $newJoCode = $codeName   . "00" . (string)$codePlusOne; break;
             case 4  : $newJoCode = $codeName    . "0" . (string)$newCode; break;
             default : $newJoCode = (string)$newCode;
         }
@@ -57,6 +67,26 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
+
+        // //  ambil kode jo terbaru
+        // $lastJoCode     = Jo::orderBy('jo_code', 'DESC')->first()->jo_code;
+                
+        // $cemara_codename    = "CK";
+        // $mim_codename       = "MIM";
+
+        // /* Uji dan ambil sebagian karakter misal : CK07914 jadi 07914 sekaligus jadikan integer */
+        // if (Str::contains($lastJoCode, $cemara_codename)) {
+        //     $newCode        = (int)substr($lastJoCode, 2);
+        // }
+        // else {
+        //     $newCode        = (int)substr($lastJoCode, 3);
+        // }
+
+        // /* tambah nomor jo dengan 1, sehingga jadi 7915 */
+        // $codePlusOne       = $newCode + 1;
+        // dd($codePlusOne);
+
+
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
         return view('jo.create', compact('parents', 'clients'));
