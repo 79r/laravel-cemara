@@ -20,6 +20,18 @@
                     <li class="list-group-item">
                         <div class="media my-2">
                             <div class="media-body">
+                                <p class="text-muted mb-1">Image</p>
+                                @if(!empty($jo->image_url))
+                                    <img src="" alt="">
+                                @else
+                                    <img class="img-thumbnail" src="{{ asset('images/alc_snapicon.webp') }}" alt="">
+                                @endif
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media my-2">
+                            <div class="media-body">
                                 <p class="text-muted mb-1">Tanggal Masuk</p>
                                 <h5 class="mb-0">
                                     <span class="start_date">
