@@ -118,6 +118,73 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-7">
+                                                    <h5>Total Job List</h5>
+                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-7">
+                                                    <h5>Jo Progress</h5>
+                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-7">
+                                                    <h5>Jo Waiting List</h5>
+                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <div class="col-sm-12">
                                     <div class="card">
