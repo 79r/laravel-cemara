@@ -9,9 +9,23 @@
             <div class="card pl-sm-0 pl-md-4">
                 <div class="bg-transparent">
                     <div class="my-3">
-                        <a href="{{ route('jo.cemara.index') }}/{{ $jo->id }}/edit" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
-                            <i class="mdi mdi-pencil"></i> <span>Edit JO ini</span>
+                        <a href="#"
+                            class="btn btn-prmary"
+                            style="padding-left: 2rem; padding-right: 2rem;
+                            color: #fff;
+                            background-color:{{ $jo->jo_status->color }}">
+                            <span>
+                                @if($jo->jo_status_id == 1)
+                                <i class="mdi mdi-clock"></i>
+                                @elseif($jo->jo_status_id == 2)
+                                <i class="mdi mdi-autorenew"></i>
+                                @else
+                                <i class="mdi mdi-check"></i>
+                                @endif
+                                {{ $jo->jo_status->name }}
+                            </span>
                         </a>
+                        
                     </div>
                     <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" title="{{ $jo->jo_code }}"> <span class="badge badge-primary">{{ $jo->jo_code }}</span> {{ $jo->title }}</h5>
                 </div>
@@ -109,12 +123,7 @@
         <div class="col-xl-6">
             <div class="card pl-sm-0 pl-md-4">
                 <div class="bg-transparent">
-                    <div class="my-3">
-                        <a href="" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Show">
-                            <i class="mdi mdi-pencil"></i> <span>See more..</span>
-                        </a>
-                    </div>
-                    <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" title="{{ $jo->client->name }}">{[ Kontak Klien ]}</h5>
+                    <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" title="{{ $jo->client->name }}">Kontak Klien</h5>
                 </div>
                 <ul class="list-group list-group-flush">
 
@@ -151,6 +160,11 @@
                         </div>
                     </li>
                 </ul>
+                <div class="my-3">
+                    <a href="" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Show">
+                        <i class="mdi mdi-pencil"></i> <span>See more..</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>    
