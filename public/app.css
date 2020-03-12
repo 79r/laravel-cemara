@@ -1,4 +1,12 @@
 /** Entry file untuk semua file sass */
+.form-control {
+  border-color: #b5b5b5; }
+  .form-control:focus {
+    background-color: #fff;
+    border-color: #4170f3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(65, 112, 243, 0.4); }
+
 .navbar-brand-box,
 .vertical-menu {
   width: 200px; }

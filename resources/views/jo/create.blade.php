@@ -44,10 +44,6 @@
                 --}}
             </div>
 
-            {{ Form::select('client_id', $clients, null,
-                    array('class' => 'form-control', 'id' => 'client_id', 'placeholder' => "<-- Mohon Pilih Nama Klien -->") )
-                }}
-
             <div class="form-group">
                 <label for="title">Nama JO</label>
                 {{ Form::text('title', null,

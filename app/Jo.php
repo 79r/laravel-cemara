@@ -24,7 +24,8 @@ class Jo extends Model {
         'notes',
         'user_id',
         'category_id',
-        'parent_id'
+        'parent_id',
+        'jo_status_id'
     );
 
     public function parent() {
