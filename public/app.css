@@ -7,6 +7,12 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(65, 112, 243, 0.4); }
 
+#modal-left .modal-dialog {
+  margin: 0 !important; }
+  #modal-left .modal-dialog .modal-content {
+    border-radius: 0 !important;
+    max-width: 620px; }
+
 .navbar-brand-box,
 .vertical-menu {
   width: 200px; }
