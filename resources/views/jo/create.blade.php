@@ -28,6 +28,27 @@
             </div>
 
             <div class="form-group">
+                <label for="jo_status">Status JO</label>
+                {{ Form::select('jo_status_id', $status, 1,
+                    array(
+                        'class'         => 'form-control',
+                        'id'            => 'jo_status_id',
+                        'placeholder'   => 'Pilih status JO'
+                        ))
+                }}
+                {{-- 
+                    parameter pertama nama name
+                    parameter kedua data,
+                    parameter ketiga value
+                    parameter ke empat opsional ini berupa array 
+                --}}
+            </div>
+
+            {{ Form::select('client_id', $clients, null,
+                    array('class' => 'form-control', 'id' => 'client_id', 'placeholder' => "<-- Mohon Pilih Nama Klien -->") )
+                }}
+
+            <div class="form-group">
                 <label for="title">Nama JO</label>
                 {{ Form::text('title', null,
                     array('class' => 'form-control', 'placeholder' => 'Nama JO'))

@@ -35,4 +35,7 @@ class Jo extends Model {
         return $this->belongsTo(Client::class);
     }
 
+    public function jo_status() {
+        return $this->belongsTo(JoStatus::class);
+    }
 }

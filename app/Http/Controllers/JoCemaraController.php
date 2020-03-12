@@ -9,6 +9,7 @@ use Auth;
 use App\Jo;
 use App\Client;
 use App\JoParent;
+use App\JoStatus;
 use App\JoCategory;
 
 class JoCemaraController extends Controller {
@@ -69,7 +70,8 @@ class JoCemaraController extends Controller {
     public function create() {
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('jo.create', compact('parents', 'clients'));
+        $status         = JoStatus::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view('jo.create', compact('parents', 'clients', 'status'));
     }
 
     /**
