@@ -29,6 +29,7 @@ class CreateJoTable extends Migration {
             $table->unsignedBigInteger('user_id');
             $table->unsignedTinyInteger('parent_id');
             $table->unsignedInteger('category_id');
+            $table->unsignedTinyInteger('jo_status_id');
 
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
@@ -44,6 +45,10 @@ class CreateJoTable extends Migration {
             $table->foreign('parent_id')
                 ->references('id')
                 ->on('jo_parents');
+
+            $table->foreign('jo_status_id')
+                ->references('id')
+                ->on('jo_status');
         });
     }
 
