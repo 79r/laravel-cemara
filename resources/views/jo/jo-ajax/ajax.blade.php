@@ -135,7 +135,7 @@ function manageRow(data) {
 
 		rows = rows + '<div class="btn-group" role="group">';
 			
-            rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-sm btn-outline-success edit-item"><i class="mdi mdi-pencil"></i></button>';
+            // rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-sm btn-outline-success edit-item"><i class="mdi mdi-pencil"></i></button>';
             rows = rows + '<button data-id="'+value.id+'" data-toggle="modal" data-target="#show-item" class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-eye"></i></button> ';
 
         rows = rows + '</div>';
@@ -223,8 +223,6 @@ $("body").on("click",".show-item",function(){
     finishing = tableTR.find('td[data-jo="jo_finishing"]').text();
     joDescription = tableTR.find('td[data-jo="jo_description"]').text();
     notes = tableTR.find('td[data-jo="jo_notes"]').text();
-    
-    console.log(joImage);
     
     /* Letakan data di DOM */
     $("#jo_code").html(joCode);
