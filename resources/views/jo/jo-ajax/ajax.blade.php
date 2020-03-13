@@ -3,12 +3,6 @@
 <div id="job-list">
     <div class="text-center mt-5">
         <h4 class="header-title-lg">{{ strtoupper('Job List') }}</h4>
-        <div class="sub-str mb-3">
-            <p>Cemara Multi Kreatif</p>
-        </div>
-        <div class="text-center mb-5">
-            <a href="{{ route('jo.mim.index') }}" class="btn btn-primary">Buka JO di MIM</a>
-        </div>
     </div>
     <div class="table-rep-plugin">
         <div class="table-responsive mb-0" data-pattern="priority-columns">
@@ -42,17 +36,14 @@
 <!-- Show Jo Item -->
 @include('jo.jo-ajax.show')
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-
 <script>
 var url = "<?php echo route('joajax.index')?>";
 var page = 1;
 var current_page = 1;
 var total_page = 0;
 var is_ajax_fire = 0;
+
+
 
 manageData();
 
@@ -240,4 +231,10 @@ $("body").on("click",".show-item",function(){
 
 });
 </script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
 @endsection

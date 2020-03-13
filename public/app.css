@@ -41,6 +41,22 @@
 @media (max-width: 992px) {
   .main-content .footer {
     left: 0 !important; } }
+ul#pagination {
+  justify-content: center; }
+  ul#pagination li {
+    padding: 10px 20px;
+    background-color: rgba(65, 112, 243, 0.5); }
+    ul#pagination li:first-child {
+      border-radius: .6rem 0 0 .6rem; }
+    ul#pagination li:last-child {
+      border-radius: 0 .6rem .6rem 0; }
+    ul#pagination li.active {
+      background-color: #4170f3; }
+    ul#pagination li.disabled {
+      cursor: not-allowed; }
+    ul#pagination li a {
+      color: #fff; }
+
 .card .header-title-lg {
   font-size: 30px;
   font-weight: 800; }
