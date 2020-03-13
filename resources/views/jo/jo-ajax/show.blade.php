@@ -3,9 +3,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">
-                        <span class="badge badge-primary" id="jo_code"></span>
-                    </h4> 
+                        <span class="badge badge-single-jo-code badge-primary" id="jo_code"></span>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
@@ -14,7 +12,7 @@
                     
                             {{-- Jo Information --}}
                             <div class="col-sm-12">
-                                <div class="card pl-sm-0 pl-md-4">
+                                <div class="card">
                                     <div class="bg-transparent">
                                         <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" id="jo_title"></h5>
                                     </div>
@@ -100,9 +98,9 @@
                     
                             {{-- Client information --}}
                             <div class="col-sm-12">
-                                <div class="card pl-sm-0 pl-md-4">
+                                <div class="card">
                                     <div class="bg-transparent">
-                                        <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" title="">Kontak Klien</h5>
+                                        <h5 class="header-title-lg mb-2 mt-4" data-toggle="tooltip" data-placement="top" title="">Client Info</h5>
                                     </div>
                                     <ul class="list-group list-group-flush">
                     
@@ -122,26 +120,10 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item">
-                                            <div class="media my-2">
-                                                <div class="media-body">
-                                                    <p class="text-muted mb-1">Email</p>
-                                                    <h5 class="mb-0" id="jo_client_email"></h5>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="media my-2">
-                                                <div class="media-body">
-                                                    <p class="text-muted mb-1">Alamat</p>
-                                                    <h5 class="mb-0" id="jo_client_address"></h5>
-                                                </div>
-                                            </div>
-                                        </li>
                                     </ul>
                                     <div class="my-3">
                                         <a href="" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Show">
-                                            <i class="mdi mdi-pencil"></i> <span>See more..</span>
+                                            <i class="mdi mdi-pencil"></i> <span>Lihat data klien</span>
                                         </a>
                                     </div>
                                 </div>

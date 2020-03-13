@@ -3,14 +3,20 @@
         padding: 5px 10px;
     }
     .modal-dialog {
+        -webkit-transform: translate(0);
+        -ms-transform: translate(0);
+        -o-transform: translate(0);
+        transform: translate(0);
+    
         margin: 0 !important;
         .modal-content {
             border-radius: 0 !important;
             max-width: 720px;
-            width: 700px;
+            width: 620px;
         }
     }
 }
+
 #modal-right {
     .modal-header {
         padding: 5px 10px;
@@ -24,7 +30,7 @@
         .modal-content {
             border-radius: 0 !important;
             max-width: 720px;
-            width: 700px;
+            width: 620px;
         }
     }
 }

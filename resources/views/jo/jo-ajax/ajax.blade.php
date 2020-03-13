@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div id="job-list">
-    <div class="text-center mt-5">
-        <h4 class="header-title-lg">{{ strtoupper('Job List') }}</h4>
+    <div class="text-center">
+        <h4 class="header-title-lg">Job List</h4>
     </div>
     <div class="table-rep-plugin">
         <div class="table-responsive mb-0" data-pattern="priority-columns">
@@ -16,7 +16,8 @@
                     <th class="d-none" data-priority="4">Material</th>
                     <th class="d-none" data-priority="5">Finishing</th>
                     <th data-priority="6">Status JO</th>
-                    <th data-priority="7">Actions</th>
+                    <th data-priority="7">Action</th>
+                    <th data-priority="8">Buka</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,7 +27,7 @@
     </div>
 </div>
 
-<ul id="pagination" class="pagination-sm"></ul>
+<ul id="pagination" class="pagination-sm mt-3"></ul>
 
 <!-- Create Item Modal -->
 @include('jo.jo-ajax.create')
@@ -123,18 +124,43 @@ function manageRow(data) {
         rows = rows + '<td data-jo="jo_material" class="d-none">'+value.material+'</td>';
 
         rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
-
-        rows = rows + '<td class="text-white" data-jo="jo_status" style="background-color:'+value.jo_status.color+'">'+value.jo_status.name+'</td>';
-
+        
+        if(value.jo_status.name == "Progress") {
+            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:130px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
+        } else if(value.jo_status.name == "Waiting List") {
+            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:130px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+        } else {
+            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:130px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
+        }
+        
+        /** action button 
+            Tombol untuk Waiting list ke Progress
+            atau Progress ke Selesai */
         rows = rows + '<td data-id="'+value.id+'">';
-
-		rows = rows + '<div class="btn-group" role="group">';
-			
-            // rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-sm btn-outline-success edit-item"><i class="mdi mdi-pencil"></i></button>';
-            rows = rows + '<button data-id="'+value.id+'" data-toggle="modal" data-target="#show-item" class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-eye"></i></button> ';
-
+        rows = rows + '<div class="btn-group" role="group">';
+            if(value.jo_status.name == "Progress") {
+                rows = rows + '<button class="btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                rows = rows + '<button class="btn btn-sm btn-success show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'""><i class="mdi mdi-trending-up"></i></button> ';
+                rows = rows + '<button class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+            } else if(value.jo_status.name == "Waiting List") {
+                rows = rows + '<button class="btn btn-sm btn-danger edit-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-clock-outline"></i></button>';
+                rows = rows + '<button class="btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                rows = rows + '<button class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+            } else {
+                rows = rows + '<button class="btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                rows = rows + '<button class="btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                rows = rows + '<button class="btn btn-sm btn-primary show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-check"></i></button> ';
+            }
         rows = rows + '</div>';
         rows = rows + '</td>';
+
+        rows = rows + '<td data-id="'+value.id+'">';
+		rows = rows + '<div class="btn-group" role="group">';
+            // rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-sm btn-outline-success edit-item"><i class="mdi mdi-pencil"></i></button>';
+            rows = rows + '<button data-id="'+value.id+'" data-toggle="modal" data-target="#show-item" class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-eye"></i> Buka</button> ';
+        rows = rows + '</div>';
+        rows = rows + '</td>';
+
         rows = rows + '</tr>';
 	});
 

@@ -10,11 +10,15 @@
 #modal-left .modal-header {
   padding: 5px 10px; }
 #modal-left .modal-dialog {
+  -webkit-transform: translate(0);
+  -ms-transform: translate(0);
+  -o-transform: translate(0);
+  transform: translate(0);
   margin: 0 !important; }
   #modal-left .modal-dialog .modal-content {
     border-radius: 0 !important;
     max-width: 720px;
-    width: 700px; }
+    width: 620px; }
 
 #modal-right .modal-header {
   padding: 5px 10px; }
@@ -26,7 +30,7 @@
   #modal-right .modal-dialog .modal-content {
     border-radius: 0 !important;
     max-width: 720px;
-    width: 700px; }
+    width: 620px; }
 
 .navbar-brand-box,
 .vertical-menu {
@@ -89,8 +93,15 @@ ul#pagination {
     #jo-item .list-group .list-group-item .media-body h5 span.deadline {
       color: red; }
 
+.badge-single-jo-code {
+  font-size: 22px; }
+
 .table td, .table th {
-  vertical-align: middle; }
+  vertical-align: middle;
+  border-top: 1px solid #969696; }
+
+.table-rep-plugin {
+  border: 1px solid #a9a9a9; }
 
 .page-content {
   padding: 70px calc(24px / 2) 100px calc(24px / 2); }
