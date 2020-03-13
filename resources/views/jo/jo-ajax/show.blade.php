@@ -77,6 +77,16 @@
                                         <li class="list-group-item">
                                             <div class="media my-2">
                                                 <div class="media-body">
+                                                    <p class="text-muted mb-1">Deskripsi</p>
+                                                    <div id="inventory-notes">
+                                                        <h6 class="mb-0" id="jo_description"></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="media my-2">
+                                                <div class="media-body">
                                                     <p class="text-muted mb-1">Catatan</p>
                                                     <div id="inventory-notes">
                                                         <h6 class="mb-0" id="jo_notes"></h6>

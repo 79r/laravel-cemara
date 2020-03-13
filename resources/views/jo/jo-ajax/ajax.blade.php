@@ -119,9 +119,9 @@ function manageRow(data) {
 
         rows = rows + '<td data-jo="jo_qty" class="d-none">'+value.qty+'</td>';
         
-        rows = rows + '<td data-jo="jo_code"><a data-toggle="modal" data-target="#show-item"><span class="badge badge-primary badge-sn">'+value.jo_code+'</a></span></td>';
+        rows = rows + '<td data-jo="jo_code"><span class="badge badge-primary badge-sn">'+value.jo_code+'</span></td>';
 
-        rows = rows + '<td data-jo="jo_title"><a data-toggle="modal" data-target="#show-item">'+value.title+'</a></td>';
+        rows = rows + '<td data-jo="jo_title">'+value.title+'</td>';
 
         rows = rows + '<td data-jo="start_date">'+value.start_date+'</td>';
 
@@ -135,12 +135,9 @@ function manageRow(data) {
 
 		rows = rows + '<div class="btn-group" role="group">';
 			
-		rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-sm btn-outline-success edit-item"><i class="mdi mdi-pencil"></i></button>';
-	
-		rows = rows + '<button data-id="'+value.id+'" data-toggle="modal" data-target="#show-item" class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-eye"></i></button> ';
+            rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-sm btn-outline-success edit-item"><i class="mdi mdi-pencil"></i></button>';
+            rows = rows + '<button data-id="'+value.id+'" data-toggle="modal" data-target="#show-item" class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-eye"></i></button> ';
 
-		// rows = rows + '<button class="btn btn-sm btn-outline-primary remove-item"><i class="mdi mdi-trash-can"></i></button>';
-		
         rows = rows + '</div>';
         rows = rows + '</td>';
         rows = rows + '</tr>';
@@ -203,7 +200,7 @@ $("body").on("click",".show-item",function(){
     var joID = $(this).attr('data-id');
     var tableTR = $('#table-cemara-inventory tbody tr[data-joid="'+joID+'"]');
 
-    var joCode, joTitle, joStatus, description, material, size, qty, startDate, deadline, finishing, joImage, clientName, clientId, clietPhone, clientEmail, clientAddress;
+    var joCode, joTitle, joStatus, joDescription, material, size, qty, startDate, deadline, finishing, joImage, clientName, clientId, clietPhone, clientEmail, clientAddress;
 
     joCode      = tableTR.find('td[data-jo="jo_code"]').text();
     joTitle     = tableTR.find('td[data-jo="jo_title"]').text();
@@ -224,6 +221,7 @@ $("body").on("click",".show-item",function(){
     material = tableTR.find('td[data-jo="jo_material"]').text();
     qty = tableTR.find('td[data-jo="jo_qty"]').text();
     finishing = tableTR.find('td[data-jo="jo_finishing"]').text();
+    joDescription = tableTR.find('td[data-jo="jo_description"]').text();
     notes = tableTR.find('td[data-jo="jo_notes"]').text();
     
     console.log(joImage);
@@ -239,6 +237,7 @@ $("body").on("click",".show-item",function(){
     $("#jo-item").find("#jo_material").html(material);
     $("#jo-item").find("#jo_qty").html(qty);
     $("#jo-item").find("#jo_finishing").html(finishing);
+    $("#jo-item").find("#jo_description").html(joDescription);
     $("#jo-item").find("#jo_notes").html(notes);
 
 });
