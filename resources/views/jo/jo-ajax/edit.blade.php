@@ -1,4 +1,5 @@
-<div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div id="modal-right">
+  <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -26,3 +27,4 @@
       </div>
     </div>
   </div>
+</div>

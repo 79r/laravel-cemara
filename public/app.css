@@ -11,7 +11,16 @@
   margin: 0 !important; }
   #modal-left .modal-dialog .modal-content {
     border-radius: 0 !important;
-    max-width: 620px; }
+    max-width: 720px; }
+
+#modal-right .modal {
+  right: 0 !important;
+  left: auto !important; }
+#modal-right .modal-dialog {
+  margin: 0 !important; }
+  #modal-right .modal-dialog .modal-content {
+    border-radius: 0 !important;
+    max-width: 720px; }
 
 .navbar-brand-box,
 .vertical-menu {

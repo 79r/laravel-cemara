@@ -99,21 +99,45 @@ function getPageData() {
 }
 
 function manageRow(data) {
-	var	rows = '';
+    var	rows = '';
+    console.log(data);
 	$.each( data, function( key, value ) {
-        rows = rows + '<tr>';
-        rows = rows + '<td><a data-toggle="modal" data-target="#show-item"><span class="badge badge-primary badge-sn">'+value.jo_code+'</a></span></td>';
-        rows = rows + '<td><a data-toggle="modal" data-target="#show-item">'+value.title+'</a></td>';
-        rows = rows + '<td>'+value.start_date+'</td>';
-        rows = rows + '<td>'+value.deadline+'</td>';
-        rows = rows + '<td>'+value.material+'</td>';
-        rows = rows + '<td>'+value.finishing+'</td>';
+        rows = rows + '<tr data-joid='+ value.id+'>';
+        
+        // invisible rows
+        rows = rows + '<td data-jo="jo_status_id" class="d-none">'+value.jo_status_id+'</td>';
+
+        rows = rows + '<td data-jo="jo_client_id" class="d-none">'+value.client_id+'</td>';
+
+        rows = rows + '<td data-jo="jo_notes" class="d-none">'+value.notes+'</td>';
+
+        rows = rows + '<td data-jo="jo_description" class="d-none">'+value.description+'</td>';
+
+        rows = rows + '<td data-jo="jo_image" class="d-none">'+value.image_url+'</td>';
+
+        rows = rows + '<td data-jo="jo_size" class="d-none">'+value.size+'</td>';
+
+        rows = rows + '<td data-jo="jo_qty" class="d-none">'+value.qty+'</td>';
+        
+        rows = rows + '<td data-jo="jo_code"><a data-toggle="modal" data-target="#show-item"><span class="badge badge-primary badge-sn">'+value.jo_code+'</a></span></td>';
+
+        rows = rows + '<td data-jo="jo_title"><a data-toggle="modal" data-target="#show-item">'+value.title+'</a></td>';
+
+        rows = rows + '<td data-jo="start_date">'+value.start_date+'</td>';
+
+        rows = rows + '<td data-jo="deadline">'+value.deadline+'</td>';
+
+        rows = rows + '<td data-jo="jo_material">'+value.material+'</td>';
+
+        rows = rows + '<td data-jo="jo_finishing">'+value.finishing+'</td>';
+
         rows = rows + '<td data-id="'+value.id+'">';
+
 		rows = rows + '<div class="btn-group" role="group">';
 			
 		rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-sm btn-outline-success edit-item"><i class="mdi mdi-pencil"></i></button>';
 	
-		rows = rows + '<button data-toggle="modal" data-target="#show-item" class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-eye"></i></button> ';
+		rows = rows + '<button data-id="'+value.id+'" data-toggle="modal" data-target="#show-item" class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-eye"></i></button> ';
 
 		// rows = rows + '<button class="btn btn-sm btn-outline-primary remove-item"><i class="mdi mdi-trash-can"></i></button>';
 		
@@ -143,21 +167,6 @@ $(".crud-submit").click(function(e){
     });
 });
 
-
-$("body").on("click",".remove-item",function(){
-    var id = $(this).parent("td").data('id');
-    var c_obj = $(this).parents("tr");
-
-    $.ajax({
-        dataType: 'json',
-        type:'delete',
-        url: url + '/' + id,
-    }).done(function(data){
-        c_obj.remove();
-        toastr.success('Post Deleted Successfully.', 'Success Alert', {timeOut: 5000});
-        getPageData();
-    });
-});
 
 $("body").on("click",".edit-item",function(){
     var id = $(this).parent("td").data('id');
@@ -191,13 +200,47 @@ $(".crud-submit-edit").click(function(e){
 
 // Show
 $("body").on("click",".show-item",function(){
-    var id = $(this).parent("td").data('id');
-    var title = $(this).parent("td").prev("td").prev("td").text();
-    var details = $(this).parent("td").prev("td").text();
+    var joID = $(this).attr('data-id');
+    var tableTR = $('#table-cemara-inventory tbody tr[data-joid="'+joID+'"]');
 
+    var joCode, joTitle, joStatus, description, material, size, qty, startDate, deadline, finishing, joImage, clientName, clientId, clietPhone, clientEmail, clientAddress;
+
+    joCode      = tableTR.find('td[data-jo="jo_code"]').text();
+    joTitle     = tableTR.find('td[data-jo="jo_title"]').text();
+    if (tableTR.find('td[data-jo="jo_status"]').text() == 1) {
+        joStatus    = "Waiting List";
+    }
+    else if(tableTR.find('td[data-jo="jo_status"]').text() == 2) {
+        joStatus    = "Progress";
+    }
+    else {
+        joStatus    = "Selesai";
+    }
+
+    startDate = tableTR.find('td[data-jo="start_date"]').text();
+    deadline = tableTR.find('td[data-jo="deadline"]').text();
+    joImage = tableTR.find('td[data-jo="jo_image"]').text();
+    size = tableTR.find('td[data-jo="jo_size"]').text();
+    material = tableTR.find('td[data-jo="jo_material"]').text();
+    qty = tableTR.find('td[data-jo="jo_qty"]').text();
+    finishing = tableTR.find('td[data-jo="jo_finishing"]').text();
+    notes = tableTR.find('td[data-jo="jo_notes"]').text();
+    
+    console.log(joImage);
+    
     /* Letakan data di DOM */
-    $("#jo-item").find("#jo_start_date").html(title);
-    $("#jo-item").find("#jo-item .code").html(details);
+    $("#jo_code").html(joCode);
+    $("#jo-item").find("#jo_image").attr('src', joImage);
+    $("#jo-item").find("#jo_status").html(joStatus);
+    $("#jo-item").find("#jo_title").html(joTitle);
+    $("#jo-item").find("#jo_start_date").html(startDate);
+    $("#jo-item").find("#jo_deadline").html(deadline);
+    $("#jo-item").find("#jo_size").html(size);
+    $("#jo-item").find("#jo_material").html(material);
+    $("#jo-item").find("#jo_qty").html(qty);
+    $("#jo-item").find("#jo_finishing").html(finishing);
+    $("#jo-item").find("#jo_notes").html(notes);
+
 });
 </script>
 @endsection

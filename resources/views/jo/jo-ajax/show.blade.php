@@ -3,8 +3,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <span class="badge badge-primary" id="jo_code"></span>
+                    </h4> 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Show</h4>
                 </div>
                 <div class="modal-body">
                     <div id="jo-item">
@@ -14,18 +16,7 @@
                             <div class="col-sm-12">
                                 <div class="card pl-sm-0 pl-md-4">
                                     <div class="bg-transparent">
-                                        <div class="my-3">
-                                            <a href="#"
-                                                class="btn btn-prmary"
-                                                style="padding-left: 2rem; padding-right: 2rem;
-                                                color: #fff;
-                                                background-color:">
-                                                <span id="jo_status">
-                                                </span>
-                                            </a>
-                                            
-                                        </div>
-                                        <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top"> <span class="badge badge-primary" id="jo_code"></span></h5>
+                                        <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" id="jo_title"></h5>
                                     </div>
                                     <ul class="list-group list-group-flush">
                     

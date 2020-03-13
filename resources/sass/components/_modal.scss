@@ -3,7 +3,20 @@
         margin: 0 !important;
         .modal-content {
             border-radius: 0 !important;
-            max-width: 620px;
+            max-width: 720px;
+        }
+    }
+}
+#modal-right {
+    .modal {
+        right: 0!important;
+        left: auto !important;
+    }
+    .modal-dialog {
+        margin: 0 !important;
+        .modal-content {
+            border-radius: 0 !important;
+            max-width: 720px;
         }
     }
 }
