@@ -1,4 +1,7 @@
 #modal-left {
+    .modal-header {
+        padding: 5px 10px;
+    }
     .modal-dialog {
         margin: 0 !important;
         .modal-content {
@@ -9,6 +12,9 @@
     }
 }
 #modal-right {
+    .modal-header {
+        padding: 5px 10px;
+    }
     .modal {
         right: 0!important;
         left: auto !important;

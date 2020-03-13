@@ -7,6 +7,8 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(65, 112, 243, 0.4); }
 
+#modal-left .modal-header {
+  padding: 5px 10px; }
 #modal-left .modal-dialog {
   margin: 0 !important; }
   #modal-left .modal-dialog .modal-content {
@@ -14,6 +16,8 @@
     max-width: 720px;
     width: 700px; }
 
+#modal-right .modal-header {
+  padding: 5px 10px; }
 #modal-right .modal {
   right: 0 !important;
   left: auto !important; }
@@ -84,6 +88,9 @@ ul#pagination {
       color: #077d30; }
     #jo-item .list-group .list-group-item .media-body h5 span.deadline {
       color: red; }
+
+.table td, .table th {
+  vertical-align: middle; }
 
 .page-content {
   padding: 70px calc(24px / 2) 100px calc(24px / 2); }

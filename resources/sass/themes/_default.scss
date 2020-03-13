@@ -42,7 +42,9 @@
         }
     }
 }
-
+.table td, .table th {
+    vertical-align: middle;
+}
 .page-content {
     padding: 70px calc(24px / 2) 100px calc(24px / 2);
 }

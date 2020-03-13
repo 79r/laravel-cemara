@@ -11,10 +11,10 @@ class JoajaxController extends Controller {
     }
 
     public function index() {
-        $posts = Jo::latest()->paginate(5);
-        return response()->json($posts);
+        $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(5);
+        return response()->json($data);
     }
-
+    
     public function show($id) {
         $jo  = Jo::findOrFail($id);
         return response()->json($jo);

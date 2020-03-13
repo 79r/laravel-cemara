@@ -39,4 +39,8 @@ class Jo extends Model {
     public function jo_status() {
         return $this->belongsTo(JoStatus::class);
     }
+
+    public function category() {
+        return $this->belongsTo(JoCategory::class);
+    }
 }

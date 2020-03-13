@@ -13,9 +13,10 @@
                     <th data-priority="1">Nama</th>
                     <th data-priority="2">Tanggal Masuk</th>
                     <th data-priority="3">Deadline</th>
-                    <th data-priority="4">Material</th>
-                    <th data-priority="5">Finishing</th>
-                    <th data-priority="6">Actions</th>
+                    <th class="d-none" data-priority="4">Material</th>
+                    <th class="d-none" data-priority="5">Finishing</th>
+                    <th data-priority="6">Status JO</th>
+                    <th data-priority="7">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -96,9 +97,10 @@ function manageRow(data) {
         rows = rows + '<tr data-joid='+ value.id+'>';
         
         // invisible rows
-        rows = rows + '<td data-jo="jo_status_id" class="d-none">'+value.jo_status_id+'</td>';
-
-        rows = rows + '<td data-jo="jo_client_id" class="d-none">'+value.client_id+'</td>';
+        rows = rows + '<td data-jo="jo_client_name" class="d-none">'+value.client.name+'</td>';
+        rows = rows + '<td data-jo="jo_client_phone" class="d-none">'+value.client.phone+'</td>';
+        rows = rows + '<td data-jo="jo_client_email" class="d-none">'+value.client.email+'</td>';
+        rows = rows + '<td data-jo="jo_client_address" class="d-none">'+value.client.address+'</td>';
 
         rows = rows + '<td data-jo="jo_notes" class="d-none">'+value.notes+'</td>';
 
@@ -118,9 +120,11 @@ function manageRow(data) {
 
         rows = rows + '<td data-jo="deadline">'+value.deadline+'</td>';
 
-        rows = rows + '<td data-jo="jo_material">'+value.material+'</td>';
+        rows = rows + '<td data-jo="jo_material" class="d-none">'+value.material+'</td>';
 
-        rows = rows + '<td data-jo="jo_finishing">'+value.finishing+'</td>';
+        rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
+
+        rows = rows + '<td class="text-white" data-jo="jo_status" style="background-color:'+value.jo_status.color+'">'+value.jo_status.name+'</td>';
 
         rows = rows + '<td data-id="'+value.id+'">';
 
@@ -195,25 +199,20 @@ $("body").on("click",".show-item",function(){
 
     joCode      = tableTR.find('td[data-jo="jo_code"]').text();
     joTitle     = tableTR.find('td[data-jo="jo_title"]').text();
-    if (tableTR.find('td[data-jo="jo_status"]').text() == 1) {
-        joStatus    = "Waiting List";
-    }
-    else if(tableTR.find('td[data-jo="jo_status"]').text() == 2) {
-        joStatus    = "Progress";
-    }
-    else {
-        joStatus    = "Selesai";
-    }
-
+    joStatus     = tableTR.find('td[data-jo="jo_status"]').text();
     startDate = tableTR.find('td[data-jo="start_date"]').text();
     deadline = tableTR.find('td[data-jo="deadline"]').text();
-    joImage = tableTR.find('td[data-jo="jo_image"]').text();
     size = tableTR.find('td[data-jo="jo_size"]').text();
     material = tableTR.find('td[data-jo="jo_material"]').text();
     qty = tableTR.find('td[data-jo="jo_qty"]').text();
     finishing = tableTR.find('td[data-jo="jo_finishing"]').text();
     joDescription = tableTR.find('td[data-jo="jo_description"]').text();
     notes = tableTR.find('td[data-jo="jo_notes"]').text();
+
+    clientName = tableTR.find('td[data-jo="jo_client_name"]').text();
+    clientPhone = tableTR.find('td[data-jo="jo_client_phone"]').text();
+    clientEmail = tableTR.find('td[data-jo="jo_client_email"]').text();
+    clientAddress = tableTR.find('td[data-jo="jo_client_address"]').text();
     
     /* Letakan data di DOM */
     $("#jo_code").html(joCode);
@@ -229,7 +228,45 @@ $("body").on("click",".show-item",function(){
     $("#jo-item").find("#jo_description").html(joDescription);
     $("#jo-item").find("#jo_notes").html(notes);
 
+    $("#jo-item").find("#jo_client_name").html(clientName);
+    $("#jo-item").find("#jo_client_phone").html(clientPhone);
+    $("#jo-item").find("#jo_client_email").html(clientEmail);
+    $("#jo-item").find("#jo_client_address").html(clientAddress);
 });
+
+
+
+// Tombol untuk membuat JO dari waiting list ke progress
+$("body").on("click",".edit-item",function() {
+    var id = $(this).parent("td").data('id');
+    var title = $(this).parent("td").prev("td").prev("td").text();
+    var details = $(this).parent("td").prev("td").text();
+
+    $("#edit-item").find("input[name='title']").val(title);
+    $("#edit-item").find("textarea[name='details']").val(details);
+    $("#edit-item").find("form").attr("action",url + '/' + id);
+});
+
+$(".crud-submit-edit").click(function(e){
+    e.preventDefault();
+
+    var form_action = $("#edit-item").find("form").attr("action");
+    var title = $("#edit-item").find("input[name='title']").val();
+    var details = $("#edit-item").find("textarea[name='details']").val();
+
+    $.ajax({
+        dataType: 'json',
+        type:'PUT',
+        url: form_action,
+        data:{title:title, details:details}
+    }).done(function(data){
+        getPageData();
+        $(".modal").modal('hide');
+        toastr.success('Post Updated Successfully.', 'Success Alert', {timeOut: 5000});
+    });
+});
+
+
 </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
