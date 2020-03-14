@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-use Carbon\Carbon;
-
 use Auth;
 use App\Jo;
 use App\Client;
@@ -83,6 +81,14 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+
+        /* validation */
+        $this->validate($request, array(
+            'image_url'         => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'title'             => 'required',
+            'client_id'         => 'required',
+        ));
+
         $input = $request->all();
         $input['user_id']       = Auth::user()->id;
         $input['parent_id']     = (int)$request->parent_id;
@@ -97,21 +103,24 @@ class JoCemaraController extends Controller {
         $input['jo_status_id']  = (int)$request->jo_status_id;
         $input['qty']           = (int)$request->qty;
 
+        
 
+        // if ($files = $request->file('image_url')) {
+        //     $destinationPath = 'public/uploads/jo/'; // upload path
+        //     $joImage =  $input['jo_code'] . Carbon::now() . "." . $files->getClientOriginalExtension();
+        //     $files->move($destinationPath, $joImage);
+        // }
 
-        /** Upload image */
-        request()->validate([
-            'image_url' => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
-        ]);
-        if ($files = $request->file('image_url')) {
-            $destinationPath = 'public/uploads/jo/'; // upload path
-            $joImage =  $input['jo_code'] . Carbon::now() . "." . $files->getClientOriginalExtension();
-            $files->move($destinationPath, $joImage);
+        if($file = $request->file('image_url')) {
+            $name               =  $input['jo_code'] . '_' . Str::slug($input['title'], '-') . '.' . $file->getClientOriginalExtension();
+            $destinationPath    =  public_path('/uploads/jo/');
+            $file->move($destinationPath, $name);
+            $input['image_url'] = $name;
         }
 
         // Create to the Database
         Jo::create($input);
-        return redirect()->route('jo.cemara.index')
+        return redirect()->route('job')
                 ->withSuccess('Jo Berhasil dibuat');
     }
 

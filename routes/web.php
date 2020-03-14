@@ -41,5 +41,5 @@ Route::resource('clientajax', 'ClientajaxController'); // ROUTE AJAX
 Route::resource('client', 'ClientController');
 
 // JO AJAX
-Route::get('job', 'JoajaxController@job');
+Route::get('job', 'JoajaxController@job')->name('job');
 Route::resource('joajax','JoajaxController');

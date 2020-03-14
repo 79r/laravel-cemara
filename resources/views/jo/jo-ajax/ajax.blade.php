@@ -4,6 +4,17 @@
     <div class="text-center">
         <h4 class="header-title-lg">Job List</h4>
     </div>
+
+
+    @if ($message = Session::get('success'))
+    <div class="text-center">
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    </div>
+    @endif
+    
     <div class="table-rep-plugin">
         <div class="table-responsive mb-0" data-pattern="priority-columns">
             <table id="table-cemara-inventory" class="table table-striped">
@@ -115,7 +126,7 @@ function manageRow(data) {
         
         rows = rows + '<td data-jo="jo_code"><span class="badge badge-primary badge-sn">'+value.jo_code+'</span></td>';
 
-        rows = rows + '<td data-jo="jo_title">'+value.title+'</td>';
+        rows = rows + '<td style="max-width:252px" data-jo="jo_title">'+value.title+'</td>';
 
         rows = rows + '<td data-jo="start_date" class="timestamp">'+value.start_date+'</td>';
 
