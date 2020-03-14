@@ -2,73 +2,80 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
 use Illuminate\Http\Request;
-use DataTables;
+use App\Client;
 
-class ClientController extends Controller {
-
-    public function __construct() {
-        return $this->middleware('auth');
+class ClientController extends Controller{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index() {
+        $clients  = Client::paginate(20);
+        return view('client.index', array('clients' => $clients));
     }
 
-
-    public function index(Request $request) {
-        $clients = Client::latest()->get();
-
-        if ($request->ajax()) {
-            return Datatables::of($clients)
-                ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-                    $btn = 'Edit';
-                    $btn = $btn . ' Delete';
-                    return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-        return view('client.index', compact('clients'));
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create() {
+        return view('client.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request) {
-        Client::updateOrCreate([
-            'id'        => $request->id
-        ],[
-            'name'      => $request->name,
-            'phone'     => $request->phone,
-            'email'     => $request->email,
-            'address'   => $request->address
-        ]);
-
-        // return response
-        $response = [
-            'success' => true,
-            'message' => 'Client saved successfully.',
-        ];
-        return response()->json($response, 200);
+        $input = $request->all();
+        Client::create($input);
+        return redirect()->route('client.index');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id) {
+        $client = Client::findOrFail($id);
+        return view('client.show', array('client' => $client));
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id) {
-        $client = Client::find($id);
-        return response()->json($client);
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)  {
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client) {
-        $client->delete();
-
-        // return response
-        $response = [
-            'success' => true,
-            'message' => 'Book deleted successfully.',
-        ];
-        return response()->json($response, 200);
+    public function destroy($id)  {
+        //
     }
-
 }

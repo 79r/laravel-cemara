@@ -117,20 +117,20 @@ function manageRow(data) {
 
         rows = rows + '<td data-jo="jo_title">'+value.title+'</td>';
 
-        rows = rows + '<td data-jo="start_date">'+value.start_date+'</td>';
+        rows = rows + '<td data-jo="start_date" class="timestamp">'+value.start_date+'</td>';
 
-        rows = rows + '<td data-jo="deadline">'+value.deadline+'</td>';
+        rows = rows + '<td data-jo="deadline" class="timestamp">'+value.deadline+'</td>';
 
         rows = rows + '<td data-jo="jo_material" class="d-none">'+value.material+'</td>';
 
         rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
         
         if(value.jo_status.name == "Progress") {
-            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:130px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
+            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
         } else if(value.jo_status.name == "Waiting List") {
-            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:130px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
         } else {
-            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:130px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
+            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
         }
         
         /** action button 
@@ -294,6 +294,44 @@ $(".crud-submit-edit").click(function(e){
 
 
 </script>
+
+<script>
+function convertWaktu(timeHere){
+
+    // Unixtimestamp
+    var unixtimestamp = $('.timestamp').value;
+
+    // Months array
+    var months_arr = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Des'];
+
+    // Convert timestamp to milliseconds
+    var date = new Date(unixtimestamp*1000);
+
+    // Year
+    var year = date.getFullYear();
+
+    // Month
+    var month = months_arr[date.getMonth()];
+
+    // Day
+    var day = date.getDate();
+
+    // Hours
+    var hours = date.getHours();
+
+    // Minutes
+    var minutes = "0" + date.getMinutes();
+
+    // Seconds
+    var seconds = "0" + date.getSeconds();
+
+    // Display date time in MM-dd-yyyy h:m:s format
+    var timeHere = month+'-'+day+'-'+year+' '+hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+    return timeHere;
+}
+</script>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>

@@ -1,4 +1,10 @@
 #modal-left {
+    .modal {
+        -webkit-transition: .3s ease-in-out;
+        -moz-transition: .3s ease-in-out;
+        -o-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
     .modal-header {
         padding: 5px 10px;
     }

@@ -7,6 +7,11 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(65, 112, 243, 0.4); }
 
+#modal-left .modal {
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out; }
 #modal-left .modal-header {
   padding: 5px 10px; }
 #modal-left .modal-dialog {
@@ -77,6 +82,9 @@ ul#pagination {
   font-size: 30px;
   font-weight: 800; }
 
+table#table-cemara-inventory {
+  font-size: 14px; }
+
 #inventory-item .list-group .list-group-item {
   padding: 0; }
   #inventory-item .list-group .list-group-item .media-body h5 {
@@ -98,10 +106,7 @@ ul#pagination {
 
 .table td, .table th {
   vertical-align: middle;
-  border-top: 1px solid #969696; }
-
-.table-rep-plugin {
-  border: 1px solid #a9a9a9; }
+  border-top: 1px solid #b9b9b9; }
 
 .page-content {
   padding: 70px calc(24px / 2) 100px calc(24px / 2); }
