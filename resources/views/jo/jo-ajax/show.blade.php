@@ -15,9 +15,9 @@
                                 <div class="card">
                                     <div class="bg-transparent">
                                         @if(Auth::user()->profile->role == "admin")
-                                            <a href="{{ route('jo.cemara.edit', 1) }}" class="btn btn-danger">Edit jo ini</a>
+                                            <a href="{{ route('jo.cemara.edit', 1) }}" class="btn btn-sm btn-danger"><i class="mdi mdi-pencil"></i> Edit jo ini</a>
                                         @endif
-                                        <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" id="jo_title"></h5>
+                                        <h5 class="header-title-lg mb-3 mt-2" data-toggle="tooltip" data-placement="top" id="jo_title"></h5>
                                     </div>
                                     <ul class="list-group list-group-flush">
                     
