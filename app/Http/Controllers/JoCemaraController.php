@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use Carbon\Carbon;
+
 use Auth;
 use App\Jo;
 use App\Client;
@@ -94,8 +96,23 @@ class JoCemaraController extends Controller {
         $input['client_id']     = (int)$request->client_id;
         $input['jo_status_id']  = (int)$request->jo_status_id;
         $input['qty']           = (int)$request->qty;
+
+
+
+        /** Upload image */
+        request()->validate([
+            'image_url' => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+        ]);
+        if ($files = $request->file('image_url')) {
+            $destinationPath = 'public/uploads/jo/'; // upload path
+            $joImage =  $input['jo_code'] . Carbon::now() . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $joImage);
+        }
+
+        // Create to the Database
         Jo::create($input);
-        return redirect()->route('jo.cemara.index');
+        return redirect()->route('jo.cemara.index')
+                ->withSuccess('Jo Berhasil dibuat');
     }
 
     /**

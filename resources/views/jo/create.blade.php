@@ -6,6 +6,15 @@
         <h4 class="header-title-lg">Buat JO</h4>
         <p class="lead font-weight-bold">Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis</p>
     </div>
+
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+    <br>
+    @endif
+
     <div class="col-sm-12 col-md-10 col-lg-7 mx-auto">
         {{ Form::open( array('url' => route('jo.cemara.store'), 'files' => true) ) }}
     
@@ -51,6 +60,36 @@
                 }}
             </div>
     
+            <div class="form-group uploader">
+                <input id="file-upload" type="file" name="image_url" accept="image/*" onchange="readURL(this);">
+                <label for="file-upload" id="file-drag">
+                    <img id="file-image" src="#" alt="Preview" class="hidden">
+                    <div id="start" >
+                        <i class="mdi mdi-upload" aria-hidden="true"></i>
+                        <div>Ambil gambar atau drag disini</div>
+                        <div id="notimage" class="hidden">Silahkan pilih gambarnya</div>
+                        <span id="file-upload-btn" class="btn btn-primary">Pilih gambar</span>
+                        <br>
+                        <span class="text-danger">{{ $errors->first('image_url') }}</span>
+                    </div>
+                </label>
+            </div>
+            <script>
+                function readURL(input, id) {
+                    id = id || '#file-image';
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                
+                        reader.onload = function (e) {
+                            $(id).attr('src', e.target.result);
+                        };
+                
+                        reader.readAsDataURL(input.files[0]);
+                        $('#file-image').removeClass('hidden');
+                        $('#start').hide();
+                    }
+                }
+            </script> 
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
