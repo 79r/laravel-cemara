@@ -46,6 +46,12 @@
 <!-- Edit Item Modal -->
 @include('jo.jo-ajax.edit')
 
+<!-- Progress JO -->
+@include('jo.jo-ajax.progress')
+
+<!-- Done JO -->
+@include('jo.jo-ajax.selesai')
+
 <!-- Show Jo Item -->
 @include('jo.jo-ajax.show')
 
@@ -139,7 +145,7 @@ function manageRow(data) {
         if(value.jo_status.name == "Progress") {
             rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
         } else if(value.jo_status.name == "Waiting List") {
-            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
         } else {
             rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
         }
@@ -274,36 +280,34 @@ $("body").on("click",".show-item",function(){
 
 
 
-// Tombol untuk membuat JO dari waiting list ke progress
-$("body").on("click",".edit-item",function() {
-    var id = $(this).parent("td").data('id');
-    var title = $(this).parent("td").prev("td").prev("td").text();
-    var details = $(this).parent("td").prev("td").text();
 
-    $("#edit-item").find("input[name='title']").val(title);
-    $("#edit-item").find("textarea[name='details']").val(details);
-    $("#edit-item").find("form").attr("action",url + '/' + id);
+
+/** Jo dari Waiting List ke Progress */
+
+$("body").on("click",".submit-progress",function(){
+    let id = joID = $(this).attr('data-id');
+    $("#progresskanjo").find("form").attr("action",url + '/' + id);
+    submitProgress();
 });
 
-$(".crud-submit-edit").click(function(e){
-    e.preventDefault();
-
-    var form_action = $("#edit-item").find("form").attr("action");
-    var title = $("#edit-item").find("input[name='title']").val();
-    var details = $("#edit-item").find("textarea[name='details']").val();
-
+function submitProgress() {
+    var form_action_progress = $("progresskanjo").find("form").attr("action");
+    var newProgressStatus = $("#progresskanjo").find("input#toProgress").val();
     $.ajax({
         dataType: 'json',
         type:'PUT',
-        url: form_action,
-        data:{title:title, details:details}
+        url: form_action_progress,
+        data:{jo_status_id : newProgressStatus}
     }).done(function(data){
         getPageData();
-        $(".modal").modal('hide');
-        toastr.success('Post Updated Successfully.', 'Success Alert', {timeOut: 5000});
+        toastr.success('Jo id "'+id+'" berhasil jadi progress', 'Success', {timeOut: 5000});
     });
-});
+}
 
+
+
+
+/* JO dari Progress ke Selesai */
 
 </script>
 
