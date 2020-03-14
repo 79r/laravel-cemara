@@ -14,6 +14,9 @@
                             <div class="col-sm-12">
                                 <div class="card">
                                     <div class="bg-transparent">
+                                        @if(Auth::user()->profile->role == "admin")
+                                            <a href="{{ route('jo.cemara.edit', ) }}" class="btn btn-danger">Edit jo ini</a>
+                                        @endif
                                         <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" id="jo_title"></h5>
                                     </div>
                                     <ul class="list-group list-group-flush">
@@ -21,7 +24,7 @@
                                         <li class="list-group-item">
                                             <div class="media my-2">
                                                 <div class="media-body">
-                                                    <div class="col-md-6 mx-auto">
+                                                    <div class="col-md-6">
                                                         <p class="text-muted mb-1">Image</p>
                                                         <img id="jo_image" class="img-fluid" src="" alt="">
                                                     </div>
