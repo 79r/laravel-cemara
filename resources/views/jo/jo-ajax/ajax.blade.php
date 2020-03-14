@@ -233,6 +233,8 @@ $(".crud-submit-edit").click(function(e){
 });
 
 
+
+
 // Show
 $("body").on("click",".show-item",function(){
     var joID = $(this).attr('data-id');
@@ -281,29 +283,23 @@ $("body").on("click",".show-item",function(){
 
 
 
-
 /** Jo dari Waiting List ke Progress */
 
-$("body").on("click",".submit-progress",function(){
-    let id = joID = $(this).attr('data-id');
-    $("#progresskanjo").find("form").attr("action",url + '/' + id);
-    submitProgress();
+$("body").on("click",".submit-progress",function(e){
+    e.preventDefault();
+    var progresskanJoID = $(this).attr('data-id');
+    $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + progresskanJoID);
+    var fromActionJoAjaxUpdate = $("#progresskanjo").find("form").attr("action");
+        $.ajax({
+            dataType: 'json',
+            type:'PUT',
+            url: fromActionJoAjaxUpdate,
+            data:{jo_status_id : 2 } // 2 adalah progress
+        }).done(function(data){
+            getPageData();
+            toastr.success('Jo berhasil jadi progress', 'Success', {timeOut: 5000});
+        });
 });
-
-function submitProgress() {
-    var form_action_progress = $("progresskanjo").find("form").attr("action");
-    var newProgressStatus = $("#progresskanjo").find("input#toProgress").val();
-    $.ajax({
-        dataType: 'json',
-        type:'PUT',
-        url: form_action_progress,
-        data:{jo_status_id : newProgressStatus}
-    }).done(function(data){
-        getPageData();
-        toastr.success('Jo id "'+id+'" berhasil jadi progress', 'Success', {timeOut: 5000});
-    });
-}
-
 
 
 
