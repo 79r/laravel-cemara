@@ -21,8 +21,10 @@
                                         <li class="list-group-item">
                                             <div class="media my-2">
                                                 <div class="media-body">
-                                                    <p class="text-muted mb-1">Image</p>
-                                                    <img id="jo_image" src="" alt="">
+                                                    <div class="col-md-6 mx-auto">
+                                                        <p class="text-muted mb-1">Image</p>
+                                                        <img id="jo_image" class="img-fluid" src="" alt="">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>

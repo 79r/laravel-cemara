@@ -237,6 +237,7 @@ $("body").on("click",".show-item",function(){
     joCode      = tableTR.find('td[data-jo="jo_code"]').text();
     joTitle     = tableTR.find('td[data-jo="jo_title"]').text();
     joStatus     = tableTR.find('td[data-jo="jo_status"]').text();
+    joImage     = tableTR.find('td[data-jo="jo_image"]').text();
     startDate = tableTR.find('td[data-jo="start_date"]').text();
     deadline = tableTR.find('td[data-jo="deadline"]').text();
     size = tableTR.find('td[data-jo="jo_size"]').text();
@@ -253,7 +254,7 @@ $("body").on("click",".show-item",function(){
     
     /* Letakan data di DOM */
     $("#jo_code").html(joCode);
-    $("#jo-item").find("#jo_image").attr('src', joImage);
+    $("#jo-item").find("#jo_image").attr('src', '{{ asset('uploads/jo') }}/'+joImage+'');
     $("#jo-item").find("#jo_status").html(joStatus);
     $("#jo-item").find("#jo_title").html(joTitle);
     $("#jo-item").find("#jo_start_date").html(startDate);
