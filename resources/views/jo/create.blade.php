@@ -16,6 +16,13 @@
             <div class="col-sm-12 col-md-10 col-lg-7 mx-auto">
                 @if(!empty($errors->all()))
                     <div class="alert alert-danger font-weight-bold">Ada kesalahan, Mohon diperiksa kembali ya</div>
+                    <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops.. :(',
+                        text: 'Ada kesalahan, mohon periksa kembali ya',
+                    });
+                    </script>
                 @endif
             </div>
         </div>

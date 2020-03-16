@@ -22,7 +22,7 @@
         <link href="{{ asset('app.css') }}" rel="stylesheet" type="text/css" />
 
         <!-- Sweet Alerts js -->
-        <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     </head>
 
