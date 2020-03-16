@@ -92,6 +92,15 @@
                         <span>JO Selesai</span>
                     </a>
                 </li>
+
+                <li class="menu-title">Client</li>
+
+                <li>
+                    <a href="{{ route('client.index') }}" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-airplay"></i></div>
+                        <span>Client</span>
+                    </a>
+                </li>
             </ul>
 
         </div>
