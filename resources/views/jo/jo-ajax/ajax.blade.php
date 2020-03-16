@@ -5,6 +5,14 @@
         <h4 class="header-title-lg">Job List</h4>
     </div>
 
+    <div class="text-center mt-3 mb-3">
+        <div class="btn-group" role="group">
+            <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-checkbox-marked-circle-outline"></i> Jo Waiting List</a>
+            <a href="" class="btn btn-sm btn-success"><i class="mdi mdi-plus"></i> Jo Progress</a>
+            <a href="" class="btn btn-sm btn-primary"><i class="mdi mdi-checkbox-marked-circle-outline"></i>  Jo Selesai</a>
+        </div>
+    </div>
+
     @if ($message = Session::get('success'))
     <script>
         Toastify({
