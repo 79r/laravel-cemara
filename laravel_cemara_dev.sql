@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2020 at 10:56 AM
+-- Generation Time: Mar 16, 2020 at 06:21 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -37,6 +37,18 @@ CREATE TABLE `clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `name`, `phone`, `email`, `address`, `created_at`, `updated_at`) VALUES
+(1, 'Sample Client', '0681211', '123@gmail.com', 'AS ahjkbsa jsb', '2020-03-03 09:36:30', '2020-03-03 09:36:30'),
+(2, 'Sample Client ke 2', '08121511', 'email@email.com', 'adajsba nsa', '2020-03-03 09:36:13', '2020-03-03 09:36:13'),
+(3, 'Client ke 3', '08123456789', 'email@domain.com', 'asasasasasaj sahsbash', '2020-03-03 09:53:18', '2020-03-03 09:53:18'),
+(13, 'Angga Elang Dev', '0212121212', NULL, NULL, '2020-03-04 04:01:03', '2020-03-04 04:01:03'),
+(14, 'Testing Client Baru', '2704421214', 'admin@cemara', NULL, '2020-03-13 03:46:10', '2020-03-13 03:46:10'),
+(15, 'Test New Client From AJAX', 'sasas', 'asasasas', NULL, '2020-03-13 23:51:13', '2020-03-13 23:51:13');
 
 -- --------------------------------------------------------
 
@@ -846,23 +858,54 @@ INSERT INTO `inventory_suppliers` (`id`, `name`, `phone`, `email`, `address`, `n
 
 CREATE TABLE `jo` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `serial_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jo_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deadline` timestamp NULL DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `material` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `finishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `qty` int(11) NOT NULL,
+  `material` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `finishing` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
   `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `parent_id` tinyint(3) UNSIGNED NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
+  `jo_status_id` tinyint(3) UNSIGNED DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='User id';
+
+--
+-- Dumping data for table `jo`
+--
+
+INSERT INTO `jo` (`id`, `jo_code`, `client_id`, `size`, `title`, `start_date`, `deadline`, `description`, `image_url`, `material`, `finishing`, `qty`, `notes`, `user_id`, `parent_id`, `category_id`, `jo_status_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'CK00916', 1, '10x10CM', 'Testing JO', '2020-03-12 05:16:27', '2020-03-04 22:23:00', '<p>Testing Deskripsi JO</p>', NULL, 'Sample Material', 'Sample Finishing', 1, '<p>Sample notes jo</p>', 1, 1, 1, 1, NULL, '2020-03-02 22:26:39', '2020-03-02 22:26:39'),
+(2, 'CK00917', 1, '10x5CM', 'Lorem ipsum', '2020-03-12 05:16:28', '2020-03-03 05:36:03', 'asasa', NULL, NULL, NULL, 1, NULL, 1, 1, 1, 1, NULL, NULL, NULL),
+(3, 'CK00918', 1, '5x10 CM', 'Testing JO Lagi', '2020-03-14 12:56:15', '2020-03-05 23:04:35', '<p>Testing deskripsi</p>', NULL, 'Sample Material', 'Sample Finishing', 10, '<p>Testing notes&nbsp;</p>', 1, 1, 1, 1, NULL, '2020-03-02 23:05:20', '2020-03-02 23:05:20'),
+(4, 'CK00919', 1, '10x10CM', 'Testing lagiiiii', '2020-03-14 12:56:26', '2020-03-06 23:05:36', '<p>Testing testingtesing</p>', NULL, 'Material Name', 'asasa', 10, '<p>Notes here......</p>', 1, 1, 1, 1, NULL, '2020-03-02 23:06:22', '2020-03-12 03:59:21'),
+(27, 'CK00920', 13, 'asasas', 'Testing JOOOOOOOOOOOOOO', '2020-03-13 12:10:35', '2020-03-04 04:02:48', '<p>asasasasasasasasasa</p>', NULL, 'asasas', 'sasasas', 0, '<p>asasasas</p>', 1, 1, 1, 3, NULL, '2020-03-04 04:03:30', '2020-03-12 03:59:27'),
+(28, 'CK00921', 3, '5x10 CM', 'Testing JOOOOOOOOO', '2020-03-13 12:10:32', '2020-03-11 23:13:06', '<p>asasa</p>', NULL, 'sasas', 'asasa', 1, '<p>asasas</p>', 1, 1, 1, 3, NULL, '2020-03-11 23:13:40', '2020-03-12 00:32:15'),
+(30, 'CK00922', 13, '10x10CM', 'Just testing', '2020-03-13 12:10:40', '2020-03-11 23:21:59', '<p>asas</p>', NULL, 'as12w', 'Sample Finishing', 10, '<p>asasasasasasasas</p>', 1, 1, 1, 3, NULL, '2020-03-11 23:22:35', '2020-03-12 00:32:17'),
+(31, 'CK00919', 13, '5x10 CM', 'asasas', '2020-03-13 12:09:35', '2020-03-12 05:29:15', '<p>aasasa</p>', NULL, 'Sample Material', 'asasa', 1, '<p>asas</p>', 1, 1, 1, 3, NULL, '2020-03-12 05:29:31', '2020-03-12 05:29:31'),
+(32, 'CK00920', 3, '5x10 CM', 'asasq wqwqwqwqwqwqwqw', '2020-03-12 05:29:35', '2020-03-12 05:29:35', '<p>asasasas</p>', NULL, 'Material Name', 'Sample Finishing', 10, '<p>asasas</p>', 1, 1, 1, 1, NULL, '2020-03-12 05:29:53', '2020-03-12 05:29:53'),
+(33, 'CK00921', 13, '5x10 CM', 'asasq wqwqwqwqwqwqwqw', '2020-03-12 05:29:58', '2020-03-12 05:29:58', '<p>sasasasa</p>', NULL, 'Sample Material', 'Sample Finishing', 1, '<p>asas</p>', 1, 1, 1, 1, NULL, '2020-03-12 05:30:10', '2020-03-12 05:30:10'),
+(34, 'CK00922', 1, '10x10CM', 'Testing JO Terbaru', '2020-03-13 12:09:37', '2020-03-13 01:59:02', '<p>Sasasas</p>', NULL, 'Sample Material', 'Sample Finishing', 10, '<p>asasasasasasas</p>', 1, 1, 1, 3, NULL, '2020-03-13 01:59:28', '2020-03-13 01:59:28'),
+(35, 'CK00923', 14, '5x10 CM', 'Testing JO dari ID client dengan AJAX', '2020-03-14 12:58:37', '2020-03-13 03:46:11', '<p>asasas</p>', NULL, 'Material Name', 'Sample Finishing', 10, '<p>asasasasas</p>', 1, 1, 1, 1, NULL, '2020-03-13 03:46:37', '2020-03-13 03:46:37'),
+(36, 'CK00924', 14, '10x10cm', 'Sample JO Name NOT GENERATE RANDOM STRING', '2020-03-14 00:11:21', '2020-03-14 00:11:21', '<p>This is a sample description</p>', 'C:\\xampp\\tmp\\php836F.tmp', 'Sample Material', 'Sample Finishing', 5, '<p>Sample note a jo</p>', 1, 1, 1, 1, NULL, '2020-03-14 00:14:40', '2020-03-14 00:14:40'),
+(37, 'CK00925', 1, '10x10cm', 'Tes JO With Image', '2020-03-14 08:33:16', '2020-03-14 00:56:43', '<p>sample desc</p>', 'C:\\xampp\\tmp\\php87D9.tmp', 'Sample Material', 'Sample Finishing', 5, '<p>Sample note</p>', 1, 1, 1, 1, NULL, '2020-03-14 00:57:17', '2020-03-14 00:57:17'),
+(38, 'CK00926', 1, '10x10cm', 'asasasasasasasa', '2020-03-14 08:33:15', '2020-03-14 01:01:15', '<p>asasa</p>', 'C:\\xampp\\tmp\\phpB84D.tmp', 'Sample Material', 'Sample Finishing', 5, '<p>asasa</p>', 1, 1, 1, 1, NULL, '2020-03-14 01:01:51', '2020-03-14 01:01:51'),
+(39, 'CK00927', 1, '10x10cm', 'Tes JO With Image', '2020-03-14 08:33:30', '2020-03-14 01:10:02', NULL, '15841734161584173416.jpg', 'Sample Material', 'Sample Finishing', 5, NULL, 1, 1, 1, 1, NULL, '2020-03-14 01:10:16', '2020-03-14 01:10:16'),
+(40, 'CK00928', 3, '10x10cm', 'Testing Jo with new Image', '2020-03-14 01:16:08', '2020-03-14 01:16:08', '<p>asasasa</p>', '15841738091584173809.webp', 'Sample Material', 'Sample Finishing', 5, '<p>sasasasasas</p>', 1, 1, 1, 1, NULL, '2020-03-14 01:16:49', '2020-03-14 01:16:49'),
+(41, 'CK00929', 1, '10x10cm', 'Testing JO mungkin kali ini sukses', '2020-03-14 12:58:18', '2020-03-14 01:28:52', NULL, 'CK00929_jpg', 'Sample Material', 'Sample Finishing', 5, '<p>asasas</p>', 1, 1, 1, 2, NULL, '2020-03-14 01:29:25', '2020-03-14 05:58:18'),
+(42, 'CK00930', 13, '10x10cm', 'testing joooo lagi ahhhhhh', '2020-03-14 12:56:18', '2020-03-14 02:10:36', '<p>asasasasas</p>', NULL, 'Sample Material', 'Sample Finishing', 5, '<p>asasa</p>', 1, 1, 1, 1, NULL, '2020-03-14 02:11:59', '2020-03-14 05:55:11'),
+(43, 'CK00931', 1, '10x10cm', 'Testing JO bismillah', '2020-03-14 12:56:20', '2020-03-14 02:14:25', '<p>asasas</p>', 'CK00931_Testing JO bismillah.jpg', 'Sample Material', 'Sample Finishing', 5, NULL, 1, 1, 1, 1, NULL, '2020-03-14 02:16:23', '2020-03-14 05:55:13'),
+(45, 'CK00932', 13, '10x10cm', 'What is Lorem Ipsum?', '2020-03-14 12:58:13', '2020-03-14 02:27:09', '<p><strong style=\"margin: 0px; padding: 0px; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">Lorem Ipsum</strong><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s s</span></p>', 'CK00932_what-is-lorem-ipsum.jpg', 'What is Lorem Ipsum?', 'Sample Finishing', 5, '<p><strong style=\"margin: 0px; padding: 0px; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">Lorem Ipsum</strong><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s s</span><strong style=\"margin: 0px; padding: 0px; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">Lorem Ipsum</strong><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\"> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s s</span></p>', 1, 1, 1, 2, NULL, '2020-03-14 02:28:16', '2020-03-14 05:58:13'),
+(46, 'CK00933', 3, '10x10cm', 'Testing jo ngetest file upload aja', '2020-03-14 12:57:04', '2020-03-14 02:42:30', '<p><strong style=\"margin: 0px; padding: 0px; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">sum</strong><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">&nbsp;is simply dummy</span></p>', NULL, 'Sample Material', 'Sample Finishing', 5, '<p><strong style=\"margin: 0px; padding: 0px; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">sum</strong><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\"> is simply dummy</span><strong style=\"margin: 0px; padding: 0px; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">sum</strong><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\"> is simply dummy</span><strong style=\"margin: 0px; padding: 0px; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\">sum</strong><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify; background-color: #ffffff;\"> is simply dummy</span></p>', 1, 1, 1, 2, NULL, '2020-03-14 02:43:39', '2020-03-14 05:57:04');
 
 -- --------------------------------------------------------
 
@@ -897,6 +940,14 @@ CREATE TABLE `jo_parents` (
   `name` varchar(120) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nama lokasi kantor, misal MIM'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `jo_parents`
+--
+
+INSERT INTO `jo_parents` (`id`, `name`) VALUES
+(1, 'Cemara Kreatif'),
+(2, 'MIM');
+
 -- --------------------------------------------------------
 
 --
@@ -905,9 +956,18 @@ CREATE TABLE `jo_parents` (
 
 CREATE TABLE `jo_status` (
   `id` tinyint(3) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(75) COLLATE utf8mb4_unicode_ci NOT NULL,
   `color` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `jo_status`
+--
+
+INSERT INTO `jo_status` (`id`, `name`, `color`) VALUES
+(1, 'Waiting List', '#ef8f00'),
+(2, 'Progress', '#1794ff'),
+(3, 'Selesai', '#2fa97c');
 
 -- --------------------------------------------------------
 
@@ -951,7 +1011,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2020_03_02_075241_create_jo_tags_table', 2),
 (13, '2020_03_02_075248_create_jo_status_table', 2),
 (14, '2020_03_02_075257_create_jo_table', 2),
-(15, '2020_03_02_081711_create_jo_jo_tag_table', 3);
+(15, '2020_03_02_081711_create_jo_jo_tag_table', 3),
+(16, '2020_03_13_051557_create_profiles_table', 4);
 
 -- --------------------------------------------------------
 
@@ -964,6 +1025,28 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profiles`
+--
+
+CREATE TABLE `profiles` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`id`, `user_id`, `role`, `created_at`, `updated_at`) VALUES
+(1, 1, 'admin', NULL, NULL),
+(2, 2, 'staff', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -991,8 +1074,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `privilege`, `status`, `deleted_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@example.com', NULL, NULL, '$2y$10$nQnYKYVmyJeTvvIMu5D85uh6WpRooSwi7BChHruUwPmUf5sGUFZS.', NULL, 1, NULL, NULL, '2020-02-25 07:24:14', NULL),
-(2, 'Staff', 'staff@example.com', NULL, NULL, '$2y$10$.pt1.I4rw8.iuPUEDIRGFuDebNn7FEy7V3e5dCdQf1iUZOHJcjyI6', NULL, 1, NULL, NULL, '2020-02-25 07:24:14', NULL);
+(1, 'Admin', 'admin@cemara', NULL, NULL, '$2y$10$N4fvPpKce7zAIrRmr/4XHuRjUKaFSaiUVxqJqSz3JJClf7EgZ.5Si', NULL, 1, NULL, NULL, '2020-02-25 07:24:14', NULL),
+(2, 'Staff', 'staff@cemara', NULL, NULL, '$2y$10$N4fvPpKce7zAIrRmr/4XHuRjUKaFSaiUVxqJqSz3JJClf7EgZ.5Si', NULL, 1, NULL, NULL, '2020-02-25 07:24:14', NULL);
 
 --
 -- Indexes for dumped tables
@@ -1056,7 +1139,8 @@ ALTER TABLE `inventory_suppliers`
 ALTER TABLE `jo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `jo_user_id_foreign` (`user_id`),
-  ADD KEY `jo_parent_id_foreign` (`parent_id`);
+  ADD KEY `jo_parent_id_foreign` (`parent_id`),
+  ADD KEY `jo_status_id` (`jo_status_id`);
 
 --
 -- Indexes for table `jo_categories`
@@ -1102,6 +1186,13 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profiles_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1116,7 +1207,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `divisions`
@@ -1158,7 +1249,7 @@ ALTER TABLE `inventory_suppliers`
 -- AUTO_INCREMENT for table `jo`
 --
 ALTER TABLE `jo`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `jo_categories`
@@ -1170,13 +1261,13 @@ ALTER TABLE `jo_categories`
 -- AUTO_INCREMENT for table `jo_parents`
 --
 ALTER TABLE `jo_parents`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jo_status`
 --
 ALTER TABLE `jo_status`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jo_tags`
@@ -1188,7 +1279,13 @@ ALTER TABLE `jo_tags`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `profiles`
+--
+ALTER TABLE `profiles`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1214,6 +1311,7 @@ ALTER TABLE `inventory_items`
 -- Constraints for table `jo`
 --
 ALTER TABLE `jo`
+  ADD CONSTRAINT `jo_ibfk_1` FOREIGN KEY (`jo_status_id`) REFERENCES `jo_status` (`id`),
   ADD CONSTRAINT `jo_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `jo_parents` (`id`),
   ADD CONSTRAINT `jo_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
@@ -1223,6 +1321,12 @@ ALTER TABLE `jo`
 ALTER TABLE `jo_jo_tag`
   ADD CONSTRAINT `jo_jo_tag_jo_id_foreign` FOREIGN KEY (`jo_id`) REFERENCES `jo` (`id`),
   ADD CONSTRAINT `jo_jo_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `jo_tags` (`id`);
+
+--
+-- Constraints for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD CONSTRAINT `profiles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
