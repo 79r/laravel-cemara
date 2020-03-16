@@ -18,7 +18,7 @@
                                 @if($jo->jo_status_id == 1)
                                 <i class="mdi mdi-clock"></i>
                                 @elseif($jo->jo_status_id == 2)
-                                <i class="mdi mdi-autorenew"></i>
+                                <i class="mdi mdi-trending-up"></i>
                                 @else
                                 <i class="mdi mdi-check"></i>
                                 @endif
@@ -35,11 +35,13 @@
                         <div class="media my-2">
                             <div class="media-body">
                                 <p class="text-muted mb-1">Image</p>
-                                @if(!empty($jo->image_url))
-                                    <img src="" alt="">
-                                @else
-                                    <img class="img-thumbnail" src="{{ asset('images/alc_snapicon.webp') }}" alt="">
-                                @endif
+                                <div class="col-md-10">
+                                    @if($jo->image_url !==  NULL)
+                                        <img class="img-fluid" src="{{ asset('uploads/jo/') }}/{{$jo->image_url}}" alt="">
+                                    @else
+                                        <img class="img-fluid" src="{{ asset('images/alc_snapicon.webp') }}" alt="">
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </li>
