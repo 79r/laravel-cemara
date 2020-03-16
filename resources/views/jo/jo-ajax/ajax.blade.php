@@ -145,7 +145,7 @@ function manageRow(data) {
         if(value.jo_status.name == "Progress") {
             rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
         } else if(value.jo_status.name == "Waiting List") {
-            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
         } else {
             rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
         }
@@ -288,6 +288,7 @@ $("body").on("click",".show-item",function(){
 $("body").on("click",".submit-progress",function(e){
     e.preventDefault();
     var progresskanJoID = $(this).attr('data-id');
+    var progresskanJoCode = $(this).attr('jo-code');
     $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + progresskanJoID);
     var fromActionJoAjaxUpdate = $("#progresskanjo").find("form").attr("action");
         $.ajax({
@@ -297,7 +298,19 @@ $("body").on("click",".submit-progress",function(e){
             data:{jo_status_id : 2 } // 2 adalah progress
         }).done(function(data){
             getPageData();
-            toastr.success('Jo berhasil jadi progress', 'Success', {timeOut: 5000});
+
+            Toastify({
+                text: "Status Jo <b>"+progresskanJoCode+"</b> berhasil jadi progress",
+                duration: 4000, 
+                destination: "",
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: 'right', // `left`, `center` or `right`
+                backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                onClick: function(){} // Callback after click
+            }).showToast();
         });
 });
 
@@ -347,7 +360,5 @@ function convertWaktu(timeHere){
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 @endsection
