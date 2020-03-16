@@ -180,9 +180,6 @@ table#table-cemara-inventory tbody td {
   font-weight: 700;
   font-size: 22px; }
 
-.page-title-box {
-  padding: 60px 12px 65px 12px; }
-
 .page-content-wrapper {
   margin-top: -90px; }
 
@@ -199,7 +196,7 @@ span.badge-sn {
   font-size: 14px; }
 
 .page-title-box {
-  padding: 32px 12px 120px 12px; }
+  padding: 8px 12px 112px 12px; }
 
 .page-title-box .page-title {
   font-size: 26px;
