@@ -75,8 +75,12 @@ table#table-cemara-inventory {
         }
     }
 }
-
-
+.btn-help {
+    background: #ffb021;
+    font-weight: bold;
+    color: #260606;
+    padding: 6px 20px;
+}
 table {
     &#table-cemara-inventory {
         thead {
@@ -122,7 +126,13 @@ span {
         font-size: 14px;
     }
 }
-
+.page-title-box {
+    padding: 32px 12px 120px 12px;
+}
+.page-title-box .page-title {
+    font-size: 26px;
+    font-weight: bold;
+}
 #job-list {
     table {
         &#table-cemara-inventory {

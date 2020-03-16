@@ -10,7 +10,13 @@ class JoajaxController extends Controller {
     }
 
     public function job() {
-        return view('jo.jo-ajax/index');
+        $pageTitle      = "Semua Jo";
+        return view('jo.jo-ajax/index', compact('pageTitle'));
+    }
+
+    public function waitingList() {
+        $pageTitle      = "Jo Waiting List";
+        return view('jo.jo-ajax/waiting-list', compact('pageTitle'));
     }
 
     public function index() {

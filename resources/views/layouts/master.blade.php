@@ -61,7 +61,23 @@
 
                     <!-- Page-Title -->
                     <div class="page-title-box">
-
+                        <div class="container-fluid">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h4 class="page-title mb-1">@yield('pageTitle')</h4>
+                                    @yield('breadcrumb')
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="float-right d-none d-md-block">
+                                        <div class="dropdown">
+                                            <button class="btn btn-help btn-rounded">
+                                                <i class="mdi mdi-coffee mr-1"></i> Bantuan
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- end page title end breadcrumb -->
 

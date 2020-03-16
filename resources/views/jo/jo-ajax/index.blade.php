@@ -1,10 +1,16 @@
 @extends('layouts.master')
+
+@section('pageTitle', $pageTitle)
+
+@section('breadcrumb')
+<ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="javascript: void(0);">Cemara App</a></li>
+<li class="breadcrumb-item active">Jo Index</li>
+</ol>
+@endsection
+
 @section('content')
 <div id="job-list">
-    <div class="text-center">
-        <h4 class="header-title-lg">Job List</h4>
-    </div>
-
     @if(Auth::user()->profile->role == "admin")
     <div class="text-center">
         <a href="{{ route('jo.cemara.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i> Buat JO baru</a>
