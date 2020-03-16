@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group d-none">
                 <label for="jo_status">Status JO</label>
                 {{ Form::select('jo_status_id', $status, 1,
                     array(
@@ -86,6 +86,14 @@
             <div class="form-group uploader">
                 {{ Form::file('image_url', array('id' => 'file-upload', 'accept' => 'image/*', 'onchange' => 'readURL(this)')) }}
                 <label for="file-upload" id="file-drag">
+
+                    {{-- Jika ada error tampilkan pesan ini agar upload ulang gambar --}}
+                    @if(!empty($errors->all()))
+                        <div id="show-error-image-upload">
+                            <span>Mohon upload gambar JO</span>
+                        </div>
+                    @endif
+
                     <img id="file-image" src="#" alt="Preview" class="hidden">
                     <div id="start" >
                         <i class="mdi mdi-upload" aria-hidden="true"></i>
@@ -115,6 +123,7 @@
                         reader.readAsDataURL(input.files[0]);
                         $('#file-image').removeClass('hidden');
                         $('#start').hide();
+                        $('#show-error-image-upload').hide();
                     }
                 }
             </script> 

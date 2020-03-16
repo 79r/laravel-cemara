@@ -5,14 +5,21 @@
         <h4 class="header-title-lg">Job List</h4>
     </div>
 
-
     @if ($message = Session::get('success'))
-    <div class="text-center">
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-    </div>
+    <script>
+        Toastify({
+            text: "Jo Berhasil Dibuat !",
+            duration: 3000, 
+            destination: "",
+            newWindow: true,
+            close: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: 'right', // `left`, `center` or `right`
+            backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            onClick: function(){} // Callback after click
+        }).showToast();
+    </script>
     @endif
     
     <div class="table-rep-plugin">

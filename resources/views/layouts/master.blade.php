@@ -39,6 +39,7 @@
 
         <!-- toastify -->
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script src="{{ asset('assets/js/toastify.js') }}"></script>
 
     </head>
 
@@ -123,7 +124,6 @@
             });
         </script>
         <script src="{{ asset('assets/js/app.js') }}"></script>
-        <script src="{{ asset('assets/js/toastify.js') }}"></script>
 
     </body>
 </html>
