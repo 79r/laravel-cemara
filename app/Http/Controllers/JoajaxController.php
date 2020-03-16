@@ -11,7 +11,7 @@ class JoajaxController extends Controller {
     }
 
     public function index() {
-        $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(5);
+        $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
         return response()->json($data);
     }
     
