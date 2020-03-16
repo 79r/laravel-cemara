@@ -1,6 +1,6 @@
 .navbar-brand-box,
 .vertical-menu {
-    width: 200px;
+    width: 230px;
 }
 
 #sidebar-menu {
@@ -16,6 +16,18 @@
                 }
             }
             a {
+                &.waiting-list {
+                    font-weight: bold;
+                    color: #ff6e4b !important;
+                }
+                &.joprogress {
+                    color: #1794ff !important;
+                    font-weight: bold;
+                }
+                &.done {
+                    color: #2fa97c !important;
+                    font-weight: bold;
+                }
                 font-size: 14px;
                 font-weight: 600;
                 padding: .75rem;
