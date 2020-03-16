@@ -19,15 +19,21 @@ class UsersTableSeeder extends Seeder {
 
         $users = array(
             array(
-                'name'      => 'Admin',
-                'email'     => 'admin@example.com',
-                'password'  => bcrypt('secret'),
+                'name'      => 'Owner',
+                'email'     => 'owner@cemara',
+                'password'  => bcrypt('cemara67'),
                 'created_at'=> Carbon::now()
             ),
             array(
-                'name'      => 'Staff',
-                'email'     => 'staff@example.com',
-                'password'  => bcrypt('secret'),
+                'name'      => 'Admin',
+                'email'     => 'admin@cemara',
+                'password'  => bcrypt('cemara67'),
+                'created_at'=> Carbon::now()
+            ),
+            array(
+                'name'      => 'Tim Produksi',
+                'email'     => 'timproduksi@cemara',
+                'password'  => bcrypt('cemara67'),
                 'created_at'=> Carbon::now()
             )
         );
