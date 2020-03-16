@@ -150,7 +150,7 @@ function manageRow(data) {
         rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
         
         if(value.jo_status.name == "Progress") {
-            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
+            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
         } else if(value.jo_status.name == "Waiting List") {
             rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
         } else {
@@ -324,7 +324,34 @@ $("body").on("click",".submit-progress",function(e){
 
 
 /* JO dari Progress ke Selesai */
+$("body").on("click",".submit-done",function(e){
+    e.preventDefault();
+    var progresskanJoID = $(this).attr('data-id');
+    var progresskanJoCode = $(this).attr('jo-code');
+    $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + progresskanJoID);
+    var fromActionJoAjaxUpdate = $("#progresskanjo").find("form").attr("action");
+        $.ajax({
+            dataType: 'json',
+            type:'PUT',
+            url: fromActionJoAjaxUpdate,
+            data:{jo_status_id : 3 } // 3 adalah selesai
+        }).done(function(data){
+            getPageData();
 
+            Toastify({
+                text: "Status Jo <b>"+progresskanJoCode+"</b> berhasil jadi selesai",
+                duration: 4000, 
+                destination: "",
+                newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: 'right', // `left`, `center` or `right`
+                backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                onClick: function(){} // Callback after click
+            }).showToast();
+        });
+});
 </script>
 
 <script>
