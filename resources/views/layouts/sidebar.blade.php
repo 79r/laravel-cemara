@@ -83,7 +83,7 @@
                 <li>
                     <a href="{{ route('job-progress') }}" class="joprogress waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-                        <span>JO Selesai</span>
+                        <span>JO Progress</span>
                     </a>
                 </li>
                 <li>

@@ -43,7 +43,7 @@
                 <div class="row">
                         <div class="col-md-12">
                             <h5>Waiting List</h5>
-                            <span class="big-count">{{ \App\Jo::count() }}</span>
+                            <span class="big-count">{{ \App\Jo::where('jo_status_id', 1)->count() }}</span>
                         </div>
 
                         <div class="col-md-5 ml-auto icon">
@@ -61,7 +61,7 @@
                 <div class="row">
                         <div class="col-md-12">
                             <h5>JO Progress</h5>
-                            <span class="big-count">{{ \App\Jo::count() }}</span>
+                            <span class="big-count">{{ \App\Jo::where('jo_status_id', 2)->count() }}</span>
                         </div>
 
                         <div class="col-md-5 ml-auto icon">
@@ -79,7 +79,7 @@
                 <div class="row">
                         <div class="col-md-12">
                             <h5>JO Selesai</h5>
-                            <span class="big-count">{{ \App\Jo::count() }}</span>
+                            <span class="big-count">{{ \App\Jo::where('jo_status_id', 3)->count() }}</span>
                         </div>
 
                         <div class="col-md-5 ml-auto icon">
