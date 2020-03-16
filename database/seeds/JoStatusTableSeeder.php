@@ -14,7 +14,7 @@ class JoStatusTableSeeder extends Seeder {
     public function run() {
         DB::table($this->tableName)->delete();
         $jo_status = array(
-            array('name' => 'Waiting List', 'color' => '#ef8f00'),
+            array('name' => 'Waiting List', 'color' => '#ff6e4b'),
             array('name' => 'Progress',     'color' => '#1794ff'),
             array('name' => 'Selesai',      'color' => '#2fa97c')
         );
