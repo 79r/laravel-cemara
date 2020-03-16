@@ -4,7 +4,11 @@
 <div class="my-5">
     <div class="card-title mb-5 text-center">
         <h4 class="header-title-lg">Buat JO</h4>
-        <p class="lead font-weight-bold">Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis</p>
+        <div class="col-lg-7 mx-auto">
+            <div class="alert alert-success">
+                Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis
+            </div>
+        </div>
     </div>
 
     <div id="error-fields">
