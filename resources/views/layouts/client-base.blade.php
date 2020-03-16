@@ -41,6 +41,9 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <script src="{{ asset('assets/js/toastify.js') }}"></script>
 
+        <!-- Sweet Alerts js -->
+        <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
     </head>
 
     <body data-topbar="colored">

@@ -21,6 +21,9 @@
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('app.css') }}" rel="stylesheet" type="text/css" />
 
+        <!-- Sweet Alerts js -->
+        <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
     </head>
 
     <body data-topbar="colored">
