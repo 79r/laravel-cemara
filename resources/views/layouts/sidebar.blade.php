@@ -66,6 +66,8 @@
                     </ul>
                 </li>
 
+                <li class="divider"></li>
+                <li class="menu-title">Job Schedule</li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
@@ -73,21 +75,27 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li>
-                            <a href="{{ route('jo.cemara.create') }}" class="waves-effect">
-                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-comment-plus"></i></div>
-                                <span>Buat JO</span>
+                            <a href="{{ route('job') }}" class="waves-effect">
+                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                                <span>Semua JO</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('jo.cemara.index') }}" class="waves-effect">
+                            <a href="" class="waves-effect">
                                 <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-                                <span>Jo Cemara</span>
+                                <span>Jo Waiting List</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('jo.mim.index') }}" class="waves-effect">
+                            <a href="" class="waves-effect">
                                 <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-                                <span>Jo MIM</span>
+                                <span>Jo Progress</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="waves-effect">
+                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                                <span>Jo Selesai</span>
                             </a>
                         </li>
                     </ul>
