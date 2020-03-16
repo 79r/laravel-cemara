@@ -139,7 +139,13 @@
                             </div>
                             <!-- end row -->
 
-                            <div class="row" id="jo-stats">
+                            <div class="row mt-2" id="jo-stats">
+                                <div class="col-sm-12">
+                                    <div class="title">
+                                        <h4>Job Schedule</h4>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-md-2 col-lg-3">
                                     <div class="card total">
                                         <div class="card-body">
