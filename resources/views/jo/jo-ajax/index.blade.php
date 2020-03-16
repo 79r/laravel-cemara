@@ -10,6 +10,85 @@
 @endsection
 
 @section('content')
+
+<div class="container-fluid">
+    <div class="row" id="jo-stats">
+        <div class="col-md-2 col-lg-3">
+            <div class="card total">
+                <div class="card-body">
+                <div class="row">
+                        <div class="col-md-7">
+                            <h5>Total JO</h5>
+                            <span class="big-count">{{ \App\Jo::count() }}</span>
+                        </div>
+
+                        <div class="col-md-5 ml-auto">
+                            <div class="stats-icon">
+                                <i class="mdi mdi-coffee"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-3">
+            <div class="card waiting-list">
+                <div class="card-body">
+                <div class="row">
+                        <div class="col-md-7">
+                            <h5>Waiting List</h5>
+                            <span class="big-count">{{ \App\Jo::count() }}</span>
+                        </div>
+
+                        <div class="col-md-5 ml-auto">
+                            <div class="stats-icon">
+                                <i class="mdi mdi-clock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-3">
+            <div class="card progrs">
+                <div class="card-body">
+                <div class="row">
+                        <div class="col-md-7">
+                            <h5>JO Progress</h5>
+                            <span class="big-count">{{ \App\Jo::count() }}</span>
+                        </div>
+
+                        <div class="col-md-5 ml-auto">
+                            <div class="stats-icon">
+                                <i class="mdi mdi-trending-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-3">
+            <div class="card done">
+                <div class="card-body">
+                <div class="row">
+                        <div class="col-md-7">
+                            <h5>JO Selesai</h5>
+                            <span class="big-count">{{ \App\Jo::count() }}</span>
+                        </div>
+
+                        <div class="col-md-5 ml-auto">
+                            <div class="stats-icon">
+                                <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div id="job-list">
     @if(Auth::user()->profile->role == "admin")
     <div class="text-center">
