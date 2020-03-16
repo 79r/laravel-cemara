@@ -5,6 +5,12 @@
         <h4 class="header-title-lg">Job List</h4>
     </div>
 
+    @if(Auth::user()->profile->role == "admin")
+    <div class="text-center">
+        <a href="{{ route('jo.cemara.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i> Buat JO baru</a>
+    </div>
+    @endif
+
     <div class="text-center mt-3 mb-3">
         <div class="btn-group" role="group">
             <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-checkbox-marked-circle-outline"></i> Jo Waiting List</a>

@@ -159,6 +159,14 @@ span.badge-sn {
 #job-list table#table-cemara-inventory thead {
   background: #465575; }
 
+.btn-success {
+  background-color: #1794ff;
+  border-color: #1794ff; }
+
+.btn-danger {
+  background-color: #ff8264;
+  border-color: #ff6e4b; }
+
 .uploader {
   position: relative;
   display: block;
