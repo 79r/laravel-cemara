@@ -85,7 +85,8 @@ ul#pagination {
 
 .header-title {
   font-size: 24px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-transform: unset; }
 
 .header-title-lg {
   font-size: 30px;
@@ -99,6 +100,24 @@ table#table-cemara-inventory {
   #inventory-item .list-group .list-group-item .media-body h5 {
     color: #129263;
     font-weight: 800; }
+
+#jo-stats .card {
+  color: #fbfbfb !important; }
+  #jo-stats .card .btn-primary {
+    color: #031100;
+    background-color: #fbfbfb;
+    border-color: #fbfbfb;
+    font-weight: bold; }
+  #jo-stats .card h5 {
+    color: #fbfbfb; }
+  #jo-stats .card.total {
+    background-color: #2a3e4f; }
+  #jo-stats .card.waiting-list {
+    background-color: #f7a000; }
+  #jo-stats .card.progrs {
+    background-color: #1794ff; }
+  #jo-stats .card.done {
+    background-color: #29a20e; }
 
 #jo-item .list-group .list-group-item {
   padding: 0; }
@@ -164,7 +183,7 @@ table#table-cemara-inventory tbody td {
     padding: 70px calc(5px / 2) 100px calc(5px / 2) !important; } }
 span.big-count {
   font-weight: bold;
-  font-size: 36px; }
+  font-size: 42px; }
   @media screen and (max-width: 600px) {
     span.big-count {
       font-size: 30px; } }

@@ -17,12 +17,13 @@ class DashboardController extends Controller {
 
     public function index() {
 
-        $inventories = array(
-            'inventories'   => InventoryItem::paginate(10),
-            'total_rp'      => InventoryItem::sum('price')
-        );
-
-        return view('dashboard/index', $inventories);
+        // $inventories = array(
+        //     'inventories'   => InventoryItem::paginate(10),
+        //     'total_rp'      => InventoryItem::sum('price')
+        // );
+        
+        $pageTitle          = "Dashboard";
+        return view('dashboard/index', compact('pageTitle' ));
     }
 
 }

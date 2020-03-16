@@ -44,7 +44,7 @@
                         <div class="container-fluid">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title mb-1">{{ $pageTitle }}</h4>
+                                    <h4 class="page-title mb-1">Dashboard</h4>
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Cemara App</a></li>
                                     <li class="breadcrumb-item active">Dashboard</li>
@@ -136,139 +136,129 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-7">
+                                                    <h5>Total Job List</h5>
+                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-7">
+                                                    <h5>Jo Progress</h5>
+                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-7">
+                                                    <h5>Jo Waiting List</h5>
+                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
+
+                                                    <div class="mt-4">
+                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5 ml-auto d-none">
+                                                    <div>
+                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right ml-2">
+                                                <a href="{{ route('inventory.index') }}">View all</a>
+                                            </div>
+                                            <h5 class="text-center header-title mb-4">Overview</h5>
+                                            <div class="table-responsive">
+                                                <table id="table-cemara-inventory" class="table table-centered table-hover mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Serial Number</th>
+                                                            <th scope="col">Nama</th>
+                                                            <th scope="col">Qty</th>
+                                                            <th scope="col">Kategori</th>
+                                                            <th scope="col">Harga (Rp)</th>
+                                                            <th scope="col">Tahun Beli</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($inventories as $item)
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <a href="{{ url('inventory', $item->id) }}"><span class="badge badge-primary badge-sn">{{ $item->serial_number }}</a></span>
+                                                            </th>
+                                                            <td>{{ $item->name }}</td>
+                                                            <td>{{ $item->qty }}</td>
+                                                            <td>{{ $item->category->name }}</td>
+                                                            <td class="font-weight-bold">@currency($item->price)</td>
+                                                            <td>{{ date('Y', strtotime($item->year_of_purchase)) }}</td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div class="mt-4">
+                                                <div class="text-center">
+                                                    {{ $inventories->links() }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <!-- end row -->
 
-                            <div class="row" id="jo-stats">
-                                <div class="col-md-2 col-lg-3">
-                                    <div class="card total">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-md-7">
-                                                    <h5>Total JO</h5>
-                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('job') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-lg-3">
-                                    <div class="card waiting-list">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-md-7">
-                                                    <h5>Waiting List</h5>
-                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('job-waiting-list') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-lg-3">
-                                    <div class="card progrs">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-md-7">
-                                                    <h5>JO Progress</h5>
-                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('job-progress') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-lg-3">
-                                    <div class="card done">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-md-7">
-                                                    <h5>JO Selesai</h5>
-                                                    <span class="big-count">{{ \App\Jo::count() }}</span>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('job-done') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title mb-4">Statistik JO (v1.0 Aphla Belum Fix)</h4>
-    
-                                            <div id="spline_area" class="apex-charts" dir="ltr"></div>
-                                        </div>
-                                    </div><!--end card-->
-                                </div>
+
+
                             </div>
                             <!-- end row -->
-
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title mb-4">Statiksik v2</h4>
-                                            
-                                            <div id="mixed_chart" class="apex-charts" dir="ltr"></div> 
-                                        </div>
-                                    </div><!--end card-->
-                                </div>
-                                <div class="col-xl-6 d-none">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h4 class="header-title mb-4">Radial Chart</h4>
-                                            
-                                            <div id="radial_chart" class="apex-charts" dir="ltr"></div>  
-                                        </div>
-                                    </div><!--end card-->
-                                    
-                                </div>
-                            </div>
-                            <!-- end row -->
-
-
-
 
 
                         </div>
@@ -305,11 +295,6 @@
 
 
         <script src="{{ asset('assets/js/app.js') }}"></script>
-
-        <!-- Plugin Js-->
-        <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-        <!-- demo js-->
-        <script src="{{ asset('assets/js/pages/apex.init.js') }}"></script>       
 
     </body>
 </html>

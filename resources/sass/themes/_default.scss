@@ -7,6 +7,7 @@
 .header-title {
     font-size: 24px;
     font-weight: bold;
+    text-transform: unset;
 }
 .header-title-lg {
     font-size: 30px;
@@ -26,6 +27,34 @@ table#table-cemara-inventory {
         }
     }
 }
+
+#jo-stats {
+    .card {
+        .btn-primary {
+            color: #031100;
+            background-color: #fbfbfb;
+            border-color: #fbfbfb;
+            font-weight: bold;
+        }
+        h5 {
+            color: #fbfbfb;
+        }
+        color: #fbfbfb !important;
+        &.total {
+            background-color: #2a3e4f;
+        }
+        &.waiting-list {
+            background-color: #f7a000;
+        }
+        &.progrs {
+            background-color: #1794ff;
+        }
+        &.done {
+            background-color: #29a20e;
+        }
+    }
+}
+
 #jo-item {
     .list-group {
         .list-group-item {
@@ -117,7 +146,7 @@ table {
 span {
     &.big-count {
         font-weight: bold;
-        font-size: 36px;
+        font-size: 42px;
         @media screen and (max-width: 600px) {
             font-size: 30px;
         }
