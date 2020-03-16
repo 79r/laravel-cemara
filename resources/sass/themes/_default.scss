@@ -44,13 +44,18 @@ table#table-cemara-inventory {
             background-color: #2a3e4f;
         }
         &.waiting-list {
-            background-color: #f7a000;
+            background-color: #ff7431;
         }
         &.progrs {
             background-color: #1794ff;
         }
         &.done {
             background-color: #29a20e;
+        }
+        .col-md-5.ml-auto.icon {
+            position: absolute;
+            top: 6px;
+            right: 8px;
         }
         .stats-icon {
             text-align: right;

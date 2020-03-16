@@ -127,7 +127,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto d-none">
+                                                <div class="col-md-5 ml-auto icon d-none">
                                                     <div>
                                                         <img src="assets/images/widget-img.png" alt="" class="img-fluid">
                                                     </div>
@@ -150,7 +150,7 @@
                                     <div class="card total">
                                         <div class="card-body">
                                         <div class="row">
-                                                <div class="col-md-7">
+                                                <div class="col-md-12">
                                                     <h5>Total JO</h5>
                                                     <span class="big-count">{{ \App\Jo::count() }}</span>
 
@@ -159,7 +159,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto">
+                                                <div class="col-md-5 ml-auto icon">
                                                     <div class="stats-icon">
                                                         <i class="mdi mdi-coffee"></i>
                                                     </div>
@@ -172,7 +172,7 @@
                                     <div class="card waiting-list">
                                         <div class="card-body">
                                         <div class="row">
-                                                <div class="col-md-7">
+                                                <div class="col-md-12">
                                                     <h5>Waiting List</h5>
                                                     <span class="big-count">{{ \App\Jo::count() }}</span>
 
@@ -181,7 +181,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto">
+                                                <div class="col-md-5 ml-auto icon">
                                                     <div class="stats-icon">
                                                         <i class="mdi mdi-clock"></i>
                                                     </div>
@@ -194,7 +194,7 @@
                                     <div class="card progrs">
                                         <div class="card-body">
                                         <div class="row">
-                                                <div class="col-md-7">
+                                                <div class="col-md-12">
                                                     <h5>JO Progress</h5>
                                                     <span class="big-count">{{ \App\Jo::count() }}</span>
 
@@ -203,7 +203,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto">
+                                                <div class="col-md-5 ml-auto icon">
                                                     <div class="stats-icon">
                                                         <i class="mdi mdi-trending-up"></i>
                                                     </div>
@@ -216,7 +216,7 @@
                                     <div class="card done">
                                         <div class="card-body">
                                         <div class="row">
-                                                <div class="col-md-7">
+                                                <div class="col-md-12">
                                                     <h5>JO Selesai</h5>
                                                     <span class="big-count">{{ \App\Jo::count() }}</span>
 
@@ -225,7 +225,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto">
+                                                <div class="col-md-5 ml-auto icon">
                                                     <div class="stats-icon">
                                                         <i class="mdi mdi-checkbox-marked-circle-outline"></i>
                                                     </div>

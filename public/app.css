@@ -113,11 +113,15 @@ table#table-cemara-inventory {
   #jo-stats .card.total {
     background-color: #2a3e4f; }
   #jo-stats .card.waiting-list {
-    background-color: #f7a000; }
+    background-color: #ff7431; }
   #jo-stats .card.progrs {
     background-color: #1794ff; }
   #jo-stats .card.done {
     background-color: #29a20e; }
+  #jo-stats .card .col-md-5.ml-auto.icon {
+    position: absolute;
+    top: 6px;
+    right: 8px; }
   #jo-stats .card .stats-icon {
     text-align: right; }
     #jo-stats .card .stats-icon i {

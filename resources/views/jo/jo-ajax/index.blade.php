@@ -12,17 +12,23 @@
 @section('content')
 
 <div class="container-fluid">
+    @if(Auth::user()->profile->role == "admin")
+    <div class="text-center mb-3">
+        <a href="{{ route('jo.cemara.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i> Buat JO baru</a>
+    </div>
+    @endif
+
     <div class="row" id="jo-stats">
         <div class="col-md-2 col-lg-3">
             <div class="card total">
                 <div class="card-body">
                 <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <h5>Total JO</h5>
                             <span class="big-count">{{ \App\Jo::count() }}</span>
                         </div>
 
-                        <div class="col-md-5 ml-auto">
+                        <div class="col-md-5 ml-auto icon">
                             <div class="stats-icon">
                                 <i class="mdi mdi-coffee"></i>
                             </div>
@@ -35,12 +41,12 @@
             <div class="card waiting-list">
                 <div class="card-body">
                 <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <h5>Waiting List</h5>
                             <span class="big-count">{{ \App\Jo::count() }}</span>
                         </div>
 
-                        <div class="col-md-5 ml-auto">
+                        <div class="col-md-5 ml-auto icon">
                             <div class="stats-icon">
                                 <i class="mdi mdi-clock"></i>
                             </div>
@@ -53,12 +59,12 @@
             <div class="card progrs">
                 <div class="card-body">
                 <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <h5>JO Progress</h5>
                             <span class="big-count">{{ \App\Jo::count() }}</span>
                         </div>
 
-                        <div class="col-md-5 ml-auto">
+                        <div class="col-md-5 ml-auto icon">
                             <div class="stats-icon">
                                 <i class="mdi mdi-trending-up"></i>
                             </div>
@@ -71,12 +77,12 @@
             <div class="card done">
                 <div class="card-body">
                 <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <h5>JO Selesai</h5>
                             <span class="big-count">{{ \App\Jo::count() }}</span>
                         </div>
 
-                        <div class="col-md-5 ml-auto">
+                        <div class="col-md-5 ml-auto icon">
                             <div class="stats-icon">
                                 <i class="mdi mdi-checkbox-marked-circle-outline"></i>
                             </div>
@@ -90,12 +96,6 @@
 
 
 <div id="job-list">
-    @if(Auth::user()->profile->role == "admin")
-    <div class="text-center">
-        <a href="{{ route('jo.cemara.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i> Buat JO baru</a>
-    </div>
-    @endif
-
     <div class="text-center mt-3 mb-3">
         <div class="btn-group" role="group">
             <a href="{{ route('job') }}" class="btn btn-sm btn-dark"><i class="mdi mdi-checkbox-marked-circle-outline"></i>Semua JO</a>
