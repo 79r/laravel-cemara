@@ -115,18 +115,11 @@
 
     @if ($message = Session::get('success'))
     <script>
-        Toastify({
-            text: "Jo Berhasil Dibuat !",
-            duration: 3000, 
-            destination: "",
-            newWindow: true,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: 'right', // `left`, `center` or `right`
-            backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            onClick: function(){} // Callback after click
-        }).showToast();
+        Swal.fire({
+            icon: 'success',
+            title: 'Good Job!',
+            text: 'JO berhasil dibuat',
+        });
     </script>
     @endif
     
