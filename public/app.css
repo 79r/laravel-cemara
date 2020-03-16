@@ -118,6 +118,10 @@ table#table-cemara-inventory {
     background-color: #1794ff; }
   #jo-stats .card.done {
     background-color: #29a20e; }
+  #jo-stats .card .stats-icon {
+    text-align: right; }
+    #jo-stats .card .stats-icon i {
+      font-size: 46px; }
 
 #jo-item .list-group .list-group-item {
   padding: 0; }

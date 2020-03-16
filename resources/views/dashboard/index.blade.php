@@ -153,9 +153,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                <div class="col-md-5 ml-auto">
+                                                    <div class="stats-icon">
+                                                        <i class="mdi mdi-coffee"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,9 +175,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                <div class="col-md-5 ml-auto">
+                                                    <div class="stats-icon">
+                                                        <i class="mdi mdi-clock"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,9 +197,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                <div class="col-md-5 ml-auto">
+                                                    <div class="stats-icon">
+                                                        <i class="mdi mdi-trending-up"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -219,9 +219,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                                <div class="col-md-5 ml-auto">
+                                                    <div class="stats-icon">
+                                                        <i class="mdi mdi-checkbox-marked-circle-outline"></i>
                                                     </div>
                                                 </div>
                                             </div>

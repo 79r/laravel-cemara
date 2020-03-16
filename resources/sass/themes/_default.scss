@@ -52,6 +52,12 @@ table#table-cemara-inventory {
         &.done {
             background-color: #29a20e;
         }
+        .stats-icon {
+            text-align: right;
+            i {
+                font-size: 46px;
+            }
+        }
     }
 }
 
