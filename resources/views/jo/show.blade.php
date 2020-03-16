@@ -163,8 +163,8 @@
                     </li>
                 </ul>
                 <div class="my-3">
-                    <a href="" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Show">
-                        <i class="mdi mdi-pencil"></i> <span>See more..</span>
+                    <a href="{{ route('client.show', $jo->client->id) }}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Show">
+                        <i class="mdi mdi-launch"></i> <span>Lihat data klien</span>
                     </a>
                 </div>
             </div>
