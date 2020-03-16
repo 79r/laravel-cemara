@@ -1,10 +1,15 @@
 @extends('layouts.master')
+@section('pageTitle', $pageTitle)
+
+@section('breadcrumb')
+<ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="javascript: void(0);">Cemara App</a></li>
+<li class="breadcrumb-item active">Client</li>
+</ol>
+@endsection
 
 @section('content')
-<div id="job-list">
-    <div class="text-center mt-5">
-        <h4 class="header-title-lg">Client</h4>
-    </div>
+<div>
     <div class="table-rep-plugin">
         <div class="table-responsive mb-0" data-pattern="priority-columns">
             <table id="table-cemara-inventory" class="table table-striped">

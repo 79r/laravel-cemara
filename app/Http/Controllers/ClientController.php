@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Client;
 
-class ClientController extends Controller{
+class ClientController extends Controller {
+
+    public function __construct() {
+        return $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
+        $pageTitle = "Client";
         $clients  = Client::paginate(20);
-        return view('client.index', array('clients' => $clients));
+        return view('client.index', compact('clients', 'pageTitle'));
     }
 
     /**
@@ -44,8 +51,9 @@ class ClientController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
+        $pageTitle = 'Client';
         $client = Client::findOrFail($id);
-        return view('client.show', array('client' => $client));
+        return view('client.show', compact('client', 'pageTitle'));
     }
 
     /**
