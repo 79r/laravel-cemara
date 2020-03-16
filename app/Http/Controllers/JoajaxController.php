@@ -14,13 +14,20 @@ class JoajaxController extends Controller {
         return view('jo.jo-ajax/index', compact('pageTitle'));
     }
 
-    public function waitingList() {
+    public function jobWaitingList() {
         $pageTitle      = "Jo Waiting List";
         return view('jo.jo-ajax/waiting-list', compact('pageTitle'));
     }
 
+    /* ajax jo index */
     public function index() {
         $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
+        return response()->json($data);
+    }
+
+    /* ajax jo waiting list */
+    public function ajaxWaitingList() {
+        $data = Jo::where('jo_status_id', 1)->with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
         return response()->json($data);
     }
     
