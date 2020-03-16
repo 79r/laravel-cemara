@@ -69,36 +69,28 @@
                 <li class="divider"></li>
                 <li class="menu-title">Job Schedule</li>
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
-                        <span>Job List</span>
+                    <a href="{{ route('job') }}" class="waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                        <span>Semua JO</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="{{ route('job') }}" class="waves-effect">
-                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-                                <span>Semua JO</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('job-waiting-list') }}" class="waiting-list waves-effect">
-                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-                                <span>JO Waiting List</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('job-progress') }}" class="joprogress waves-effect">
-                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-                                <span>JO Selesai</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('job-done') }}" class="done waves-effect">
-                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-                                <span>JO Selesai</span>
-                            </a>
-                        </li>
-                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('job-waiting-list') }}" class="waiting-list waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                        <span>JO Waiting List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('job-progress') }}" class="joprogress waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                        <span>JO Selesai</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('job-done') }}" class="done waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
+                        <span>JO Selesai</span>
+                    </a>
                 </li>
             </ul>
 
