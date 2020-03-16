@@ -68,7 +68,7 @@
 @include('jo.jo-ajax.edit')
 
 <!-- Progress JO -->
-@include('jo.jo-ajax.progress')
+@include('jo.jo-ajax.update-status')
 
 <!-- Done JO -->
 @include('jo.jo-ajax.selesai')
