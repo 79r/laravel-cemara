@@ -10,7 +10,7 @@ class JoajaxController extends Controller {
     }
 
     public function job() {
-        return view('jo.jo-ajax/ajax');
+        return view('jo.jo-ajax/index');
     }
 
     public function index() {
