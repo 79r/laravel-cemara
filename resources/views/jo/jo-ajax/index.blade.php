@@ -409,16 +409,13 @@ $("body").on("click",".submit-progress",function(e){
         }).done(function(data){
             getPageData();
 
-            Toastify({
-                text: "Status Jo <b>"+progresskanJoCode+"</b> berhasil jadi progress",
-                duration: 4000, 
-                destination: "",
-                close: true,
-                gravity: "bottom", // `top` or `bottom`
-                position: 'right', // `left`, `center` or `right`
-                backgroundColor: "linear-gradient(to right, rgb(23, 148, 255), rgb(133, 102, 255))",
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-            }).showToast();
+            Swal.fire({
+                icon: 'success',
+                title: '<strong>Oke Sip lah!</strong>',
+                html:
+                    'Status JO <b class="badge badge-success">'+progresskanJoCode+'</b>' +
+                    ' masuk ke Progress',
+            });
         });
 });
 
@@ -439,16 +436,13 @@ $("body").on("click",".submit-done",function(e){
         }).done(function(data){
             getPageData();
 
-            Toastify({
-                text: "Status Jo <b>"+progresskanJoCode+"</b> berhasil jadi selesai",
-                duration: 4000, 
-                destination: "",
-                close: true,
-                gravity: "bottom", // `top` or `bottom`
-                position: 'right', // `left`, `center` or `right`
-                backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-            }).showToast();
+            Swal.fire({
+                icon: 'success',
+                title: '<strong>Good Job!</strong>',
+                html:
+                    'Status JO <b class="badge badge-primary">'+progresskanJoCode+'</b>' +
+                    ' Selesai',
+            });
         });
 });
 
@@ -473,16 +467,13 @@ $("body").on("click",".submit-waitinglist",function(e){
         }).done(function(data){
             getPageData();
 
-            Toastify({
-                text: "Status Jo <b>"+progresskanJoCode+"</b> kembali jadi Wating List",
-                duration: 4000, 
-                destination: "",
-                close: true,
-                gravity: "bottom", // `top` or `bottom`
-                position: 'right', // `left`, `center` or `right`
-                backgroundColor: "linear-gradient(to right, rgb(255, 153, 128), rgb(255, 87, 46))",
-                stopOnFocus: true, // Prevents dismissing of toast on hover
-            }).showToast();
+            Swal.fire({
+                icon: 'info',
+                title: '<strong>Rollback ?</strong>',
+                html:
+                    'Status JO <b class="badge badge-danger">'+progresskanJoCode+'</b>' +
+                    ' kembali ke Waiting List',
+            });
         });
 });
 </script>
