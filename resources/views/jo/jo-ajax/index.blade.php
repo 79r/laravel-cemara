@@ -19,9 +19,10 @@
 
     <div class="text-center mt-3 mb-3">
         <div class="btn-group" role="group">
-            <a href="" class="btn btn-sm btn-danger"><i class="mdi mdi-checkbox-marked-circle-outline"></i> Jo Waiting List</a>
-            <a href="" class="btn btn-sm btn-success"><i class="mdi mdi-plus"></i> Jo Progress</a>
-            <a href="" class="btn btn-sm btn-primary"><i class="mdi mdi-checkbox-marked-circle-outline"></i>  Jo Selesai</a>
+            <a href="" class="btn btn-sm btn-dark"><i class="mdi mdi-checkbox-marked-circle-outline"></i>Semua JO</a>
+            <a href="" class="btn btn-sm btn-outline-danger"><i class="mdi mdi-checkbox-marked-circle-outline"></i> Jo Waiting List</a>
+            <a href="" class="btn btn-sm btn-outline-success"><i class="mdi mdi-plus"></i> Jo Progress</a>
+            <a href="" class="btn btn-sm btn-outline-primary"><i class="mdi mdi-checkbox-marked-circle-outline"></i>  Jo Selesai</a>
         </div>
     </div>
 
