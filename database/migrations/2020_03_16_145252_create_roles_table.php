@@ -13,7 +13,12 @@ class CreateRolesTable extends Migration {
     public function up() {
         Schema::create('roles', function (Blueprint $table) {
             $table->tinyIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name', 25);
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 

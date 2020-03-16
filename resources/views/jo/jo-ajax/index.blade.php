@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="container-fluid">
-    @if(Auth::user()->profile->role == "admin")
+    @if( (Auth::user()->role->id == 1) || (Auth::user()->role->id == 2) )
     <div class="text-center mb-3">
         <a href="{{ route('jo.cemara.create') }}" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i> Buat JO baru</a>
     </div>
