@@ -37,6 +37,9 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
+        <!-- toastify -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     </head>
 
     <body data-topbar="colored">
@@ -120,6 +123,7 @@
             });
         </script>
         <script src="{{ asset('assets/js/app.js') }}"></script>
+        <script src="{{ asset('assets/js/toastify.js') }}"></script>
 
     </body>
 </html>
