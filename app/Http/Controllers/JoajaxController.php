@@ -19,6 +19,16 @@ class JoajaxController extends Controller {
         return view('jo.jo-ajax/waiting-list', compact('pageTitle'));
     }
 
+    public function jobProgress() {
+        $pageTitle      = "Jo Progress";
+        return view('jo.jo-ajax/progress', compact('pageTitle'));
+    }
+
+    public function jobDone() {
+        $pageTitle      = "Jo Selesai";
+        return view('jo.jo-ajax/done', compact('pageTitle'));
+    }
+
     /* ajax jo index */
     public function index() {
         $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
@@ -28,6 +38,18 @@ class JoajaxController extends Controller {
     /* ajax jo waiting list */
     public function ajaxWaitingList() {
         $data = Jo::where('jo_status_id', 1)->with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
+        return response()->json($data);
+    }
+
+    /* ajax jo progress */
+    public function ajaxProgress() {
+        $data = Jo::where('jo_status_id', 2)->with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
+        return response()->json($data);
+    }
+
+    /* ajax jo done */
+    public function ajaxDone() {
+        $data = Jo::where('jo_status_id', 3)->with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
         return response()->json($data);
     }
     
