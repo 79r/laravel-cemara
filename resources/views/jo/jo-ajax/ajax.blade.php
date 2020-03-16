@@ -149,12 +149,12 @@ function manageRow(data) {
 
         rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
         
-        if(value.jo_status.name == "Progress") {
+        if(value.jo_status.id == 2) {
             rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
-        } else if(value.jo_status.name == "Waiting List") {
+        } else if(value.jo_status.id == 1) {
             rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
         } else {
-            rows = rows + '<td data-jo="jo_status"><span class="btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
+            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
         }
         
         /** action button 
@@ -162,18 +162,18 @@ function manageRow(data) {
             atau Progress ke Selesai */
         rows = rows + '<td data-id="'+value.id+'">';
         rows = rows + '<div class="btn-group" role="group">';
-            if(value.jo_status.name == "Progress") {
-                rows = rows + '<button class="btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button class="btn btn-sm btn-success show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'""><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
-            } else if(value.jo_status.name == "Waiting List") {
-                rows = rows + '<button class="btn btn-sm btn-danger edit-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button class="btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button class="btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+            if(value.jo_status.id == 2) {
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-success show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'""><i class="mdi mdi-trending-up"></i></button> ';
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+            } else if(value.jo_status.id == 1) {
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-danger edit-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-clock-outline"></i></button>';
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
             } else {
-                rows = rows + '<button class="btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button class="btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button class="btn btn-sm btn-primary show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-check"></i></button> ';
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-primary show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-check"></i></button> ';
             }
         rows = rows + '</div>';
         rows = rows + '</td>';
@@ -290,8 +290,7 @@ $("body").on("click",".show-item",function(){
 
 
 
-/** Jo dari Waiting List ke Progress */
-
+/** Jo ke Progress */
 $("body").on("click",".submit-progress",function(e){
     e.preventDefault();
     var progresskanJoID = $(this).attr('data-id');
@@ -310,20 +309,18 @@ $("body").on("click",".submit-progress",function(e){
                 text: "Status Jo <b>"+progresskanJoCode+"</b> berhasil jadi progress",
                 duration: 4000, 
                 destination: "",
-                newWindow: true,
                 close: true,
                 gravity: "bottom", // `top` or `bottom`
                 position: 'right', // `left`, `center` or `right`
-                backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
+                backgroundColor: "linear-gradient(to right, rgb(23, 148, 255), rgb(133, 102, 255))",
                 stopOnFocus: true, // Prevents dismissing of toast on hover
-                onClick: function(){} // Callback after click
             }).showToast();
         });
 });
 
 
 
-/* JO dari Progress ke Selesai */
+/* JO ke Selesai */
 $("body").on("click",".submit-done",function(e){
     e.preventDefault();
     var progresskanJoID = $(this).attr('data-id');
@@ -342,13 +339,45 @@ $("body").on("click",".submit-done",function(e){
                 text: "Status Jo <b>"+progresskanJoCode+"</b> berhasil jadi selesai",
                 duration: 4000, 
                 destination: "",
-                newWindow: true,
                 close: true,
                 gravity: "bottom", // `top` or `bottom`
                 position: 'right', // `left`, `center` or `right`
                 backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
                 stopOnFocus: true, // Prevents dismissing of toast on hover
-                onClick: function(){} // Callback after click
+            }).showToast();
+        });
+});
+
+
+/* 
+Submit JO ke Waiting List 
+(Balikan Statusnya ke waiting list) 
+
+Ini bisa jadi karena kesalahan pencet sang opeator kemudian ingin mengembalikan ke waiting list lagi
+*/
+$("body").on("click",".submit-waitinglist",function(e){
+    e.preventDefault();
+    var progresskanJoID = $(this).attr('data-id');
+    var progresskanJoCode = $(this).attr('jo-code');
+    $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + progresskanJoID);
+    var fromActionJoAjaxUpdate = $("#progresskanjo").find("form").attr("action");
+        $.ajax({
+            dataType: 'json',
+            type:'PUT',
+            url: fromActionJoAjaxUpdate,
+            data:{jo_status_id : 1 } // 1 adalah waiting list
+        }).done(function(data){
+            getPageData();
+
+            Toastify({
+                text: "Status Jo <b>"+progresskanJoCode+"</b> kembali jadi Wating List",
+                duration: 4000, 
+                destination: "",
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: 'right', // `left`, `center` or `right`
+                backgroundColor: "linear-gradient(to right, rgb(255, 153, 128), rgb(255, 87, 46))",
+                stopOnFocus: true, // Prevents dismissing of toast on hover
             }).showToast();
         });
 });
