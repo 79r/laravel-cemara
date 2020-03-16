@@ -20,76 +20,84 @@
 
     <div class="row" id="jo-stats">
         <div class="col-md-2 col-lg-3">
-            <div class="card total">
-                <div class="card-body">
-                <div class="row">
-                        <div class="col-md-12">
-                            <h5>Total JO</h5>
-                            <span class="big-count">{{ \App\Jo::count() }}</span>
-                        </div>
+            <a href="{{ route('job') }}">
+                <div class="card total">
+                    <div class="card-body">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <h5>Total JO</h5>
+                                <span class="big-count">{{ \App\Jo::count() }}</span>
+                            </div>
 
-                        <div class="col-md-5 ml-auto icon">
-                            <div class="stats-icon">
-                                <i class="mdi mdi-coffee"></i>
+                            <div class="col-md-5 ml-auto icon">
+                                <div class="stats-icon">
+                                    <i class="mdi mdi-coffee"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-2 col-lg-3">
-            <div class="card waiting-list">
-                <div class="card-body">
-                <div class="row">
-                        <div class="col-md-12">
-                            <h5>Waiting List</h5>
-                            <span class="big-count">{{ \App\Jo::where('jo_status_id', 1)->count() }}</span>
-                        </div>
+            <a href="{{ route('job-waiting-list') }}">
+                <div class="card waiting-list">
+                    <div class="card-body">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <h5>Waiting List</h5>
+                                <span class="big-count">{{ \App\Jo::where('jo_status_id', 1)->count() }}</span>
+                            </div>
 
-                        <div class="col-md-5 ml-auto icon">
-                            <div class="stats-icon">
-                                <i class="mdi mdi-clock"></i>
+                            <div class="col-md-5 ml-auto icon">
+                                <div class="stats-icon">
+                                    <i class="mdi mdi-clock"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-2 col-lg-3">
-            <div class="card progrs">
-                <div class="card-body">
-                <div class="row">
-                        <div class="col-md-12">
-                            <h5>JO Progress</h5>
-                            <span class="big-count">{{ \App\Jo::where('jo_status_id', 2)->count() }}</span>
-                        </div>
+            <a href="{{ route('job-progress') }}">
+                <div class="card progrs">
+                    <div class="card-body">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <h5>JO Progress</h5>
+                                <span class="big-count">{{ \App\Jo::where('jo_status_id', 2)->count() }}</span>
+                            </div>
 
-                        <div class="col-md-5 ml-auto icon">
-                            <div class="stats-icon">
-                                <i class="mdi mdi-trending-up"></i>
+                            <div class="col-md-5 ml-auto icon">
+                                <div class="stats-icon">
+                                    <i class="mdi mdi-trending-up"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-2 col-lg-3">
-            <div class="card done">
-                <div class="card-body">
-                <div class="row">
-                        <div class="col-md-12">
-                            <h5>JO Selesai</h5>
-                            <span class="big-count">{{ \App\Jo::where('jo_status_id', 3)->count() }}</span>
-                        </div>
-
-                        <div class="col-md-5 ml-auto icon">
-                            <div class="stats-icon">
-                                <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+            <a href="{{ route('job-done') }}">
+                <div class="card done">
+                    <div class="card-body">
+                    <div class="row">
+                            <div class="col-md-12">
+                                <h5>JO Selesai</h5>
+                                <span class="big-count">{{ \App\Jo::where('jo_status_id', 3)->count() }}</span>
+                            </div>
+    
+                            <div class="col-md-5 ml-auto icon">
+                                <div class="stats-icon">
+                                    <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
@@ -222,6 +230,7 @@ function manageRow(data) {
         rows = rows + '<tr data-joid='+ value.id+'>';
         
         // invisible rows
+        rows = rows + '<td data-jo="jo_client_id" class="d-none">'+value.client.id+'</td>';
         rows = rows + '<td data-jo="jo_client_name" class="d-none">'+value.client.name+'</td>';
         rows = rows + '<td data-jo="jo_client_phone" class="d-none">'+value.client.phone+'</td>';
         rows = rows + '<td data-jo="jo_client_email" class="d-none">'+value.client.email+'</td>';
@@ -362,6 +371,7 @@ $("body").on("click",".show-item",function(){
     joDescription = tableTR.find('td[data-jo="jo_description"]').text();
     notes = tableTR.find('td[data-jo="jo_notes"]').text();
 
+    clientID = tableTR.find('td[data-jo="jo_client_id"]').text();
     clientName = tableTR.find('td[data-jo="jo_client_name"]').text();
     clientPhone = tableTR.find('td[data-jo="jo_client_phone"]').text();
     clientEmail = tableTR.find('td[data-jo="jo_client_email"]').text();
@@ -385,6 +395,7 @@ $("body").on("click",".show-item",function(){
     $("#jo-item").find("#jo_client_phone").html(clientPhone);
     $("#jo-item").find("#jo_client_email").html(clientEmail);
     $("#jo-item").find("#jo_client_address").html(clientAddress);
+    $("#jo-item").find("#url-client").attr('href', '{{ route("client.index") }}/'+clientID+'');
 });
 
 
