@@ -3,7 +3,7 @@
 @section('content')
 <div class="my-5">
     <div class="card-title mb-5 text-center">
-        <h4 class="header-title-lg">Buat JO</h4>
+        <h4 class="header-title-lg">Edit JO</h4>
         <div class="col-lg-7 mx-auto">
             <div class="alert alert-success">
                 Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis
@@ -29,8 +29,7 @@
     </div>
 
     <div class="col-sm-12 col-md-10 col-lg-7 mx-auto">
-        {{ Form::open( array('url' => route('jo.cemara.store'), 'files' => true) ) }}
-    
+        {{ Form::model($jo, array('url' => route('jo.cemara.update', $jo->id), 'method' => 'PUT', 'files' => true) ) }}
             <div class="form-group d-none">
                 <label for="parent_id">Jo dari</label>
                 {{ Form::select('parent_id', $parents, 1,
@@ -84,7 +83,7 @@
 
             <div class="form-group">
                 <label for="title">Nama JO</label>
-                {{ Form::text('title', null,
+                {{ Form::text('title', old('title'),
                     array('class' => 'form-control', 'placeholder' => 'Nama JO'))
                 }}
                 @if ($errors->has('title'))

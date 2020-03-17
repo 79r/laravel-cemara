@@ -148,7 +148,11 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        return "<h3>Fitur belum tersedia :((</h3>";
+        $jo             = Jo::where('id', $id)->first();
+        $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
+        $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
+        $status         = JoStatus::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view('jo.edit', compact('jo', 'parents', 'clients', 'status'));
     }
 
     /**
@@ -159,7 +163,31 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        /* validation */
+        $this->validate($request, array(
+            'image_url'         => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'title'             => 'required',
+            'client_id'         => 'required',
+        ));
+
+        $jo = Jo::where('id', $id)->first();
+
+        $jo->title         = $request->title;
+        $jo->start_date    = $request->start_date;
+        $jo->deadline      = $request->deadline;
+        $jo->client_id     = (int)$request->client_id;
+        $jo->qty           = (int)$request->qty;
+
+        if($file = $request->file('image_url')) {
+            $name               =  $input->jo_code . '_' . Str::slug($input->title, '-') . '.' . $file->getClientOriginalExtension();
+            $destinationPath    =  public_path('/uploads/jo/');
+            $file->move($destinationPath, $name);
+            $input->image_url = $name;
+        }
+        // dd($jo);
+        // Update Database
+        $jo->save();
+        return redirect()->route('jo.cemara.show', $jo->id)->with('updateSuccess','Data berhasil diubah!');
     }
 
     /**

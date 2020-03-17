@@ -1,6 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
+
+@if ($message = Session::get('updateSuccess'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Oke Sip!',
+        text: 'JO berhasil di update!',
+    });
+</script>
+@endif
+
 <div id="jo-item">
     <div class="row">
 

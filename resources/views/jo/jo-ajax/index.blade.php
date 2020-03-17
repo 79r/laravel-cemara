@@ -122,7 +122,7 @@
         });
     </script>
     @endif
-    
+
     <div class="table-rep-plugin">
         <div class="table-responsive mb-0" data-pattern="priority-columns">
             <table id="table-cemara-inventory" class="table table-striped">
