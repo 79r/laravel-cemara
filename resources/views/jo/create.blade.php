@@ -47,7 +47,7 @@
             <div class="form-group">
                 <label for="parent_id">Nama Klien</label>
                 {{ Form::select('client_id', $clients, null,
-                    array('class' => 'form-control', 'id' => 'client_id', 'placeholder' => "<-- Mohon Pilih Nama Klien -->") )
+                    array('class' => 'form-control', 'id' => 'client_id', 'placeholder' => "Mohon Pilih Nama Klien") )
                 }}
                 @if ($errors->has('client_id'))
                 <div class="mt-2 alert alert-danger font-weight-bold">
