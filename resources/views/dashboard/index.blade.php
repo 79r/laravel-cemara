@@ -323,18 +323,20 @@
         
         <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
         <script>
-            //Remember to replace key and cluster with your credentials.
-            var pusher = new Pusher('72f209b771778f605aa1', {
-                cluster: 'ap1',
-                encrypted: true
+        var pusher = new Pusher('72f209b771778f605aa1', {
+            cluster: 'ap1',
+            encrypted: true
+        });
+
+        var channel = pusher.subscribe('notification');
+        channel.bind('notification-event', function(message) {
+            Swal.fire({
+                icon: 'info',
+                title: '<h2><strong>JO Baru Nih!</strong></h2>',
+                text: 'Ada jo baru',
+                footer: '<a href="{{ route('job') }}">Refresh Halaman JO</a>'
             });
-    
-            //Also remember to change channel and event name if your's are different.
-            var channel = pusher.subscribe('notification');
-            channel.bind('notification-event', function(message) {
-                console.log(message)
-            });
-    
+        });
         </script>
         
     </body>
