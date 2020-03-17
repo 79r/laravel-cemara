@@ -30,7 +30,7 @@
                 url: "{{ asset('assets/sounds/dead.wav') }}"
             },
             "smash": {
-                url: "sounds/smash.mp3",
+                url: "{{ asset('assets/sounds/smash.mp3') }}"
             },
             "ping": {
                 url: "{{ asset('assets/sounds/ping.mp3') }}"

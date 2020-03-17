@@ -120,6 +120,7 @@
             title: 'Good Job!',
             text: 'JO berhasil dibuat',
         });
+        playSound("coin");
     </script>
     @endif
 
