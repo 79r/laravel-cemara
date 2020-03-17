@@ -202,6 +202,9 @@ span.badge-sn {
   font-size: 26px;
   font-weight: bold; }
 
+.btn-jo-edit-custom {
+  background-color: #8857ff; }
+
 #job-list table#table-cemara-inventory thead {
   background: #465575; }
 

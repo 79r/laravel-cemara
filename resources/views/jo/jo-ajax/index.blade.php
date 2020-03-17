@@ -136,7 +136,8 @@
                     <th class="d-none" data-priority="5">Finishing</th>
                     <th data-priority="6">Status JO</th>
                     <th data-priority="7">Action</th>
-                    <th data-priority="8">Buka</th>
+                    <th data-priority="8">Edit</th>
+                    <th data-priority="9">Buka</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -279,6 +280,8 @@ function manageRow(data) {
             }
         rows = rows + '</div>';
         rows = rows + '</td>';
+
+        rows = rows + '<td data-id="'+value.id+'"><a class="btn btn-sm btn-jo-edit-custom btn-dark" href="{{ route('jo.cemara.index') }}/'+value.id+'/edit"><i class="mdi mdi-pencil"></i></a></td>';
 
         rows = rows + '<td data-id="'+value.id+'">';
 		rows = rows + '<div class="btn-group" role="group">';
