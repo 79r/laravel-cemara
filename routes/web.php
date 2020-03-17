@@ -52,3 +52,7 @@ Route::get('job/ajaxProgress', 'JoajaxController@ajaxProgress')->name('ajaxjo-pr
 Route::get('job/ajaxDone', 'JoajaxController@ajaxDone')->name('ajaxjo-done');
 
 Route::resource('joajax','JoajaxController');
+
+
+/** pusher notification */
+Route::get('/notification', 'PusherNotificationController@sendNotification');
