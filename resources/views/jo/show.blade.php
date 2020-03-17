@@ -21,7 +21,7 @@
                 <div class="bg-transparent">
                     <div class="my-3">
                         <a href="#"
-                            class="btn btn-prmary"
+                            class="btn btn-sm btn-prmary"
                             style="padding-left: 2rem; padding-right: 2rem;
                             color: #fff;
                             background-color:{{ $jo->jo_status->color }}">
@@ -36,9 +36,14 @@
                                 {{ $jo->jo_status->name }}
                             </span>
                         </a>
+
+                        <a href="{{ route('jo.cemara.edit' , $jo->id) }}" class="btn btn-sm btn-success">
+                            <i class="mdi mdi-pencil"></i> Edit JO ini
+                        </a>
                         
                     </div>
-                    <h5 class="header-title-lg mb-3" data-toggle="tooltip" data-placement="top" title="{{ $jo->jo_code }}"> <span class="badge badge-primary">{{ $jo->jo_code }}</span> {{ $jo->title }}</h5>
+                    <h5 class="header-title-lg mb-2 mt-4" data-toggle="tooltip" data-placement="top" title="{{ $jo->jo_code }}"> {{ $jo->title }}</h5>
+                    <h2><span class="badge badge-primary">{{ $jo->jo_code }}</span></h2>
                 </div>
                 <ul class="list-group list-group-flush">
 
