@@ -13,7 +13,7 @@ class ClientsTableSeeder extends Seeder {
     public function run() {
         DB::table($this->tableName)->delete();
         $clients = array(
-            'name' => 'Sample Client'
+            'name' => 'Dummy Client'
         );
         DB::table($this->tableName)->insert($clients);
     }
