@@ -24,6 +24,32 @@
         <!-- Sweet Alerts js -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
+        <script>
+        var sounds = {
+            "dead": {
+                url: "{{ asset('assets/sounds/dead.wav') }}"
+            },
+            "smash": {
+                url: "sounds/smash.mp3",
+            },
+            "ping": {
+                url: "{{ asset('assets/sounds/ping.mp3') }}"
+            },
+            "bump": {
+                url: "{{ asset('assets/sounds/bump.mp3') }}"
+            },
+            "jump": {
+                url: "{{ asset('assets/sounds/jump.wav') }}"
+            },
+            "coin": {
+                url: "{{ asset('assets/sounds/coin.mp3') }}"
+            }
+        };
+        </script>
+
+        <!-- sound js -->
+        <script src="{{ asset('assets/js/sound.js') }}"></script>
+
     </head>
 
     <body data-topbar="colored">
@@ -336,6 +362,7 @@
                 text: 'Ada jo baru',
                 footer: '<a href="{{ route('job') }}">Refresh Halaman JO</a>'
             });
+            playSound("coin");
         });
         </script>
         
