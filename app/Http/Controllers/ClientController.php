@@ -75,7 +75,7 @@ class ClientController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)  {
-        
+
         $client = Client::find($id)->first();
         $client->name       = $request->name;
         $client->phone      = $request->phone;
@@ -85,7 +85,7 @@ class ClientController extends Controller {
         $client->save();
         return redirect()->route('client.show', $client->id)->with('updateSuccess','Data berhasil diubah!');
     }
-
+ 
     /**
      * Remove the specified resource from storage.
      *

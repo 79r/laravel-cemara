@@ -12,6 +12,8 @@ use App\JoParent;
 use App\JoStatus;
 use App\JoCategory;
 
+use Pusher\Pusher;
+
 class JoCemaraController extends Controller {
 
     public function __construct() {
@@ -26,6 +28,22 @@ class JoCemaraController extends Controller {
     public function index() {
         $job_list  = Jo::where('parent_id', '=', 1)->paginate(20);
         return view('jo.cemara.index', array('job_list' => $job_list));
+    }
+
+
+
+    public function sendNotification() {
+        $options = array(
+            'cluster' => 'ap1',
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            '72f209b771778f605aa1',
+            '994ddc905a94827da0c0',
+            '964596', $options
+        );
+        $message= "Ada JO baru nih!";
+        $pusher->trigger('notification', 'notification-event', $message);
     }
 
 
@@ -87,7 +105,7 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-
+        
         /* validation */
         $this->validate($request, array(
             'image_url'         => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
@@ -126,6 +144,10 @@ class JoCemaraController extends Controller {
 
         // Create to the Database
         Jo::create($input);
+
+        /** panggil method send notification */
+        $this->sendNotification();
+
         return redirect()->route('job')
                 ->withSuccess('Jo Berhasil dibuat');
     }
