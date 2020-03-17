@@ -63,7 +63,8 @@ class ClientController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        $client = Client::where('id', $id)->first();
+        return view('client.edit', compact('client'));
     }
 
     /**
@@ -74,7 +75,15 @@ class ClientController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)  {
-        //
+        
+        $client = Client::find($id)->first();
+        $client->name       = $request->name;
+        $client->phone      = $request->phone;
+        $client->email      = $request->email;
+        $client->address    = $request->address;
+
+        $client->save();
+        return redirect()->route('client.show', $client->id)->with('updateSuccess','Data berhasil diubah!');
     }
 
     /**
