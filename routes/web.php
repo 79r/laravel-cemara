@@ -42,11 +42,12 @@ Route::resource('client', 'ClientController');
 
 // JO AJAX
 Route::get('job/all', 'JoajaxController@job')->name('job');
+Route::post('job/search', 'JoajaxController@search')->name('job.search');
 Route::get('job/waiting-list', 'JoajaxController@jobWaitingList')->name('job-waiting-list');
 Route::get('job/progress', 'JoajaxController@jobProgress')->name('job-progress');
 Route::get('job/done', 'JoajaxController@jobDone')->name('job-done');
 
-
+Route::get('job/ajaxSearch', 'JoajaxController@ajaxSearch')->name('ajaxjo-search');
 Route::get('job/ajaxWaitingList', 'JoajaxController@ajaxWaitingList')->name('ajaxjo-waiting-list');
 Route::get('job/ajaxProgress', 'JoajaxController@ajaxProgress')->name('ajaxjo-progress');
 Route::get('job/ajaxDone', 'JoajaxController@ajaxDone')->name('ajaxjo-done');

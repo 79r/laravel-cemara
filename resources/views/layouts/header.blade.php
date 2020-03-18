@@ -28,14 +28,16 @@
 
             <!-- App Search-->
             {!! Form::open( array(
-                'method' => 'GET', 
-                'url' => route('inventories.search'),
+                'method' => 'POST', 
+                'url' => route('job.search'),
                 'class' => 'app-search d-none d-lg-block',
                 'placeholder' => 'Cari inventory',
                 'value' => old('keyword')
                 )) !!}
-                <input type="text" class="form-control" name="keyword" placeholder="Cari .." value="{{ old('keyword') }}">
-                <span class="mdi mdi-magnify"></span>
+                <div class="position-relative">
+                    <input type="text" class="form-control" name="keyword" placeholder="Cari .." value="{{ old('keyword') }}">
+                    <span class="mdi mdi-magnify"></span>
+                </div>
             {!! Form::close() !!}
         </div>
 
@@ -51,8 +53,8 @@
 
 
                     {!! Form::open( array(
-                        'method' => 'GET',
-                        'url' => route('inventories.search'),
+                        'method' => 'POST',
+                        'url' => route('job.search'),
                         'class' => 'p-3'
                         )) !!}
                         <div class="form-group m-0">
