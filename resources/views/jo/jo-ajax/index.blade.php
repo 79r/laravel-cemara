@@ -420,6 +420,7 @@ $("body").on("click",".submit-progress",function(e){
                     'Status JO <b class="badge badge-success">'+progresskanJoCode+'</b>' +
                     ' masuk ke Progress',
             });
+            playSound("coin");
         });
 });
 
@@ -447,6 +448,7 @@ $("body").on("click",".submit-done",function(e){
                     'Status JO <b class="badge badge-primary">'+progresskanJoCode+'</b>' +
                     ' Selesai',
             });
+            playSound("coin");
         });
 });
 
@@ -478,6 +480,7 @@ $("body").on("click",".submit-waitinglist",function(e){
                     'Status JO <b class="badge badge-danger">'+progresskanJoCode+'</b>' +
                     ' kembali ke Waiting List',
             });
+            playSound("coin");
         });
 });
 </script>
