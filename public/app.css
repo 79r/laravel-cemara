@@ -105,31 +105,52 @@ table#table-cemara-inventory {
     color: #129263;
     font-weight: 800; }
 
-#jo-stats .card {
+#jo-stats .card, #inventory-stats .card {
   color: #fbfbfb !important; }
-  #jo-stats .card .btn-primary {
+  #jo-stats .card span.big-count, #inventory-stats .card span.big-count {
+    font-weight: bold;
+    font-size: 35px; }
+  #jo-stats .card.greeting, #inventory-stats .card.greeting {
+    height: 170px; }
+    #jo-stats .card.greeting h2.name, #inventory-stats .card.greeting h2.name {
+      font-weight: bold;
+      color: #3957dd; }
+  #jo-stats .card .btn-primary, #inventory-stats .card .btn-primary {
     color: #031100;
     background-color: #fbfbfb;
     border-color: #fbfbfb;
     font-weight: bold; }
-  #jo-stats .card h5 {
+  #jo-stats .card h5, #inventory-stats .card h5 {
     color: #fbfbfb; }
-  #jo-stats .card.total {
+  #jo-stats .card.total, #inventory-stats .card.total {
     background-color: #2a3e4f; }
-  #jo-stats .card.waiting-list {
+  #jo-stats .card.waiting-list, #inventory-stats .card.waiting-list {
     background-color: #ff7431; }
-  #jo-stats .card.progrs {
+  #jo-stats .card.progrs, #inventory-stats .card.progrs {
     background-color: #1794ff; }
-  #jo-stats .card.done {
+  #jo-stats .card.done, #inventory-stats .card.done {
     background-color: #29a20e; }
-  #jo-stats .card .col-md-5.ml-auto.icon {
+  #jo-stats .card .col-md-5.ml-auto.icon, #inventory-stats .card .col-md-5.ml-auto.icon {
     position: absolute;
     top: 6px;
     right: 8px; }
-  #jo-stats .card .stats-icon {
+  #jo-stats .card .stats-icon, #inventory-stats .card .stats-icon {
     text-align: right; }
-    #jo-stats .card .stats-icon i {
+    #jo-stats .card .stats-icon i, #inventory-stats .card .stats-icon i {
       font-size: 46px; }
+
+#inventory-stats .card {
+  color: #444 !important; }
+  #inventory-stats .card h5 {
+    color: #444; }
+  #inventory-stats .card i {
+    color: #4e71ff !important; }
+  #inventory-stats .card .btn-primary {
+    color: #fbfbfb;
+    background-color: #2fa97c;
+    font-weight: bold; }
+    #inventory-stats .card .btn-primary i {
+      color: #fbfbfb !important; }
 
 #jo-item .list-group .list-group-item {
   padding: 0; }

@@ -34,9 +34,21 @@ table#table-cemara-inventory {
         }
     }
 }
-
-#jo-stats {
+#jo-stats, #inventory-stats {
     .card {
+        span.big-count {
+            font-weight: bold;
+            font-size: 35px;
+        }
+        &.greeting {
+            height: 170px;
+            h2 {
+                &.name {
+                    font-weight: bold;
+                    color: rgb(57, 87, 221);
+                }
+            }
+        }
         .btn-primary {
             color: #031100;
             background-color: #fbfbfb;
@@ -72,7 +84,25 @@ table#table-cemara-inventory {
         }
     }
 }
-
+#inventory-stats {
+    .card {
+        h5 {
+            color: #444;
+        }
+        color: #444 !important;
+        i {
+            color : #4e71ff !important;
+        }
+        .btn-primary {
+            color: #fbfbfb;
+            background-color: #2fa97c;
+            font-weight: bold;
+            i {
+                color: #fbfbfb !important;
+            }
+        }
+    }
+}
 #jo-item {
     .list-group {
         .list-group-item {

@@ -96,22 +96,22 @@
 
                     <div class="page-content-wrapper">
                         <div class="container-fluid">
-                            <div class="row">
+                            <div class="row" id="inventory-stats">
 
-                                <div class="col-md-4">
-                                    <div class="card">
+                                <div class="col-sm-12 col-lg-4">
+                                    <div class="card greeting">
                                         <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-7">
-                                                    <h5>Brand</h5>
-                                                    <span class="big-count">{{ \App\InventoryBrand::count() }}</span>
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <h5>Welcome Back !</h5>
+                                                    <h2 class="name">{{ Auth::user()->name }}</h2>
 
                                                     <div class="mt-4">
-                                                        <a href="{{ route('brands.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="#" class="btn btn-primary btn-sm">Start <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-5 ml-auto d-none">
+                                                <div class="col-5 ml-auto">
                                                     <div>
                                                         <img src="assets/images/widget-img.png" alt="" class="img-fluid">
                                                     </div>
@@ -120,46 +120,72 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-7">
-                                                    <h5>Category</h5>
-                                                    <span class="big-count">{{ \App\InventoryCategory::count() }}</span>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-5 ml-auto d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                <div class="col-sm-6 col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5>Inventories</h5>
+                                                            <span class="big-count">{{ \App\InventoryItem::count() }}</span>
+        
+                                                            <div class="mt-2">
+                                                                <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="col-md-5 ml-auto icon">
+                                                            <div class="stats-icon">
+                                                                <i class="mdi mdi-buffer"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-md-7">
-                                                    <h5>Total Inventory</h5>
-                                                    <span class="big-count">{{ \App\InventoryItem::count() }}</span>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('inventory.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+        
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5>Brands</h5>
+                                                            <span class="big-count">{{ \App\InventoryBrand::count() }}</span>
+        
+                                                            <div class="mt-2">
+                                                                <a href="{{ route('brands.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="col-md-5 ml-auto icon">
+                                                            <div class="stats-icon">
+                                                                <i class="mdi mdi-bookmark-check"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-5 ml-auto icon d-none">
-                                                    <div>
-                                                        <img src="assets/images/widget-img.png" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5>Categories</h5>
+                                                            <span class="big-count">{{ \App\InventoryCategory::count() }}</span>
+        
+                                                            <div class="mt-2">
+                                                                <a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">View more <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="col-md-5 ml-auto icon">
+                                                            <div class="stats-icon">
+                                                                <i class="mdi mdi-animation"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
