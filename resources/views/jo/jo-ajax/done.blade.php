@@ -28,18 +28,7 @@
 
     @if ($message = Session::get('success'))
     <script>
-        Toastify({
-            text: "Jo Berhasil Dibuat !",
-            duration: 3000, 
-            destination: "",
-            newWindow: true,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: 'right', // `left`, `center` or `right`
-            backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            onClick: function(){} // Callback after click
-        }).showToast();
+
     </script>
     @endif
     
@@ -179,13 +168,23 @@ function manageRow(data) {
 
         rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
         
-        if(value.jo_status.id == 2) {
-            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
-        } else if(value.jo_status.id == 1) {
-            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
-        } else {
-            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
-        }
+        '@if(Auth::user()->role->id == 2)'
+            if(value.jo_status.id == 2) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="not-allowed btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
+            } else if(value.jo_status.id == 1) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="not-allowed btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+            } else {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="not-allowed btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
+            }
+        '@else'
+            if(value.jo_status.id == 2) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
+            } else if(value.jo_status.id == 1) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+            } else {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
+            }
+        '@endif'
         
         /** action button 
             Tombol untuk Waiting list ke Progress

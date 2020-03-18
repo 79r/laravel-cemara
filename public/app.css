@@ -242,6 +242,9 @@ span.badge-sn {
 #job-list table#table-cemara-inventory thead {
   background: #465575; }
 
+.not-allowed {
+  cursor: not-allowed !important; }
+
 .btn-success {
   background-color: #1794ff;
   border-color: #1794ff; }
