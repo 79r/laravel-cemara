@@ -32,7 +32,7 @@ class JoCemaraController extends Controller {
 
 
 
-    public function sendNotification() {
+    public function sendNotification($paramMessage) {
         $options = array(
             'cluster' => 'ap1',
             'encrypted' => true
@@ -42,7 +42,7 @@ class JoCemaraController extends Controller {
             '994ddc905a94827da0c0',
             '964596', $options
         );
-        $message= "Ada JO baru nih!";
+        $message = $paramMessage;
         $pusher->trigger('notification', 'notification-event', $message);
     }
 
@@ -147,7 +147,7 @@ class JoCemaraController extends Controller {
         Jo::create($input);
 
         /** panggil method send notification */
-        $this->sendNotification();
+        $this->sendNotification('Ada JO baru nih!');
 
         return redirect()->route('job')
                 ->withSuccess('Jo Berhasil dibuat');
