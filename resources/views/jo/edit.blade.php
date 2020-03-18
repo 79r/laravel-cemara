@@ -4,7 +4,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb m-0">
     <li class="breadcrumb-item"><a href="javascript: void(0);">Cemara App</a></li>
-<li class="breadcrumb-item active">Buat Jo</li>
+<li class="breadcrumb-item active">Edit Jo</li>
 </ol>
 @endsection
 
@@ -19,8 +19,7 @@
     });
 </script>
 @endif
-
-{{ Form::open( array('url' => route('jo.cemara.store'), 'files' => true, 'id' => 'form-jo-custom', 'class' => 'row w-100') ) }}
+{{ Form::model($jo, array('url' => route('jo.cemara.update', $jo->id), 'method' => 'PUT', 'files' => true, 'id' => 'form-jo-custom', 'class' => 'row w-100') ) }}
 <div class="col-lg-4">
     <div class="card h-100">
         <div class="card-body email-leftbar">
@@ -80,17 +79,7 @@
                 </div>
             </div>
 
-            <div class="card-title mb-5 text-center mt-4">
-                <div class="col-lg-7 mx-auto">
-                    <div class="alert alert-primary">
-                        Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis
-                    </div> 
-                </div>
-            </div>
-
-
-
-        <div class="col-sm-12 col-md-10 mx-auto">
+        <div class="col-sm-12 col-md-10 mx-auto mt-4">
             
                 <div class="form-group d-none">
                     <label for="parent_id">Jo dari</label>
@@ -139,11 +128,11 @@
                     </div>
                     @endif
                 </div>
-        
+                
                 <div class="form-group uploader">
                     {{ Form::file('image_url', array('id' => 'file-upload', 'accept' => 'image/*', 'onchange' => 'readURL(this)')) }}
                     <label for="file-upload" id="file-drag">
-
+                        <img id="file-image" src="{{asset('uploads/jo/'.$jo->image_url)}}" alt="Preview" class="">
                         {{-- Jika ada error tampilkan pesan ini agar upload ulang gambar --}}
                         @if(!empty($errors->all()))
                             <div id="show-error-image-upload">

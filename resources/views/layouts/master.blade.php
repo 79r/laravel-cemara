@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Cemara Inventory - Build with Laravel" name="description" />
         <meta content="Riski" name="author" />
+        <meta name='robots' content='noindex,follow' />
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
@@ -43,6 +44,35 @@
 
         <!-- Sweet Alerts js -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+        <script>
+        var sounds = {
+            "dead": {
+                url: "{{ asset('assets/sounds/dead.wav') }}"
+            },
+            "smash": {
+                url: "{{ asset('assets/sounds/smash.mp3') }}"
+            },
+            "ping": {
+                url: "{{ asset('assets/sounds/ping.mp3') }}"
+            },
+            "bump": {
+                url: "{{ asset('assets/sounds/bump.mp3') }}"
+            },
+            "jump": {
+                url: "{{ asset('assets/sounds/jump.wav') }}"
+            },
+            "coin": {
+                url: "{{ asset('assets/sounds/coin.mp3') }}"
+            },
+            "jo": {
+                url: "{{ asset('assets/sounds/spongebob_song_remix.mp3') }}"
+            }
+        };
+        </script>
+
+        <!-- sound js -->
+        <script src="{{ asset('assets/js/sound.js') }}"></script>
 
     </head>
 
@@ -143,6 +173,29 @@
             });
         </script>
         <script src="{{ asset('assets/js/app.js') }}"></script>
+        <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+
+        {{-- Uji hanya tim produksi yang akan menerima notification ini --}}
+        @if(Auth::user()->role->id == 3)
+            <script>
+            var pusher = new Pusher('72f209b771778f605aa1', {
+                cluster: 'ap1',
+                encrypted: true
+            });
+
+            //Also remember to change channel and event name if your's are different.
+            var channel = pusher.subscribe('notification');
+            channel.bind('notification-event', function(message) {
+                Swal.fire({
+                    icon: 'info',
+                    title: message,
+                    text: 'Ada jo baru',
+                    footer: '<a href="{{ route('job') }}">Refresh Halaman JO</a>'
+                });
+                playSound("jo");
+            });
+            </script>
+        @endif
 
     </body>
 </html>

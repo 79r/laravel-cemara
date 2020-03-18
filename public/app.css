@@ -63,21 +63,9 @@
 @media (max-width: 992px) {
   .main-content .footer {
     left: 0 !important; } }
-ul#pagination {
-  justify-content: center; }
-  ul#pagination li {
-    padding: 10px 20px;
-    background-color: rgba(65, 112, 243, 0.5); }
-    ul#pagination li:first-child {
-      border-radius: .6rem 0 0 .6rem; }
-    ul#pagination li:last-child {
-      border-radius: 0 .6rem .6rem 0; }
-    ul#pagination li.active {
-      background-color: #4170f3; }
-    ul#pagination li.disabled {
-      cursor: not-allowed; }
-    ul#pagination li a {
-      color: #fff; }
+body.bg-pic {
+  background-image: url("images/bg.jpg");
+  background-position: center; }
 
 .card .header-title-lg {
   font-size: 30px;
@@ -101,31 +89,77 @@ table#table-cemara-inventory {
     color: #129263;
     font-weight: 800; }
 
-#jo-stats .card {
+#jo-stats .card, #inventory-stats .card {
   color: #fbfbfb !important; }
-  #jo-stats .card .btn-primary {
+  #jo-stats .card span.big-count, #inventory-stats .card span.big-count {
+    font-weight: bold;
+    font-size: 35px; }
+  #jo-stats .card.greeting, #inventory-stats .card.greeting {
+    height: 157px; }
+    #jo-stats .card.greeting h2.name, #inventory-stats .card.greeting h2.name {
+      font-weight: bold;
+      color: #3957dd; }
+  #jo-stats .card .btn-primary, #inventory-stats .card .btn-primary {
     color: #031100;
     background-color: #fbfbfb;
     border-color: #fbfbfb;
     font-weight: bold; }
-  #jo-stats .card h5 {
+  #jo-stats .card h5, #inventory-stats .card h5 {
     color: #fbfbfb; }
-  #jo-stats .card.total {
+  #jo-stats .card.total, #inventory-stats .card.total {
     background-color: #2a3e4f; }
-  #jo-stats .card.waiting-list {
+  #jo-stats .card.waiting-list, #inventory-stats .card.waiting-list {
     background-color: #ff7431; }
-  #jo-stats .card.progrs {
+  #jo-stats .card.progrs, #inventory-stats .card.progrs {
     background-color: #1794ff; }
-  #jo-stats .card.done {
+  #jo-stats .card.done, #inventory-stats .card.done {
     background-color: #29a20e; }
-  #jo-stats .card .col-md-5.ml-auto.icon {
+  #jo-stats .card .col-md-5.ml-auto.icon, #inventory-stats .card .col-md-5.ml-auto.icon {
     position: absolute;
     top: 6px;
     right: 8px; }
-  #jo-stats .card .stats-icon {
+  #jo-stats .card .stats-icon, #inventory-stats .card .stats-icon {
     text-align: right; }
-    #jo-stats .card .stats-icon i {
+    #jo-stats .card .stats-icon i, #inventory-stats .card .stats-icon i {
       font-size: 46px; }
+
+#inventory-stats .card {
+  color: #444 !important; }
+  #inventory-stats .card h5 {
+    color: #444; }
+  #inventory-stats .card i {
+    color: #4e71ff !important; }
+  #inventory-stats .card .btn-primary {
+    color: #fbfbfb;
+    background-color: #2fa97c;
+    font-weight: bold; }
+    #inventory-stats .card .btn-primary i {
+      color: #fbfbfb !important; }
+
+#form-jo-custom .select2-container--default .select2-selection--single {
+  background-color: #fff;
+  border: 2px solid #5792fd;
+  border-radius: 20px; }
+#form-jo-custom .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #444;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 15px; }
+#form-jo-custom .select2-container .select2-selection--single {
+  height: 42px; }
+#form-jo-custom .select2-container .select2-selection--single .select2-selection__rendered {
+  padding-left: 14px; }
+#form-jo-custom .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 40px;
+  position: absolute;
+  right: 8px;
+  width: 26px; }
+#form-jo-custom .select2-hidden-accessible {
+  outline: none !important;
+  border: none !important; }
+
+.message-list li .col-mail-2 .date a {
+  color: #fff !important; }
 
 #jo-item .list-group .list-group-item {
   padding: 0; }
@@ -202,8 +236,14 @@ span.badge-sn {
   font-size: 26px;
   font-weight: bold; }
 
+.btn-jo-edit-custom {
+  background-color: #8857ff; }
+
 #job-list table#table-cemara-inventory thead {
   background: #465575; }
+
+.not-allowed {
+  cursor: not-allowed !important; }
 
 .btn-success {
   background-color: #1794ff;
@@ -219,7 +259,7 @@ span.badge-sn {
   clear: both;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px; }
+  display: flex; }
   .uploader #show-error-image-upload {
     position: absolute;
     background: #ff3636;

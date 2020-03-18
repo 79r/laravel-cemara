@@ -28,18 +28,7 @@
 
     @if ($message = Session::get('success'))
     <script>
-        Toastify({
-            text: "Jo Berhasil Dibuat !",
-            duration: 3000, 
-            destination: "",
-            newWindow: true,
-            close: true,
-            gravity: "bottom", // `top` or `bottom`
-            position: 'right', // `left`, `center` or `right`
-            backgroundColor: "linear-gradient(to right, rgb(47, 169, 124), rgb(18, 187, 39))",
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            onClick: function(){} // Callback after click
-        }).showToast();
+
     </script>
     @endif
     
@@ -55,8 +44,16 @@
                     <th class="d-none" data-priority="4">Material</th>
                     <th class="d-none" data-priority="5">Finishing</th>
                     <th data-priority="6">Status JO</th>
-                    <th data-priority="7">Action</th>
-                    <th data-priority="8">Buka</th>
+
+                    @if(Auth::user()->role->id == 3)
+                        <th data-priority="7">Action</th>
+                    @endif
+                    
+                    @if(Auth::user()->role->id != 3)
+                        <th data-priority="8">Edit</th>
+                    @endif
+
+                    <th data-priority="9">Buka</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -66,7 +63,7 @@
     </div>
 </div>
 
-<ul id="pagination" class="pagination-sm mt-3"></ul>
+<ul id="pagination" class="justify-content-center mt-3"></ul>
 
 <!-- Create Item Modal -->
 @include('jo.jo-ajax.create')
@@ -171,34 +168,52 @@ function manageRow(data) {
 
         rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
         
-        if(value.jo_status.id == 2) {
-            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
-        } else if(value.jo_status.id == 1) {
-            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
-        } else {
-            rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
-        }
+        '@if(Auth::user()->role->id == 2 || Auth::user()->role->name == "Admin")'
+            if(value.jo_status.id == 2) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="not-allowed btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
+            } else if(value.jo_status.id == 1) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="not-allowed btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+            } else {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="not-allowed btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
+            }
+        '@else'
+            if(value.jo_status.id == 2) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
+            } else if(value.jo_status.id == 1) {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-clock-outline"></i> '+value.jo_status.name+'</span></td>';
+            } else {
+                rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-checkbox-marked-circle-outline"></i> '+value.jo_status.name+'</span></td>';
+            }
+        '@endif'
         
         /** action button 
             Tombol untuk Waiting list ke Progress
             atau Progress ke Selesai */
-        rows = rows + '<td data-id="'+value.id+'">';
-        rows = rows + '<div class="btn-group" role="group">';
-            if(value.jo_status.id == 2) {
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-success show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'""><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
-            } else if(value.jo_status.id == 1) {
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-danger edit-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
-            } else {
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-primary show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-check"></i></button> ';
-            }
-        rows = rows + '</div>';
-        rows = rows + '</td>';
+        
+        // Hanya tim Produksi yang boleh 
+        '@if(Auth::user()->role->id == 3)'
+            rows = rows + '<td data-id="'+value.id+'">';
+            rows = rows + '<div class="btn-group" role="group">';
+                if(value.jo_status.id == 2) {
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-success show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'""><i class="mdi mdi-trending-up"></i></button> ';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+                } else if(value.jo_status.id == 1) {
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-danger edit-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-clock-outline"></i></button>';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+                } else {
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-primary show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-check"></i></button> ';
+                }
+            rows = rows + '</div>';
+            rows = rows + '</td>';
+        '@endif'
+        
+        '@if(Auth::user()->role->id != 3)'
+            rows = rows + '<td data-id="'+value.id+'"><a class="btn btn-sm btn-jo-edit-custom btn-dark" href="{{ route('jo.cemara.index') }}/'+value.id+'/edit"><i class="mdi mdi-pencil"></i> Edit</a></td>';
+        '@endif'
 
         rows = rows + '<td data-id="'+value.id+'">';
 		rows = rows + '<div class="btn-group" role="group">';
@@ -212,6 +227,7 @@ function manageRow(data) {
 
 	$("tbody").html(rows);
 }
+
 
 $(".crud-submit").click(function(e){
     e.preventDefault();
@@ -373,11 +389,10 @@ Submit JO ke Waiting List
 
 Ini bisa jadi karena kesalahan pencet sang opeator kemudian ingin mengembalikan ke waiting list lagi
 */
-$("body").on("click",".submit-waitinglist",function(e){
-    e.preventDefault();
+function submitWaitingList(joid) {
     var progresskanJoID = $(this).attr('data-id');
     var progresskanJoCode = $(this).attr('jo-code');
-    $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + progresskanJoID);
+    $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + joid);
     var fromActionJoAjaxUpdate = $("#progresskanjo").find("form").attr("action");
         $.ajax({
             dataType: 'json',
@@ -386,15 +401,33 @@ $("body").on("click",".submit-waitinglist",function(e){
             data:{jo_status_id : 1 } // 1 adalah waiting list
         }).done(function(data){
             getPageData();
-
-            Swal.fire({
-                icon: 'info',
-                title: '<strong>Rollback ?</strong>',
-                html:
-                    'Status JO <b class="badge badge-danger">'+progresskanJoCode+'</b>' +
-                    ' kembali ke Waiting List',
-            });
         });
+}
+
+$("body").on("click", ".submit-waitinglist", function(e){
+    e.preventDefault();
+    var progresskanJoID = $(this).attr('data-id');
+    var progresskanJoCode = $(this).attr('jo-code');
+    Swal.fire({
+        title: '<strong>Yakin Mau Balikin ke Waiting List ?</strong>',
+        html: 'Status JO <b class="badge badge-danger">'+progresskanJoCode+'</b>' +
+            ' akan di kembalikan ke <strong>Waiting List</strong>',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, saya Yakin!'
+    }).then((result) => {
+        if (result.value) {
+            submitWaitingList(progresskanJoID);
+            Swal.fire(
+                'Yey.. Berhasil!',
+                'Jo  kembali ke waiting lis.',
+                'success'
+            )
+        }
+    });
+    playSound("coin");
 });
 </script>
 
@@ -436,7 +469,7 @@ function convertWaktu(timeHere){
 </script>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+<script src="{{ asset('assets/js/jquery.twbsPagination.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 
 @endsection

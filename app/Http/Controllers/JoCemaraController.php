@@ -12,6 +12,8 @@ use App\JoParent;
 use App\JoStatus;
 use App\JoCategory;
 
+use Pusher\Pusher;
+
 class JoCemaraController extends Controller {
 
     public function __construct() {
@@ -26,6 +28,22 @@ class JoCemaraController extends Controller {
     public function index() {
         $job_list  = Jo::where('parent_id', '=', 1)->paginate(20);
         return view('jo.cemara.index', array('job_list' => $job_list));
+    }
+
+
+
+    public function sendNotification($paramMessage) {
+        $options = array(
+            'cluster' => 'ap1',
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            '72f209b771778f605aa1',
+            '994ddc905a94827da0c0',
+            '964596', $options
+        );
+        $message = $paramMessage;
+        $pusher->trigger('notification', 'notification-event', $message);
     }
 
 
@@ -74,10 +92,11 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
+        $pageTitle      = "Buat JO";
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
         $status         = JoStatus::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('jo.create', compact('parents', 'clients', 'status'));
+        return view('jo.create', compact('parents', 'clients', 'status', 'pageTitle'));
     }
 
     /**
@@ -87,7 +106,7 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-
+        
         /* validation */
         $this->validate($request, array(
             'image_url'         => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
@@ -126,6 +145,11 @@ class JoCemaraController extends Controller {
 
         // Create to the Database
         Jo::create($input);
+
+        /** panggil method send notification */
+        $this->sendNotification('Ada JO baru nih!');
+        /* pengujian siapa yang akan menerima notifikasi dilakukan di view */
+
         return redirect()->route('job')
                 ->withSuccess('Jo Berhasil dibuat');
     }
@@ -148,7 +172,12 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        return "<h3>Fitur belum tersedia :((</h3>";
+        $pageTitle      = 'Edit Job Order';
+        $jo             = Jo::where('id', $id)->first();
+        $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
+        $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
+        $status         = JoStatus::orderBy('name', 'ASC')->pluck('name', 'id');
+        return view('jo.edit', compact('jo', 'parents', 'clients', 'status', 'pageTitle'));
     }
 
     /**
@@ -159,7 +188,31 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        /* validation */
+        $this->validate($request, array(
+            'image_url'         => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'title'             => 'required',
+            'client_id'         => 'required',
+        ));
+
+        $jo = Jo::where('id', $id)->first();
+
+        $jo->title         = $request->title;
+        $jo->start_date    = $request->start_date;
+        $jo->deadline      = $request->deadline;
+        $jo->client_id     = (int)$request->client_id;
+        $jo->qty           = (int)$request->qty;
+
+        if($file = $request->file('image_url')) {
+            $name               =  $input->jo_code . '_' . Str::slug($input->title, '-') . '.' . $file->getClientOriginalExtension();
+            $destinationPath    =  public_path('/uploads/jo/');
+            $file->move($destinationPath, $name);
+            $input->image_url = $name;
+        }
+        // dd($jo);
+        // Update Database
+        $jo->save();
+        return redirect()->route('jo.cemara.show', $jo->id)->with('updateSuccess','Data berhasil diubah!');
     }
 
     /**

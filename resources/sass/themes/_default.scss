@@ -1,3 +1,10 @@
+body {
+    &.bg-pic {
+        background-image: url('images/bg.jpg');
+        background-position: center;
+    }
+}
+
 .card {
     .header-title-lg {
         font-size: 30px;
@@ -28,8 +35,21 @@ table#table-cemara-inventory {
     }
 }
 
-#jo-stats {
+#jo-stats, #inventory-stats {
     .card {
+        span.big-count {
+            font-weight: bold;
+            font-size: 35px;
+        }
+        &.greeting {
+            height: 157px;
+            h2 {
+                &.name {
+                    font-weight: bold;
+                    color: rgb(57, 87, 221);
+                }
+            }
+        }
         .btn-primary {
             color: #031100;
             background-color: #fbfbfb;
@@ -63,6 +83,60 @@ table#table-cemara-inventory {
                 font-size: 46px;
             }
         }
+    }
+}
+#inventory-stats {
+    .card {
+        h5 {
+            color: #444;
+        }
+        color: #444 !important;
+        i {
+            color : #4e71ff !important;
+        }
+        .btn-primary {
+            color: #fbfbfb;
+            background-color: #2fa97c;
+            font-weight: bold;
+            i {
+                color: #fbfbfb !important;
+            }
+        }
+    }
+}
+
+#form-jo-custom {
+    .select2-container--default .select2-selection--single {
+        background-color: #fff;
+        border: 2px solid #5792fd;
+        border-radius: 20px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #444;
+        line-height: 40px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .select2-container .select2-selection--single {
+        height: 42px;
+    }
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 14px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 40px;
+        position: absolute;
+        right: 8px;
+        width: 26px;
+    }
+    .select2-hidden-accessible {
+        outline: none !important;
+        border: none !important;
+    }
+}
+.message-list li .col-mail-2 .date {
+    a {
+        color: #fff !important;
     }
 }
 
@@ -171,6 +245,9 @@ span {
     font-size: 26px;
     font-weight: bold;
 }
+.btn-jo-edit-custom {
+    background-color: #8857ff;
+}
 #job-list {
     table {
         &#table-cemara-inventory {
@@ -179,6 +256,9 @@ span {
             }
         }
     }
+}
+.not-allowed {
+    cursor: not-allowed !important;
 }
 .btn-success {
     background-color: #1794ff;
@@ -194,7 +274,7 @@ span {
     clear: both;
     margin: 0 auto;
     width: 100%;
-    max-width: 600px;
+    display: flex;
 
     #show-error-image-upload {
         position: absolute;

@@ -16,17 +16,18 @@
         <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('app.css') }}" rel="stylesheet" type="text/css" />
 
     </head>
 
-    <body class="bg-primary bg-pattern">
-        <div class="account-pages my-5 pt-sm-5">
+    <body class="bg-primary bg-pic">
+        <div class="account-pages">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center mb-5">
                             <a href="" class="logo"><img src="{{ asset('images/logo.png') }}" height="24" alt="logo"></a>
-                            <h5 class="font-size-16 text-white-50 mb-4">Laravel Cemara Inventory</h5>
+                            <h5 class="font-size-16 text-white-50 mb-4">Cemara App</h5>
                         </div>
                     </div>
                 </div>
@@ -50,9 +51,6 @@
         <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
 
         <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
-
-
-        <script src="{{ asset('asset/js/app.js') }}"></script>
 
     </body>
 </html>

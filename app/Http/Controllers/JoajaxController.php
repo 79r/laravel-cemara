@@ -9,9 +9,32 @@ class JoajaxController extends Controller {
         $this->middleware('auth');
     }
 
+    // membuat session
+    public function createSession($param) {
+        $keyword    = $param;
+        session()->put('keyword', $keyword);
+        return $keyword;
+    }
+
+    // mendapatkan isi session (keyword)
+    public function getSession() {
+        if(session()->has('keyword')){
+            return session()->get('keyword');
+        }
+        else{
+            return "";
+        }
+    }
+
     public function job() {
         $pageTitle      = "Semua Jo";
         return view('jo.jo-ajax/index', compact('pageTitle'));
+    }
+
+    public function search(Request $request) {
+        $param          = $this->createSession($request->keyword);
+        $pageTitle      = "Search Jo";
+        return view('jo.jo-ajax/search', compact('pageTitle'));
     }
 
     public function jobWaitingList() {
@@ -32,6 +55,17 @@ class JoajaxController extends Controller {
     /* ajax jo index */
     public function index() {
         $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
+        return response()->json($data);
+    }
+
+    /* ajax jo search */
+    public function ajaxSearch() {
+        $keyword    = $this->getSession();
+        $data       = Jo::where('title', 'LIKE',"%".$keyword ."%")
+                        ->orWhere('jo_code', 'LIKE',"%".$keyword ."%")
+                        ->with(['client', 'jo_status', 'category'])
+                        ->orderBy('jo_code', 'DESC')
+                        ->paginate(10);
         return response()->json($data);
     }
 

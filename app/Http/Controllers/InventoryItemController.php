@@ -29,10 +29,9 @@ class InventoryItemController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $data  = array(
-            'inventories' => InventoryItem::paginate(25),
-        );
-        return view('inventory.index', $data);
+        $pageTitle      = "Inventory Index";
+        $inventories    = InventoryItem::paginate(25);
+        return view('inventory.index', compact('pageTitle', 'inventories'));
     }
 
 
@@ -40,11 +39,12 @@ class InventoryItemController extends Controller {
 
         /* ambil keyword yang di input user */
         $keyword = $request->keyword;
+        $pageTitle = "Inventory Search";
 
         /* mengambil data dari table inventory sesuai pencarian */
         $inventories = InventoryItem::where('name', 'LIKE',"%".$keyword."%")
             ->orWhere('serial_number', 'LIKE',"%".$keyword."%")->paginate(10);
-        return view('inventory.index', compact('inventories'));
+        return view('inventory.index', compact('inventories', 'pageTitle'));
     }
 
     /**

@@ -28,14 +28,16 @@
 
             <!-- App Search-->
             {!! Form::open( array(
-                'method' => 'GET', 
-                'url' => route('inventories.search'),
+                'method' => 'POST', 
+                'url' => route('job.search'),
                 'class' => 'app-search d-none d-lg-block',
                 'placeholder' => 'Cari inventory',
                 'value' => old('keyword')
                 )) !!}
-                <input type="text" class="form-control" name="keyword" placeholder="Cari .." value="{{ old('keyword') }}">
-                <span class="mdi mdi-magnify"></span>
+                <div class="position-relative">
+                    <input type="text" class="form-control" name="keyword" placeholder="Cari .." value="{{ old('keyword') }}">
+                    <span class="mdi mdi-magnify"></span>
+                </div>
             {!! Form::close() !!}
         </div>
 
@@ -51,8 +53,8 @@
 
 
                     {!! Form::open( array(
-                        'method' => 'GET',
-                        'url' => route('inventories.search'),
+                        'method' => 'POST',
+                        'url' => route('job.search'),
                         'class' => 'p-3'
                         )) !!}
                         <div class="form-group m-0">
@@ -74,23 +76,40 @@
                 <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                     <i class="mdi mdi-tune"></i>
                 </button>
+                @if(Auth::user()->role->id !== 3)
+                <a href="{{ route('jo.cemara.create') }}" class="btn btn-light"><i class="mdi mdi-plus-box"></i> Buat JO Baru</a>
+                @endif
+                @if(Auth::user()->role->id == 3)
+                <a href="{{ route('job') }}" class="btn btn-danger"><i class="mdi mdi-format-list-checks"></i> Buka JO<a>
+                @endif
             </div>
 
             <div class="dropdown d-inline-block">
             @guest
             @else
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
-                <span class="d-none d-sm-inline-block ml-1">{{ Auth::user()->name }}</span>
+                @if(Auth::user()->role->id  == 1)
+                    <img class="rounded-circle header-profile-user" src="{{ asset('images/avatars/owner.png') }}" alt="Header Avatar">
+                    <span class="d-none d-sm-inline-block ml-1">{{ Auth::user()->name }}</span>
+                @elseif(Auth::user()->role->id  == 2)
+                    <img class="rounded-circle header-profile-user" src="{{ asset('images/avatars/admin.png') }}" alt="Header Avatar">
+                        <span class="d-none d-sm-inline-block ml-1">{{ Auth::user()->name }}</span>
+                @else
+                    <img class="rounded-circle header-profile-user" src="{{ asset('images/avatars/team.png') }}" alt="Header Avatar">
+                        <span class="d-none d-sm-inline-block ml-1">{{ Auth::user()->name }}</span>
+                @endif
+                
                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <!-- item-->
                 <a class="dropdown-item" href="#"><i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Ganti Password</a>
+                <a class="dropdown-item" href="#"><i class="mdi mdi-credit-card-outline font-size-16 align-middle mr-1"></i> Change Password</a>
                 <a class="dropdown-item" href="#"><i class="mdi mdi-account-settings font-size-16 align-middle mr-1"></i> Settings</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout</a>
+                {{ Form::open(array('url' => route('logout')) )}}
+                    <button type="submit" class="dropdown-item"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout Aja</button>
+                {{ Form::close() }}
             </div>
             @endguest
         </div>

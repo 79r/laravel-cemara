@@ -1,4 +1,4 @@
-@extends('layouts.client-base')
+@extends('layouts.master-alternatif')
 @section('pageTitle', $pageTitle)
 
 @section('breadcrumb')
@@ -9,6 +9,18 @@
 @endsection
 
 @section('content')
+
+
+@if ($message = Session::get('updateSuccess'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Oke Sip',
+        text: 'Data Klien berhasil di Update!',
+    });
+</script>
+@endif
+
 <div class="col-lg-4">
     <div class="card h-100">
         <div class="card-body email-leftbar">

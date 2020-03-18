@@ -172,7 +172,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class, // <<<uncomment line here for pusher
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
