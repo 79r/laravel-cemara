@@ -136,8 +136,15 @@
                     <th class="d-none" data-priority="4">Material</th>
                     <th class="d-none" data-priority="5">Finishing</th>
                     <th data-priority="6">Status JO</th>
-                    <th data-priority="7">Action</th>
-                    <th data-priority="8">Edit</th>
+
+                    @if(Auth::user()->role->id == 3)
+                        <th data-priority="7">Action</th>
+                    @endif
+                    
+                    @if(Auth::user()->role->id != 3)
+                        <th data-priority="8">Edit</th>
+                    @endif
+
                     <th data-priority="9">Buka</th>
                 </tr>
                 </thead>
@@ -267,25 +274,31 @@ function manageRow(data) {
         /** action button 
             Tombol untuk Waiting list ke Progress
             atau Progress ke Selesai */
-        rows = rows + '<td data-id="'+value.id+'">';
-        rows = rows + '<div class="btn-group" role="group">';
-            if(value.jo_status.id == 2) {
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-success show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'""><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
-            } else if(value.jo_status.id == 1) {
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-danger edit-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
-            } else {
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
-                rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-primary show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-check"></i></button> ';
-            }
-        rows = rows + '</div>';
-        rows = rows + '</td>';
-
-        rows = rows + '<td data-id="'+value.id+'"><a class="btn btn-sm btn-jo-edit-custom btn-dark" href="{{ route('jo.cemara.index') }}/'+value.id+'/edit"><i class="mdi mdi-pencil"></i></a></td>';
+        
+        // Hanya tim Produksi yang boleh 
+        '@if(Auth::user()->role->id == 3)'
+            rows = rows + '<td data-id="'+value.id+'">';
+            rows = rows + '<div class="btn-group" role="group">';
+                if(value.jo_status.id == 2) {
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-success show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'""><i class="mdi mdi-trending-up"></i></button> ';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+                } else if(value.jo_status.id == 1) {
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-danger edit-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-clock-outline"></i></button>';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-outline-primary show-item"><i class="mdi mdi-check"></i></button> ';
+                } else {
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-waitinglist btn btn-sm btn-outline-danger edit-item"><i class="mdi mdi-clock-outline"></i></button>';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-progress btn btn-sm btn-outline-success show-item"><i class="mdi mdi-trending-up"></i></button> ';
+                    rows = rows + '<button data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="submit-done btn btn-sm btn-primary show-item data-toggle="tooltip" data-placement="top" title="'+value.jo_status.name+'"><i class="mdi mdi-check"></i></button> ';
+                }
+            rows = rows + '</div>';
+            rows = rows + '</td>';
+        '@endif'
+        
+        '@if(Auth::user()->role->id != 3)'
+            rows = rows + '<td data-id="'+value.id+'"><a class="btn btn-sm btn-jo-edit-custom btn-dark" href="{{ route('jo.cemara.index') }}/'+value.id+'/edit"><i class="mdi mdi-pencil"></i> Edit</a></td>';
+        '@endif'
 
         rows = rows + '<td data-id="'+value.id+'">';
 		rows = rows + '<div class="btn-group" role="group">';
@@ -482,7 +495,7 @@ $("body").on("click", ".submit-waitinglist", function(e){
     var progresskanJoID = $(this).attr('data-id');
     var progresskanJoCode = $(this).attr('jo-code');
     Swal.fire({
-        title: '<strong>Mau Balikin ke Waiting List ?</strong>',
+        title: '<strong>Yakin Mau Balikin ke Waiting List ?</strong>',
         html: 'Status JO <b class="badge badge-danger">'+progresskanJoCode+'</b>' +
             ' akan di kembalikan ke <strong>Waiting List</strong>',
         icon: 'warning',
