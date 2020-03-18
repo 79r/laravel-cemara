@@ -45,6 +45,10 @@
         <!-- Sweet Alerts js -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
+        <!-- select2 -->
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
         <script>
         var sounds = {
             "dead": {

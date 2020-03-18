@@ -1,4 +1,4 @@
-@extends('layouts.client-base')
+@extends('layouts.master-alternatif')
 @section('pageTitle', $pageTitle)
 
 @section('breadcrumb')

@@ -34,6 +34,7 @@ table#table-cemara-inventory {
         }
     }
 }
+
 #jo-stats, #inventory-stats {
     .card {
         span.big-count {
@@ -103,6 +104,42 @@ table#table-cemara-inventory {
         }
     }
 }
+
+#form-jo-create {
+    .select2-container--default .select2-selection--single {
+        background-color: #fff;
+        border: 2px solid #5792fd;
+        border-radius: 20px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #444;
+        line-height: 40px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .select2-container .select2-selection--single {
+        height: 42px;
+    }
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 14px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 40px;
+        position: absolute;
+        right: 8px;
+        width: 26px;
+    }
+    .select2-hidden-accessible {
+        outline: none !important;
+        border: none !important;
+    }
+}
+.message-list li .col-mail-2 .date {
+    a {
+        color: #fff !important;
+    }
+}
+
 #jo-item {
     .list-group {
         .list-group-item {

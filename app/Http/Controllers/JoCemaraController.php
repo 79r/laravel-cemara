@@ -92,10 +92,11 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
+        $pageTitle      = "Buat JO";
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
         $status         = JoStatus::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('jo.create', compact('parents', 'clients', 'status'));
+        return view('jo.create', compact('parents', 'clients', 'status', 'pageTitle'));
     }
 
     /**
