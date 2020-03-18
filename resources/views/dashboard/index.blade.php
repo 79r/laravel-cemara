@@ -104,7 +104,12 @@
                                             <div class="row">
                                                 <div class="col-sm-7">
                                                     <h5>Welcome Back !</h5>
-                                                    <h2 class="name">{{ Auth::user()->name }}</h2>
+
+                                                    @if(Auth::user()->id == 3)
+                                                        <h2 class="name" style="font-size: 22px">{{ Auth::user()->name }}</h2>
+                                                    @else
+                                                        <h2 class="name">{{ Auth::user()->name }}</h2>
+                                                    @endif
 
                                                     <div class="mt-4">
                                                         <a href="#" class="btn btn-primary btn-sm">Start <i class="mdi mdi-arrow-right ml-1"></i></a>
