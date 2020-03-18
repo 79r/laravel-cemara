@@ -4,7 +4,7 @@
 @section('breadcrumb')
 <ol class="breadcrumb m-0">
     <li class="breadcrumb-item"><a href="javascript: void(0);">Cemara App</a></li>
-<li class="breadcrumb-item active">Client</li>
+<li class="breadcrumb-item active">Buat Jo</li>
 </ol>
 @endsection
 
@@ -20,7 +20,7 @@
 </script>
 @endif
 
-{{ Form::open( array('url' => route('jo.cemara.store'), 'files' => true, 'id' => 'form-jo-create', 'class' => 'row w-100') ) }}
+{{ Form::open( array('url' => route('jo.cemara.store'), 'files' => true, 'id' => 'form-jo-custom', 'class' => 'row w-100') ) }}
 <div class="col-lg-4">
     <div class="card h-100">
         <div class="card-body email-leftbar">
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <div class="card-title mb-5 text-center">
+            <div class="card-title mb-5 text-center mt-4">
                 <div class="col-lg-7 mx-auto">
                     <div class="alert alert-primary">
                         Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis

@@ -172,11 +172,12 @@ class JoCemaraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
+        $pageTitle      = 'Edit Job Order';
         $jo             = Jo::where('id', $id)->first();
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
         $status         = JoStatus::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('jo.edit', compact('jo', 'parents', 'clients', 'status'));
+        return view('jo.edit', compact('jo', 'parents', 'clients', 'status', 'pageTitle'));
     }
 
     /**
