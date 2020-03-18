@@ -17,6 +17,9 @@ class PusherNotificationController extends Controller {
             '994ddc905a94827da0c0',
             '964596', $options
         );
+
+        $message = "Testing";
+        
         //Send a message to notify channel with an event name of notify-event
         $pusher->trigger('notification', 'notification-event', $message);
     }

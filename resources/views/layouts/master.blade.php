@@ -64,6 +64,9 @@
             },
             "coin": {
                 url: "{{ asset('assets/sounds/coin.mp3') }}"
+            },
+            "jo": {
+                url: "{{ asset('assets/sounds/spongebob_song_remix.mp3') }}"
             }
         };
         </script>
@@ -189,7 +192,7 @@
                     text: 'Ada jo baru',
                     footer: '<a href="{{ route('job') }}">Refresh Halaman JO</a>'
                 });
-                playSound("coin");
+                playSound("jo");
             });
             </script>
         @endif
