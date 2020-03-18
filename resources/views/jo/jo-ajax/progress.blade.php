@@ -66,7 +66,7 @@
     </div>
 </div>
 
-<ul id="pagination" class="pagination-sm mt-3"></ul>
+<ul id="pagination" class="justify-content-center mt-3"></ul>
 
 <!-- Create Item Modal -->
 @include('jo.jo-ajax.create')
@@ -433,7 +433,7 @@ function convertWaktu(timeHere){
 </script>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+<script src="{{ asset('assets/js/jquery.twbsPagination.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 
 @endsection
