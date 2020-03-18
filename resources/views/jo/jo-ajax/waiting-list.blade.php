@@ -373,11 +373,10 @@ Submit JO ke Waiting List
 
 Ini bisa jadi karena kesalahan pencet sang opeator kemudian ingin mengembalikan ke waiting list lagi
 */
-$("body").on("click",".submit-waitinglist",function(e){
-    e.preventDefault();
+function submitWaitingList(joid) {
     var progresskanJoID = $(this).attr('data-id');
     var progresskanJoCode = $(this).attr('jo-code');
-    $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + progresskanJoID);
+    $("#progresskanjo").find("form").attr("action", '{{ url("") }}/joajax' + '/' + joid);
     var fromActionJoAjaxUpdate = $("#progresskanjo").find("form").attr("action");
         $.ajax({
             dataType: 'json',
@@ -386,15 +385,33 @@ $("body").on("click",".submit-waitinglist",function(e){
             data:{jo_status_id : 1 } // 1 adalah waiting list
         }).done(function(data){
             getPageData();
-
-            Swal.fire({
-                icon: 'info',
-                title: '<strong>Rollback ?</strong>',
-                html:
-                    'Status JO <b class="badge badge-danger">'+progresskanJoCode+'</b>' +
-                    ' kembali ke Waiting List',
-            });
         });
+}
+
+$("body").on("click", ".submit-waitinglist", function(e){
+    e.preventDefault();
+    var progresskanJoID = $(this).attr('data-id');
+    var progresskanJoCode = $(this).attr('jo-code');
+    Swal.fire({
+        title: '<strong>Mau Balikin ke Waiting List ?</strong>',
+        html: 'Status JO <b class="badge badge-danger">'+progresskanJoCode+'</b>' +
+            ' akan di kembalikan ke <strong>Waiting List</strong>',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, saya Yakin!'
+    }).then((result) => {
+        if (result.value) {
+            submitWaitingList(progresskanJoID);
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        }
+    });
+    playSound("coin");
 });
 </script>
 
