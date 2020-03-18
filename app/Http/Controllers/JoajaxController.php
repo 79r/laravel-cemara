@@ -29,9 +29,20 @@ class JoajaxController extends Controller {
         return view('jo.jo-ajax/done', compact('pageTitle'));
     }
 
+    public function search(Request $request) {
+
+        /* ambil keyword yang di input user */
+        $keyword = $request->keyword;
+
+        /* mengambil data dari table inventory sesuai pencarian */
+        $job = Jo::where('title', 'LIKE',"%".$keyword."%")
+            ->orWhere('jo_code', 'LIKE',"%".$keyword."%")->paginate(30);
+        return view('inventory.index', compact('job'));
+    }
+
     /* ajax jo index */
     public function index() {
-        $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(10);
+        $data = Jo::with(['client', 'jo_status', 'category'])->orderBy('created_at', 'DESC')->paginate(20);
         return response()->json($data);
     }
 

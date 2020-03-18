@@ -1,5 +1,14 @@
 @extends('layouts.master')
 
+@section('pageTitle', $pageTitle)
+
+@section('breadcrumb')
+<ol class="breadcrumb m-0">
+    <li class="breadcrumb-item"><a href="javascript: void(0);">Cemara App</a></li>
+<li class="breadcrumb-item active">Inventory Index</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="text-center mt-5">
     <h4 class="header-title-lg">{{ strtoupper('Data Inventory Global') }}</h4>
