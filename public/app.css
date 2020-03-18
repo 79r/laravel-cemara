@@ -79,6 +79,10 @@ ul#pagination {
     ul#pagination li a {
       color: #fff; }
 
+body.bg-pic {
+  background-image: url("images/bg.jpg");
+  background-position: center; }
+
 .card .header-title-lg {
   font-size: 30px;
   font-weight: 800; }

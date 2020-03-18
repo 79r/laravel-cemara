@@ -45,6 +45,32 @@
         <!-- Sweet Alerts js -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
+        <script>
+        var sounds = {
+            "dead": {
+                url: "{{ asset('assets/sounds/dead.wav') }}"
+            },
+            "smash": {
+                url: "{{ asset('assets/sounds/smash.mp3') }}"
+            },
+            "ping": {
+                url: "{{ asset('assets/sounds/ping.mp3') }}"
+            },
+            "bump": {
+                url: "{{ asset('assets/sounds/bump.mp3') }}"
+            },
+            "jump": {
+                url: "{{ asset('assets/sounds/jump.wav') }}"
+            },
+            "coin": {
+                url: "{{ asset('assets/sounds/coin.mp3') }}"
+            }
+        };
+        </script>
+
+        <!-- sound js -->
+        <script src="{{ asset('assets/js/sound.js') }}"></script>
+
     </head>
 
     <body data-topbar="colored">
@@ -134,7 +160,27 @@
                 menubar: "table"    
             });
         </script>
+        
         <script src="{{ asset('assets/js/app.js') }}"></script>
+
+        <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+        <script>
+        var pusher = new Pusher('72f209b771778f605aa1', {
+            cluster: 'ap1',
+            encrypted: true
+        });
+
+        var channel = pusher.subscribe('notification');
+        channel.bind('notification-event', function(message) {
+            Swal.fire({
+                icon: 'info',
+                title: '<h2><strong>JO Baru Nih!</strong></h2>',
+                text: 'Ada jo baru',
+                footer: '<a href="{{ route('job') }}">Refresh Halaman JO</a>'
+            });
+            playSound("coin");
+        });
+        </script>
 
     </body>
 </html>
