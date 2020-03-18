@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Cemara Inventory - Build with Laravel" name="description" />
         <meta content="Riski" name="author" />
+        <meta name='robots' content='noindex,follow' />
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
