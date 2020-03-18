@@ -148,6 +148,7 @@ class JoCemaraController extends Controller {
 
         /** panggil method send notification */
         $this->sendNotification('Ada JO baru nih!');
+        /* pengujian siapa yang akan menerima notifikasi dilakukan di view */
 
         return redirect()->route('job')
                 ->withSuccess('Jo Berhasil dibuat');

@@ -171,24 +171,28 @@
         </script>
         <script src="{{ asset('assets/js/app.js') }}"></script>
         <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
-        <script>
-        var pusher = new Pusher('72f209b771778f605aa1', {
-            cluster: 'ap1',
-            encrypted: true
-        });
 
-        //Also remember to change channel and event name if your's are different.
-        var channel = pusher.subscribe('notification');
-        channel.bind('notification-event', function(message) {
-            Swal.fire({
-                icon: 'info',
-                title: '<h2><strong>JO Baru Nih!</strong></h2>',
-                text: 'Ada jo baru',
-                footer: '<a href="{{ route('job') }}">Refresh Halaman JO</a>'
+        {{-- Uji hanya tim produksi yang akan menerima notification ini --}}
+        @if(Auth::user()->role->id == 3)
+            <script>
+            var pusher = new Pusher('72f209b771778f605aa1', {
+                cluster: 'ap1',
+                encrypted: true
             });
-            playSound("coin");
-        });
-        </script>
+
+            //Also remember to change channel and event name if your's are different.
+            var channel = pusher.subscribe('notification');
+            channel.bind('notification-event', function(message) {
+                Swal.fire({
+                    icon: 'info',
+                    title: message,
+                    text: 'Ada jo baru',
+                    footer: '<a href="{{ route('job') }}">Refresh Halaman JO</a>'
+                });
+                playSound("coin");
+            });
+            </script>
+        @endif
 
     </body>
 </html>
