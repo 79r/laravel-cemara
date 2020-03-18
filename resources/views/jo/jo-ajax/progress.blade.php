@@ -179,7 +179,7 @@ function manageRow(data) {
 
         rows = rows + '<td data-jo="jo_finishing" class="d-none">'+value.finishing+'</td>';
         
-        '@if(Auth::user()->role->id == 2)'
+        '@if(Auth::user()->role->id == 2 || Auth::user()->role->name == "Admin"))'
             if(value.jo_status.id == 2) {
                 rows = rows + '<td data-jo="jo_status"><span data-id="'+value.id+'" jo-code="'+value.jo_code+'" class="not-allowed btn btn-sm text-white text-left" style="width:115px; background-color:'+value.jo_status.color+'"><i class="mdi mdi-trending-up"></i> '+value.jo_status.name+'</span></td>';
             } else if(value.jo_status.id == 1) {
@@ -432,8 +432,8 @@ $("body").on("click", ".submit-waitinglist", function(e){
         if (result.value) {
             submitWaitingList(progresskanJoID);
             Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Yey.. Berhasil!',
+                'Jo  kembali ke waiting lis.',
                 'success'
             )
         }
