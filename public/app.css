@@ -256,7 +256,7 @@ span.badge-sn {
   clear: both;
   margin: 0 auto;
   width: 100%;
-  max-width: 600px; }
+  display: flex; }
   .uploader #show-error-image-upload {
     position: absolute;
     background: #ff3636;
