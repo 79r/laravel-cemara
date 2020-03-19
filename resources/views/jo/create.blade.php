@@ -81,14 +81,14 @@
             </div>
 
             <div class="card-title mb-5 text-center mt-4">
-                <div class="col-lg-7 mx-auto">
+                <div class="col-lg-10 mx-auto">
                     <div class="alert alert-primary">
                         Don't Worry, program ini sudah pintar nomor JO akan dibuat secara otomatis
                     </div> 
                 </div>
             </div>
 
-
+            <div class="badge badge-success position-absolute" style="font-size:16px;top:4px;right:5px">{{ $newJoCode }}</div>
 
         <div class="col-sm-12 col-md-10 mx-auto">
             
