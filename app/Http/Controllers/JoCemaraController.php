@@ -48,33 +48,22 @@ class JoCemaraController extends Controller {
 
 
     /* Fungsi Buat JO secara otomatis */
-    private function createJoCode($codeName) {
-
+    private function createJoCode() {
         //  ambil kode jo terbaru
         $lastJoCode     = Jo::orderBy('jo_code', 'DESC')->first()->jo_code;
-        $cemara_codename    = "CK";
-        $mim_codename       = "MIM";
-        
-        /* uji dulu */
+        $codename       = "CK";
+
         if($lastJoCode != NULL) {
-            /* Uji dan ambil sebagian karakter misal : CK07914 jadi 07914 sekaligus jadikan integer */
-            if (Str::contains($lastJoCode, $cemara_codename)) {
-                $newCode        = (int)substr($lastJoCode, 2);
-            }
-            else {
-                $newCode        = (int)substr($lastJoCode, 3);
-            }
-    
-            /* tambah nomor jo dengan 1, sehingga jadi 7915 */
+            $newCode        = (int)substr($lastJoCode, 2);
+            /* tambah nomor jo dengan 1 */
             $codePlusOne       = $newCode + 1;
-            $newJoCode;
-    
+            $newJoCode         = NULL;
             /* uji nomor Jo nya */
-            switch(strlen((string)$newCode)) {
-                case 1  : $newJoCode = $codeName . "0000" . (string)$codePlusOne; break;
-                case 2  : $newJoCode = $codeName  . "000" . (string)$codePlusOne; break;
-                case 3  : $newJoCode = $codeName   . "00" . (string)$codePlusOne; break;
-                case 4  : $newJoCode = $codeName    . "0" . (string)$newCode; break;
+            switch(strlen((string)$codePlusOne)) {
+                case 1  : $newJoCode = $codename . "0000" . (string)$codePlusOne; break;
+                case 2  : $newJoCode = $codename  . "000" . (string)$codePlusOne; break;
+                case 3  : $newJoCode = $codename   . "00" . (string)$codePlusOne; break;
+                case 4  : $newJoCode = $codename    . "0" . (string)$codePlusOne; break;
                 default : $newJoCode = (string)$newCode;
             }
             return $newJoCode; // kembalikan nilai JO baru
@@ -96,7 +85,9 @@ class JoCemaraController extends Controller {
         $parents        = JoParent::orderBy('name', 'ASC')->pluck('name', 'id');
         $clients        = Client::orderBy('name', 'ASC')->pluck('name', 'id');
         $status         = JoStatus::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('jo.create', compact('parents', 'clients', 'status', 'pageTitle'));
+
+        $newJoCode      = $this->createJoCode();
+        return view('jo.create', compact('parents', 'clients', 'status', 'pageTitle', 'newJoCode'));
     }
 
     /**
@@ -117,7 +108,7 @@ class JoCemaraController extends Controller {
         $input = $request->all();
         $input['user_id']       = Auth::user()->id;
         $input['parent_id']     = (int)$request->parent_id;
-        $input['jo_code']       = $input['parent_id'] === 1 ? $this->createJoCode('CK') : $this->createJoCode("MIM");
+        $input['jo_code']       = $this->createJoCode();
 
         
         $input['start_date']    = $request->start_date;
